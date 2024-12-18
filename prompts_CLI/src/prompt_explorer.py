@@ -8,7 +8,9 @@ This module provides functionality to:
 4. Save and manage prompt results - [Export to CSV/XLSX/JSON] - [100% complete]
 5. Help / Code Diagnostic based on learnings - TODO: Integrate with learnings documentation for automated troubleshooting
 
-v6 - Added export functionality
+Run this file directly to see a demo of all functionality, including CLI command examples.
+
+v7 - Improved help display and demo
 """
 
 import os
@@ -78,32 +80,45 @@ class PromptExplorer:
         """
         Get help and guidance based on topic or error.
 
-        1. Check for error-specific guidance
-        2. Check for topic-specific guidance
-        3. Display relevant information
-        v1 - Initial implementation
+        1. Show all available help by default
+        2. Show error-specific guidance if error provided
+        3. Show topic-specific guidance if topic provided
+        v2 - Now shows all help by default
         """
         if error:
             guidance = get_learning_by_error(error)
             if guidance:
                 self.console.print("\n[bold cyan]Error Guidance:[/bold cyan]")
                 self.console.print(guidance)
-                return
 
-        if topic:
-            guidance = get_learning_by_topic(topic)
-            if guidance:
-                self.console.print("\n[bold cyan]Topic Guidance:[/bold cyan]")
-                self.console.print(guidance)
-                return
+        # Show all help topics by default
+        self.console.print("\n[bold cyan]CLI Usage Guide[/bold cyan]")
+        self.console.print("\n[yellow]Basic Commands:[/yellow]")
+        self.console.print("1. List prompts:")
+        self.console.print("   vellum-explorer list")
+        self.console.print("   vellum-explorer list --status ACTIVE --environment DEVELOPMENT")
+        self.console.print("   vellum-explorer list --export prompts.csv")
+        
+        self.console.print("\n2. Execute prompts:")
+        self.console.print("   vellum-explorer execute my-prompt --inputs '{\"key\": \"value\"}'")
+        self.console.print("   vellum-explorer execute my-prompt --inputs '{\"key\": \"value\"}' --stream")
+        self.console.print("   vellum-explorer execute my-prompt --inputs '{\"key\": \"value\"}' --export results.xlsx")
+        
+        self.console.print("\n3. Show prompt details:")
+        self.console.print("   vellum-explorer show my-prompt")
 
-        # Default help if no specific guidance found
-        self.console.print("\n[bold cyan]Available Help Topics:[/bold cyan]")
-        self.console.print("1. streaming - Real-time output handling")
-        self.console.print("2. export - Data export functionality")
-        self.console.print("3. environment - Environment management")
-        self.console.print("4. input - Input handling and validation")
-        self.console.print("\nUse: vellum-explorer help <topic>")
+        self.console.print("\n[yellow]Feature-specific Help:[/yellow]")
+        self.console.print("\n1. Streaming Output:")
+        self.console.print(get_learning_by_topic("streaming"))
+        
+        self.console.print("\n2. Export Functionality:")
+        self.console.print(get_learning_by_topic("export"))
+        
+        self.console.print("\n3. Environment Management:")
+        self.console.print(get_learning_by_topic("environment"))
+        
+        self.console.print("\n4. Input Handling:")
+        self.console.print(get_learning_by_topic("input"))
 
     def handle_error(self, error: str, context: Optional[str] = None) -> None:
         """
@@ -575,9 +590,17 @@ def demo_functionality():
     explorer = PromptExplorer()
     console = Console()
 
-    # 1. Demo prompt listing
-    console.print("\n[bold cyan]1. Demonstrating Prompt Listing[/bold cyan]")
-    console.print("Fetching available prompts from Vellum...\n")
+    console.print("\n[bold cyan]Vellum Prompt Explorer Demo[/bold cyan]")
+    console.print("This demo shows the main features of the CLI tool.\n")
+
+    # 1. Show help information
+    console.print("\n[bold cyan]1. Help Information[/bold cyan]")
+    console.print("First, let's see what commands are available:")
+    explorer.get_help()
+
+    # 2. Demo prompt listing
+    console.print("\n[bold cyan]2. Prompt Listing Demo[/bold cyan]")
+    console.print("Now, let's list available prompts from Vellum:")
     prompts = explorer.list_prompts()
     explorer.display_prompts(prompts)
 
@@ -585,12 +608,12 @@ def demo_functionality():
         console.print("[red]No prompts found. Please check your API key and permissions.[/red]")
         return
 
-    # 2. Demo prompt execution
-    console.print("\n[bold cyan]2. Demonstrating Prompt Execution[/bold cyan]")
-    test_prompt = prompts[0]  # Use first available prompt
-    console.print(f"Executing prompt: [green]{test_prompt.name}[/green]")
+    # 3. Demo prompt execution
+    console.print("\n[bold cyan]3. Prompt Execution Demo[/bold cyan]")
+    test_prompt = prompts[0]
+    console.print(f"Let's execute the first available prompt: [green]{test_prompt.name}[/green]")
     
-    # Demo inputs - using auto-seeding prompt format
+    # Demo inputs
     demo_inputs = {
         "description": "A friendly chatbot that helps users learn Python",
         "classification": "educational assistant",
@@ -598,10 +621,12 @@ def demo_functionality():
         "domain": "education",
         "selectedLevel": "beginner",
         "instruction": "Create a helpful Python learning assistant",
-        "constraints": "Keep explanations simple and beginner-friendly, use examples"  # Added final required variable
+        "constraints": "Keep explanations simple and beginner-friendly, use examples"
     }
-    console.print("Input variables:", demo_inputs)
+    console.print("\nUsing these example inputs:")
+    console.print(demo_inputs)
     
+    console.print("\nExecuting prompt...")
     result = explorer.execute_prompt(
         prompt_name=test_prompt.name,
         inputs=demo_inputs
@@ -610,12 +635,18 @@ def demo_functionality():
     if result:
         console.print("\n[green]Execution successful![/green]")
         console.print("Result:", result)
-    else:
-        console.print("\n[yellow]Note: This is a demo run. For actual use:[/yellow]")
-        console.print("1. Use the CLI interface: [bold]vellum-explorer <command>[/bold]")
-        console.print("2. Available commands: [bold]list[/bold], [bold]execute[/bold], [bold]show[/bold]")
-        console.print("3. For help: [bold]vellum-explorer --help[/bold]")
-        console.print("\nTip: Check the prompt's required input variables using: [bold]vellum-explorer show <prompt-name>[/bold]")
+    
+    # 4. Show export capabilities
+    console.print("\n[bold cyan]4. Export Capabilities[/bold cyan]")
+    console.print("The CLI supports exporting results to CSV, XLSX, and JSON formats.")
+    console.print("Example commands:")
+    console.print("1. Export prompt list:   vellum-explorer list --export prompts.csv")
+    console.print("2. Export execution:     vellum-explorer execute my-prompt --inputs '{...}' --export results.xlsx")
+
+    console.print("\n[bold cyan]Try It Yourself[/bold cyan]")
+    console.print("1. Set your VELLUM_API_KEY in .env")
+    console.print("2. Run 'vellum-explorer --help' to see all commands")
+    console.print("3. Use the example commands shown in the help output above")
 
 
 if __name__ == "__main__":
