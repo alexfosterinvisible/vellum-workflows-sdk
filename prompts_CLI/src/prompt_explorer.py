@@ -5,7 +5,7 @@ This module provides functionality to:
 1. List available prompts - [via deployments.list endpoint, use: vellum-explorer list --status ACTIVE] - [90% complete, TODO: Add filtering by environment]
 2. View prompt details - [via deployments.get endpoint, use: vellum-explorer show <prompt-name>] - [80% complete, TODO: Add version history, usage stats]
 3. Execute prompts with custom inputs - [via execute_prompt endpoint, use: vellum-explorer execute <prompt-name> --inputs '{"key": "value"}'] - [95% complete, TODO: Add streaming support]
-4. Save and manage prompt results - TODO: Implement result caching and export functionality
+4. Save and manage prompt results - TODO: Implement export functionality
 5. Help / Code Diagnostic based on learnings - TODO: Integrate with learnings documentation for automated troubleshooting
 
 v1 - Initial implementation with basic prompt listing and execution
