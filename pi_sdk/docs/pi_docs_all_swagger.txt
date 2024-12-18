@@ -1,0 +1,2559 @@
+Two Pi R Quality SDK
+ 0.0.1 
+OAS 3.1
+/v1/openapi.json
+2 Pi R is a set of Quality components useful for delivering impactful, useful generative AI applications.
+
+Contact the developer
+Apache 2.0
+Servers
+
+/v1
+
+Authorize
+contracts
+Operations related to contracts
+
+
+
+POST
+/contracts/generate_dimensions
+Dimension Generation
+
+
+Generates dimensions for a contract which will be used to evaluate it
+
+Parameters
+Cancel
+Reset
+No parameters
+
+Request body
+
+application/json
+{
+  "contract": {
+    "name": "financial accuracy",
+    "description": "whether the input is financially valid",
+    "dimensions": []
+  }
+}
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'POST' \
+  'https://api.withpi.ai/v1/contracts/generate_dimensions' \
+  -H 'accept: application/json' \
+  -H 'x-api-key: pilabs_key_epc8PlKUV7BzrsVJUJRzE3h3XLgxXa2zC6Hh7RSkIEo' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "contract": {
+    "name": "financial accuracy",
+    "description": "whether the input is financially valid",
+    "dimensions": []
+  }
+}'
+Request URL
+https://api.withpi.ai/v1/contracts/generate_dimensions
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "name": "financial accuracy",
+  "description": "whether the input is financially valid",
+  "dimensions": [
+    {
+      "label": "Validation Checks",
+      "description": "What are the necessary checks for validating financial inputs?",
+      "weight": 1,
+      "sub_dimensions": [
+        {
+          "label": "Validation Check",
+          "description": "Does the application correctly identify if the input is financially valid?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1
+          ],
+          "weight": 1,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Negative Value Check",
+          "description": "Does the application flag negative financial values as invalid?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1
+          ],
+          "weight": 1,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Input Completeness",
+          "description": "Is the financial input complete with all necessary components (e.g., amount, currency type)?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1
+          ],
+          "weight": 1,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "User Input Validation",
+          "description": "Does the application validate user input for accuracy before processing?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1
+          ],
+          "weight": 1,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Compliance and Regulations",
+      "description": "How does the application ensure compliance with financial regulations?",
+      "weight": 1,
+      "sub_dimensions": [
+        {
+          "label": "Compliance with Regulations",
+          "description": "Does the application check if the financial input complies with relevant regulations?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1
+          ],
+          "weight": 1,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Threshold Compliance",
+          "description": "Does the application check if the financial input exceeds predefined thresholds?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1
+          ],
+          "weight": 1,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Risk Assessment",
+          "description": "Does the application perform a risk assessment based on the financial input?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1
+          ],
+          "weight": 1,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Data Accuracy and Integrity",
+      "description": "What measures are in place to ensure data accuracy and integrity in financial inputs?",
+      "weight": 1,
+      "sub_dimensions": [
+        {
+          "label": "Calculation Accuracy",
+          "description": "Does the application accurately perform any calculations related to the financial input?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1
+          ],
+          "weight": 1,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Categorization Accuracy",
+          "description": "Does the application accurately categorize the financial input?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1
+          ],
+          "weight": 1,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Logical Consistency",
+          "description": "Does the application ensure that the financial input is logically consistent (e.g., income should not exceed expenses without justification)?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1
+          ],
+          "weight": 1,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "User Feedback and Education",
+      "description": "How does the application provide feedback and educational resources to users?",
+      "weight": 1,
+      "sub_dimensions": [
+        {
+          "label": "Error Messaging",
+          "description": "Does the application provide clear error messages when the input is not financially valid?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1
+          ],
+          "weight": 1,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Validation Feedback",
+          "description": "Does the application offer feedback on why the input is deemed invalid?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1
+          ],
+          "weight": 1,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "User Education",
+          "description": "Does the application offer educational resources related to financial validity?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1
+          ],
+          "weight": 1,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Input Evaluation and Representation",
+      "description": "What methods are used to evaluate and represent financial inputs?",
+      "weight": 1,
+      "sub_dimensions": [
+        {
+          "label": "Visual Representation",
+          "description": "Does the application provide a visual representation of the financial input for clarity?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1
+          ],
+          "weight": 1,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Historical Comparison",
+          "description": "Does the application compare the financial input against historical data for anomalies?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1
+          ],
+          "weight": 1,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Source Verification",
+          "description": "Does the application verify the source of the financial input for authenticity?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1
+          ],
+          "weight": 1,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    }
+  ]
+}
+Response headers
+ alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000 
+ content-length: 5980 
+ content-type: application/json 
+ date: Wed,18 Dec 2024 17:08:21 GMT 
+ server: uvicorn 
+ via: 1.1 google 
+Responses
+Code	Description	Links
+200	
+Successful Response
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "name": "string",
+  "description": "string",
+  "dimensions": []
+}
+No links
+422	
+Validation Error
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "detail": [
+    {
+      "loc": [
+        "string",
+        0
+      ],
+      "msg": "string",
+      "type": "string"
+    }
+  ]
+}
+No links
+
+POST
+/contracts/score
+Contract Scoring
+
+
+Scores a contract based on the provided input and output
+
+Parameters
+Cancel
+No parameters
+
+Request body
+
+application/json
+{
+  "contract": {
+    "name": "string",
+    "description": "string",
+    "dimensions": []
+  },
+  "llm_input": "string",
+  "llm_output": "string"
+}
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'POST' \
+  'https://api.withpi.ai/v1/contracts/score' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "contract": {
+    "name": "string",
+    "description": "string",
+    "dimensions": []
+  },
+  "llm_input": "string",
+  "llm_output": "string"
+}'
+Request URL
+https://api.withpi.ai/v1/contracts/score
+Server response
+Code	Details
+403
+Undocumented
+Error: response status is 403
+
+Response body
+Download
+{
+  "detail": "Not authenticated"
+}
+Response headers
+ alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000 
+ content-length: 30 
+ content-type: application/json 
+ date: Wed,18 Dec 2024 16:54:59 GMT 
+ server: uvicorn 
+ via: 1.1 google 
+Responses
+Code	Description	Links
+200	
+Successful Response
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "total_score": 0,
+  "dimension_scores": {
+    "additionalProp1": {
+      "total_score": 0,
+      "subdimension_scores": {
+        "additionalProp1": 0,
+        "additionalProp2": 0,
+        "additionalProp3": 0
+      }
+    },
+    "additionalProp2": {
+      "total_score": 0,
+      "subdimension_scores": {
+        "additionalProp1": 0,
+        "additionalProp2": 0,
+        "additionalProp3": 0
+      }
+    },
+    "additionalProp3": {
+      "total_score": 0,
+      "subdimension_scores": {
+        "additionalProp1": 0,
+        "additionalProp2": 0,
+        "additionalProp3": 0
+      }
+    }
+  }
+}
+No links
+422	
+Validation Error
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "detail": [
+    {
+      "loc": [
+        "string",
+        0
+      ],
+      "msg": "string",
+      "type": "string"
+    }
+  ]
+}
+No links
+feedback
+Operations related to feedback processing
+
+
+
+POST
+/feedback/cluster
+Cluster Feedback
+
+
+Clusters feedback into groups with counts
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json
+Example Value
+Schema
+[
+  {
+    "identifier": "string",
+    "llm_input": "string",
+    "llm_output": "string",
+    "comment": "string",
+    "rating": "positive",
+    "source": "internal"
+  }
+]
+Responses
+Code	Description	Links
+200	
+Successful Response
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "topic": "string",
+    "rating": "positive",
+    "per_source_counts": {
+      "additionalProp1": 0,
+      "additionalProp2": 0,
+      "additionalProp3": 0
+    },
+    "feedback": [
+      "string"
+    ]
+  }
+]
+No links
+422	
+Validation Error
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "detail": [
+    {
+      "loc": [
+        "string",
+        0
+      ],
+      "msg": "string",
+      "type": "string"
+    }
+  ]
+}
+No links
+inputs
+Operations related to input data
+
+
+
+POST
+/data/input/cluster
+Cluster Input
+
+
+Clusters inputs into groups with counts
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json
+Example Value
+Schema
+[
+  {
+    "identifier": "string",
+    "llm_input": "string"
+  }
+]
+Responses
+Code	Description	Links
+200	
+Successful Response
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "topic": "string",
+    "inputs": [
+      "string"
+    ]
+  }
+]
+No links
+422	
+Validation Error
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "detail": [
+    {
+      "loc": [
+        "string",
+        0
+      ],
+      "msg": "string",
+      "type": "string"
+    }
+  ]
+}
+No links
+
+POST
+/data/input/generate_from_seeds
+Generate from Seeds
+
+
+Generates input data from a list of seeds
+
+Parameters
+Try it out
+Name	Description
+num_inputs *
+integer
+(query)
+num_inputs
+Request body
+
+application/json
+Example Value
+Schema
+[
+  "string"
+]
+Responses
+Code	Description	Links
+200	
+Successful Response
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "state": "queued",
+  "detailed_status": [
+    "string"
+  ],
+  "job_id": "string",
+  "data": [
+    "string"
+  ]
+}
+No links
+422	
+Validation Error
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "detail": [
+    {
+      "loc": [
+        "string",
+        0
+      ],
+      "msg": "string",
+      "type": "string"
+    }
+  ]
+}
+No links
+
+GET
+/data/input/generate_from_seeds/{job_id}
+Seed Generation Status
+
+
+Gets the current status of a data generation job
+
+Parameters
+Try it out
+Name	Description
+job_id *
+string
+(path)
+job_id
+Responses
+Code	Description	Links
+200	
+Successful Response
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "state": "queued",
+  "detailed_status": [
+    "string"
+  ],
+  "job_id": "string",
+  "data": [
+    "string"
+  ]
+}
+No links
+422	
+Validation Error
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "detail": [
+    {
+      "loc": [
+        "string",
+        0
+      ],
+      "msg": "string",
+      "type": "string"
+    }
+  ]
+}
+No links
+
+GET
+/data/input/generate_from_seeds/{job_id}/messages
+Get Messages
+
+
+Streams messages from the data generation job
+
+Parameters
+Try it out
+Name	Description
+job_id *
+string
+(path)
+job_id
+Responses
+Code	Description	Links
+200	
+Streaming messages from the job
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+string
+No links
+422	
+Validation Error
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "detail": [
+    {
+      "loc": [
+        "string",
+        0
+      ],
+      "msg": "string",
+      "type": "string"
+    }
+  ]
+}
+No links
+
+POST
+/data/input/evaluate
+Input Evaluation
+
+
+Evaluates an input against a contract
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "contract": {
+    "name": "string",
+    "description": "string",
+    "dimensions": []
+  },
+  "llm_input": "string"
+}
+Responses
+Code	Description	Links
+200	
+Successful Response
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "filter_score": 0
+}
+No links
+422	
+Validation Error
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "detail": [
+    {
+      "loc": [
+        "string",
+        0
+      ],
+      "msg": "string",
+      "type": "string"
+    }
+  ]
+}
+No links
+
+POST
+/data/input/generate_seeds
+Generate seed messages
+
+
+Generates seed messages for input data.
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "contract": {
+    "name": "string",
+    "description": "string",
+    "dimensions": []
+  },
+  "num_inputs": 0,
+  "context_types": [
+    "none"
+  ]
+}
+Responses
+Code	Description	Links
+200	
+Successful Response
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "state": "queued",
+  "detailed_status": [
+    "string"
+  ],
+  "job_id": "string",
+  "data": [
+    "string"
+  ]
+}
+No links
+422	
+Validation Error
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "detail": [
+    {
+      "loc": [
+        "string",
+        0
+      ],
+      "msg": "string",
+      "type": "string"
+    }
+  ]
+}
+No links
+inference
+Operations related to inference
+
+
+
+POST
+/inference/run
+Run Inference
+
+
+Runs LLM inference, returning a response
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "model_id": "gpt_4o_mini_agent",
+  "llm_input": "string"
+}
+Responses
+Code	Description	Links
+200	
+Successful Response
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "text": "string",
+  "structured": {}
+}
+No links
+422	
+Validation Error
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "detail": [
+    {
+      "loc": [
+        "string",
+        0
+      ],
+      "msg": "string",
+      "type": "string"
+    }
+  ]
+}
+No links
+prompts
+Operations related to prompt tuning
+
+
+
+POST
+/tune/prompt
+Optimize Prompt
+
+
+Start a prompt optimization job
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json
+Example Value
+Schema
+{
+  "contract": {
+    "name": "string",
+    "description": "string",
+    "dimensions": []
+  },
+  "examples": [
+    {
+      "llm_input": "string",
+      "llm_output": "string"
+    }
+  ],
+  "model_id": "gpt-4o-mini",
+  "tuning_algorithm": "pi"
+}
+Responses
+Code	Description	Links
+200	
+Successful Response
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "state": "queued",
+  "detailed_status": [
+    "string"
+  ],
+  "job_id": "string",
+  "contract": {
+    "name": "string",
+    "description": "string",
+    "dimensions": []
+  }
+}
+No links
+422	
+Validation Error
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "detail": [
+    {
+      "loc": [
+        "string",
+        0
+      ],
+      "msg": "string",
+      "type": "string"
+    }
+  ]
+}
+No links
+
+GET
+/tune/prompt/{job_id}
+Prompt Optimization Status
+
+
+Checks on a prompt optimization job
+
+Parameters
+Try it out
+Name	Description
+job_id *
+string
+(path)
+job_id
+Responses
+Code	Description	Links
+200	
+Successful Response
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "state": "queued",
+  "detailed_status": [
+    "string"
+  ],
+  "job_id": "string",
+  "contract": {
+    "name": "string",
+    "description": "string",
+    "dimensions": []
+  }
+}
+No links
+422	
+Validation Error
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "detail": [
+    {
+      "loc": [
+        "string",
+        0
+      ],
+      "msg": "string",
+      "type": "string"
+    }
+  ]
+}
+No links
+
+GET
+/tune/prompt/{job_id}/messages
+Get Messages
+
+
+Opens a message stream about a prompt optimization job
+
+Parameters
+Try it out
+Name	Description
+job_id *
+string
+(path)
+job_id
+Responses
+Code	Description	Links
+200	
+Streaming messages from the job
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+string
+No links
+422	
+Validation Error
+
+Media type
+
+application/json
+Example Value
+Schema
+{
+  "detail": [
+    {
+      "loc": [
+        "string",
+        0
+      ],
+      "msg": "string",
+      "type": "string"
+    }
+  ]
+}
+No links
+
+Schemas
+Body_contracts_generate_dimensions_contracts_generate_dimensions_postCollapse allobject
+contractCollapse allobject
+nameCollapse allstring
+The name of the contract
+
+descriptionCollapse allstring
+The description of the contract
+
+dimensionsCollapse allarray<object>
+The dimensions of the contract
+
+ItemsCollapse allobject
+labelCollapse allstring
+The label of the dimension
+
+descriptionCollapse allstring
+The description of the dimension
+
+weightCollapse allnumber
+The weight of the dimension The sum of dimension weights will be normalized to one internally. A higher weight counts for more when aggregating this dimension is aggregated into the final score.
+
+Default1
+sub_dimensionsCollapse allarray<object>
+The sub dimensions of the dimension
+
+ItemsCollapse allobject
+labelCollapse allstring
+The label of the dimension
+
+descriptionCollapse allstring
+The description of the dimension
+
+scoring_typeCollapse allstring
+The type of scoring performed for this dimension
+
+Allowed values"PI_SCORER""HUGGINGFACE_SCORER""PYTHON_CODE"
+python_codeCollapse all(string | null)
+The PYTHON code associated the PYTHON_CODE DimensionScoringType.
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+parametersCollapse all(array<number> | null)
+The learned parameters for the scoring method. For PI_SCORER type, this corresponds to the values assigned to each Likert point from 1-5, normalized to a 0-1 range.
+
+Any ofCollapse all(array<number> | null)
+#0Collapse allarray<number>
+Itemsnumber
+#1null
+weightCollapse allnumber
+The weight of the subdimension. The sum of subdimension weights will be normalized to one internally. A higher weight counts for more when aggregating this subdimension into the parent dimension.
+
+Default1
+huggingface_urlCollapse all(string | null)
+The URL of the HuggingFace model to use for scoring. Only relevant for scoring_type of HUGGINGFACE_SCORER
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+action_dimensionCollapse all(any | null)
+If action_dimension is set, this node is a part of short-circuit subtree. If the score of the action_dimension is > 0.5, then evaluate the node and return the actual score. If it is <= 0.5 return -1. The higher level node will ignore the -1 scores and thus we achieve the short-circuit behavior.
+
+Any ofCollapse all(any | null)
+#0Collapse allany
+$refhttps://api.withpi.ai/v1/openapi.json#/components/schemas/SDKSubdimension
+#1null
+action_on_low_scoreCollapse allboolean
+If action_on_low_score = True, the node emits the real value if action dimension score is <= 0.5 and it returns -1 otherwise.
+
+Defaultfalse
+action_dimensionCollapse all(object | null)
+If action_dimension is set, this node is a part of short-circuit subtree. If the score of the action_dimension is > 0.5, then evaluate the node and return the actual score. If it is <= 0.5 return -1. The higher level node will ignore the -1 scores and thus we achieve the short-circuit behavior.
+
+Any ofCollapse all(object | null)
+#0 SDKSubdimensionCollapse allobject
+labelCollapse allstring
+The label of the dimension
+
+descriptionCollapse allstring
+The description of the dimension
+
+scoring_typeCollapse allstring
+The type of scoring performed for this dimension
+
+Allowed values"PI_SCORER""HUGGINGFACE_SCORER""PYTHON_CODE"
+python_codeCollapse all(string | null)
+The PYTHON code associated the PYTHON_CODE DimensionScoringType.
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+parametersCollapse all(array<number> | null)
+The learned parameters for the scoring method. For PI_SCORER type, this corresponds to the values assigned to each Likert point from 1-5, normalized to a 0-1 range.
+
+Any ofCollapse all(array<number> | null)
+#0Collapse allarray<number>
+Itemsnumber
+#1null
+weightCollapse allnumber
+The weight of the subdimension. The sum of subdimension weights will be normalized to one internally. A higher weight counts for more when aggregating this subdimension into the parent dimension.
+
+Default1
+huggingface_urlCollapse all(string | null)
+The URL of the HuggingFace model to use for scoring. Only relevant for scoring_type of HUGGINGFACE_SCORER
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+action_dimensionCollapse all(any | null)
+If action_dimension is set, this node is a part of short-circuit subtree. If the score of the action_dimension is > 0.5, then evaluate the node and return the actual score. If it is <= 0.5 return -1. The higher level node will ignore the -1 scores and thus we achieve the short-circuit behavior.
+
+Any ofCollapse all(any | null)
+#0Collapse allany
+$refhttps://api.withpi.ai/v1/openapi.json#/components/schemas/SDKSubdimension
+#1null
+action_on_low_scoreCollapse allboolean
+If action_on_low_score = True, the node emits the real value if action dimension score is <= 0.5 and it returns -1 otherwise.
+
+Defaultfalse
+#1null
+action_on_low_scoreCollapse allboolean
+If action_on_low_score = True, the node emits the real value if action dimension score is <= 0.5 and it returns -1 otherwise.
+
+Defaultfalse
+Default[]
+ContractsScoreMetricsCollapse allobject
+total_scoreCollapse allnumber
+The total score of the contract
+
+dimension_scoresCollapse allobject
+The score components for each dimension
+
+Additional propertiesCollapse allobject
+total_scoreCollapse allnumber
+The total score of the dimension
+
+subdimension_scoresCollapse allobject
+The score components for each subdimension
+
+Additional propertiesnumber
+ContractsScoreParamsCollapse allobject
+contractCollapse allobject
+The contract to score
+
+nameCollapse allstring
+The name of the contract
+
+descriptionCollapse allstring
+The description of the contract
+
+dimensionsCollapse allarray<object>
+The dimensions of the contract
+
+ItemsCollapse allobject
+labelCollapse allstring
+The label of the dimension
+
+descriptionCollapse allstring
+The description of the dimension
+
+weightCollapse allnumber
+The weight of the dimension The sum of dimension weights will be normalized to one internally. A higher weight counts for more when aggregating this dimension is aggregated into the final score.
+
+Default1
+sub_dimensionsCollapse allarray<object>
+The sub dimensions of the dimension
+
+ItemsCollapse allobject
+labelCollapse allstring
+The label of the dimension
+
+descriptionCollapse allstring
+The description of the dimension
+
+scoring_typeCollapse allstring
+The type of scoring performed for this dimension
+
+Allowed values"PI_SCORER""HUGGINGFACE_SCORER""PYTHON_CODE"
+python_codeCollapse all(string | null)
+The PYTHON code associated the PYTHON_CODE DimensionScoringType.
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+parametersCollapse all(array<number> | null)
+The learned parameters for the scoring method. For PI_SCORER type, this corresponds to the values assigned to each Likert point from 1-5, normalized to a 0-1 range.
+
+Any ofCollapse all(array<number> | null)
+#0Collapse allarray<number>
+Itemsnumber
+#1null
+weightCollapse allnumber
+The weight of the subdimension. The sum of subdimension weights will be normalized to one internally. A higher weight counts for more when aggregating this subdimension into the parent dimension.
+
+Default1
+huggingface_urlCollapse all(string | null)
+The URL of the HuggingFace model to use for scoring. Only relevant for scoring_type of HUGGINGFACE_SCORER
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+action_dimensionCollapse all(any | null)
+If action_dimension is set, this node is a part of short-circuit subtree. If the score of the action_dimension is > 0.5, then evaluate the node and return the actual score. If it is <= 0.5 return -1. The higher level node will ignore the -1 scores and thus we achieve the short-circuit behavior.
+
+Any ofCollapse all(any | null)
+#0Collapse allany
+$refhttps://api.withpi.ai/v1/openapi.json#/components/schemas/SDKSubdimension
+#1null
+action_on_low_scoreCollapse allboolean
+If action_on_low_score = True, the node emits the real value if action dimension score is <= 0.5 and it returns -1 otherwise.
+
+Defaultfalse
+action_dimensionCollapse all(object | null)
+If action_dimension is set, this node is a part of short-circuit subtree. If the score of the action_dimension is > 0.5, then evaluate the node and return the actual score. If it is <= 0.5 return -1. The higher level node will ignore the -1 scores and thus we achieve the short-circuit behavior.
+
+Any ofCollapse all(object | null)
+#0 SDKSubdimensionCollapse allobject
+labelCollapse allstring
+The label of the dimension
+
+descriptionCollapse allstring
+The description of the dimension
+
+scoring_typeCollapse allstring
+The type of scoring performed for this dimension
+
+Allowed values"PI_SCORER""HUGGINGFACE_SCORER""PYTHON_CODE"
+python_codeCollapse all(string | null)
+The PYTHON code associated the PYTHON_CODE DimensionScoringType.
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+parametersCollapse all(array<number> | null)
+The learned parameters for the scoring method. For PI_SCORER type, this corresponds to the values assigned to each Likert point from 1-5, normalized to a 0-1 range.
+
+Any ofCollapse all(array<number> | null)
+#0Collapse allarray<number>
+Itemsnumber
+#1null
+weightCollapse allnumber
+The weight of the subdimension. The sum of subdimension weights will be normalized to one internally. A higher weight counts for more when aggregating this subdimension into the parent dimension.
+
+Default1
+huggingface_urlCollapse all(string | null)
+The URL of the HuggingFace model to use for scoring. Only relevant for scoring_type of HUGGINGFACE_SCORER
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+action_dimensionCollapse all(any | null)
+If action_dimension is set, this node is a part of short-circuit subtree. If the score of the action_dimension is > 0.5, then evaluate the node and return the actual score. If it is <= 0.5 return -1. The higher level node will ignore the -1 scores and thus we achieve the short-circuit behavior.
+
+Any ofCollapse all(any | null)
+#0Collapse allany
+$refhttps://api.withpi.ai/v1/openapi.json#/components/schemas/SDKSubdimension
+#1null
+action_on_low_scoreCollapse allboolean
+If action_on_low_score = True, the node emits the real value if action dimension score is <= 0.5 and it returns -1 otherwise.
+
+Defaultfalse
+#1null
+action_on_low_scoreCollapse allboolean
+If action_on_low_score = True, the node emits the real value if action dimension score is <= 0.5 and it returns -1 otherwise.
+
+Defaultfalse
+Default[]
+llm_inputCollapse all(string | object)
+The input to score
+
+Any ofCollapse all(string | object)
+#0string
+#1Collapse allobject
+Additional propertiesstring
+llm_outputCollapse allstring
+The output to score
+
+DataGenerationStatusCollapse allobject
+DataGenerationStatus is the status of a data generation job.
+
+stateCollapse allstring
+Current state of the job
+
+Allowed values"queued""running""done""error"
+detailed_statusCollapse allarray<string>
+Detailed status of the job
+
+Itemsstring
+job_idCollapse allstring
+The job id
+
+dataCollapse all(array<string> | null)
+The generated data. Absent unless state is done
+
+Any ofCollapse all(array<string> | null)
+#0Collapse allarray<string>
+Itemsstring
+#1null
+DimensionScoreMetricsCollapse allobject
+total_scoreCollapse allnumber
+The total score of the dimension
+
+subdimension_scoresCollapse allobject
+The score components for each subdimension
+
+Additional propertiesnumber
+DimensionScoringTypeCollapse allstring
+Allowed values"PI_SCORER""HUGGINGFACE_SCORER""PYTHON_CODE"
+FeedbackCollapse allobject
+identifierCollapse allstring
+The identifier of the feedback used to align responses
+
+llm_inputCollapse all(string | object)
+The input to evaluate
+
+Any ofCollapse all(string | object)
+#0string
+#1Collapse allobject
+Additional propertiesstring
+llm_outputCollapse allstring
+The output to evaluate
+
+commentCollapse allstring
+The comment on the feedback
+
+ratingCollapse allstring
+Structured text rating of this feedback.
+
+Allowed values"positive""negative"
+sourceCollapse allstring
+The source label of the feedback. When computing cluster statistics, per-source statistics will be maintained.
+
+Allowed values"internal""external"
+FeedbackRatingCollapse allstring
+Allowed values"positive""negative"
+FeedbackSourceCollapse allstring
+Allowed values"internal""external"
+FeedbackTopicClusterCollapse allobject
+topicCollapse allstring
+The topic of the feedback in this cluster
+
+ratingCollapse allstring
+The rating of the feedback in this cluster
+
+Allowed values"positive""negative"
+per_source_countsCollapse allobject
+The counts of feedback per source
+
+Additional propertiesinteger
+feedbackCollapse allarray<string>
+The feedback IDs assigned to this topic
+
+Itemsstring
+HTTPValidationErrorCollapse allobject
+detailCollapse allarray<object>
+ItemsCollapse allobject
+locCollapse allarray<(string | integer)>
+ItemsCollapse all(string | integer)
+Any ofCollapse all(string | integer)
+#0string
+#1integer
+msgstring
+typestring
+InferenceModelIdCollapse allstring
+InferenceModelId is an enumeration of the inference models that are available.
+
+Allowed values"gpt_4o_mini_agent""mock_agent"
+InferenceResponseCollapse allobject
+textCollapse all(string | null)
+The generated text, if the model returns text
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+structuredCollapse all(object | null)
+The structured output, if the model returns structure
+
+Any ofCollapse all(object | null)
+#0object
+#1null
+InputContextTypeCollapse allstring
+Allowed values"none""article""conversation""debate""webpage""passage""chat history""email thread""text messages""financial document""scientific paper""slide presentation description"
+InputEvaluationMetricsCollapse allobject
+filter_scoreCollapse allnumber
+The 0-1 score with 1 meaning filter
+
+InputEvaluationParamsCollapse allobject
+contractCollapse allobject
+The contract the input is intended to drive
+
+nameCollapse allstring
+The name of the contract
+
+descriptionCollapse allstring
+The description of the contract
+
+dimensionsCollapse allarray<object>
+The dimensions of the contract
+
+ItemsCollapse allobject
+labelCollapse allstring
+The label of the dimension
+
+descriptionCollapse allstring
+The description of the dimension
+
+weightCollapse allnumber
+The weight of the dimension The sum of dimension weights will be normalized to one internally. A higher weight counts for more when aggregating this dimension is aggregated into the final score.
+
+Default1
+sub_dimensionsCollapse allarray<object>
+The sub dimensions of the dimension
+
+ItemsCollapse allobject
+labelCollapse allstring
+The label of the dimension
+
+descriptionCollapse allstring
+The description of the dimension
+
+scoring_typeCollapse allstring
+The type of scoring performed for this dimension
+
+Allowed values"PI_SCORER""HUGGINGFACE_SCORER""PYTHON_CODE"
+python_codeCollapse all(string | null)
+The PYTHON code associated the PYTHON_CODE DimensionScoringType.
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+parametersCollapse all(array<number> | null)
+The learned parameters for the scoring method. For PI_SCORER type, this corresponds to the values assigned to each Likert point from 1-5, normalized to a 0-1 range.
+
+Any ofCollapse all(array<number> | null)
+#0Collapse allarray<number>
+Itemsnumber
+#1null
+weightCollapse allnumber
+The weight of the subdimension. The sum of subdimension weights will be normalized to one internally. A higher weight counts for more when aggregating this subdimension into the parent dimension.
+
+Default1
+huggingface_urlCollapse all(string | null)
+The URL of the HuggingFace model to use for scoring. Only relevant for scoring_type of HUGGINGFACE_SCORER
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+action_dimensionCollapse all(any | null)
+If action_dimension is set, this node is a part of short-circuit subtree. If the score of the action_dimension is > 0.5, then evaluate the node and return the actual score. If it is <= 0.5 return -1. The higher level node will ignore the -1 scores and thus we achieve the short-circuit behavior.
+
+Any ofCollapse all(any | null)
+#0Collapse allany
+$refhttps://api.withpi.ai/v1/openapi.json#/components/schemas/SDKSubdimension
+#1null
+action_on_low_scoreCollapse allboolean
+If action_on_low_score = True, the node emits the real value if action dimension score is <= 0.5 and it returns -1 otherwise.
+
+Defaultfalse
+action_dimensionCollapse all(object | null)
+If action_dimension is set, this node is a part of short-circuit subtree. If the score of the action_dimension is > 0.5, then evaluate the node and return the actual score. If it is <= 0.5 return -1. The higher level node will ignore the -1 scores and thus we achieve the short-circuit behavior.
+
+Any ofCollapse all(object | null)
+#0 SDKSubdimensionCollapse allobject
+labelCollapse allstring
+The label of the dimension
+
+descriptionCollapse allstring
+The description of the dimension
+
+scoring_typeCollapse allstring
+The type of scoring performed for this dimension
+
+Allowed values"PI_SCORER""HUGGINGFACE_SCORER""PYTHON_CODE"
+python_codeCollapse all(string | null)
+The PYTHON code associated the PYTHON_CODE DimensionScoringType.
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+parametersCollapse all(array<number> | null)
+The learned parameters for the scoring method. For PI_SCORER type, this corresponds to the values assigned to each Likert point from 1-5, normalized to a 0-1 range.
+
+Any ofCollapse all(array<number> | null)
+#0Collapse allarray<number>
+Itemsnumber
+#1null
+weightCollapse allnumber
+The weight of the subdimension. The sum of subdimension weights will be normalized to one internally. A higher weight counts for more when aggregating this subdimension into the parent dimension.
+
+Default1
+huggingface_urlCollapse all(string | null)
+The URL of the HuggingFace model to use for scoring. Only relevant for scoring_type of HUGGINGFACE_SCORER
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+action_dimensionCollapse all(any | null)
+If action_dimension is set, this node is a part of short-circuit subtree. If the score of the action_dimension is > 0.5, then evaluate the node and return the actual score. If it is <= 0.5 return -1. The higher level node will ignore the -1 scores and thus we achieve the short-circuit behavior.
+
+Any ofCollapse all(any | null)
+#0Collapse allany
+$refhttps://api.withpi.ai/v1/openapi.json#/components/schemas/SDKSubdimension
+#1null
+action_on_low_scoreCollapse allboolean
+If action_on_low_score = True, the node emits the real value if action dimension score is <= 0.5 and it returns -1 otherwise.
+
+Defaultfalse
+#1null
+action_on_low_scoreCollapse allboolean
+If action_on_low_score = True, the node emits the real value if action dimension score is <= 0.5 and it returns -1 otherwise.
+
+Defaultfalse
+Default[]
+llm_inputCollapse all(string | object)
+The input to evaluate
+
+Any ofCollapse all(string | object)
+#0string
+#1Collapse allobject
+Additional propertiesstring
+InputSeedGenerationParamsCollapse allobject
+contractCollapse allobject
+The contract to generate input seeds for.
+
+nameCollapse allstring
+The name of the contract
+
+descriptionCollapse allstring
+The description of the contract
+
+dimensionsCollapse allarray<object>
+The dimensions of the contract
+
+ItemsCollapse allobject
+labelCollapse allstring
+The label of the dimension
+
+descriptionCollapse allstring
+The description of the dimension
+
+weightCollapse allnumber
+The weight of the dimension The sum of dimension weights will be normalized to one internally. A higher weight counts for more when aggregating this dimension is aggregated into the final score.
+
+Default1
+sub_dimensionsCollapse allarray<object>
+The sub dimensions of the dimension
+
+ItemsCollapse allobject
+labelCollapse allstring
+The label of the dimension
+
+descriptionCollapse allstring
+The description of the dimension
+
+scoring_typeCollapse allstring
+The type of scoring performed for this dimension
+
+Allowed values"PI_SCORER""HUGGINGFACE_SCORER""PYTHON_CODE"
+python_codeCollapse all(string | null)
+The PYTHON code associated the PYTHON_CODE DimensionScoringType.
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+parametersCollapse all(array<number> | null)
+The learned parameters for the scoring method. For PI_SCORER type, this corresponds to the values assigned to each Likert point from 1-5, normalized to a 0-1 range.
+
+Any ofCollapse all(array<number> | null)
+#0Collapse allarray<number>
+Itemsnumber
+#1null
+weightCollapse allnumber
+The weight of the subdimension. The sum of subdimension weights will be normalized to one internally. A higher weight counts for more when aggregating this subdimension into the parent dimension.
+
+Default1
+huggingface_urlCollapse all(string | null)
+The URL of the HuggingFace model to use for scoring. Only relevant for scoring_type of HUGGINGFACE_SCORER
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+action_dimensionCollapse all(any | null)
+If action_dimension is set, this node is a part of short-circuit subtree. If the score of the action_dimension is > 0.5, then evaluate the node and return the actual score. If it is <= 0.5 return -1. The higher level node will ignore the -1 scores and thus we achieve the short-circuit behavior.
+
+Any ofCollapse all(any | null)
+#0Collapse allany
+$refhttps://api.withpi.ai/v1/openapi.json#/components/schemas/SDKSubdimension
+#1null
+action_on_low_scoreCollapse allboolean
+If action_on_low_score = True, the node emits the real value if action dimension score is <= 0.5 and it returns -1 otherwise.
+
+Defaultfalse
+action_dimensionCollapse all(object | null)
+If action_dimension is set, this node is a part of short-circuit subtree. If the score of the action_dimension is > 0.5, then evaluate the node and return the actual score. If it is <= 0.5 return -1. The higher level node will ignore the -1 scores and thus we achieve the short-circuit behavior.
+
+Any ofCollapse all(object | null)
+#0 SDKSubdimensionCollapse allobject
+labelCollapse allstring
+The label of the dimension
+
+descriptionCollapse allstring
+The description of the dimension
+
+scoring_typeCollapse allstring
+The type of scoring performed for this dimension
+
+Allowed values"PI_SCORER""HUGGINGFACE_SCORER""PYTHON_CODE"
+python_codeCollapse all(string | null)
+The PYTHON code associated the PYTHON_CODE DimensionScoringType.
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+parametersCollapse all(array<number> | null)
+The learned parameters for the scoring method. For PI_SCORER type, this corresponds to the values assigned to each Likert point from 1-5, normalized to a 0-1 range.
+
+Any ofCollapse all(array<number> | null)
+#0Collapse allarray<number>
+Itemsnumber
+#1null
+weightCollapse allnumber
+The weight of the subdimension. The sum of subdimension weights will be normalized to one internally. A higher weight counts for more when aggregating this subdimension into the parent dimension.
+
+Default1
+huggingface_urlCollapse all(string | null)
+The URL of the HuggingFace model to use for scoring. Only relevant for scoring_type of HUGGINGFACE_SCORER
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+action_dimensionCollapse all(any | null)
+If action_dimension is set, this node is a part of short-circuit subtree. If the score of the action_dimension is > 0.5, then evaluate the node and return the actual score. If it is <= 0.5 return -1. The higher level node will ignore the -1 scores and thus we achieve the short-circuit behavior.
+
+Any ofCollapse all(any | null)
+#0Collapse allany
+$refhttps://api.withpi.ai/v1/openapi.json#/components/schemas/SDKSubdimension
+#1null
+action_on_low_scoreCollapse allboolean
+If action_on_low_score = True, the node emits the real value if action dimension score is <= 0.5 and it returns -1 otherwise.
+
+Defaultfalse
+#1null
+action_on_low_scoreCollapse allboolean
+If action_on_low_score = True, the node emits the real value if action dimension score is <= 0.5 and it returns -1 otherwise.
+
+Defaultfalse
+Default[]
+num_inputsCollapse allinteger
+Number of input seeds to generate.
+
+context_typesCollapse all(array<string> | null)
+The types of context to generate for the input prompts if specified. Otherwise the context_types will be inferred.
+
+Any ofCollapse all(array<string> | null)
+#0Collapse allarray<string>
+ItemsCollapse allstring
+Allowed values"none""article""conversation""debate""webpage""passage""chat history""email thread""text messages""financial document""scientific paper""slide presentation description"
+#1null
+InputTopicClusterCollapse allobject
+topicCollapse allstring
+The topic of the input in this cluster
+
+inputsCollapse allarray<string>
+The input IDs assigned to this topic
+
+Itemsstring
+LLMInputCollapse allobject
+identifierCollapse allstring
+The identifier of the input
+
+llm_inputCollapse all(string | object)
+The input to evaluate
+
+Any ofCollapse all(string | object)
+#0string
+#1Collapse allobject
+Additional propertiesstring
+LLMModelIdCollapse allstring
+Allowed values"gpt-4o-mini""mock-llm"
+OptimizationStatusCollapse allobject
+OptimizationStatus is the status of a tuning job. The contract field is absent unless the state is done.
+
+stateCollapse allstring
+Current state of the job
+
+Allowed values"queued""running""done""error"
+detailed_statusCollapse allarray<string>
+Detailed status of the job
+
+Itemsstring
+job_idCollapse allstring
+The job id
+
+contractCollapse all(object | null)
+The optimized contract. Absent unless state is done
+
+Any ofCollapse all(object | null)
+#0 SDKContractCollapse allobject
+nameCollapse allstring
+The name of the contract
+
+descriptionCollapse allstring
+The description of the contract
+
+dimensionsCollapse allarray<object>
+The dimensions of the contract
+
+ItemsCollapse allobject
+labelCollapse allstring
+The label of the dimension
+
+descriptionCollapse allstring
+The description of the dimension
+
+weightCollapse allnumber
+The weight of the dimension The sum of dimension weights will be normalized to one internally. A higher weight counts for more when aggregating this dimension is aggregated into the final score.
+
+Default1
+sub_dimensionsCollapse allarray<object>
+The sub dimensions of the dimension
+
+ItemsCollapse allobject
+labelCollapse allstring
+The label of the dimension
+
+descriptionCollapse allstring
+The description of the dimension
+
+scoring_typeCollapse allstring
+The type of scoring performed for this dimension
+
+Allowed values"PI_SCORER""HUGGINGFACE_SCORER""PYTHON_CODE"
+python_codeCollapse all(string | null)
+The PYTHON code associated the PYTHON_CODE DimensionScoringType.
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+parametersCollapse all(array<number> | null)
+The learned parameters for the scoring method. For PI_SCORER type, this corresponds to the values assigned to each Likert point from 1-5, normalized to a 0-1 range.
+
+Any ofCollapse all(array<number> | null)
+#0Collapse allarray<number>
+Itemsnumber
+#1null
+weightCollapse allnumber
+The weight of the subdimension. The sum of subdimension weights will be normalized to one internally. A higher weight counts for more when aggregating this subdimension into the parent dimension.
+
+Default1
+huggingface_urlCollapse all(string | null)
+The URL of the HuggingFace model to use for scoring. Only relevant for scoring_type of HUGGINGFACE_SCORER
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+action_dimensionCollapse all(any | null)
+If action_dimension is set, this node is a part of short-circuit subtree. If the score of the action_dimension is > 0.5, then evaluate the node and return the actual score. If it is <= 0.5 return -1. The higher level node will ignore the -1 scores and thus we achieve the short-circuit behavior.
+
+Any ofCollapse all(any | null)
+#0Collapse allany
+$refhttps://api.withpi.ai/v1/openapi.json#/components/schemas/SDKSubdimension
+#1null
+action_on_low_scoreCollapse allboolean
+If action_on_low_score = True, the node emits the real value if action dimension score is <= 0.5 and it returns -1 otherwise.
+
+Defaultfalse
+action_dimensionCollapse all(object | null)
+If action_dimension is set, this node is a part of short-circuit subtree. If the score of the action_dimension is > 0.5, then evaluate the node and return the actual score. If it is <= 0.5 return -1. The higher level node will ignore the -1 scores and thus we achieve the short-circuit behavior.
+
+Any ofCollapse all(object | null)
+#0 SDKSubdimensionCollapse allobject
+labelCollapse allstring
+The label of the dimension
+
+descriptionCollapse allstring
+The description of the dimension
+
+scoring_typeCollapse allstring
+The type of scoring performed for this dimension
+
+Allowed values"PI_SCORER""HUGGINGFACE_SCORER""PYTHON_CODE"
+python_codeCollapse all(string | null)
+The PYTHON code associated the PYTHON_CODE DimensionScoringType.
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+parametersCollapse all(array<number> | null)
+The learned parameters for the scoring method. For PI_SCORER type, this corresponds to the values assigned to each Likert point from 1-5, normalized to a 0-1 range.
+
+Any ofCollapse all(array<number> | null)
+#0Collapse allarray<number>
+Itemsnumber
+#1null
+weightCollapse allnumber
+The weight of the subdimension. The sum of subdimension weights will be normalized to one internally. A higher weight counts for more when aggregating this subdimension into the parent dimension.
+
+Default1
+huggingface_urlCollapse all(string | null)
+The URL of the HuggingFace model to use for scoring. Only relevant for scoring_type of HUGGINGFACE_SCORER
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+action_dimensionCollapse all(any | null)
+If action_dimension is set, this node is a part of short-circuit subtree. If the score of the action_dimension is > 0.5, then evaluate the node and return the actual score. If it is <= 0.5 return -1. The higher level node will ignore the -1 scores and thus we achieve the short-circuit behavior.
+
+Any ofCollapse all(any | null)
+#0Collapse allany
+$refhttps://api.withpi.ai/v1/openapi.json#/components/schemas/SDKSubdimension
+#1null
+action_on_low_scoreCollapse allboolean
+If action_on_low_score = True, the node emits the real value if action dimension score is <= 0.5 and it returns -1 otherwise.
+
+Defaultfalse
+#1null
+action_on_low_scoreCollapse allboolean
+If action_on_low_score = True, the node emits the real value if action dimension score is <= 0.5 and it returns -1 otherwise.
+
+Defaultfalse
+Default[]
+#1null
+PromptTuningAlgorithmIdCollapse allstring
+PromptTuningAlgorithm is the algorithm to use for tuning prompts
+
+Allowed values"pi"
+Const"pi"
+PromptTuningParamsCollapse allobject
+PromptTuningParams is the input to the prompt tuning endpoint
+
+contractCollapse allobject
+The contract to optimize
+
+nameCollapse allstring
+The name of the contract
+
+descriptionCollapse allstring
+The description of the contract
+
+dimensionsCollapse allarray<object>
+The dimensions of the contract
+
+ItemsCollapse allobject
+labelCollapse allstring
+The label of the dimension
+
+descriptionCollapse allstring
+The description of the dimension
+
+weightCollapse allnumber
+The weight of the dimension The sum of dimension weights will be normalized to one internally. A higher weight counts for more when aggregating this dimension is aggregated into the final score.
+
+Default1
+sub_dimensionsCollapse allarray<object>
+The sub dimensions of the dimension
+
+ItemsCollapse allobject
+labelCollapse allstring
+The label of the dimension
+
+descriptionCollapse allstring
+The description of the dimension
+
+scoring_typeCollapse allstring
+The type of scoring performed for this dimension
+
+Allowed values"PI_SCORER""HUGGINGFACE_SCORER""PYTHON_CODE"
+python_codeCollapse all(string | null)
+The PYTHON code associated the PYTHON_CODE DimensionScoringType.
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+parametersCollapse all(array<number> | null)
+The learned parameters for the scoring method. For PI_SCORER type, this corresponds to the values assigned to each Likert point from 1-5, normalized to a 0-1 range.
+
+Any ofCollapse all(array<number> | null)
+#0Collapse allarray<number>
+Itemsnumber
+#1null
+weightCollapse allnumber
+The weight of the subdimension. The sum of subdimension weights will be normalized to one internally. A higher weight counts for more when aggregating this subdimension into the parent dimension.
+
+Default1
+huggingface_urlCollapse all(string | null)
+The URL of the HuggingFace model to use for scoring. Only relevant for scoring_type of HUGGINGFACE_SCORER
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+action_dimensionCollapse all(any | null)
+If action_dimension is set, this node is a part of short-circuit subtree. If the score of the action_dimension is > 0.5, then evaluate the node and return the actual score. If it is <= 0.5 return -1. The higher level node will ignore the -1 scores and thus we achieve the short-circuit behavior.
+
+Any ofCollapse all(any | null)
+#0Collapse allany
+$refhttps://api.withpi.ai/v1/openapi.json#/components/schemas/SDKSubdimension
+#1null
+action_on_low_scoreCollapse allboolean
+If action_on_low_score = True, the node emits the real value if action dimension score is <= 0.5 and it returns -1 otherwise.
+
+Defaultfalse
+action_dimensionCollapse all(object | null)
+If action_dimension is set, this node is a part of short-circuit subtree. If the score of the action_dimension is > 0.5, then evaluate the node and return the actual score. If it is <= 0.5 return -1. The higher level node will ignore the -1 scores and thus we achieve the short-circuit behavior.
+
+Any ofCollapse all(object | null)
+#0 SDKSubdimensionCollapse allobject
+labelCollapse allstring
+The label of the dimension
+
+descriptionCollapse allstring
+The description of the dimension
+
+scoring_typeCollapse allstring
+The type of scoring performed for this dimension
+
+Allowed values"PI_SCORER""HUGGINGFACE_SCORER""PYTHON_CODE"
+python_codeCollapse all(string | null)
+The PYTHON code associated the PYTHON_CODE DimensionScoringType.
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+parametersCollapse all(array<number> | null)
+The learned parameters for the scoring method. For PI_SCORER type, this corresponds to the values assigned to each Likert point from 1-5, normalized to a 0-1 range.
+
+Any ofCollapse all(array<number> | null)
+#0Collapse allarray<number>
+Itemsnumber
+#1null
+weightCollapse allnumber
+The weight of the subdimension. The sum of subdimension weights will be normalized to one internally. A higher weight counts for more when aggregating this subdimension into the parent dimension.
+
+Default1
+huggingface_urlCollapse all(string | null)
+The URL of the HuggingFace model to use for scoring. Only relevant for scoring_type of HUGGINGFACE_SCORER
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+action_dimensionCollapse all(any | null)
+If action_dimension is set, this node is a part of short-circuit subtree. If the score of the action_dimension is > 0.5, then evaluate the node and return the actual score. If it is <= 0.5 return -1. The higher level node will ignore the -1 scores and thus we achieve the short-circuit behavior.
+
+Any ofCollapse all(any | null)
+#0Collapse allany
+$refhttps://api.withpi.ai/v1/openapi.json#/components/schemas/SDKSubdimension
+#1null
+action_on_low_scoreCollapse allboolean
+If action_on_low_score = True, the node emits the real value if action dimension score is <= 0.5 and it returns -1 otherwise.
+
+Defaultfalse
+#1null
+action_on_low_scoreCollapse allboolean
+If action_on_low_score = True, the node emits the real value if action dimension score is <= 0.5 and it returns -1 otherwise.
+
+Defaultfalse
+Default[]
+examplesCollapse allarray<object>
+The examples to train and validate on
+
+ItemsCollapse allobject
+An example for training or evaluation
+
+llm_inputCollapse all(string | object)
+The input to evaluate
+
+Any ofCollapse all(string | object)
+#0string
+#1Collapse allobject
+Additional propertiesstring
+llm_outputCollapse allstring
+The output to evaluate
+
+model_idCollapse allstring
+The model to use for generating responses
+
+Allowed values"gpt-4o-mini""mock-llm"
+tuning_algorithmCollapse allstring
+The tuning algorithm to use
+
+Allowed values"pi"
+Const"pi"
+RunInferenceParamsCollapse allobject
+model_idCollapse allstring
+The model to use for generating responses
+
+Allowed values"gpt_4o_mini_agent""mock_agent"
+llm_inputCollapse all(string | object)
+The input to run inference on
+
+Any ofCollapse all(string | object)
+#0string
+#1Collapse allobject
+Additional propertiesstring
+SDKContractCollapse allobject
+nameCollapse allstring
+The name of the contract
+
+descriptionCollapse allstring
+The description of the contract
+
+dimensionsCollapse allarray<object>
+The dimensions of the contract
+
+ItemsCollapse allobject
+labelCollapse allstring
+The label of the dimension
+
+descriptionCollapse allstring
+The description of the dimension
+
+weightCollapse allnumber
+The weight of the dimension The sum of dimension weights will be normalized to one internally. A higher weight counts for more when aggregating this dimension is aggregated into the final score.
+
+Default1
+sub_dimensionsCollapse allarray<object>
+The sub dimensions of the dimension
+
+ItemsCollapse allobject
+labelCollapse allstring
+The label of the dimension
+
+descriptionCollapse allstring
+The description of the dimension
+
+scoring_typeCollapse allstring
+The type of scoring performed for this dimension
+
+Allowed values"PI_SCORER""HUGGINGFACE_SCORER""PYTHON_CODE"
+python_codeCollapse all(string | null)
+The PYTHON code associated the PYTHON_CODE DimensionScoringType.
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+parametersCollapse all(array<number> | null)
+The learned parameters for the scoring method. For PI_SCORER type, this corresponds to the values assigned to each Likert point from 1-5, normalized to a 0-1 range.
+
+Any ofCollapse all(array<number> | null)
+#0Collapse allarray<number>
+Itemsnumber
+#1null
+weightCollapse allnumber
+The weight of the subdimension. The sum of subdimension weights will be normalized to one internally. A higher weight counts for more when aggregating this subdimension into the parent dimension.
+
+Default1
+huggingface_urlCollapse all(string | null)
+The URL of the HuggingFace model to use for scoring. Only relevant for scoring_type of HUGGINGFACE_SCORER
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+action_dimensionCollapse all(any | null)
+If action_dimension is set, this node is a part of short-circuit subtree. If the score of the action_dimension is > 0.5, then evaluate the node and return the actual score. If it is <= 0.5 return -1. The higher level node will ignore the -1 scores and thus we achieve the short-circuit behavior.
+
+Any ofCollapse all(any | null)
+#0Collapse allany
+$refhttps://api.withpi.ai/v1/openapi.json#/components/schemas/SDKSubdimension
+#1null
+action_on_low_scoreCollapse allboolean
+If action_on_low_score = True, the node emits the real value if action dimension score is <= 0.5 and it returns -1 otherwise.
+
+Defaultfalse
+action_dimensionCollapse all(object | null)
+If action_dimension is set, this node is a part of short-circuit subtree. If the score of the action_dimension is > 0.5, then evaluate the node and return the actual score. If it is <= 0.5 return -1. The higher level node will ignore the -1 scores and thus we achieve the short-circuit behavior.
+
+Any ofCollapse all(object | null)
+#0 SDKSubdimensionCollapse allobject
+labelCollapse allstring
+The label of the dimension
+
+descriptionCollapse allstring
+The description of the dimension
+
+scoring_typeCollapse allstring
+The type of scoring performed for this dimension
+
+Allowed values"PI_SCORER""HUGGINGFACE_SCORER""PYTHON_CODE"
+python_codeCollapse all(string | null)
+The PYTHON code associated the PYTHON_CODE DimensionScoringType.
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+parametersCollapse all(array<number> | null)
+The learned parameters for the scoring method. For PI_SCORER type, this corresponds to the values assigned to each Likert point from 1-5, normalized to a 0-1 range.
+
+Any ofCollapse all(array<number> | null)
+#0Collapse allarray<number>
+Itemsnumber
+#1null
+weightCollapse allnumber
+The weight of the subdimension. The sum of subdimension weights will be normalized to one internally. A higher weight counts for more when aggregating this subdimension into the parent dimension.
+
+Default1
+huggingface_urlCollapse all(string | null)
+The URL of the HuggingFace model to use for scoring. Only relevant for scoring_type of HUGGINGFACE_SCORER
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+action_dimensionCollapse all(any | null)
+If action_dimension is set, this node is a part of short-circuit subtree. If the score of the action_dimension is > 0.5, then evaluate the node and return the actual score. If it is <= 0.5 return -1. The higher level node will ignore the -1 scores and thus we achieve the short-circuit behavior.
+
+Any ofCollapse all(any | null)
+#0Collapse allany
+$refhttps://api.withpi.ai/v1/openapi.json#/components/schemas/SDKSubdimension
+#1null
+action_on_low_scoreCollapse allboolean
+If action_on_low_score = True, the node emits the real value if action dimension score is <= 0.5 and it returns -1 otherwise.
+
+Defaultfalse
+#1null
+action_on_low_scoreCollapse allboolean
+If action_on_low_score = True, the node emits the real value if action dimension score is <= 0.5 and it returns -1 otherwise.
+
+Defaultfalse
+Default[]
+SDKDimensionCollapse allobject
+labelCollapse allstring
+The label of the dimension
+
+descriptionCollapse allstring
+The description of the dimension
+
+weightCollapse allnumber
+The weight of the dimension The sum of dimension weights will be normalized to one internally. A higher weight counts for more when aggregating this dimension is aggregated into the final score.
+
+Default1
+sub_dimensionsCollapse allarray<object>
+The sub dimensions of the dimension
+
+ItemsCollapse allobject
+labelCollapse allstring
+The label of the dimension
+
+descriptionCollapse allstring
+The description of the dimension
+
+scoring_typeCollapse allstring
+The type of scoring performed for this dimension
+
+Allowed values"PI_SCORER""HUGGINGFACE_SCORER""PYTHON_CODE"
+python_codeCollapse all(string | null)
+The PYTHON code associated the PYTHON_CODE DimensionScoringType.
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+parametersCollapse all(array<number> | null)
+The learned parameters for the scoring method. For PI_SCORER type, this corresponds to the values assigned to each Likert point from 1-5, normalized to a 0-1 range.
+
+Any ofCollapse all(array<number> | null)
+#0Collapse allarray<number>
+Itemsnumber
+#1null
+weightCollapse allnumber
+The weight of the subdimension. The sum of subdimension weights will be normalized to one internally. A higher weight counts for more when aggregating this subdimension into the parent dimension.
+
+Default1
+huggingface_urlCollapse all(string | null)
+The URL of the HuggingFace model to use for scoring. Only relevant for scoring_type of HUGGINGFACE_SCORER
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+action_dimensionCollapse all(any | null)
+If action_dimension is set, this node is a part of short-circuit subtree. If the score of the action_dimension is > 0.5, then evaluate the node and return the actual score. If it is <= 0.5 return -1. The higher level node will ignore the -1 scores and thus we achieve the short-circuit behavior.
+
+Any ofCollapse all(any | null)
+#0Collapse allany
+$refhttps://api.withpi.ai/v1/openapi.json#/components/schemas/SDKSubdimension
+#1null
+action_on_low_scoreCollapse allboolean
+If action_on_low_score = True, the node emits the real value if action dimension score is <= 0.5 and it returns -1 otherwise.
+
+Defaultfalse
+action_dimensionCollapse all(object | null)
+If action_dimension is set, this node is a part of short-circuit subtree. If the score of the action_dimension is > 0.5, then evaluate the node and return the actual score. If it is <= 0.5 return -1. The higher level node will ignore the -1 scores and thus we achieve the short-circuit behavior.
+
+Any ofCollapse all(object | null)
+#0 SDKSubdimensionCollapse allobject
+labelCollapse allstring
+The label of the dimension
+
+descriptionCollapse allstring
+The description of the dimension
+
+scoring_typeCollapse allstring
+The type of scoring performed for this dimension
+
+Allowed values"PI_SCORER""HUGGINGFACE_SCORER""PYTHON_CODE"
+python_codeCollapse all(string | null)
+The PYTHON code associated the PYTHON_CODE DimensionScoringType.
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+parametersCollapse all(array<number> | null)
+The learned parameters for the scoring method. For PI_SCORER type, this corresponds to the values assigned to each Likert point from 1-5, normalized to a 0-1 range.
+
+Any ofCollapse all(array<number> | null)
+#0Collapse allarray<number>
+Itemsnumber
+#1null
+weightCollapse allnumber
+The weight of the subdimension. The sum of subdimension weights will be normalized to one internally. A higher weight counts for more when aggregating this subdimension into the parent dimension.
+
+Default1
+huggingface_urlCollapse all(string | null)
+The URL of the HuggingFace model to use for scoring. Only relevant for scoring_type of HUGGINGFACE_SCORER
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+action_dimensionCollapse all(any | null)
+If action_dimension is set, this node is a part of short-circuit subtree. If the score of the action_dimension is > 0.5, then evaluate the node and return the actual score. If it is <= 0.5 return -1. The higher level node will ignore the -1 scores and thus we achieve the short-circuit behavior.
+
+Any ofCollapse all(any | null)
+#0Collapse allany
+$refhttps://api.withpi.ai/v1/openapi.json#/components/schemas/SDKSubdimension
+#1null
+action_on_low_scoreCollapse allboolean
+If action_on_low_score = True, the node emits the real value if action dimension score is <= 0.5 and it returns -1 otherwise.
+
+Defaultfalse
+#1null
+action_on_low_scoreCollapse allboolean
+If action_on_low_score = True, the node emits the real value if action dimension score is <= 0.5 and it returns -1 otherwise.
+
+Defaultfalse
+SDKExampleCollapse allobject
+An example for training or evaluation
+
+llm_inputCollapse all(string | object)
+The input to evaluate
+
+Any ofCollapse all(string | object)
+#0string
+#1Collapse allobject
+Additional propertiesstring
+llm_outputCollapse allstring
+The output to evaluate
+
+SDKSubdimensionCollapse allobject
+labelCollapse allstring
+The label of the dimension
+
+descriptionCollapse allstring
+The description of the dimension
+
+scoring_typeCollapse allstring
+The type of scoring performed for this dimension
+
+Allowed values"PI_SCORER""HUGGINGFACE_SCORER""PYTHON_CODE"
+python_codeCollapse all(string | null)
+The PYTHON code associated the PYTHON_CODE DimensionScoringType.
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+parametersCollapse all(array<number> | null)
+The learned parameters for the scoring method. For PI_SCORER type, this corresponds to the values assigned to each Likert point from 1-5, normalized to a 0-1 range.
+
+Any ofCollapse all(array<number> | null)
+#0Collapse allarray<number>
+Itemsnumber
+#1null
+weightCollapse allnumber
+The weight of the subdimension. The sum of subdimension weights will be normalized to one internally. A higher weight counts for more when aggregating this subdimension into the parent dimension.
+
+Default1
+huggingface_urlCollapse all(string | null)
+The URL of the HuggingFace model to use for scoring. Only relevant for scoring_type of HUGGINGFACE_SCORER
+
+Any ofCollapse all(string | null)
+#0string
+#1null
+action_dimensionCollapse all(any | null)
+If action_dimension is set, this node is a part of short-circuit subtree. If the score of the action_dimension is > 0.5, then evaluate the node and return the actual score. If it is <= 0.5 return -1. The higher level node will ignore the -1 scores and thus we achieve the short-circuit behavior.
+
+Any ofCollapse all(any | null)
+#0Collapse allany
+$refhttps://api.withpi.ai/v1/openapi.json#/components/schemas/SDKSubdimension
+#1null
+action_on_low_scoreCollapse allboolean
+If action_on_low_score = True, the node emits the real value if action dimension score is <= 0.5 and it returns -1 otherwise.
+
+Defaultfalse
+StateCollapse allstring
+Allowed values"queued""running""done""error"
+ValidationErrorCollapse allobject
+locCollapse allarray<(string | integer)>
+ItemsCollapse all(string | integer)
+Any ofCollapse all(string | integer)
+#0string
+#1integer
+msgstring
+typestring
