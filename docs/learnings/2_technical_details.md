@@ -84,6 +84,27 @@ table = Table(title="Prompts")
 console.print(table)
 ```
 
+### Streaming Output
+```bash
+# Basic streaming execution
+vellum-explorer execute my-prompt --inputs '{"var": "value"}' --stream
+
+# Note: Streaming mode disables Rich formatting for real-time output
+# Use regular mode for formatted output:
+vellum-explorer execute my-prompt --inputs '{"var": "value"}'
+```
+
+### Export Functionality
+```bash
+# Export to CSV (all prompts)
+vellum-explorer list --export prompts.csv
+
+# Export execution results
+vellum-explorer execute my-prompt --inputs '{"var": "value"}' --export results.xlsx
+
+# Supported formats: csv, xlsx, json
+```
+
 ## Testing Considerations
 
 1. **Mock API Responses**

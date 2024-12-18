@@ -15,6 +15,9 @@ import os
 from typing import List, Optional, Dict, Any
 from dataclasses import dataclass
 from datetime import datetime
+import csv
+import json
+import pandas as pd
 
 from vellum.client import Vellum
 import vellum.types as types
@@ -333,6 +336,101 @@ class PromptExplorer:
             else:
                 self.console.print(f"[red]Error: {str(e)}[/red]")
             return {}
+
+
+# -------------------- 6. EXPORT FUNCTIONALITY -------------------------------
+def export_data(data: List[Dict], filepath: str) -> bool:
+    """
+    Export data to file in various formats.
+
+    1. Determine format from extension
+    2. Convert data to appropriate format
+    3. Save to file
+    4. Handle export errors
+    v1 - Initial implementation
+    """
+    try:
+        # Get file extension
+        _, ext = os.path.splitext(filepath)
+        ext = ext.lower()
+
+        # Convert data based on format
+        if ext == '.csv':
+            if not data:
+                return False
+            df = pd.DataFrame(data)
+            df.to_csv(filepath, index=False)
+        elif ext == '.xlsx':
+            if not data:
+                return False
+            df = pd.DataFrame(data)
+            df.to_excel(filepath, index=False)
+        elif ext == '.json':
+            with open(filepath, 'w') as f:
+                json.dump(data, f, indent=2, default=str)
+        else:
+            raise ValueError(f"Unsupported file format: {ext}")
+
+        return True
+
+    except Exception as e:
+        print(f"Error exporting data: {str(e)}")
+        return False
+
+
+class PromptExplorer:
+    [code doing class definition unchanged]
+
+    def export_prompts(self, filepath: str) -> bool:
+        """
+        Export prompt list to file.
+
+        1. Get all prompts
+        2. Convert to exportable format
+        3. Save to file
+        v1 - Initial implementation
+        """
+        prompts = self.list_prompts()
+        if not prompts:
+            return False
+
+        # Convert prompts to dict format
+        prompt_data = [
+            {
+                "id": p.id,
+                "name": p.name,
+                "label": p.label,
+                "created": p.created,
+                "last_deployed": p.last_deployed,
+                "status": p.status,
+                "environment": p.environment,
+                "description": p.description
+            }
+            for p in prompts
+        ]
+
+        return export_data(prompt_data, filepath)
+
+    def export_execution_result(self, result: Dict[str, Any], filepath: str) -> bool:
+        """
+        Export execution result to file.
+
+        1. Convert result to exportable format
+        2. Save to file
+        v1 - Initial implementation
+        """
+        if not result:
+            return False
+
+        # Convert result to list format for export
+        result_data = []
+        for item in result:
+            if hasattr(item, 'value'):
+                result_data.append({"output": item.value})
+            else:
+                result_data.append({"output": str(item)})
+
+        return export_data(result_data, filepath)
 
 
 # -------------------- 5. MAIN EXECUTION ----------------------------------
