@@ -5,10 +5,10 @@ This module provides functionality to:
 1. List available prompts - [via deployments.list endpoint, use: vellum-explorer list --status ACTIVE] - [90% complete, TODO: Add filtering by environment]
 2. View prompt details - [via deployments.get endpoint, use: vellum-explorer show <prompt-name>] - [80% complete, TODO: Add version history, usage stats]
 3. Execute prompts with custom inputs - [via execute_prompt endpoint, use: vellum-explorer execute <prompt-name> --inputs '{"key": "value"}'] - [95% complete, TODO: Add streaming support]
-4. Save and manage prompt results - TODO: Implement export functionality
+4. Save and manage prompt results - [Export to CSV/XLSX/JSON] - [100% complete]
 5. Help / Code Diagnostic based on learnings - TODO: Integrate with learnings documentation for automated troubleshooting
 
-v1 - Initial implementation with basic prompt listing and execution
+v6 - Added export functionality
 """
 
 import os
@@ -66,8 +66,56 @@ class PromptExplorer:
         self.console = Console()
         self._cache = {}
 
+    def export_prompts(self, filepath: str) -> bool:
+        """
+        Export prompt list to file.
 
-# -------------------- 3. PROMPT LISTING & DISPLAY --------------------------
+        1. Get all prompts
+        2. Convert to exportable format
+        3. Save to file
+        v1 - Initial implementation
+        """
+        prompts = self.list_prompts()
+        if not prompts:
+            return False
+
+        # Convert prompts to dict format
+        prompt_data = [
+            {
+                "id": p.id,
+                "name": p.name,
+                "label": p.label,
+                "created": p.created,
+                "last_deployed": p.last_deployed,
+                "status": p.status,
+                "environment": p.environment,
+                "description": p.description
+            }
+            for p in prompts
+        ]
+
+        return export_data(prompt_data, filepath)
+
+    def export_execution_result(self, result: Dict[str, Any], filepath: str) -> bool:
+        """
+        Export execution result to file.
+
+        1. Convert result to exportable format
+        2. Save to file
+        v1 - Initial implementation
+        """
+        if not result:
+            return False
+
+        # Convert result to list format for export
+        result_data = []
+        for item in result:
+            if hasattr(item, 'value'):
+                result_data.append({"output": item.value})
+            else:
+                result_data.append({"output": str(item)})
+
+        return export_data(result_data, filepath)
 
     def list_prompts(self, status: str = "ACTIVE", environment: Optional[str] = None) -> List[PromptInfo]:
         """
@@ -376,61 +424,6 @@ def export_data(data: List[Dict], filepath: str) -> bool:
     except Exception as e:
         print(f"Error exporting data: {str(e)}")
         return False
-
-
-class PromptExplorer:
-    [code doing class definition unchanged]
-
-    def export_prompts(self, filepath: str) -> bool:
-        """
-        Export prompt list to file.
-
-        1. Get all prompts
-        2. Convert to exportable format
-        3. Save to file
-        v1 - Initial implementation
-        """
-        prompts = self.list_prompts()
-        if not prompts:
-            return False
-
-        # Convert prompts to dict format
-        prompt_data = [
-            {
-                "id": p.id,
-                "name": p.name,
-                "label": p.label,
-                "created": p.created,
-                "last_deployed": p.last_deployed,
-                "status": p.status,
-                "environment": p.environment,
-                "description": p.description
-            }
-            for p in prompts
-        ]
-
-        return export_data(prompt_data, filepath)
-
-    def export_execution_result(self, result: Dict[str, Any], filepath: str) -> bool:
-        """
-        Export execution result to file.
-
-        1. Convert result to exportable format
-        2. Save to file
-        v1 - Initial implementation
-        """
-        if not result:
-            return False
-
-        # Convert result to list format for export
-        result_data = []
-        for item in result:
-            if hasattr(item, 'value'):
-                result_data.append({"output": item.value})
-            else:
-                result_data.append({"output": str(item)})
-
-        return export_data(result_data, filepath)
 
 
 # -------------------- 5. MAIN EXECUTION ----------------------------------
