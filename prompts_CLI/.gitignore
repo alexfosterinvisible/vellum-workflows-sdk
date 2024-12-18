@@ -5,6 +5,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.so
 .Python
 build/
 develop-eggs/
@@ -23,16 +24,31 @@ wheels/
 *.egg
 
 # Virtual Environment
-.venv/
+.env
+.venv
+env/
 venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Export files
+*.csv
+*.xlsx
+*.xls
+results/
+exports/
 
 # Testing
 .coverage
+coverage.xml
 htmlcov/
 .pytest_cache/
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo 
+.tox/
