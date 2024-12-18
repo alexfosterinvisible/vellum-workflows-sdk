@@ -1,0 +1,43 @@
+meta {
+  name: Test Authentication
+  type: http
+  seq: 1
+}
+
+# Test valid authentication
+POST {{baseUrl}}/inference/run
+headers {
+  Authorization: Bearer {{apiKey}}
+  Content-Type: application/json
+}
+body {
+  "model_id": "gpt_4o_mini_agent",
+  "llm_input": "test"
+}
+
+tests {
+  test("should return 200 OK", function() {
+    expect(response.status).to.equal(200);
+  });
+  
+  test("should have valid response headers", function() {
+    expect(response.headers).to.have.property("content-type");
+  });
+}
+
+# Test invalid authentication
+POST {{baseUrl}}/inference/run
+headers {
+  Authorization: Bearer invalid_token
+  Content-Type: application/json
+}
+body {
+  "model_id": "gpt_4o_mini_agent",
+  "llm_input": "test"
+}
+
+tests {
+  test("should return 401 Unauthorized", function() {
+    expect(response.status).to.equal(401);
+  });
+} 

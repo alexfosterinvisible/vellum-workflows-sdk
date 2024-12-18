@@ -1,0 +1,61 @@
+meta {
+  name: Basic Inference Tests
+  type: http
+  seq: 1
+}
+
+# Test basic inference
+POST {{baseUrl}}/inference/run
+headers {
+  Authorization: Bearer {{apiKey}}
+  Content-Type: application/json
+}
+body {
+  "model_id": "{{defaultModel}}",
+  "llm_input": "What is 2+2?"
+}
+
+tests {
+  test("should return 200 OK", function() {
+    expect(response.status).to.equal(200);
+  });
+  
+  test("should have valid response structure", function() {
+    expect(response.body).to.have.property("text");
+    expect(response.body.text).to.be.a("string");
+  });
+}
+
+# Test empty input handling
+POST {{baseUrl}}/inference/run
+headers {
+  Authorization: Bearer {{apiKey}}
+  Content-Type: application/json
+}
+body {
+  "model_id": "{{defaultModel}}",
+  "llm_input": ""
+}
+
+tests {
+  test("should handle empty input appropriately", function() {
+    expect(response.status).to.equal(422);
+  });
+}
+
+# Test long input
+POST {{baseUrl}}/inference/run
+headers {
+  Authorization: Bearer {{apiKey}}
+  Content-Type: application/json
+}
+body {
+  "model_id": "{{defaultModel}}",
+  "llm_input": "A".repeat(1000)
+}
+
+tests {
+  test("should handle long input", function() {
+    expect(response.status).to.equal(200);
+  });
+} 
