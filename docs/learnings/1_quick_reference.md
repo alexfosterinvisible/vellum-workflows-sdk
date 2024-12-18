@@ -40,15 +40,41 @@
    - Don't skip type checking
    - Don't assume response format
 
-## Quick Commands
+## Common Commands
+
+### Basic Operations
+```bash
+# List available prompts
+vellum-explorer list --status ACTIVE
+
+# Execute a prompt
+vellum-explorer execute my-prompt --inputs '{"var": "value"}'
+
+# Export results
+vellum-explorer execute my-prompt --export results.xlsx
+
+# Ask natural language questions about documentation
+vellum-explorer ask "How do I handle authentication in the CLI?"
+```
+
+### Natural Language Documentation Queries
+
+The CLI includes an AI-powered documentation assistant that can answer questions in natural language:
 
 ```bash
-# List all active prompts
-vellum-explorer list
+# Ask about authentication
+vellum-explorer ask "How do I set up API keys?"
 
-# Execute prompt with inputs
-vellum-explorer execute <prompt-name> --inputs '{"key": "value"}'
+# Ask about error handling
+vellum-explorer ask "What's the proper way to handle errors?"
 
-# Check prompt status
-vellum-explorer list --status ACTIVE
+# Ask about features and capabilities
+vellum-explorer ask "What types of exports are supported?"
+```
+
+The assistant will:
+1. Search through all documentation
+2. Provide relevant answers with supporting evidence
+3. Include code examples when available
+4. Show confidence scores for the responses
 ``` 

@@ -8,6 +8,7 @@ This module provides CLI commands for:
 4. View execution results - [Rich console output with formatted results] - [95% complete]
 5. Export functionality - [Export to CSV/XLSX/JSON] - [100% complete]
 6. Help and Diagnostics - [Context-aware help and error guidance] - [100% complete]
+7. Natural language documentation queries - [OpenAI helper] - [NEW]
 
 Usage Examples:
     vellum-explorer list --status ACTIVE --environment DEVELOPMENT
@@ -17,16 +18,26 @@ Usage Examples:
     vellum-explorer list --export prompts.csv
     vellum-explorer execute my-prompt --inputs '{"var": "value"}' --export results.xlsx
     vellum-explorer help streaming
+    vellum-explorer ask "What is the difference between active and archived prompts?"
 
 v6 - Added help and diagnostics
+v2 - Added natural language documentation queries
+v7 - Fixed import paths
+v8 - Fixed import paths and package structure
 """
 
 import click
 from rich.console import Console
 import json
 import os
+import sys
+from pathlib import Path
 
-from .prompt_explorer import PromptExplorer
+# Add the parent directory to sys.path
+sys.path.append(str(Path(__file__).parent.parent))
+
+from src.prompt_explorer import PromptExplorer
+from src.openai_helper import OpenAIHelper
 
 
 console = Console()
@@ -38,7 +49,7 @@ console = Console()
 def cli(ctx, api_key):
     """
     Vellum Prompt Explorer CLI - Main entry point.
-    
+
     1. Initialize explorer with API key
     2. Set up context for subcommands
     3. Handle initialization errors
@@ -59,7 +70,7 @@ def cli(ctx, api_key):
 def help(ctx, topic):
     """
     Get help and guidance on using the CLI.
-    
+
     1. Show topic-specific help if provided
     2. Show error-specific guidance if relevant
     3. Display available topics
@@ -77,7 +88,7 @@ def help(ctx, topic):
 def list(ctx, status, environment, export):
     """
     List available prompts with optional filtering.
-    
+
     1. Get prompts from explorer with filters
     2. Display formatted table
     3. Export results if requested
@@ -86,12 +97,12 @@ def list(ctx, status, environment, export):
     explorer = ctx.obj['explorer']
     try:
         prompts = explorer.list_prompts(status=status, environment=environment)
-        
+
         if not prompts:
             console.print("[yellow]No prompts found matching the criteria.[/yellow]")
             explorer.get_help(topic="environment")
             return
-            
+
         # Display results
         explorer.display_prompts(prompts)
 
@@ -118,7 +129,7 @@ def list(ctx, status, environment, export):
 def execute(ctx, prompt_name, inputs, release_tag, stream, export):
     """
     Execute a prompt with given inputs.
-    
+
     1. Parse and validate JSON inputs
     2. Execute prompt with explorer
     3. Format and display results
@@ -171,6 +182,53 @@ def execute(ctx, prompt_name, inputs, release_tag, stream, export):
     except Exception as e:
         explorer.handle_error(str(e), "input")
         ctx.exit(1)
+
+
+@cli.command()
+@click.argument('question', type=str)
+def ask(question: str):
+    """
+    Ask a natural language question about Vellum documentation.
+    
+    1. Initialize OpenAI helper
+    2. Query documentation in parallel
+    3. Display formatted results
+    v1 - Initial implementation
+    """
+    try:
+        # Initialize helper
+        helper = OpenAIHelper(use_md_crawler=True)
+        
+        # Query documentation
+        console.print(f"\n[cyan]Searching documentation for:[/cyan] {question}\n")
+        result = helper.query_docs_parallel(question)
+        
+        # Display answer
+        console.print("[bold green]Answer:[/bold green]")
+        console.print(result.get("answer", "No answer available"))
+        
+        # Display supporting evidence
+        if quotes := result.get("quotes", []):
+            console.print("\n[bold yellow]Supporting Evidence:[/bold yellow]")
+            for quote in quotes:
+                if quote.get("is_code", False):
+                    console.print(f"\n[magenta]Code Example:[/magenta] (from {quote.get('source', 'unknown')})")
+                    console.print(quote.get("text", ""))
+                else:
+                    console.print(f"\n[yellow]Quote:[/yellow] (from {quote.get('source', 'unknown')})")
+                    console.print(quote.get("text", ""))
+                console.print(f"[dim]Relevance:[/dim] {quote.get('relevance', '')}")
+        
+        # Display confidence scores
+        if confidence := result.get("confidence", {}):
+            console.print("\n[bold blue]Confidence Scores:[/bold blue]")
+            console.print(f"Answer Quality: {confidence.get('answer_quality', 'N/A')}")
+            console.print(f"Source Quality: {confidence.get('source_quality', 'N/A')}")
+            console.print(f"Completeness: {confidence.get('completeness', 'N/A')}")
+            console.print(f"Code Examples: {confidence.get('code_examples', 'N/A')}")
+        
+    except Exception as e:
+        console.print(f"[red]Error: {str(e)}[/red]")
 
 
 if __name__ == '__main__':

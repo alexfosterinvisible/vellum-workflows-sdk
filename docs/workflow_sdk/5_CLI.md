@@ -78,6 +78,48 @@ vellum workflows push my.example \
     --release-tag "v1.0.0" "production"
 ```
 
+### Basic Commands
+
+- `list` - List available prompts and their status
+- `execute` - Execute a prompt with inputs
+- `validate` - Validate prompt configuration
+- `ask` - Ask natural language questions about documentation
+
+### Command Details
+
+#### ask
+
+Ask natural language questions about Vellum documentation and get AI-powered responses.
+
+```bash
+vellum-explorer ask "your question here"
+```
+
+Features:
+- Natural language understanding
+- Parallel documentation search
+- Code examples when relevant
+- Confidence scoring
+- Supporting evidence with sources
+
+Example:
+```bash
+# Ask about authentication
+vellum-explorer ask "How do I handle API keys?"
+
+# Ask about error handling
+vellum-explorer ask "What's the proper way to handle errors?"
+
+# Ask about features
+vellum-explorer ask "What export formats are supported?"
+```
+
+The response includes:
+1. Direct answer to your question
+2. Supporting quotes from documentation
+3. Relevant code examples
+4. Confidence scores for the response
+
 ## Configuration
 
 The CLI uses configuration from your `pyproject.toml` file. Example configuration:

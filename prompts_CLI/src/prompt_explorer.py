@@ -98,25 +98,25 @@ class PromptExplorer:
         self.console.print("   vellum-explorer list")
         self.console.print("   vellum-explorer list --status ACTIVE --environment DEVELOPMENT")
         self.console.print("   vellum-explorer list --export prompts.csv")
-        
+
         self.console.print("\n2. Execute prompts:")
         self.console.print("   vellum-explorer execute my-prompt --inputs '{\"key\": \"value\"}'")
         self.console.print("   vellum-explorer execute my-prompt --inputs '{\"key\": \"value\"}' --stream")
         self.console.print("   vellum-explorer execute my-prompt --inputs '{\"key\": \"value\"}' --export results.xlsx")
-        
+
         self.console.print("\n3. Show prompt details:")
         self.console.print("   vellum-explorer show my-prompt")
 
         self.console.print("\n[yellow]Feature-specific Help:[/yellow]")
         self.console.print("\n1. Streaming Output:")
         self.console.print(get_learning_by_topic("streaming"))
-        
+
         self.console.print("\n2. Export Functionality:")
         self.console.print(get_learning_by_topic("export"))
-        
+
         self.console.print("\n3. Environment Management:")
         self.console.print(get_learning_by_topic("environment"))
-        
+
         self.console.print("\n4. Input Handling:")
         self.console.print(get_learning_by_topic("input"))
 
@@ -130,13 +130,13 @@ class PromptExplorer:
         v1 - Initial implementation
         """
         self.console.print(f"[red]Error: {error}[/red]")
-        
+
         # Get guidance
         guidance = get_learning_by_error(error)
         if guidance:
             self.console.print("\n[yellow]Suggested Solution:[/yellow]")
             self.console.print(guidance)
-        
+
         # Show context help
         if context:
             topic_help = get_learning_by_topic(context)
@@ -215,7 +215,7 @@ class PromptExplorer:
                 # Skip if environment doesn't match
                 if environment and deployment.environment != environment:
                     continue
-                    
+
                 prompt = PromptInfo(
                     id=deployment.id,
                     name=deployment.name,
@@ -256,10 +256,10 @@ class PromptExplorer:
                 (d for d in response.results if d.name == prompt_name),
                 None
             )
-            
+
             if not deployment:
                 return None
-            
+
             # Get version history (if available)
             versions = []
             try:
@@ -272,7 +272,7 @@ class PromptExplorer:
                     }
                     for v in history.results
                 ]
-            except:
+            except BaseException:
                 pass  # Version history is optional
 
             # Format details
@@ -378,9 +378,9 @@ class PromptExplorer:
         self.console.print(table)
 
     def execute_prompt(
-        self, 
-        prompt_name: str, 
-        inputs: Dict[str, str], 
+        self,
+        prompt_name: str,
+        inputs: Dict[str, str],
         release_tag: str = "LATEST",
         stream: bool = False
     ) -> Dict[str, Any]:
@@ -417,17 +417,17 @@ class PromptExplorer:
                             error_msg = chunk.error.message if hasattr(chunk, 'error') else "Unknown error"
                             self.console.print(f"[red]Error executing prompt: {error_msg}[/red]")
                             return {}
-                        
+
                         # Print each chunk as it arrives
                         if hasattr(chunk, 'outputs') and chunk.outputs:
                             for output in chunk.outputs:
                                 if hasattr(output, 'value'):
                                     print(output.value, end="", flush=True)
-                    
+
                     print()  # Final newline
                     self.console.print("[green]Streaming complete![/green]")
                     return {"status": "success", "message": "Streaming complete"}
-                
+
                 except Exception as e:
                     self.console.print(f"\n[red]Error during streaming: {str(e)}[/red]")
                     return {}
@@ -539,7 +539,7 @@ def get_learning_by_error(error_message: str) -> Optional[str]:
     for pattern, guidance in error_patterns.items():
         if pattern.lower() in error_message.lower():
             return guidance
-    
+
     return None
 
 
@@ -612,7 +612,7 @@ def demo_functionality():
     console.print("\n[bold cyan]3. Prompt Execution Demo[/bold cyan]")
     test_prompt = prompts[0]
     console.print(f"Let's execute the first available prompt: [green]{test_prompt.name}[/green]")
-    
+
     # Demo inputs
     demo_inputs = {
         "description": "A friendly chatbot that helps users learn Python",
@@ -625,7 +625,7 @@ def demo_functionality():
     }
     console.print("\nUsing these example inputs:")
     console.print(demo_inputs)
-    
+
     console.print("\nExecuting prompt...")
     result = explorer.execute_prompt(
         prompt_name=test_prompt.name,
@@ -635,7 +635,7 @@ def demo_functionality():
     if result:
         console.print("\n[green]Execution successful![/green]")
         console.print("Result:", result)
-    
+
     # 4. Show export capabilities
     console.print("\n[bold cyan]4. Export Capabilities[/bold cyan]")
     console.print("The CLI supports exporting results to CSV, XLSX, and JSON formats.")

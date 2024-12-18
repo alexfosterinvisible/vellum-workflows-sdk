@@ -1,5 +1,6 @@
 # Environment variables
 .env
+.env.*
 
 # Python
 __pycache__/
@@ -25,14 +26,14 @@ wheels/
 # Virtual Environment
 .venv/
 venv/
-
-# Testing
-.coverage
-htmlcov/
-.pytest_cache/
+ENV/
 
 # IDE
-.vscode/
 .idea/
+.vscode/
 *.swp
-*.swo 
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db 
