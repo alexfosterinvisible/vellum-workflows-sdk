@@ -265,7 +265,7 @@ class PromptExplorer:
         2. Execute prompt (streaming or regular)
         3. Handle errors and return results
         4. Format streaming output if enabled
-        v4 - Added streaming support
+        v5 - Fixed streaming output to use print for real-time display
         """
         try:
             # Convert inputs to Vellum format
@@ -281,6 +281,7 @@ class PromptExplorer:
             if stream:
                 # Execute prompt with streaming
                 try:
+                    self.console.print("[cyan]Starting streaming output...[/cyan]")
                     for chunk in self.client.execute_prompt_stream(
                         prompt_deployment_name=prompt_name,
                         release_tag=release_tag,
@@ -291,13 +292,14 @@ class PromptExplorer:
                             self.console.print(f"[red]Error executing prompt: {error_msg}[/red]")
                             return {}
                         
-                        # Yield each chunk as it arrives
+                        # Print each chunk as it arrives
                         if hasattr(chunk, 'outputs') and chunk.outputs:
                             for output in chunk.outputs:
                                 if hasattr(output, 'value'):
-                                    self.console.print(output.value, end="", flush=True)
+                                    print(output.value, end="", flush=True)
                     
-                    self.console.print()  # Final newline
+                    print()  # Final newline
+                    self.console.print("[green]Streaming complete![/green]")
                     return {"status": "success", "message": "Streaming complete"}
                 
                 except Exception as e:
