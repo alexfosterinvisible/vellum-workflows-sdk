@@ -7,6 +7,7 @@ This module provides CLI commands for:
 3. Execute prompts with inputs - [via 'execute' command with JSON input and streaming support] - [100% complete]
 4. View execution results - [Rich console output with formatted results] - [95% complete]
 5. Export functionality - [Export to CSV/XLSX/JSON] - [100% complete]
+6. Help and Diagnostics - [Context-aware help and error guidance] - [100% complete]
 
 Usage Examples:
     vellum-explorer list --status ACTIVE --environment DEVELOPMENT
@@ -15,8 +16,9 @@ Usage Examples:
     vellum-explorer execute my-prompt --inputs '{"var": "value"}' --stream
     vellum-explorer list --export prompts.csv
     vellum-explorer execute my-prompt --inputs '{"var": "value"}' --export results.xlsx
+    vellum-explorer help streaming
 
-v5 - Added export functionality
+v6 - Added help and diagnostics
 """
 
 import click
@@ -46,8 +48,25 @@ def cli(ctx, api_key):
     try:
         ctx.obj['explorer'] = PromptExplorer(api_key=api_key)
     except Exception as e:
-        console.print(f"[red]Error initializing Prompt Explorer: {str(e)}[/red]")
+        explorer = PromptExplorer()  # Create without API key for help
+        explorer.handle_error(str(e), "environment")
         ctx.exit(1)
+
+
+@cli.command()
+@click.argument('topic', required=False)
+@click.pass_context
+def help(ctx, topic):
+    """
+    Get help and guidance on using the CLI.
+    
+    1. Show topic-specific help if provided
+    2. Show error-specific guidance if relevant
+    3. Display available topics
+    v1
+    """
+    explorer = ctx.obj['explorer']
+    explorer.get_help(topic=topic)
 
 
 @cli.command()
@@ -65,22 +84,28 @@ def list(ctx, status, environment, export):
     v4 - Added export option
     """
     explorer = ctx.obj['explorer']
-    prompts = explorer.list_prompts(status=status, environment=environment)
-    
-    if not prompts:
-        console.print("[yellow]No prompts found matching the criteria.[/yellow]")
-        return
+    try:
+        prompts = explorer.list_prompts(status=status, environment=environment)
         
-    # Display results
-    explorer.display_prompts(prompts)
+        if not prompts:
+            console.print("[yellow]No prompts found matching the criteria.[/yellow]")
+            explorer.get_help(topic="environment")
+            return
+            
+        # Display results
+        explorer.display_prompts(prompts)
 
-    # Export if requested
-    if export:
-        if explorer.export_prompts(export):
-            console.print(f"[green]Successfully exported prompts to: {export}[/green]")
-        else:
-            console.print(f"[red]Failed to export prompts to: {export}[/red]")
-            ctx.exit(1)
+        # Export if requested
+        if export:
+            if explorer.export_prompts(export):
+                console.print(f"[green]Successfully exported prompts to: {export}[/green]")
+            else:
+                console.print(f"[red]Failed to export prompts to: {export}[/red]")
+                explorer.get_help(topic="export")
+                ctx.exit(1)
+    except Exception as e:
+        explorer.handle_error(str(e), "environment")
+        ctx.exit(1)
 
 
 @cli.command()
@@ -98,14 +123,18 @@ def execute(ctx, prompt_name, inputs, release_tag, stream, export):
     2. Execute prompt with explorer
     3. Format and display results
     4. Export results if requested
-    v4 - Added export option
+    v5 - Added learnings integration
     """
+    explorer = ctx.obj['explorer']
     try:
         # Parse inputs JSON
-        input_dict = json.loads(inputs)
+        try:
+            input_dict = json.loads(inputs)
+        except json.JSONDecodeError:
+            explorer.handle_error("Invalid JSON input format", "input")
+            ctx.exit(1)
 
         # Execute prompt
-        explorer = ctx.obj['explorer']
         result = explorer.execute_prompt(
             prompt_name=prompt_name,
             inputs=input_dict,
@@ -136,13 +165,11 @@ def execute(ctx, prompt_name, inputs, release_tag, stream, export):
                     console.print(f"[green]Successfully exported results to: {export}[/green]")
                 else:
                     console.print(f"[red]Failed to export results to: {export}[/red]")
+                    explorer.get_help(topic="export")
                     ctx.exit(1)
 
-    except json.JSONDecodeError:
-        console.print("[red]Error: Inputs must be a valid JSON string[/red]")
-        ctx.exit(1)
     except Exception as e:
-        console.print(f"[red]Error executing prompt: {str(e)}[/red]")
+        explorer.handle_error(str(e), "input")
         ctx.exit(1)
 
 

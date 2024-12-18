@@ -426,6 +426,146 @@ def export_data(data: List[Dict], filepath: str) -> bool:
         return False
 
 
+# -------------------- 7. LEARNINGS INTEGRATION -------------------------------
+def get_learning_by_error(error_message: str) -> Optional[str]:
+    """
+    Get relevant learning based on error message.
+
+    1. Match error pattern
+    2. Return relevant guidance
+    3. Provide example if available
+    v1 - Initial implementation
+    """
+    error_patterns = {
+        "Input variable": (
+            "Missing required input variable. Use 'show' command to see required variables:\n"
+            "vellum-explorer show <prompt-name>"
+        ),
+        "Invalid API key": (
+            "API key validation failed. Check:\n"
+            "1. VELLUM_API_KEY in .env file\n"
+            "2. API key permissions\n"
+            "3. Environment variables are loaded"
+        ),
+        "rate limit": (
+            "Rate limit reached. Consider:\n"
+            "1. Implementing exponential backoff\n"
+            "2. Tracking API usage\n"
+            "3. Queuing requests when near limits"
+        ),
+        "not found": (
+            "Resource not found. Note:\n"
+            "1. Vellum client lacks direct 'get' method\n"
+            "2. Use list() and filter instead\n"
+            "3. Check environment and status filters"
+        )
+    }
+
+    for pattern, guidance in error_patterns.items():
+        if pattern.lower() in error_message.lower():
+            return guidance
+    
+    return None
+
+
+def get_learning_by_topic(topic: str) -> Optional[str]:
+    """
+    Get learning guidance by topic.
+
+    1. Match topic
+    2. Return relevant guidance
+    3. Provide examples
+    v1 - Initial implementation
+    """
+    topics = {
+        "streaming": (
+            "Streaming Output Tips:\n"
+            "1. Use --stream flag for real-time output\n"
+            "2. Note: Streaming disables Rich formatting\n"
+            "3. Example: vellum-explorer execute my-prompt --inputs '{...}' --stream"
+        ),
+        "export": (
+            "Export Functionality:\n"
+            "1. Supported formats: csv, xlsx, json\n"
+            "2. Use --export flag with desired filename\n"
+            "3. Examples:\n"
+            "   - List: vellum-explorer list --export prompts.csv\n"
+            "   - Execute: vellum-explorer execute my-prompt --inputs '{...}' --export results.xlsx"
+        ),
+        "environment": (
+            "Environment Management:\n"
+            "1. Filter by environment: --environment DEVELOPMENT\n"
+            "2. Set API key in .env file\n"
+            "3. Example: vellum-explorer list --environment PRODUCTION"
+        ),
+        "input": (
+            "Input Handling:\n"
+            "1. Use JSON format for inputs\n"
+            "2. Check required variables with 'show' command\n"
+            "3. Example: vellum-explorer execute my-prompt --inputs '{\"var\": \"value\"}'"
+        )
+    }
+
+    return topics.get(topic.lower())
+
+
+class PromptExplorer:
+    def get_help(self, topic: Optional[str] = None, error: Optional[str] = None) -> None:
+        """
+        Get help and guidance based on topic or error.
+
+        1. Check for error-specific guidance
+        2. Check for topic-specific guidance
+        3. Display relevant information
+        v1 - Initial implementation
+        """
+        if error:
+            guidance = get_learning_by_error(error)
+            if guidance:
+                self.console.print("\n[bold cyan]Error Guidance:[/bold cyan]")
+                self.console.print(guidance)
+                return
+
+        if topic:
+            guidance = get_learning_by_topic(topic)
+            if guidance:
+                self.console.print("\n[bold cyan]Topic Guidance:[/bold cyan]")
+                self.console.print(guidance)
+                return
+
+        # Default help if no specific guidance found
+        self.console.print("\n[bold cyan]Available Help Topics:[/bold cyan]")
+        self.console.print("1. streaming - Real-time output handling")
+        self.console.print("2. export - Data export functionality")
+        self.console.print("3. environment - Environment management")
+        self.console.print("4. input - Input handling and validation")
+        self.console.print("\nUse: vellum-explorer help <topic>")
+
+    def handle_error(self, error: str, context: Optional[str] = None) -> None:
+        """
+        Handle errors with guidance from learnings.
+
+        1. Display error message
+        2. Get relevant guidance
+        3. Show context-specific help
+        v1 - Initial implementation
+        """
+        self.console.print(f"[red]Error: {error}[/red]")
+        
+        # Get guidance
+        guidance = get_learning_by_error(error)
+        if guidance:
+            self.console.print("\n[yellow]Suggested Solution:[/yellow]")
+            self.console.print(guidance)
+        
+        # Show context help
+        if context:
+            topic_help = get_learning_by_topic(context)
+            if topic_help:
+                self.console.print("\n[yellow]Related Information:[/yellow]")
+                self.console.print(topic_help)
+
+
 # -------------------- 5. MAIN EXECUTION ----------------------------------
 def demo_functionality():
     """Run a demonstration of the PromptExplorer's capabilities."""
