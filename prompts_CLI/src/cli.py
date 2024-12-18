@@ -18,13 +18,14 @@ This module provides CLI commands for:
 Usage Examples:
     vellum-explorer list --status ACTIVE --environment DEVELOPMENT
     vellum-explorer show my-prompt
+    vellum-explorer list-and-inspect
+    vellum-explorer list-and-inspect --status ACTIVE
+    vellum-explorer ask "What is the difference between active and archived prompts?"
     vellum-explorer execute my-prompt --inputs '{"var": "value"}'
     vellum-explorer execute my-prompt --inputs '{"var": "value"}' --stream
     vellum-explorer list --export prompts.csv
     vellum-explorer execute my-prompt --inputs '{"var": "value"}' --export results.xlsx
     vellum-explorer help streaming
-    vellum-explorer ask "What is the difference between active and archived prompts?"
-    vellum-explorer list-and-inspect --status ACTIVE
 
 TODO:
 1. Add filtering to list command:
