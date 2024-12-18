@@ -51,20 +51,28 @@ class PromptExplorer:
         1. Load environment variables
         2. Initialize Vellum client
         3. Set up rich console for output
-        v2 - Added result caching
+        v3 - Added error handling
         """
-        # Load environment variables if no API key provided
-        if not api_key:
-            load_dotenv()
-            api_key = os.getenv('VELLUM_API_KEY')
-
-        if not api_key:
-            raise ValueError("No API key provided. Set VELLUM_API_KEY in .env or pass directly.")
-
-        # Initialize Vellum client and cache
-        self.client = Vellum(api_key=api_key)
+        # Initialize console first for error handling
         self.console = Console()
         self._cache = {}
+
+        try:
+            # Load environment variables if no API key provided
+            if not api_key:
+                load_dotenv()
+                api_key = os.getenv('VELLUM_API_KEY')
+
+            if not api_key:
+                raise ValueError("No API key provided. Set VELLUM_API_KEY in .env or pass directly.")
+
+            # Initialize Vellum client
+            self.client = Vellum(api_key=api_key)
+        except Exception as e:
+            self.client = None
+            if not isinstance(e, ValueError):
+                self.handle_error(str(e), "environment")
+                raise
 
     def export_prompts(self, filepath: str) -> bool:
         """
