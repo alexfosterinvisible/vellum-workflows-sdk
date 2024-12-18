@@ -74,6 +74,61 @@ class PromptExplorer:
                 self.handle_error(str(e), "environment")
                 raise
 
+    def get_help(self, topic: Optional[str] = None, error: Optional[str] = None) -> None:
+        """
+        Get help and guidance based on topic or error.
+
+        1. Check for error-specific guidance
+        2. Check for topic-specific guidance
+        3. Display relevant information
+        v1 - Initial implementation
+        """
+        if error:
+            guidance = get_learning_by_error(error)
+            if guidance:
+                self.console.print("\n[bold cyan]Error Guidance:[/bold cyan]")
+                self.console.print(guidance)
+                return
+
+        if topic:
+            guidance = get_learning_by_topic(topic)
+            if guidance:
+                self.console.print("\n[bold cyan]Topic Guidance:[/bold cyan]")
+                self.console.print(guidance)
+                return
+
+        # Default help if no specific guidance found
+        self.console.print("\n[bold cyan]Available Help Topics:[/bold cyan]")
+        self.console.print("1. streaming - Real-time output handling")
+        self.console.print("2. export - Data export functionality")
+        self.console.print("3. environment - Environment management")
+        self.console.print("4. input - Input handling and validation")
+        self.console.print("\nUse: vellum-explorer help <topic>")
+
+    def handle_error(self, error: str, context: Optional[str] = None) -> None:
+        """
+        Handle errors with guidance from learnings.
+
+        1. Display error message
+        2. Get relevant guidance
+        3. Show context-specific help
+        v1 - Initial implementation
+        """
+        self.console.print(f"[red]Error: {error}[/red]")
+        
+        # Get guidance
+        guidance = get_learning_by_error(error)
+        if guidance:
+            self.console.print("\n[yellow]Suggested Solution:[/yellow]")
+            self.console.print(guidance)
+        
+        # Show context help
+        if context:
+            topic_help = get_learning_by_topic(context)
+            if topic_help:
+                self.console.print("\n[yellow]Related Information:[/yellow]")
+                self.console.print(topic_help)
+
     def export_prompts(self, filepath: str) -> bool:
         """
         Export prompt list to file.
@@ -307,9 +362,6 @@ class PromptExplorer:
 
         self.console.print(table)
 
-
-# -------------------- 4. PROMPT EXECUTION ---------------------------------
-
     def execute_prompt(
         self, 
         prompt_name: str, 
@@ -515,63 +567,6 @@ def get_learning_by_topic(topic: str) -> Optional[str]:
     }
 
     return topics.get(topic.lower())
-
-
-class PromptExplorer:
-    def get_help(self, topic: Optional[str] = None, error: Optional[str] = None) -> None:
-        """
-        Get help and guidance based on topic or error.
-
-        1. Check for error-specific guidance
-        2. Check for topic-specific guidance
-        3. Display relevant information
-        v1 - Initial implementation
-        """
-        if error:
-            guidance = get_learning_by_error(error)
-            if guidance:
-                self.console.print("\n[bold cyan]Error Guidance:[/bold cyan]")
-                self.console.print(guidance)
-                return
-
-        if topic:
-            guidance = get_learning_by_topic(topic)
-            if guidance:
-                self.console.print("\n[bold cyan]Topic Guidance:[/bold cyan]")
-                self.console.print(guidance)
-                return
-
-        # Default help if no specific guidance found
-        self.console.print("\n[bold cyan]Available Help Topics:[/bold cyan]")
-        self.console.print("1. streaming - Real-time output handling")
-        self.console.print("2. export - Data export functionality")
-        self.console.print("3. environment - Environment management")
-        self.console.print("4. input - Input handling and validation")
-        self.console.print("\nUse: vellum-explorer help <topic>")
-
-    def handle_error(self, error: str, context: Optional[str] = None) -> None:
-        """
-        Handle errors with guidance from learnings.
-
-        1. Display error message
-        2. Get relevant guidance
-        3. Show context-specific help
-        v1 - Initial implementation
-        """
-        self.console.print(f"[red]Error: {error}[/red]")
-        
-        # Get guidance
-        guidance = get_learning_by_error(error)
-        if guidance:
-            self.console.print("\n[yellow]Suggested Solution:[/yellow]")
-            self.console.print(guidance)
-        
-        # Show context help
-        if context:
-            topic_help = get_learning_by_topic(context)
-            if topic_help:
-                self.console.print("\n[yellow]Related Information:[/yellow]")
-                self.console.print(topic_help)
 
 
 # -------------------- 5. MAIN EXECUTION ----------------------------------
