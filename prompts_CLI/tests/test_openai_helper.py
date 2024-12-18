@@ -81,16 +81,16 @@
 #     v4 - Updated mocking for file system
 #     """
 #     helper = OpenAIHelper(api_key="test_key", testing=True)
-    
+
 #     # Test query
 #     result = helper.query_docs_parallel("How do I list prompts?")
-    
+
 #     # Verify response structure
 #     assert isinstance(result, dict)
 #     assert "answer" in result
 #     assert "quotes" in result
 #     assert "confidence" in result
-    
+
 #     # Verify API calls
 #     mock_client = mock_openai_client.return_value
 #     assert mock_client.chat.completions.create.called
@@ -106,14 +106,14 @@
 #     v4 - Updated error handling for parallel queries
 #     """
 #     helper = OpenAIHelper(api_key="test_key", testing=True)
-    
+
 #     # Make the query fail with a specific error
 #     mock_client = mock_openai_client.return_value
 #     mock_client.chat.completions.create.side_effect = Exception("API error")
-    
+
 #     # Test error handling
 #     result = helper.query_docs_parallel("Test query")
-    
+
 #     # Verify error response format
 #     assert isinstance(result, dict)
 #     assert "answer" in result

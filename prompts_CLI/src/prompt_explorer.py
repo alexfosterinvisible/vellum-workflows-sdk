@@ -586,16 +586,46 @@ def get_learning_by_topic(topic: str) -> Optional[str]:
 
 # -------------------- 5. MAIN EXECUTION ----------------------------------
 def demo_functionality():
-    """Run a demonstration of the PromptExplorer's capabilities."""
+    """
+    Run a demonstration of the PromptExplorer's capabilities.
+    
+    1. Show CLI usage guide
+    2. List available prompts
+    3. Execute example prompt
+    4. Show export capabilities
+    v8 - Added prominent help display
+    """
     explorer = PromptExplorer()
     console = Console()
 
-    console.print("\n[bold cyan]Vellum Prompt Explorer Demo[/bold cyan]")
+    # Show CLI usage guide first
+    console.print("\n[bold cyan]Vellum Prompt Explorer - Quick Start Guide[/bold cyan]")
+    console.print("\n[yellow]Available Commands:[/yellow]")
+    console.print("1. List prompts:")
+    console.print("   vellum-explorer list")
+    console.print("   vellum-explorer list --status ACTIVE --environment DEVELOPMENT")
+    console.print("   vellum-explorer list --export prompts.csv")
+    
+    console.print("\n2. Execute prompts:")
+    console.print("   vellum-explorer execute my-prompt --inputs '{\"key\": \"value\"}'")
+    console.print("   vellum-explorer execute my-prompt --inputs '{\"key\": \"value\"}' --export results.xlsx")
+    
+    console.print("\n3. Environment setup:")
+    console.print("   - Create .env file with VELLUM_API_KEY=your-api-key")
+    console.print("   - Or set environment variable: export VELLUM_API_KEY=your-api-key")
+    
+    console.print("\n4. Export formats:")
+    console.print("   - CSV:  --export results.csv")
+    console.print("   - XLSX: --export results.xlsx")
+    console.print("   - JSON: --export results.json")
+
+    console.print("\n[bold cyan]Starting Demo...[/bold cyan]")
     console.print("This demo shows the main features of the CLI tool.\n")
 
+    # Rest of the demo
     # 1. Show help information
     console.print("\n[bold cyan]1. Help Information[/bold cyan]")
-    console.print("First, let's see what commands are available:")
+    console.print("Detailed help and guidance:")
     explorer.get_help()
 
     # 2. Demo prompt listing
@@ -646,7 +676,7 @@ def demo_functionality():
     console.print("\n[bold cyan]Try It Yourself[/bold cyan]")
     console.print("1. Set your VELLUM_API_KEY in .env")
     console.print("2. Run 'vellum-explorer --help' to see all commands")
-    console.print("3. Use the example commands shown in the help output above")
+    console.print("3. Use the example commands shown above")
 
 
 if __name__ == "__main__":

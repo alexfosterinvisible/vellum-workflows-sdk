@@ -35,7 +35,7 @@ GLOBAL_VARS = {
     "TEMPERATURE": 0.1,  # Low temperature for factual responses
     "MAX_TOKENS": 1000,  # Maximum response length
     "ALLOWED_MODELS": ["gpt-4o", "gpt-4o-mini", "o1-mini"],
-    
+
     # -------------------- Documentation Files --------------------
     "DOC_FILES": [
         "docs/learnings/README.md",
@@ -51,24 +51,24 @@ GLOBAL_VARS = {
         "docs/workflow_sdk/5_CLI.md",
         "prompts_CLI/README.md"
     ],
-    
+
     # -------------------- Rate Limiting --------------------
     "RATE_LIMIT_PER_MINUTE": 200,  # Maximum API calls per minute
     "RATE_LIMIT_PER_SECOND": 30,   # Maximum API calls per second
     "MAX_RETRIES": 3,              # Maximum retry attempts
     "BACKOFF_FACTOR": 2,           # Exponential backoff multiplier
-    
+
     # -------------------- Concurrency Settings --------------------
     "MAX_WORKERS": 50,             # Maximum concurrent threads
     "SYNC_OR_ASYNC": "async",      # "sync" or "async" operation mode
-    
+
     # -------------------- Timeouts --------------------
     "LLM_TIMEOUT": 30,             # Timeout for individual LLM calls (seconds)
     "TOTAL_TIMEOUT": 120,          # Total operation timeout (seconds)
-    
+
     # -------------------- Logging --------------------
     "LOGGER_LEVEL": "INFO",        # Logging level for the application
-    
+
     # -------------------- Confidence Scoring --------------------
     "CONFIDENCE_RUBRIC": {
         "direct_answer": "Does the text directly answer the query? (yes/no)",
@@ -77,7 +77,7 @@ GLOBAL_VARS = {
         "up_to_date": "Does the information appear current? (yes/no)",
         "implementation_details": "Does it provide implementation details? (yes/no)"
     },
-    
+
     # -------------------- Response Formats --------------------
     "JSON_SCHEMA": {
         "doc_search": {
@@ -136,7 +136,7 @@ GLOBAL_VARS = {
 def find_md_files(start_path: str = ".") -> List[str]:
     """
     Find all .md files in the repository, respecting .gitignore.
-    
+
     1. Read .gitignore patterns
     2. Walk directory tree
     3. Filter files based on patterns
@@ -145,13 +145,13 @@ def find_md_files(start_path: str = ".") -> List[str]:
     """
     md_files = []
     gitignore_patterns = set()
-    
+
     # Read .gitignore if it exists
     gitignore_path = os.path.join(start_path, '.gitignore')
     if os.path.exists(gitignore_path):
         with open(gitignore_path, 'r') as f:
             gitignore_patterns = {line.strip() for line in f if line.strip() and not line.startswith('#')}
-    
+
     def is_ignored(path: str) -> bool:
         """Check if path matches any gitignore pattern."""
         path = os.path.normpath(path)
@@ -159,12 +159,12 @@ def find_md_files(start_path: str = ".") -> List[str]:
             if fnmatch.fnmatch(path, pattern):
                 return True
         return False
-    
+
     # Walk directory tree
     for root, dirs, files in os.walk(start_path):
         # Remove ignored directories
         dirs[:] = [d for d in dirs if not is_ignored(os.path.join(root, d))]
-        
+
         # Find .md files
         for file in files:
             if file.endswith('.md'):
@@ -173,7 +173,7 @@ def find_md_files(start_path: str = ".") -> List[str]:
                     # Convert to relative path
                     rel_path = os.path.relpath(full_path, start_path)
                     md_files.append(rel_path)
-    
+
     return sorted(md_files)  # Sort for consistent ordering
 
 
@@ -183,7 +183,7 @@ def find_md_files(start_path: str = ".") -> List[str]:
 @dataclass(frozen=True)
 class PROMPTS:
     """Collection of system and user prompts for documentation querying."""
-    
+
     class DocSearch:
         SYSTEM: str = '\n'.join([
             '<system_prompt>',
@@ -339,7 +339,7 @@ class OpenAIHelper:
     def _query_single_doc(self, query: str, doc_content: str, file_path: str) -> Dict:
         """
         Query a single documentation file and get confidence scores.
-        
+
         1. Format messages
         2. Make API call with timeout
         3. Parse and return response
@@ -355,7 +355,7 @@ class OpenAIHelper:
             ]
 
             self._log_llm_call(f"Analyzing {os.path.basename(file_path)}")
-            
+
             # Make API call with timeout
             response = self.client.with_options(timeout=GLOBAL_VARS["LLM_TIMEOUT"]).chat.completions.create(
                 model=GLOBAL_VARS["MODEL"],
@@ -392,7 +392,7 @@ class OpenAIHelper:
     def _synthesize_responses(self, query: str, doc_responses: List[Dict]) -> Dict:
         """
         Synthesize responses from multiple documentation sources.
-        
+
         1. Format messages
         2. Make API call with timeout
         3. Parse and return response
@@ -408,7 +408,7 @@ class OpenAIHelper:
             ]
 
             self._log_llm_call("Synthesizing responses")
-            
+
             # Make API call with timeout
             response = self.client.with_options(timeout=GLOBAL_VARS["LLM_TIMEOUT"]).chat.completions.create(
                 model=GLOBAL_VARS["MODEL"],
@@ -477,7 +477,7 @@ class OpenAIHelper:
                     file_executor.submit(self._read_doc_file, file_path): file_path
                     for file_path in GLOBAL_VARS["DOC_FILES"]
                 }
-                
+
                 doc_contents = {}
                 for future in as_completed(file_futures, timeout=GLOBAL_VARS["TOTAL_TIMEOUT"]):
                     file_path = file_futures[future]
@@ -494,7 +494,7 @@ class OpenAIHelper:
                     query_executor.submit(self._query_single_doc, query, content, file_path): file_path
                     for file_path, content in doc_contents.items()
                 }
-                
+
                 # Collect responses as they complete
                 doc_responses = []
                 for future in as_completed(query_futures, timeout=GLOBAL_VARS["TOTAL_TIMEOUT"]):
@@ -509,7 +509,7 @@ class OpenAIHelper:
             # Synthesize final response
             if not doc_responses:
                 raise ValueError("No successful document queries")
-                
+
             return self._synthesize_responses(query, doc_responses)
 
         except TimeoutError:
@@ -541,7 +541,7 @@ class OpenAIHelper:
 def demo_functionality():
     """
     Run a demonstration of the OpenAI helper's capabilities.
-    
+
     1. Initialize helper
     2. Run example queries in parallel
     3. Show parallel querying results with code examples
@@ -568,7 +568,7 @@ def demo_functionality():
         show_lines=True,
         width=120
     )
-    
+
     # Add columns with appropriate sizing
     table.add_column("Query", style="cyan", width=25)
     table.add_column("Answer", style="green", width=30)
@@ -578,14 +578,14 @@ def demo_functionality():
 
     # Run queries in parallel
     console.print("[bold cyan]Processing Queries in Parallel[/bold cyan]")
-    
+
     with ThreadPoolExecutor(max_workers=len(example_queries)) as query_executor:
         # Submit all queries
         future_to_query = {
             query_executor.submit(helper.query_docs_parallel, query): query
             for query in example_queries
         }
-        
+
         # Process results as they complete
         results = {}
         for future in as_completed(future_to_query):
@@ -609,11 +609,11 @@ def demo_functionality():
     # Add results to table in original order
     for query in example_queries:
         response = results[query]
-        
+
         # Format quotes with sources
         quotes_text = []
         code_examples = []
-        
+
         for quote in response.get("quotes", []):
             # Check if quote contains code
             text = quote.get('text', '')
@@ -628,7 +628,7 @@ def demo_functionality():
                     f"[dim]Source:[/dim] {quote.get('source', '')}\n"
                     f"[dim]Relevance:[/dim] {quote.get('relevance', '')}"
                 )
-        
+
         # Format confidence scores
         confidence = response.get("confidence", {})
         confidence_text = "\n".join([
@@ -636,7 +636,7 @@ def demo_functionality():
             f"[blue]Sources:[/blue] {confidence.get('source_quality', 'N/A')}",
             f"[blue]Complete:[/blue] {confidence.get('completeness', 'N/A')}"
         ])
-        
+
         # Add to table
         table.add_row(
             query,

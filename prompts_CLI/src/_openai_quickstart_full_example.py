@@ -7,9 +7,11 @@ This module provides functionality for:
 3. Email extraction
 v4 - Added concurrent execution support
 """
-import logging, os, time
+import logging
+import os
+import time
 from rich.logging import RichHandler
-from rich.table import Table 
+from rich.table import Table
 from rich.console import Console
 from openai import OpenAI
 from dotenv import load_dotenv
@@ -294,37 +296,37 @@ logger = setup_logging()
 class RateLimiter:
     """
     Rate limiter using token bucket algorithm.
-    
+
     1. Track API calls per second and minute
     2. Enforce rate limits
     3. Handle backoff when limits are reached
     v2 - Improved rate limiting with better tracking
     """
-    
+
     def __init__(self):
         """Initialize rate limiter with separate buckets for second and minute tracking."""
         self.per_second_calls = deque(maxlen=RATE_LIMIT_PER_SECOND)
         self.per_minute_calls = deque(maxlen=RATE_LIMIT_PER_MINUTE)
         self.total_waits = 0.0  # Track total wait time
         self.total_calls = 0  # Track total calls made
-    
+
     def _clean_old_timestamps(self, timestamps: deque, window: timedelta):
         """Remove timestamps older than the window."""
         now = datetime.now()
         while timestamps and (now - timestamps[0]) > window:
             timestamps.popleft()
-    
+
     def wait_if_needed(self):
         """Check rate limits and wait if necessary."""
         now = datetime.now()
         self.total_calls += 1
-        
+
         # Clean up old timestamps
         self._clean_old_timestamps(self.per_second_calls, timedelta(seconds=1))
         self._clean_old_timestamps(self.per_minute_calls, timedelta(minutes=1))
-        
+
         total_sleep_time = 0.0
-        
+
         # Check second limit
         if len(self.per_second_calls) >= RATE_LIMIT_PER_SECOND:
             sleep_time = 1 - (now - self.per_second_calls[0]).total_seconds()
@@ -332,7 +334,7 @@ class RateLimiter:
                 logger.warning(f"⚠️  Rate limit reached (per second). Waiting {sleep_time:.2f}s")
                 time.sleep(sleep_time)
                 total_sleep_time += sleep_time
-        
+
         # Check minute limit
         if len(self.per_minute_calls) >= RATE_LIMIT_PER_MINUTE:
             sleep_time = 60 - (now - self.per_minute_calls[0]).total_seconds()
@@ -340,13 +342,13 @@ class RateLimiter:
                 logger.warning(f"⚠️  Rate limit reached (per minute). Waiting {sleep_time:.2f}s")
                 time.sleep(sleep_time)
                 total_sleep_time += sleep_time
-        
+
         # Record the call and update stats
         now = datetime.now()  # Update timestamp after potential sleep
         self.per_second_calls.append(now)
         self.per_minute_calls.append(now)
         self.total_waits += total_sleep_time
-        
+
         # Log current status
         logger.debug(
             f"Rate limits: {len(self.per_second_calls)}/s, {len(self.per_minute_calls)}/min "
@@ -537,47 +539,47 @@ class OAI:
 if __name__ == "__main__":
     # Test image URL that works
     TEST_IMAGE_URL = "https://img.freepik.com/premium-photo/lion-runs-through-water-splashing-with-every-step_36682-244775.jpg?w=2000"
-    
+
     logger.info("[bold green]Starting OpenAI Quickstart Demo[/bold green]")
-    
+
     try:
         # Initialize client with 3 workers for regular demos
         client = OAI(max_workers=3)
-        
+
         # Regular demos
         logger.info("\n[yellow]1. Regular Demos[/yellow]")
-        
+
         # Test haiku generation
         logger.info("\n[cyan]Testing haiku generation:[/cyan]")
         if result := client.create_haiku():
             logger.info(f"[magenta]{result}[/magenta]")
-        
+
         # Test image description
         logger.info("\n[cyan]Testing image description:[/cyan]")
         if result := client.describe_image(TEST_IMAGE_URL):
             logger.info(f"[magenta]{result}[/magenta]")
-        
+
         # Test email extraction
         logger.info("\n[cyan]Testing email extraction:[/cyan]")
         if result := client.extract_email("Contact us at support@example.com"):
             logger.info(f"[magenta]{result}[/magenta]")
-        
+
         # Threaded demo with jokes
         TOTAL_JOKES = 500
         logger.info(f"\n[yellow]2. Threaded Demo - Generating {TOTAL_JOKES} Jokes[/yellow]")
-        
+
         # Initialize client with more workers for batch processing
         threaded_client = OAI(max_workers=10)
-        
+
         # Record start time
         start_time = time.time()
-        
+
         # Generate jokes concurrently
         results = threaded_client.tell_jokes_batch(1, TOTAL_JOKES)
-        
+
         # Calculate total time
         total_time = time.time() - start_time
-        
+
         # Calculate stats
         success_count = sum(1 for r in results if r is not None)
 
@@ -586,25 +588,25 @@ if __name__ == "__main__":
         table = Table(title="Generated Jokes", show_header=True, header_style="bold cyan")
         table.add_column("#", justify="right", style="cyan")
         table.add_column("Joke", style="magenta")
-        
+
         for i, result in enumerate(results, 1):
             if result:
                 table.add_row(str(i), result)
-        
+
         # Display the table using console to properly render the table
         console = Console()
         console.print(table)
-        
+
         logger.info("\n[bold cyan]Async Processing Stats[/bold cyan]")
         logger.info(f"Total time: {total_time:.2f}s")
         logger.info(f"Successful requests: {success_count}/{TOTAL_JOKES}")
         logger.info(f"Average time per request: {total_time/TOTAL_JOKES:.2f}s")
         logger.info(f"Requests per second: {TOTAL_JOKES/total_time:.2f}")
-        
+
         # Display rate limiter stats
         logger.info(f"Total wait time: {threaded_client.rate_limiter.total_waits:.2f}s")
         logger.info(f"Effective throughput: {TOTAL_JOKES/(total_time - threaded_client.rate_limiter.total_waits):.2f} req/s")
-    
+
     except Exception as e:
         logger.error(f"[bold red]Demo failed:[/bold red] {str(e)}")
     finally:

@@ -26,6 +26,8 @@ v7 - Fixed import paths
 v8 - Fixed import paths and package structure
 """
 
+from src.openai_helper import OpenAIHelper
+from src.prompt_explorer import PromptExplorer
 import click
 from rich.console import Console
 import json
@@ -35,9 +37,6 @@ from pathlib import Path
 
 # Add the parent directory to sys.path
 sys.path.append(str(Path(__file__).parent.parent))
-
-from src.prompt_explorer import PromptExplorer
-from src.openai_helper import OpenAIHelper
 
 
 console = Console()
@@ -53,9 +52,34 @@ def cli(ctx, api_key):
     1. Initialize explorer with API key
     2. Set up context for subcommands
     3. Handle initialization errors
-    v2
+    v3 - Added quick guide display
     """
     ctx.ensure_object(dict)
+    console = Console()
+
+    # Always show quick guide first
+    console.print("\n[bold cyan]Vellum Prompt Explorer - Quick Start Guide[/bold cyan]")
+    console.print("\n[yellow]Available Commands:[/yellow]")
+    console.print("1. List prompts:")
+    console.print("   vellum-explorer list")
+    console.print("   vellum-explorer list --status ACTIVE --environment DEVELOPMENT")
+    console.print("   vellum-explorer list --export prompts.csv")
+    
+    console.print("\n2. Execute prompts:")
+    console.print("   vellum-explorer execute my-prompt --inputs '{\"key\": \"value\"}'")
+    console.print("   vellum-explorer execute my-prompt --inputs '{\"key\": \"value\"}' --export results.xlsx")
+    
+    console.print("\n3. Environment setup:")
+    console.print("   - Create .env file with VELLUM_API_KEY=your-api-key")
+    console.print("   - Or set environment variable: export VELLUM_API_KEY=your-api-key")
+    
+    console.print("\n4. Export formats:")
+    console.print("   - CSV:  --export results.csv")
+    console.print("   - XLSX: --export results.xlsx")
+    console.print("   - JSON: --export results.json")
+    
+    console.print("\n[cyan]Executing command...[/cyan]\n")
+
     try:
         ctx.obj['explorer'] = PromptExplorer(api_key=api_key)
     except Exception as e:
@@ -189,7 +213,7 @@ def execute(ctx, prompt_name, inputs, release_tag, stream, export):
 def ask(question: str):
     """
     Ask a natural language question about Vellum documentation.
-    
+
     1. Initialize OpenAI helper
     2. Query documentation in parallel
     3. Display formatted results
@@ -198,15 +222,15 @@ def ask(question: str):
     try:
         # Initialize helper
         helper = OpenAIHelper(use_md_crawler=True)
-        
+
         # Query documentation
         console.print(f"\n[cyan]Searching documentation for:[/cyan] {question}\n")
         result = helper.query_docs_parallel(question)
-        
+
         # Display answer
         console.print("[bold green]Answer:[/bold green]")
         console.print(result.get("answer", "No answer available"))
-        
+
         # Display supporting evidence
         if quotes := result.get("quotes", []):
             console.print("\n[bold yellow]Supporting Evidence:[/bold yellow]")
@@ -218,7 +242,7 @@ def ask(question: str):
                     console.print(f"\n[yellow]Quote:[/yellow] (from {quote.get('source', 'unknown')})")
                     console.print(quote.get("text", ""))
                 console.print(f"[dim]Relevance:[/dim] {quote.get('relevance', '')}")
-        
+
         # Display confidence scores
         if confidence := result.get("confidence", {}):
             console.print("\n[bold blue]Confidence Scores:[/bold blue]")
@@ -226,7 +250,7 @@ def ask(question: str):
             console.print(f"Source Quality: {confidence.get('source_quality', 'N/A')}")
             console.print(f"Completeness: {confidence.get('completeness', 'N/A')}")
             console.print(f"Code Examples: {confidence.get('code_examples', 'N/A')}")
-        
+
     except Exception as e:
         console.print(f"[red]Error: {str(e)}[/red]")
 
