@@ -49,3 +49,6 @@ Thumbs.db
 # Logs
 *.log
 logs/
+
+# Specstory history
+.specstory/history/
