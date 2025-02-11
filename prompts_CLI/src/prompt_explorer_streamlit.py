@@ -2,6 +2,7 @@ import streamlit as st
 import subprocess
 import os
 from pathlib import Path
+from ansi2html import Ansi2HTMLConverter
 
 # Configure Streamlit page
 st.set_page_config(
@@ -10,87 +11,18 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Custom CSS for terminal-like appearance matching Rich output
+# Custom CSS for terminal-like appearance
 st.markdown("""
 <style>
-    /* Main background and text */
     .stApp {
         background-color: #1a1b26;
-        color: #ffffff;
     }
     
-    /* Input styling */
-    .stTextInput > div > div > input {
-        background-color: #1a1b26;
-        color: #ffffff;
-        font-family: 'Courier New', Courier, monospace;
-    }
-    
-    /* Chat message styling */
     .stChatMessage {
         background-color: #1a1b26 !important;
-        color: #ffffff !important;
         font-family: 'Courier New', Courier, monospace !important;
     }
     
-    /* Code blocks and pre formatting */
-    pre {
-        background-color: #1a1b26 !important;
-        color: #ffffff !important;
-        padding: 10px !important;
-        border-radius: 5px !important;
-        margin: 10px 0 !important;
-    }
-    
-    /* Text elements */
-    p, span, div {
-        color: #ffffff !important;
-    }
-    
-    /* Rich text colors */
-    .user-cmd {
-        color: #7aa2f7 !important;
-    }
-    .prompt-name {
-        color: #9ece6a !important;
-    }
-    .status-active {
-        color: #9ece6a !important;
-    }
-    .environment {
-        color: #7dcfff !important;
-    }
-    .timestamp {
-        color: #ffffff !important;
-    }
-    .section-header {
-        color: #bb9af7 !important;
-        font-weight: bold !important;
-    }
-    
-    /* Table styling */
-    table {
-        color: #ffffff !important;
-        background-color: #1a1b26 !important;
-    }
-    th {
-        background-color: #1a1b26 !important;
-        color: #7aa2f7 !important;
-        border-color: #565f89 !important;
-    }
-    td {
-        background-color: #1a1b26 !important;
-        border-color: #565f89 !important;
-    }
-    
-    /* Spinner styling */
-    .stSpinner > div > div > div {
-        border-left-color: #7aa2f7 !important;
-        border-right-color: #7aa2f7 !important;
-        border-bottom-color: #7aa2f7 !important;
-    }
-    
-    /* Chat input container */
     .stChatInputContainer {
         background-color: #1a1b26 !important;
         border-color: #565f89 !important;
@@ -103,7 +35,13 @@ st.markdown("""
     }
     .streamlit-expanderContent {
         background-color: #1a1b26 !important;
-        color: #ffffff !important;
+    }
+    
+    /* Spinner styling */
+    .stSpinner > div > div > div {
+        border-left-color: #7aa2f7 !important;
+        border-right-color: #7aa2f7 !important;
+        border-bottom-color: #7aa2f7 !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -117,46 +55,45 @@ if 'first_run' not in st.session_state:
 # Get the directory of the current script
 current_dir = Path(__file__).parent
 
-def format_output(text: str) -> str:
-    """Format the output with Rich-like styling using HTML."""
-    # Add custom styling for different elements
-    text = text.replace("Available Commands:", "<span class='section-header'>Available Commands:</span>")
-    text = text.replace("Basic Commands:", "<span class='section-header'>Basic Commands:</span>")
-    text = text.replace("Feature-specific Help:", "<span class='section-header'>Feature-specific Help:</span>")
-    text = text.replace("ACTIVE", "<span class='status-active'>ACTIVE</span>")
-    text = text.replace("DEVELOPMENT", "<span class='environment'>DEVELOPMENT</span>")
-    return text
+# Initialize ANSI to HTML converter
+conv = Ansi2HTMLConverter()
 
 def run_command(cmd: str, show_command: bool = True) -> None:
     """Execute a command and display its output with loading indicator."""
     if show_command:
-        st.chat_message("user").markdown(f"<span class='user-cmd'>$ {cmd}</span>", unsafe_allow_html=True)
+        st.chat_message("user").markdown(f"```$ {cmd}```")
         st.session_state.history.append(cmd)
     
     with st.spinner('Executing command...'):
         try:
+            # Set environment variables to force color output
+            env = os.environ.copy()
+            env['FORCE_COLOR'] = '1'
+            env['PYTHONIOENCODING'] = 'utf-8'
+            
             result = subprocess.run(
                 ["python", str(current_dir / "prompt_explorer.py")] + cmd.split(),
                 capture_output=True,
                 text=True,
-                env=os.environ.copy()
+                env=env
             )
             
-            # Display the output
+            # Display the output with preserved colors
             if result.stdout:
-                formatted_output = format_output(result.stdout)
-                st.chat_message("assistant").markdown(f"```\n{formatted_output}\n```", unsafe_allow_html=True)
+                html_output = conv.convert(result.stdout, full=False)
+                st.chat_message("assistant").markdown(html_output, unsafe_allow_html=True)
             
             # Show errors if any
             if result.stderr:
+                html_err = conv.convert(result.stderr, full=False)
                 st.chat_message("assistant").markdown(
-                    f"<span style='color: #f7768e'>**Error Output**: \n```\n{result.stderr}\n```</span>",
+                    f"**[Error Output]:**<br>{html_err}",
                     unsafe_allow_html=True
                 )
                 
         except Exception as e:
             st.chat_message("assistant").markdown(
-                f"<span style='color: #f7768e'>**Error**: \n```\n{str(e)}\n```</span>",
+                f"**Error**: ```\n{str(e)}\n```",
                 unsafe_allow_html=True
             )
 
@@ -175,4 +112,4 @@ if command:
 if st.session_state.history:
     with st.expander("Command History", expanded=False):
         for cmd in reversed(st.session_state.history):
-            st.markdown(f"<span class='user-cmd'>$ {cmd}</span>", unsafe_allow_html=True)
+            st.markdown(f"```$ {cmd}```")

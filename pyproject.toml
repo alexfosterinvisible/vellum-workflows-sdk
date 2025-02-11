@@ -30,7 +30,7 @@ dev = [
 ]
 
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling>=1.10.0"]
 build-backend = "hatchling.build"
 
 [tool.ruff]
@@ -51,4 +51,7 @@ python_version = "3.11"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true
-check_untyped_defs = true 
+check_untyped_defs = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["prompts_CLI"] 

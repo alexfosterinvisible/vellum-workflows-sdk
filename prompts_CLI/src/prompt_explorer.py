@@ -27,6 +27,8 @@ from dotenv import load_dotenv
 from rich.console import Console
 from rich.table import Table
 
+# Initialize Rich console with forced color output
+console = Console(force_terminal=True, color_system="truecolor")
 
 # -------------------- 1. LIST AVAILABLE PROMPTS -------------------------------
 @dataclass
