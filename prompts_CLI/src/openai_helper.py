@@ -287,11 +287,14 @@ class OpenAIHelper:
         try:
             # Load environment variables if no API key provided
             if not api_key:
-                load_dotenv()
-                api_key = os.getenv('OPENAI_API_KEY')
+                api_key = os.environ.get('OPENAI_API_KEY')
 
             if not api_key:
-                raise ValueError("No API key provided. Set OPENAI_API_KEY in .env or pass directly.")
+                self.console.print("[red]No API key found. Please set OPENAI_API_KEY in Replit Secrets.[/red]")
+                self.console.print("To add your API key:")
+                self.console.print("1. Click Tools > Secrets")
+                self.console.print("2. Add OPENAI_API_KEY with your API key")
+                raise ValueError("Missing OPENAI_API_KEY")
 
             # Initialize OpenAI client
             self.client = OpenAI(api_key=api_key)

@@ -64,11 +64,14 @@ class PromptExplorer:
         try:
             # Load environment variables if no API key provided
             if not api_key:
-                load_dotenv()
-                api_key = os.getenv('VELLUM_API_KEY')
+                api_key = os.environ.get('VELLUM_API_KEY')
 
             if not api_key:
-                raise ValueError("No API key provided. Set VELLUM_API_KEY in .env or pass directly.")
+                self.console.print("[red]No API key found. Please set VELLUM_API_KEY in Replit Secrets.[/red]")
+                self.console.print("To add your API key:")
+                self.console.print("1. Click Tools > Secrets")
+                self.console.print("2. Add VELLUM_API_KEY with your API key")
+                raise ValueError("Missing VELLUM_API_KEY")
 
             # Initialize Vellum client
             self.client = Vellum(api_key=api_key)
