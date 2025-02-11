@@ -19,13 +19,16 @@ st.markdown("""
     .stTabs [data-baseweb="tab"] {
         height: 50px;
         white-space: pre-wrap;
-        background-color: #FFFFFF;
+        background-color: transparent;
         border-radius: 4px;
         padding: 10px 20px;
         margin-bottom: 10px;
+        color: #FFFFFF;
+        border: 1px solid rgba(255, 255, 255, 0.2);
     }
     .stTabs [aria-selected="true"] {
-        background-color: #E0F0FF;
+        background-color: rgba(224, 240, 255, 0.2);
+        border-color: #E0F0FF;
     }
     div[data-testid="stToolbar"] {
         display: none;
