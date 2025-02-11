@@ -7,7 +7,7 @@ meta {
 # Test basic inference
 POST {{baseUrl}}/inference/run
 headers {
-  Authorization: Bearer {{apiKey}}
+  x-api-key: {{apiKey}}
   Content-Type: application/json
 }
 body {
@@ -24,12 +24,17 @@ tests {
     expect(response.body).to.have.property("text");
     expect(response.body.text).to.be.a("string");
   });
+
+  test("should have reasonable response length", function() {
+    expect(response.body.text.length).to.be.greaterThan(0);
+    expect(response.body.text.length).to.be.lessThan(2000);
+  });
 }
 
 # Test empty input handling
 POST {{baseUrl}}/inference/run
 headers {
-  Authorization: Bearer {{apiKey}}
+  x-api-key: {{apiKey}}
   Content-Type: application/json
 }
 body {
@@ -46,7 +51,7 @@ tests {
 # Test long input
 POST {{baseUrl}}/inference/run
 headers {
-  Authorization: Bearer {{apiKey}}
+  x-api-key: {{apiKey}}
   Content-Type: application/json
 }
 body {
@@ -57,5 +62,10 @@ body {
 tests {
   test("should handle long input", function() {
     expect(response.status).to.equal(200);
+  });
+  
+  test("should return valid response for long input", function() {
+    expect(response.body).to.have.property("text");
+    expect(response.body.text).to.be.a("string");
   });
 } 

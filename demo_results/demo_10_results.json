@@ -1,0 +1,667 @@
+{
+  "contract": {
+    "name": "Math Adaptive Learning",
+    "description": "Evaluate mathematical explanations with a focus on adaptation.\n    Test various adaptive learning strategies to identify the most effective\n    approaches for personalizing instruction based on responses."
+  },
+  "test_cases": [
+    {
+      "style": "Progressive Difficulty",
+      "input": "Teach factoring quadratic expressions with adaptive difficulty.",
+      "output": "Let's learn factoring with adjusting difficulty! \ud83d\udcc8\n\nLevel 1: Basic Recognition\n-------------------------\nStart with simple perfect squares:\nx\u00b2 + 2x + 1\n\n\ud83e\udd14 What do you notice?\n* Square of first term: x\u00b2\n* Middle term: 2x\n* Last term: 1\n\n\u2705 This is (x + 1)\u00b2!\n\nIf this is clear, let's advance...\nIf not, let's practice more squares.\n\nLevel 2: Simple Factoring\n------------------------\nTry this one:\nx\u00b2 + 5x + 6\n\nStrategy:\n1. Find factors of 6: 1, 2, 3, 6\n2. Which pair adds to 5?\n   * 2 + 3 = 5 \u2713\n\nTherefore: (x + 2)(x + 3)\n\nNeed more practice here?\n* If yes: Try x\u00b2 + 7x + 12\n* If no: Move to Level 3\n\nLevel 3: Challenging Cases\n------------------------\nReady for this:\n2x\u00b2 + 7x + 3\n\nAdvanced strategy:\n1. Multiply a: 2x\u00b2 \u2192 need ac = 6\n2. Find factors of 6 that add to b (7):\n   * 6 + 1 = 7 \u2713\n3. Rewrite middle term:\n   2x\u00b2 + 6x + x + 3\n4. Group terms:\n   2x(x + 3) + 1(x + 3)\n   (2x + 1)(x + 3)\n\n\ud83d\udca1 Adaptive Pathways:\n* Struggling? \u2192 Return to Level 2\n* Confident? \u2192 Try harder problems\n* Just right? \u2192 Practice more here\n\nLevel 4: Expert Challenge\n-----------------------\nIf ready, try:\n3x\u00b2 - 7x - 6\n\nMaster strategy:\n1. a = 3, c = -6\n2. Need factors of -18 adding to -7\n3. -9 + 2 = -7\n4. Rewrite and group...\n\n\ud83c\udfaf Choose Your Path:\n1. Need review? Go back to:\n   * Perfect squares\n   * Simple factoring\n   * Grouping method\n\n2. Ready for more? Try:\n   * Larger coefficients\n   * Special patterns\n   * Complex grouping\n\n3. Want practice? Use:\n   * Similar difficulty\n   * Mixed problems\n   * Timed challenges\n\n\u2728 Adaptive Features:\n1. Multiple entry points\n2. Flexible progression\n3. Review options\n4. Challenge paths\n5. Self-paced learning\n\n\ud83d\udcca Progress Tracking:\n* Master each level\n* Build confidence\n* Identify patterns\n* Apply strategies\n\n\ud83d\udd04 Adjustment Points:\n* After each problem\n* Between levels\n* Based on confidence\n* Following errors\n\nRemember:\n* Take your time\n* Build strong foundations\n* Ask for help when needed\n* Celebrate progress\n\nNext Steps:\nChoose your path:\n1. More practice at current level\n2. Move up in difficulty\n3. Quick review of basics\n4. Challenge yourself",
+      "scores": {
+        "total_score": 0.81,
+        "dimension_scores": {
+          "Mathematical Explanation Clarity": {
+            "total_score": 0.95,
+            "subdimension_scores": {
+              "Explanation Clarity": 0.8,
+              "Step-by-Step Breakdown": 1.0,
+              "Correctness of Solution": 1.0,
+              "Terminology Appropriateness": 1.0
+            }
+          },
+          "Engagement and Adaptation": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Adaptation Evidence": 1.0,
+              "Engagement Techniques": 0.8,
+              "Feedback Inclusion": 0.4,
+              "Error Correction": 1.0
+            }
+          },
+          "Concept Reinforcement": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Concept Reinforcement": 0.8,
+              "Challenge Appropriateness": 0.8,
+              "Logical Flow": 0.8,
+              "Conceptual Links": 0.6
+            }
+          },
+          "User-Centric Communication": {
+            "total_score": 0.9,
+            "subdimension_scores": {
+              "User-Centric Language": 0.8,
+              "Response Length": 0.8,
+              "Variability in Approaches": 1.0,
+              "Practice Problems": 1.0
+            }
+          },
+          "Learning Outcomes and Feedback": {
+            "total_score": 0.6,
+            "subdimension_scores": {
+              "Learning Objectives": 0.6,
+              "Real-World Application": 0.4,
+              "Summary Inclusion": 1.0,
+              "Follow-up Questions": 0.4
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Conceptual Branching",
+      "input": "Explain solving word problems with adaptive conceptual focus.",
+      "output": "Let's explore word problems with flexible understanding! \ud83c\udf33\n\nCore Concept: Problem Solving\n---------------------------\nStart here:\n\"A store sells notebooks for $3 each. How much for 5 notebooks?\"\n\n\ud83e\udd14 Understanding Check:\nDo you see this as:\nA) Repeated addition\nB) Multiplication\nC) Not sure\n\nPath A: Addition Focus\n--------------------\nThink: $3 + $3 + $3 + $3 + $3\n* Count by 3s\n* Track the total\n* Verify the count\n\n\u2705 If this helps, try more addition.\n\u2753 If too simple, try Path B.\n\nPath B: Multiplication View\n-------------------------\nThink: 5 \u00d7 $3\n* Groups of equal size\n* Quick calculation\n* Pattern recognition\n\n\u2705 If this clicks, try harder problems.\n\u2753 If unclear, return to Path A.\n\nBranching Problem:\n\"A store has 24 notebooks. They're sold in packs of 4.\nHow many packs can they make?\"\n\nChoose Your Approach:\n1. Division as repeated subtraction\n   * Start with 24\n   * Subtract 4 until zero\n   * Count subtractions\n\n2. Division as grouping\n   * Make groups of 4\n   * Count complete groups\n   * Check remaining items\n\n3. Division as inverse\n   * 4 \u00d7 ? = 24\n   * Find missing factor\n   * Verify answer\n\n\ud83d\udd04 Adaptive Elements:\n* Choose your path\n* Switch methods\n* Combine approaches\n* Build connections\n\nChallenge Selection:\n------------------\nBased on understanding:\n\nBasic:\n\"15 candies shared by 3 friends\"\n* If clear \u2192 advance\n* If unsure \u2192 practice more\n* If confused \u2192 review basics\n\nIntermediate:\n\"72 cookies packed in boxes of 8\"\n* If confident \u2192 continue\n* If hesitant \u2192 more practice\n* If struggling \u2192 step back\n\nAdvanced:\n\"A baker sells cookies for $2 each.\nIn one day, she makes $54.\nHow many cookies did she sell?\"\n* Multiple steps\n* Inverse operations\n* Real context\n\n\ud83d\udca1 Learning Pathways:\n1. Visual \u2192 Numerical\n2. Concrete \u2192 Abstract\n3. Simple \u2192 Complex\n4. Direct \u2192 Inverse\n\n\ud83d\udcca Progress Markers:\n* Understanding concepts\n* Solving independently\n* Explaining methods\n* Choosing strategies\n\n\ud83c\udfaf Adjustment Triggers:\n* Correct solutions\n* Error patterns\n* Solution methods\n* Explanation quality\n\nNext Steps Options:\n1. More similar problems\n2. Increased complexity\n3. Different contexts\n4. Mixed practice\n\nRemember:\n* Multiple approaches work\n* Build understanding\n* Make connections\n* Practice regularly",
+      "scores": {
+        "total_score": 0.7300000000000002,
+        "dimension_scores": {
+          "Mathematical Explanation Clarity": {
+            "total_score": 0.75,
+            "subdimension_scores": {
+              "Explanation Clarity": 0.8,
+              "Step-by-Step Breakdown": 1.0,
+              "Correctness of Solution": 0.2,
+              "Terminology Appropriateness": 1.0
+            }
+          },
+          "Engagement and Adaptation": {
+            "total_score": 0.75,
+            "subdimension_scores": {
+              "Adaptation Evidence": 1.0,
+              "Engagement Techniques": 0.8,
+              "Feedback Inclusion": 0.2,
+              "Error Correction": 1.0
+            }
+          },
+          "Concept Reinforcement": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Concept Reinforcement": 0.8,
+              "Challenge Appropriateness": 0.8,
+              "Logical Flow": 1.0,
+              "Conceptual Links": 0.6
+            }
+          },
+          "User-Centric Communication": {
+            "total_score": 0.95,
+            "subdimension_scores": {
+              "User-Centric Language": 0.8,
+              "Response Length": 1.0,
+              "Variability in Approaches": 1.0,
+              "Practice Problems": 1.0
+            }
+          },
+          "Learning Outcomes and Feedback": {
+            "total_score": 0.4,
+            "subdimension_scores": {
+              "Learning Objectives": 0.4,
+              "Real-World Application": 0.6,
+              "Summary Inclusion": 0.2,
+              "Follow-up Questions": 0.4
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Error-Based Adaptation",
+      "input": "Guide through common algebra mistakes with adaptive correction.",
+      "output": "Let's learn from mistakes and adapt our approach! \ud83d\udd0d\n\nStarting Point: Solve 2x + 3 = 7\n-------------------------------\nCommon Error 1:\n2x + 3 = 7\n2x = 7 + 3\n2x = 10\nx = 5 \u274c\n\n\ud83d\udeab Error Detected:\n* Added instead of subtracted\n* Moved term to wrong side\n\n\u2705 Correction Path A:\nThink: \"Move terms by doing opposite\"\n2x + 3 = 7\n2x = 7 - 3\n2x = 4\nx = 2\n\nIf this error occurs:\n* Practice more subtraction\n* Review opposite operations\n* Try similar problems\n\nCommon Error 2:\n2x = 4\nx = 4 \u00d7 2\nx = 8 \u274c\n\n\ud83d\udeab Error Detected:\n* Multiplied instead of divided\n* Confused inverse operation\n\n\u2705 Correction Path B:\nThink: \"Divide both sides by 2\"\n2x = 4\nx = 4 \u00f7 2\nx = 2\n\nIf this error occurs:\n* Practice division\n* Review equation balance\n* Try more examples\n\nAdaptive Practice Based on Errors:\n--------------------------------\nError Type 1: Sign Errors\n------------------------\nProblem: 3x - 4 = 8\n\nCommon mistake:\n3x = 8 - (-4) \u274c\n\nCorrection paths:\n1. Number line practice\n2. Opposite operation rules\n3. Step-by-step checking\n\nError Type 2: Distribution\n-------------------------\nProblem: 2(x + 3) = 10\n\nCommon mistake:\n2x + 3 = 10 \u274c\n\nCorrection paths:\n1. Area model practice\n2. Term-by-term multiplication\n3. Verification methods\n\nError Type 3: Fractions\n----------------------\nProblem: (x + 2)/3 = 4\n\nCommon mistake:\nx + 2 = 4/3 \u274c\n\nCorrection paths:\n1. Fraction multiplication\n2. Equation balance\n3. Check solutions\n\n\ud83d\udd04 Adaptive Responses:\n1. For Sign Errors:\n   * Use number lines\n   * Practice with negatives\n   * Check each step\n\n2. For Distribution:\n   * Draw diagrams\n   * Expand step by step\n   * Verify expansion\n\n3. For Fractions:\n   * Review multiplication\n   * Practice with simple numbers\n   * Check reasonableness\n\n\ud83d\udcca Error Tracking:\n* Note common mistakes\n* Identify patterns\n* Target practice\n* Build confidence\n\n\ufffd\ufffd Practice Selection:\nBased on errors:\n1. Similar problems\n2. Simplified versions\n3. Step-by-step practice\n4. Mixed review\n\n\ud83d\udca1 Learning Strategies:\n* Understand why errors occur\n* Practice correct methods\n* Verify solutions\n* Build checking habits\n\nNext Steps:\nChoose based on errors:\n1. More basic practice\n2. Similar problems\n3. Advanced challenges\n4. Mixed review\n\nRemember:\n* Mistakes help learning\n* Take time to understand\n* Practice corrections\n* Build confidence",
+      "scores": {
+        "total_score": 0.75,
+        "dimension_scores": {
+          "Mathematical Explanation Clarity": {
+            "total_score": 0.95,
+            "subdimension_scores": {
+              "Explanation Clarity": 0.8,
+              "Step-by-Step Breakdown": 1.0,
+              "Correctness of Solution": 1.0,
+              "Terminology Appropriateness": 1.0
+            }
+          },
+          "Engagement and Adaptation": {
+            "total_score": 0.75,
+            "subdimension_scores": {
+              "Adaptation Evidence": 1.0,
+              "Engagement Techniques": 0.8,
+              "Feedback Inclusion": 0.2,
+              "Error Correction": 1.0
+            }
+          },
+          "Concept Reinforcement": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Concept Reinforcement": 0.8,
+              "Challenge Appropriateness": 0.6,
+              "Logical Flow": 0.8,
+              "Conceptual Links": 0.6
+            }
+          },
+          "User-Centric Communication": {
+            "total_score": 0.9,
+            "subdimension_scores": {
+              "User-Centric Language": 0.8,
+              "Response Length": 0.8,
+              "Variability in Approaches": 1.0,
+              "Practice Problems": 1.0
+            }
+          },
+          "Learning Outcomes and Feedback": {
+            "total_score": 0.35,
+            "subdimension_scores": {
+              "Learning Objectives": 0.4,
+              "Real-World Application": 0.4,
+              "Summary Inclusion": 0.2,
+              "Follow-up Questions": 0.4
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Skill-Based Progression",
+      "input": "Teach solving equations with adaptive skill development.",
+      "output": "Let's build equation-solving skills progressively! \ud83d\udcc8\n\nSkill Level 1: Basics\n--------------------\nCore Skills:\n* Adding/subtracting\n* Order of operations\n* Number properties\n\nStarting Problem:\nx + 5 = 12\n\n\u2705 Mastery Check:\n* Can you isolate x?\n* Do you understand why?\n* Ready for more?\n\nProgress Options:\n1. More practice here\n2. Add difficulty\n3. Review basics\n\nSkill Level 2: Two Steps\n-----------------------\nNew Skills:\n* Multiple operations\n* Strategy planning\n* Solution checking\n\nProblem: 2x + 3 = 11\n\n\ud83d\udd0d Skill Assessment:\n1. Can you:\n   * Plan steps\n   * Execute correctly\n   * Verify answer\n\n2. Choose path:\n   * Need practice? \u2192 More similar\n   * Confident? \u2192 Level 3\n   * Struggling? \u2192 Review Level 1\n\nSkill Level 3: Variables Both Sides\n---------------------------------\nAdvanced Skills:\n* Term collection\n* Strategic moves\n* Efficiency\n\nProblem: 3x + 2 = x + 10\n\n\ud83d\udcaa Skill Building:\n1. Collect like terms\n2. Isolate variable\n3. Solve and check\n\nAdaptation Points:\n* After each solution\n* Between skill levels\n* Based on accuracy\n* Following errors\n\nSkill Level 4: Complex Equations\n------------------------------\nMaster Skills:\n* Distribution\n* Fraction operations\n* Multi-step planning\n\nProblem: 2(x + 3) = 3(x - 1)\n\n\ud83c\udfaf Skill Integration:\n* Use all previous skills\n* Plan solution path\n* Execute efficiently\n* Verify result\n\n\ud83d\udcca Skill Tracking:\nBasic Skills:\n* Number operations \u2713\n* Term movement \u2713\n* Solution steps \u2713\n\nIntermediate Skills:\n* Term collection\n* Strategy selection\n* Verification methods\n\nAdvanced Skills:\n* Distribution\n* Fraction operations\n* Complex planning\n\n\ud83d\udd04 Progression Paths:\n1. Linear Path:\n   * Master each level\n   * Build on basics\n   * Regular practice\n\n2. Branching Path:\n   * Focus on needs\n   * Extra practice\n   * Skill building\n\n3. Challenge Path:\n   * Skip basics\n   * Advanced problems\n   * Complex skills\n\n\ud83d\udca1 Adaptive Features:\n* Skill-based advancement\n* Flexible progression\n* Targeted practice\n* Regular assessment\n\nPractice Selection:\n-----------------\nBased on skills:\n1. Basic:\n   * One-step equations\n   * Number properties\n   * Simple operations\n\n2. Intermediate:\n   * Two-step equations\n   * Like terms\n   * Basic distribution\n\n3. Advanced:\n   * Complex equations\n   * Fraction operations\n   * Multiple steps\n\n\ud83c\udfaf Mastery Checks:\nAt each level:\n* Solve independently\n* Explain process\n* Apply to new problems\n* Help others\n\nNext Steps:\nChoose path based on:\n1. Current skill level\n2. Confidence\n3. Error patterns\n4. Learning goals\n\nRemember:\n* Build strong foundations\n* Practice regularly\n* Track progress\n* Celebrate success",
+      "scores": {
+        "total_score": 0.71,
+        "dimension_scores": {
+          "Mathematical Explanation Clarity": {
+            "total_score": 0.7,
+            "subdimension_scores": {
+              "Explanation Clarity": 0.6,
+              "Step-by-Step Breakdown": 1.0,
+              "Correctness of Solution": 0.2,
+              "Terminology Appropriateness": 1.0
+            }
+          },
+          "Engagement and Adaptation": {
+            "total_score": 0.7,
+            "subdimension_scores": {
+              "Adaptation Evidence": 0.6,
+              "Engagement Techniques": 0.8,
+              "Feedback Inclusion": 0.4,
+              "Error Correction": 1.0
+            }
+          },
+          "Concept Reinforcement": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Concept Reinforcement": 0.8,
+              "Challenge Appropriateness": 0.8,
+              "Logical Flow": 0.8,
+              "Conceptual Links": 0.6
+            }
+          },
+          "User-Centric Communication": {
+            "total_score": 0.9,
+            "subdimension_scores": {
+              "User-Centric Language": 0.8,
+              "Response Length": 0.8,
+              "Variability in Approaches": 1.0,
+              "Practice Problems": 1.0
+            }
+          },
+          "Learning Outcomes and Feedback": {
+            "total_score": 0.44999999999999996,
+            "subdimension_scores": {
+              "Learning Objectives": 1.0,
+              "Real-World Application": 0.2,
+              "Summary Inclusion": 0.2,
+              "Follow-up Questions": 0.4
+            }
+          }
+        }
+      }
+    }
+  ],
+  "success": true,
+  "dimensions": [
+    {
+      "label": "Mathematical Explanation Clarity",
+      "description": "How can we ensure mathematical explanations are clear and effective?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Explanation Clarity",
+          "description": "Is the mathematical explanation clear and easy to understand?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Step-by-Step Breakdown",
+          "description": "Is the mathematical solution broken down into clear, logical steps?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Correctness of Solution",
+          "description": "Is the final answer to the mathematical problem correct?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Terminology Appropriateness",
+          "description": "Is the mathematical terminology used appropriately and accurately?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Engagement and Adaptation",
+      "description": "How can we engage users and adapt explanations to their needs?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Adaptation Evidence",
+          "description": "Does the response demonstrate adaptation based on the user's previous input?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Engagement Techniques",
+          "description": "Does the explanation use techniques to engage the user in the learning process?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Feedback Inclusion",
+          "description": "Is there feedback provided based on the user's previous responses?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Error Correction",
+          "description": "Is there a mechanism for correcting any misconceptions from previous interactions?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Concept Reinforcement",
+      "description": "How can we reinforce key mathematical concepts effectively?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Concept Reinforcement",
+          "description": "Does the response reinforce key concepts that are critical for understanding?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Challenge Appropriateness",
+          "description": "Are the challenges presented in the explanation appropriate for the user's skill level?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Logical Flow",
+          "description": "Does the explanation follow a logical flow that makes it easy to follow?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Conceptual Links",
+          "description": "Are connections made between different mathematical concepts when necessary?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "User-Centric Communication",
+      "description": "How can we communicate in a way that is accessible and user-friendly?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "User-Centric Language",
+          "description": "Is the language used in the explanation user-friendly and accessible?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Response Length",
+          "description": "Is the response length appropriate, neither too short nor excessively long?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Variability in Approaches",
+          "description": "Does the response offer multiple approaches to solve the problem?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Practice Problems",
+          "description": "Does the response suggest practice problems for further learning?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Learning Outcomes and Feedback",
+      "description": "How can we ensure that learning objectives are met and feedback is provided?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Learning Objectives",
+          "description": "Are the learning objectives clearly stated in the response?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Real-World Application",
+          "description": "Does the explanation provide real-world applications of the mathematical concepts discussed?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Summary Inclusion",
+          "description": "Does the explanation include a summary of key points at the end?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Follow-up Questions",
+          "description": "Are there follow-up questions that encourage further exploration of the topic?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    }
+  ],
+  "analysis": {
+    "overall_scores": {
+      "Progressive Difficulty": 0.81,
+      "Conceptual Branching": 0.7300000000000002,
+      "Error-Based Adaptation": 0.75,
+      "Skill-Based Progression": 0.71
+    },
+    "adaptation_elements": {
+      "Progressive Difficulty": [
+        "progression",
+        "branching",
+        "error_handling",
+        "skill_building"
+      ],
+      "Conceptual Branching": [
+        "progression",
+        "branching",
+        "error_handling",
+        "skill_building",
+        "assessment"
+      ],
+      "Error-Based Adaptation": [
+        "progression",
+        "branching",
+        "error_handling",
+        "skill_building",
+        "assessment"
+      ],
+      "Skill-Based Progression": [
+        "progression",
+        "branching",
+        "error_handling",
+        "skill_building",
+        "assessment"
+      ]
+    },
+    "element_effectiveness": {
+      "progression": 0.75,
+      "branching": 0.75,
+      "error_handling": 0.75,
+      "skill_building": 0.75,
+      "assessment": 0.7300000000000001
+    },
+    "recommendations": [
+      "Most effective element: progression (0.75)",
+      "Combine multiple adaptation methods",
+      "Start with clear progression paths",
+      "Include regular skill assessment",
+      "Provide error-specific practice"
+    ]
+  }
+}

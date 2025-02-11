@@ -1,0 +1,581 @@
+{
+  "contract": {
+    "name": "Math Metacognition",
+    "description": "Evaluate mathematical explanations with a focus on metacognition.\n    Test various metacognitive strategies to identify the most effective\n    approaches for promoting self-awareness and learning regulation."
+  },
+  "test_cases": [
+    {
+      "style": "Self-Questioning",
+      "input": "Guide students through understanding limits in calculus using metacognitive strategies.",
+      "output": "Let's explore limits through thoughtful self-questioning! \ud83e\udd14\n\nUnderstanding Check\n-----------------\nBefore we start, ask yourself:\n* What do I know about limits?\n* Where have I seen them before?\n* What makes them challenging?\n\nTake a moment to write your thoughts...\n\nCore Concept: Limit Approach\n--------------------------\nConsider: lim(x\u21922) (x\u00b2 - 4)/(x - 2)\n\n\ud83e\udd14 Self-Questions:\n1. What am I seeing?\n   * A fraction\n   * x approaching 2\n   * Similar terms\n\n2. What happens if I try x = 2?\n   * Numerator: 2\u00b2 - 4 = 0\n   * Denominator: 2 - 2 = 0\n   * Result: 0/0 (undefined!)\n\n3. Why did this happen?\n   * Both parts equal zero\n   * Division by zero undefined\n   * Need another approach\n\nStrategy Development\n------------------\nAsk yourself:\n* Can I factor the numerator?\n* What patterns do I notice?\n* Is there a simpler way?\n\n\ud83d\udcad Reflection Point:\n\"The numerator factors to (x+2)(x-2)\nThe denominator is (x-2)\nI see a common factor!\"\n\nSolution Path\n-----------\nThink through:\n1. Why can I cancel (x-2)?\n2. What happens after canceling?\n3. Where could this go wrong?\n\nResult: lim(x\u21922) (x+2) = 4\n\nUnderstanding Deepening\n--------------------\nQuestion your process:\n* Why did this work?\n* What principles did I use?\n* Where else could this help?\n\n\ud83d\udd0d Learning Check:\nCan you explain:\n* The initial problem?\n* Your solution strategy?\n* Why the answer makes sense?\n\nPattern Recognition\n-----------------\nReflect on similar problems:\n* When do we get 0/0?\n* What strategies help?\n* How do we verify limits?\n\n\ud83d\udcdd Learning Journal:\nRecord your insights:\n1. What was new today?\n2. What connections did you make?\n3. What questions remain?\n\nProblem Extension\n---------------\nChallenge yourself:\n* What if x approaches other values?\n* What about different functions?\n* How do graphs help?\n\n\ud83e\udd14 Metacognitive Prompts:\n* How did you approach this?\n* What strategies worked best?\n* Where did you get stuck?\n* How did you overcome challenges?\n\nStrategy Review\n-------------\nEvaluate your methods:\n* What worked well?\n* What needed improvement?\n* What will you try next time?\n\n\ud83d\udca1 Learning Insights:\n1. Process awareness\n2. Strategy selection\n3. Error recognition\n4. Solution verification\n\nNext Steps\n---------\nPlan your learning:\n1. What to practice?\n2. Which concepts to review?\n3. When to seek help?\n4. How to apply this?\n\nRemember:\n* Question your thinking\n* Monitor understanding\n* Adjust strategies\n* Reflect regularly",
+      "scores": {
+        "total_score": 0.7666666666666667,
+        "dimension_scores": {
+          "Clarity and Structure": {
+            "total_score": 0.9,
+            "subdimension_scores": {
+              "Clear Explanation": 0.6,
+              "Step-by-Step Process": 1.0,
+              "Clarity of Purpose": 1.0,
+              "Logical Flow": 1.0
+            }
+          },
+          "Engagement and Reflection": {
+            "total_score": 0.8666666666666667,
+            "subdimension_scores": {
+              "Encouragement of Reflection": 0.8,
+              "Questioning Techniques": 1.0,
+              "Encouraging Questions": 0.8
+            }
+          },
+          "Examples and Connections": {
+            "total_score": 0.6,
+            "subdimension_scores": {
+              "Example Inclusion": 1.0,
+              "Connection to Prior Knowledge": 0.6,
+              "Relevance to Real Life": 0.2
+            }
+          },
+          "Cognitive Strategies": {
+            "total_score": 0.5333333333333333,
+            "subdimension_scores": {
+              "Cognitive Load Management": 0.8,
+              "Learning Regulation Tips": 0.6,
+              "Feedback Mechanism": 0.2
+            }
+          },
+          "Motivation and Assessment": {
+            "total_score": 0.9333333333333333,
+            "subdimension_scores": {
+              "Motivational Tone": 0.8,
+              "Check for Understanding": 1.0,
+              "Encouragement of Self-Assessment": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Strategy Monitoring",
+      "input": "Help students solve optimization problems with metacognitive monitoring.",
+      "output": "Let's solve optimization with strategic awareness! \ud83d\udcca\n\nStrategy Planning Phase\n--------------------\nProblem: Find the maximum area of a rectangle with perimeter 20 units.\n\n\ud83e\udd14 Pre-Solution Questions:\n1. What do I know?\n   * Perimeter = 20\n   * Need to find area\n   * Looking for maximum\n\n2. What strategies could work?\n   * Algebra\n   * Calculus\n   * Graphing\n\n3. How will I choose?\n   * Consider complexity\n   * Check prerequisites\n   * Evaluate efficiency\n\nStrategy Selection\n----------------\nMonitor your thinking:\n* Why choose calculus?\n* What makes it suitable?\n* How confident are you?\n\n\u270d\ufe0f Strategy Documentation:\n\"I'll use calculus because:\n* Area is a function\n* Need to find maximum\n* Have derivative tools\"\n\nImplementation Monitoring\n----------------------\nStep 1: Set up equation\n* Let width = x\n* Length = (20-2x)/2\n* Area = x(10-x)\n\n\ud83d\udd0d Check Understanding:\n* Why did we use 20-2x?\n* How does this represent area?\n* What are the constraints?\n\nStep 2: Find derivative\nA = x(10-x) = 10x - x\u00b2\nA' = 10 - 2x\n\n\ud83d\udcad Strategy Check:\n* Why take derivative?\n* What does A' tell us?\n* How find maximum?\n\nStep 3: Solve A' = 0\n10 - 2x = 0\nx = 5\n\n\ud83d\udcca Progress Monitor:\n* Does this make sense?\n* What does x=5 mean?\n* Need to verify?\n\nSolution Verification\n------------------\nCheck your work:\n1. Dimensions:\n   * Width = 5\n   * Length = 5\n   * Perimeter = 20 \u2713\n\n2. Area = 25 square units\n\n\ud83e\udd14 Verification Questions:\n* Is this reasonable?\n* How can we prove it's maximum?\n* What about other points?\n\nStrategy Evaluation\n-----------------\nAssess your approach:\n* What worked well?\n* Where did you pause?\n* What would you change?\n\n\ud83d\udca1 Method Insights:\n1. Setting up equations\n2. Using derivatives\n3. Verifying solutions\n4. Interpreting results\n\nLearning Transfer\n---------------\nThink ahead:\n* Where else use this?\n* What patterns help?\n* How adapt method?\n\n\ud83d\udcdd Strategy Journal:\nRecord key points:\n1. Problem approach\n2. Decision points\n3. Verification steps\n4. Learning insights\n\nMetacognitive Review\n------------------\nReflect on process:\n* Strategy selection\n* Implementation\n* Verification\n* Understanding\n\n\ud83c\udfaf Strategy Refinement:\n* What to keep?\n* What to modify?\n* What to add?\n* What to remove?\n\nFuture Applications\n----------------\nPlan ahead:\n1. Similar problems\n2. Different contexts\n3. Strategy adaptations\n4. Learning needs\n\nRemember:\n* Monitor your thinking\n* Check understanding\n* Verify solutions\n* Reflect on process",
+      "scores": {
+        "total_score": 0.7533333333333334,
+        "dimension_scores": {
+          "Clarity and Structure": {
+            "total_score": 0.9,
+            "subdimension_scores": {
+              "Clear Explanation": 0.6,
+              "Step-by-Step Process": 1.0,
+              "Clarity of Purpose": 1.0,
+              "Logical Flow": 1.0
+            }
+          },
+          "Engagement and Reflection": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Encouragement of Reflection": 0.8,
+              "Questioning Techniques": 0.8,
+              "Encouraging Questions": 0.8
+            }
+          },
+          "Examples and Connections": {
+            "total_score": 0.6,
+            "subdimension_scores": {
+              "Example Inclusion": 1.0,
+              "Connection to Prior Knowledge": 0.4,
+              "Relevance to Real Life": 0.4
+            }
+          },
+          "Cognitive Strategies": {
+            "total_score": 0.6,
+            "subdimension_scores": {
+              "Cognitive Load Management": 0.8,
+              "Learning Regulation Tips": 0.6,
+              "Feedback Mechanism": 0.4
+            }
+          },
+          "Motivation and Assessment": {
+            "total_score": 0.8666666666666667,
+            "subdimension_scores": {
+              "Motivational Tone": 0.8,
+              "Check for Understanding": 1.0,
+              "Encouragement of Self-Assessment": 0.8
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Learning Reflection",
+      "input": "Guide students through understanding probability with reflective learning.",
+      "output": "Let's explore probability through deep reflection! \ud83c\udfb2\n\nInitial Knowledge Check\n--------------------\nReflect on your understanding:\n1. What is probability?\n2. Where do you see it?\n3. Why is it useful?\n\n\ud83d\udcdd Knowledge Inventory:\n* What's clear?\n* What's fuzzy?\n* What's missing?\n\nCore Concept: Probability Basics\n-----------------------------\nExample: Rolling a die\n\n\ud83e\udd14 Reflection Points:\n1. Before rolling:\n   * What might happen?\n   * How many outcomes?\n   * What's most likely?\n\n2. After understanding:\n   * Why six outcomes?\n   * How calculate chances?\n   * What patterns emerge?\n\nLearning Process\n--------------\nMonitor your thinking:\n* How do you view probability?\n* What makes it click?\n* Where do you struggle?\n\n\ud83d\udcad Understanding Check:\n\"I see probability as:\n* Measuring chance\n* Predicting outcomes\n* Using fractions\"\n\nConcept Application\n-----------------\nProblem: Two dice roll\n\nSelf-Questions:\n1. Planning:\n   * How approach this?\n   * What tools needed?\n   * Where to start?\n\n2. Implementation:\n   * Why multiply outcomes?\n   * How list possibilities?\n   * What patterns help?\n\n3. Verification:\n   * Does answer make sense?\n   * How can I check?\n   * What might I miss?\n\n\ud83d\udd0d Learning Insights:\n* Connections made\n* Strategies used\n* Challenges faced\n* Solutions found\n\nUnderstanding Deepening\n--------------------\nReflect on growth:\n1. Initial thoughts:\n   * Simple counting\n   * Basic fractions\n   * Single events\n\n2. New understanding:\n   * Multiple events\n   * Compound probability\n   * Systematic counting\n\n3. Future applications:\n   * Real-world uses\n   * Problem-solving\n   * Decision making\n\n\ud83d\udcca Learning Progress:\nTrack your growth:\n* What's improved?\n* What's clearer now?\n* What needs work?\n\nConcept Integration\n----------------\nConnect ideas:\n* Probability and fractions\n* Chance and statistics\n* Theory and practice\n\n\ud83c\udf1f Knowledge Building:\n1. Foundation:\n   * Basic concepts\n   * Simple problems\n   * Clear examples\n\n2. Development:\n   * Complex problems\n   * Multiple approaches\n   * Deep understanding\n\n3. Application:\n   * Real situations\n   * Problem-solving\n   * Decision making\n\nReflection Strategies\n------------------\nReview your methods:\n* What helped most?\n* Which examples worked?\n* How organize thinking?\n\n\ud83d\udca1 Learning Tools:\n1. Visual aids\n2. Practice problems\n3. Real examples\n4. Self-questioning\n\nProgress Assessment\n-----------------\nCheck understanding:\n* Concept clarity\n* Problem-solving\n* Application ability\n* Confidence level\n\n\ud83c\udfaf Next Steps:\nPlan your learning:\n1. Review needs\n2. Practice areas\n3. Application goals\n4. Understanding gaps\n\nRemember:\n* Reflect regularly\n* Question deeply\n* Connect ideas\n* Apply learning",
+      "scores": {
+        "total_score": 0.7966666666666667,
+        "dimension_scores": {
+          "Clarity and Structure": {
+            "total_score": 0.8500000000000001,
+            "subdimension_scores": {
+              "Clear Explanation": 0.6,
+              "Step-by-Step Process": 1.0,
+              "Clarity of Purpose": 0.8,
+              "Logical Flow": 1.0
+            }
+          },
+          "Engagement and Reflection": {
+            "total_score": 0.9333333333333333,
+            "subdimension_scores": {
+              "Encouragement of Reflection": 1.0,
+              "Questioning Techniques": 1.0,
+              "Encouraging Questions": 0.8
+            }
+          },
+          "Examples and Connections": {
+            "total_score": 0.7333333333333333,
+            "subdimension_scores": {
+              "Example Inclusion": 1.0,
+              "Connection to Prior Knowledge": 0.6,
+              "Relevance to Real Life": 0.6
+            }
+          },
+          "Cognitive Strategies": {
+            "total_score": 0.5333333333333333,
+            "subdimension_scores": {
+              "Cognitive Load Management": 0.8,
+              "Learning Regulation Tips": 0.6,
+              "Feedback Mechanism": 0.2
+            }
+          },
+          "Motivation and Assessment": {
+            "total_score": 0.9333333333333333,
+            "subdimension_scores": {
+              "Motivational Tone": 0.8,
+              "Check for Understanding": 1.0,
+              "Encouragement of Self-Assessment": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Understanding Analysis",
+      "input": "Help students analyze their understanding of algebraic proofs.",
+      "output": "Let's analyze our understanding of algebraic proofs! \ud83d\udd0d\n\nKnowledge Analysis\n---------------\nExamine your understanding:\n\n1. Current Knowledge:\n   \u25a1 What is a proof?\n   \u25a1 Why use algebra?\n   \u25a1 How structure proofs?\n\n2. Knowledge Gaps:\n   \u25a1 Unclear concepts\n   \u25a1 Missing connections\n   \u25a1 Needed skills\n\n\ud83e\udd14 Understanding Map:\n* Strong areas\n* Weak points\n* Learning needs\n\nProof Analysis Example\n-------------------\nProve: (a + b)\u00b2 = a\u00b2 + 2ab + b\u00b2\n\nSelf-Analysis Questions:\n1. Before Starting:\n   * What do I know about squares?\n   * How expand expressions?\n   * Why this pattern matters?\n\n2. During Proof:\n   * Why each step?\n   * What rules apply?\n   * How verify work?\n\n3. After Completion:\n   * What did I learn?\n   * Where was I stuck?\n   * What helped most?\n\n\ud83d\udcad Understanding Check:\nMonitor your thinking:\n* Logic flow\n* Step connections\n* Pattern recognition\n\nProof Development\n---------------\nTrack your process:\n1. Initial approach:\n   * Expand directly\n   * Use FOIL\n   * Check terms\n\n2. Strategy analysis:\n   * Why this method?\n   * What alternatives?\n   * How efficient?\n\n3. Verification:\n   * All terms included?\n   * Steps logical?\n   * Result valid?\n\n\ud83d\udcca Progress Tracking:\nDocument your learning:\n* New insights\n* Clear concepts\n* Remaining questions\n\nUnderstanding Layers\n-----------------\nAnalyze depth:\n1. Surface level:\n   * Basic steps\n   * Simple rules\n   * Direct application\n\n2. Deep understanding:\n   * Connections\n   * Patterns\n   * Applications\n\n3. Mastery level:\n   * Create proofs\n   * Explain clearly\n   * Apply widely\n\n\ud83d\udd0d Concept Analysis:\nBreak down learning:\n* Key components\n* Critical steps\n* Essential patterns\n\nLearning Assessment\n----------------\nEvaluate understanding:\n1. Can you:\n   * Explain the proof?\n   * Create similar ones?\n   * Spot patterns?\n\n2. Do you understand:\n   * Why it works?\n   * Where it applies?\n   * How to extend it?\n\n\ud83d\udca1 Understanding Growth:\nTrack development:\n* Initial state\n* Current level\n* Next steps\n\nApplication Analysis\n-----------------\nStudy your use:\n1. Where apply this?\n   * Similar problems\n   * Different contexts\n   * Real situations\n\n2. How adapt method?\n   * New problems\n   * Different patterns\n   * Complex cases\n\n\ud83c\udfaf Learning Direction:\nPlan development:\n* Skills to build\n* Concepts to master\n* Applications to try\n\nUnderstanding Blocks\n-----------------\nAnalyze challenges:\n* What's unclear?\n* Why difficult?\n* How overcome?\n\n\ud83d\udcdd Learning Journal:\nRecord insights:\n1. Key learnings\n2. Helpful strategies\n3. Future needs\n4. Growth areas\n\nRemember:\n* Analyze deeply\n* Track progress\n* Question understanding\n* Apply learning",
+      "scores": {
+        "total_score": 0.76,
+        "dimension_scores": {
+          "Clarity and Structure": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Clear Explanation": 0.6,
+              "Step-by-Step Process": 1.0,
+              "Clarity of Purpose": 0.6,
+              "Logical Flow": 1.0
+            }
+          },
+          "Engagement and Reflection": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Encouragement of Reflection": 0.8,
+              "Questioning Techniques": 0.8,
+              "Encouraging Questions": 0.8
+            }
+          },
+          "Examples and Connections": {
+            "total_score": 0.6666666666666666,
+            "subdimension_scores": {
+              "Example Inclusion": 1.0,
+              "Connection to Prior Knowledge": 0.4,
+              "Relevance to Real Life": 0.6
+            }
+          },
+          "Cognitive Strategies": {
+            "total_score": 0.6,
+            "subdimension_scores": {
+              "Cognitive Load Management": 0.8,
+              "Learning Regulation Tips": 0.6,
+              "Feedback Mechanism": 0.4
+            }
+          },
+          "Motivation and Assessment": {
+            "total_score": 0.9333333333333333,
+            "subdimension_scores": {
+              "Motivational Tone": 0.8,
+              "Check for Understanding": 1.0,
+              "Encouragement of Self-Assessment": 1.0
+            }
+          }
+        }
+      }
+    }
+  ],
+  "success": true,
+  "dimensions": [
+    {
+      "label": "Clarity and Structure",
+      "description": "How can we ensure mathematical explanations are clear and well-structured?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Clear Explanation",
+          "description": "Is the mathematical explanation provided clearly articulated?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Step-by-Step Process",
+          "description": "Is the explanation structured as a step-by-step process for solving the problem?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Clarity of Purpose",
+          "description": "Is the overall purpose of the mathematical explanation clearly stated?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Logical Flow",
+          "description": "Does the explanation follow a logical flow from one point to the next?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Engagement and Reflection",
+      "description": "What techniques can promote learner engagement and reflection in mathematical understanding?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Encouragement of Reflection",
+          "description": "Does the response encourage the learner to reflect on their understanding of the topic?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Questioning Techniques",
+          "description": "Does the explanation incorporate questioning techniques to promote deeper thinking?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Encouraging Questions",
+          "description": "Does the explanation pose questions that encourage further inquiry into the topic?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Examples and Connections",
+      "description": "How can we effectively use examples and connections to enhance understanding?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Example Inclusion",
+          "description": "Does the explanation include at least one relevant example to illustrate the concept?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Connection to Prior Knowledge",
+          "description": "Does the response connect the new concept to previously learned material?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Relevance to Real Life",
+          "description": "Is there a connection made between the mathematical concept and real-life applications?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Cognitive Strategies",
+      "description": "What strategies can help manage cognitive load and enhance learning?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Cognitive Load Management",
+          "description": "Does the explanation manage cognitive load by breaking down complex ideas into simpler components?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Learning Regulation Tips",
+          "description": "Does the response provide tips for regulating learning during the mathematical process?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Feedback Mechanism",
+          "description": "Does the explanation suggest a mechanism for providing feedback on performance?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Motivation and Assessment",
+      "description": "How can we motivate learners and assess their understanding effectively?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Motivational Tone",
+          "description": "Is the tone of the explanation motivational and encouraging?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Check for Understanding",
+          "description": "Does the explanation include a method for checking understanding of the material?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Encouragement of Self-Assessment",
+          "description": "Does the response encourage learners to assess their own understanding?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    }
+  ],
+  "analysis": {
+    "overall_scores": {
+      "Self-Questioning": 0.7666666666666667,
+      "Strategy Monitoring": 0.7533333333333334,
+      "Learning Reflection": 0.7966666666666667,
+      "Understanding Analysis": 0.76
+    },
+    "metacognitive_elements": {
+      "Self-Questioning": [
+        "self_questioning",
+        "monitoring",
+        "reflection",
+        "planning"
+      ],
+      "Strategy Monitoring": [
+        "self_questioning",
+        "monitoring",
+        "reflection",
+        "planning"
+      ],
+      "Learning Reflection": [
+        "self_questioning",
+        "monitoring",
+        "reflection",
+        "planning"
+      ],
+      "Understanding Analysis": [
+        "self_questioning",
+        "monitoring",
+        "reflection",
+        "analysis",
+        "planning"
+      ]
+    },
+    "element_effectiveness": {
+      "self_questioning": 0.7691666666666668,
+      "monitoring": 0.7691666666666668,
+      "reflection": 0.7691666666666668,
+      "analysis": 0.76,
+      "planning": 0.7691666666666668
+    },
+    "recommendations": [
+      "Most effective element: self_questioning (0.77)",
+      "Combine multiple metacognitive strategies",
+      "Start with self-questioning",
+      "Include regular monitoring",
+      "End with reflection and analysis"
+    ]
+  }
+}

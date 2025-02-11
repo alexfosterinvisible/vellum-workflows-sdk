@@ -1,0 +1,73 @@
+{
+  "scoring_tests": [
+    {
+      "input": "What is 2+2?",
+      "status": 200,
+      "headers": {
+        "Date": "Wed, 18 Dec 2024 18:56:43 GMT",
+        "Server": "uvicorn",
+        "Content-Length": "111",
+        "Content-Type": "application/json",
+        "Via": "1.1 google",
+        "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+      },
+      "response": {
+        "total_score": 0.2,
+        "dimension_scores": {
+          "Accuracy": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Numerical": 0.2
+            }
+          }
+        }
+      }
+    },
+    {
+      "input": "Explain quantum computing",
+      "status": 200,
+      "headers": {
+        "Date": "Wed, 18 Dec 2024 18:56:45 GMT",
+        "Server": "uvicorn",
+        "Content-Length": "111",
+        "Content-Type": "application/json",
+        "Via": "1.1 google",
+        "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+      },
+      "response": {
+        "total_score": 0.2,
+        "dimension_scores": {
+          "Accuracy": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Numerical": 0.2
+            }
+          }
+        }
+      }
+    },
+    {
+      "input": "Write a haiku about AI",
+      "status": 200,
+      "headers": {
+        "Date": "Wed, 18 Dec 2024 18:56:47 GMT",
+        "Server": "uvicorn",
+        "Content-Length": "111",
+        "Content-Type": "application/json",
+        "Via": "1.1 google",
+        "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+      },
+      "response": {
+        "total_score": 0.2,
+        "dimension_scores": {
+          "Accuracy": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Numerical": 0.2
+            }
+          }
+        }
+      }
+    }
+  ]
+}

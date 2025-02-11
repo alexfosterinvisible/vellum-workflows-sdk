@@ -1,0 +1,7 @@
+{
+  "contract_patterns": [
+    {
+      "error": "'PIClient' object has no attribute 'contracts'"
+    }
+  ]
+}

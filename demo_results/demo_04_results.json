@@ -1,0 +1,537 @@
+{
+  "contract": {
+    "name": "Math Engagement Optimization",
+    "description": "Evaluate mathematical explanations with a focus on engagement.\n    Test various interactive elements, questioning strategies, and engagement patterns\n    to identify optimal approaches for maintaining user interest and participation."
+  },
+  "test_cases": [
+    {
+      "style": "Interactive Discovery",
+      "input": "What is 12 divided by 4?",
+      "output": "Let's discover this together! \ud83c\udfaf\n\n\ud83e\udd14 First, let's think: What does division mean to you?\n(It's like sharing things equally among friends!)\n\nLet's explore with a game:\nImagine you have 12 cookies: \ud83c\udf6a\ud83c\udf6a\ud83c\udf6a\ud83c\udf6a\ud83c\udf6a\ud83c\udf6a\ud83c\udf6a\ud83c\udf6a\ud83c\udf6a\ud83c\udf6a\ud83c\udf6a\ud83c\udf6a\n\nQuestion 1: If you share them with 4 friends, how many piles would you make?\n[Wait for it...]\nAnswer: We'd make 4 piles!\n\nQuestion 2: Now, can you help me put the cookies in equal piles?\nLet's do it together:\nPile 1: \ud83c\udf6a\ud83c\udf6a\ud83c\udf6a\nPile 2: \ud83c\udf6a\ud83c\udf6a\ud83c\udf6a\nPile 3: \ud83c\udf6a\ud83c\udf6a\ud83c\udf6a\nPile 4: \ud83c\udf6a\ud83c\udf6a\ud83c\udf6a\n\nAmazing! What do you notice? Each pile has exactly 3 cookies!\n\nSo, 12 \u00f7 4 = 3 because when we share 12 cookies among 4 friends,\neach friend gets 3 cookies! \n\n\ud83c\udf1f Bonus Challenge: Can you think of another real-life situation\nwhere you might need to divide 12 by 4?",
+      "scores": {
+        "total_score": 0.6400000000000001,
+        "dimension_scores": {
+          "Explanation Clarity": {
+            "total_score": 0.6666666666666666,
+            "subdimension_scores": {
+              "Clarity of Explanation": 0.8,
+              "Clarity of Terminology": 0.6,
+              "Conciseness": 0.6
+            }
+          },
+          "Engagement Strategies": {
+            "total_score": 0.7999999999999999,
+            "subdimension_scores": {
+              "Engagement Strategy": 1.0,
+              "Participation Encouragement": 0.8,
+              "Diversity of Engagement": 0.6
+            }
+          },
+          "Cognitive Management": {
+            "total_score": 0.7333333333333334,
+            "subdimension_scores": {
+              "Cognitive Load Management": 0.6,
+              "Step-by-Step Breakdown": 0.8,
+              "Real-World Applications": 0.8
+            }
+          },
+          "Feedback and Assessment": {
+            "total_score": 0.3333333333333333,
+            "subdimension_scores": {
+              "Feedback Mechanism": 0.2,
+              "Assessment Opportunities": 0.6,
+              "Error Identification": 0.2
+            }
+          },
+          "User-Centric Approach": {
+            "total_score": 0.6666666666666667,
+            "subdimension_scores": {
+              "User-Centric Focus": 0.8,
+              "Connection to Previous Knowledge": 0.4,
+              "Motivation Techniques": 0.8
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Story-based Learning",
+      "input": "What is 12 divided by 4?",
+      "output": "\ud83c\udfae Welcome to the Pizza Party Adventure! \ud83c\udf55\n\nOur story begins at Alex's birthday party...\n\nAlex has ordered 12 slices of pizza for their 4 best friends.\nBeing a fair host, Alex wants everyone to get the same amount.\n\nLet's help Alex solve this puzzle:\n\n1. Count the pizza slices: \n   \ud83c\udf55\ud83c\udf55\ud83c\udf55\ud83c\udf55\ud83c\udf55\ud83c\udf55\ud83c\udf55\ud83c\udf55\ud83c\udf55\ud83c\udf55\ud83c\udf55\ud83c\udf55\n   \"Wow, that's a lot of pizza!\" says Alex.\n\n2. Look at the friends waiting:\n   \ud83d\udc67 Sarah is hungry!\n   \ud83d\udc66 Tom can't wait!\n   \ud83d\udc67 Maya is excited!\n   \ud83d\udc66 Jack is ready!\n\n3. Time to share:\n   Sarah gets: \ud83c\udf55\ud83c\udf55\ud83c\udf55\n   Tom gets: \ud83c\udf55\ud83c\udf55\ud83c\udf55\n   Maya gets: \ud83c\udf55\ud83c\udf55\ud83c\udf55\n   Jack gets: \ud83c\udf55\ud83c\udf55\ud83c\udf55\n\n\"Perfect!\" Alex exclaims. \"Everyone got 3 slices!\"\n\n\ud83c\udfaf The Math Magic:\n12 pizza slices \u00f7 4 friends = 3 slices each\n\n\ud83c\udf1f Party Success! Everyone's happy because:\n- Each friend got the same amount (3 slices)\n- All 12 slices were shared\n- The party was fair and fun!\n\nCan you help plan the next party? How many slices would we need for 6 friends?",
+      "scores": {
+        "total_score": 0.6533333333333333,
+        "dimension_scores": {
+          "Explanation Clarity": {
+            "total_score": 0.6666666666666666,
+            "subdimension_scores": {
+              "Clarity of Explanation": 0.8,
+              "Clarity of Terminology": 0.6,
+              "Conciseness": 0.6
+            }
+          },
+          "Engagement Strategies": {
+            "total_score": 0.7999999999999999,
+            "subdimension_scores": {
+              "Engagement Strategy": 1.0,
+              "Participation Encouragement": 0.8,
+              "Diversity of Engagement": 0.6
+            }
+          },
+          "Cognitive Management": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Cognitive Load Management": 0.6,
+              "Step-by-Step Breakdown": 1.0,
+              "Real-World Applications": 0.8
+            }
+          },
+          "Feedback and Assessment": {
+            "total_score": 0.3333333333333333,
+            "subdimension_scores": {
+              "Feedback Mechanism": 0.2,
+              "Assessment Opportunities": 0.6,
+              "Error Identification": 0.2
+            }
+          },
+          "User-Centric Approach": {
+            "total_score": 0.6666666666666667,
+            "subdimension_scores": {
+              "User-Centric Focus": 0.8,
+              "Connection to Previous Knowledge": 0.4,
+              "Motivation Techniques": 0.8
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Challenge-based",
+      "input": "What is 12 divided by 4?",
+      "output": "\ud83c\udfae Welcome to the Division Challenge! \n\nLevel 1: The Setup\n-----------------\nMission: Divide 12 objects into 4 equal groups\nTools: 12 stars \u2b50\nGoal: Find how many stars each group gets\n\nLevel 2: Visual Challenge\n------------------------\nCan you spot the pattern?\n\n\u2b50\u2b50\u2b50 | \u2b50\u2b50\u2b50 | \u2b50\u2b50\u2b50 | \u2b50\u2b50\u2b50\n\n\ud83c\udfc6 Achievement Unlocked: Pattern Recognition!\nEach group has exactly 3 stars!\n\nLevel 3: Verification\n--------------------\nLet's check our answer:\n\u2713 Groups: 4\n\u2713 Stars per group: 3\n\u2713 Total stars: 4 \u00d7 3 = 12\n\n\ud83c\udfaf Final Answer: 12 \u00f7 4 = 3\n\n\ud83c\udf1f Bonus Challenges:\n1. Can you rearrange the stars differently while keeping groups equal?\n2. What if we had 16 stars and 4 groups?\n3. Try creating your own division puzzle!\n\nLevel Complete! \ud83c\udf89\nScore: \u2b50\u2b50\u2b50\nYou've mastered 12 \u00f7 4 = 3!",
+      "scores": {
+        "total_score": 0.6133333333333334,
+        "dimension_scores": {
+          "Explanation Clarity": {
+            "total_score": 0.6,
+            "subdimension_scores": {
+              "Clarity of Explanation": 0.8,
+              "Clarity of Terminology": 0.4,
+              "Conciseness": 0.6
+            }
+          },
+          "Engagement Strategies": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Engagement Strategy": 0.8,
+              "Participation Encouragement": 0.8,
+              "Diversity of Engagement": 0.8
+            }
+          },
+          "Cognitive Management": {
+            "total_score": 0.6,
+            "subdimension_scores": {
+              "Cognitive Load Management": 0.6,
+              "Step-by-Step Breakdown": 0.8,
+              "Real-World Applications": 0.4
+            }
+          },
+          "Feedback and Assessment": {
+            "total_score": 0.4,
+            "subdimension_scores": {
+              "Feedback Mechanism": 0.2,
+              "Assessment Opportunities": 0.6,
+              "Error Identification": 0.4
+            }
+          },
+          "User-Centric Approach": {
+            "total_score": 0.6666666666666667,
+            "subdimension_scores": {
+              "User-Centric Focus": 0.8,
+              "Connection to Previous Knowledge": 0.4,
+              "Motivation Techniques": 0.8
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Guided Discovery",
+      "input": "What is 12 divided by 4?",
+      "output": "\ud83d\udd0d Let's solve this mystery together!\n\nStep 1: Understanding Our Goal\n-----------------------------\nQ: What are we trying to find out?\nA: How many items each group gets when we divide 12 by 4\n\nStep 2: Visualization\n--------------------\nHere's our starting point:\n\ud83d\udd35\ud83d\udd35\ud83d\udd35\ud83d\udd35\ud83d\udd35\ud83d\udd35\ud83d\udd35\ud83d\udd35\ud83d\udd35\ud83d\udd35\ud83d\udd35\ud83d\udd35\n\nThink & Try:\n1. Can you mentally group these into 4 equal parts?\n2. How many would be in each group?\n\nStep 3: Interactive Grouping\n---------------------------\nLet's group them together:\n\nGroup 1: \ud83d\udd35\ud83d\udd35\ud83d\udd35\nGroup 2: \ud83d\udd35\ud83d\udd35\ud83d\udd35\nGroup 3: \ud83d\udd35\ud83d\udd35\ud83d\udd35\nGroup 4: \ud83d\udd35\ud83d\udd35\ud83d\udd35\n\nQuick Check:\n- Did we use all 12 circles? \u2713\n- Do all groups have the same amount? \u2713\n- How many groups did we make? \u2713\n\nStep 4: Discovery\n----------------\nWhat did we discover?\nEach group has exactly 3 circles!\n\nTherefore: 12 \u00f7 4 = 3\n\n\ud83d\udca1 Think About It:\n- Why does this make sense?\n- Where might you use this in real life?\n- Can you create a similar problem?\n\n\ud83c\udf1f You've solved it! The answer is 3, and now you know why!",
+      "scores": {
+        "total_score": 0.6533333333333333,
+        "dimension_scores": {
+          "Explanation Clarity": {
+            "total_score": 0.6,
+            "subdimension_scores": {
+              "Clarity of Explanation": 0.8,
+              "Clarity of Terminology": 0.4,
+              "Conciseness": 0.6
+            }
+          },
+          "Engagement Strategies": {
+            "total_score": 0.8666666666666667,
+            "subdimension_scores": {
+              "Engagement Strategy": 1.0,
+              "Participation Encouragement": 0.8,
+              "Diversity of Engagement": 0.8
+            }
+          },
+          "Cognitive Management": {
+            "total_score": 0.7333333333333333,
+            "subdimension_scores": {
+              "Cognitive Load Management": 0.6,
+              "Step-by-Step Breakdown": 1.0,
+              "Real-World Applications": 0.6
+            }
+          },
+          "Feedback and Assessment": {
+            "total_score": 0.4,
+            "subdimension_scores": {
+              "Feedback Mechanism": 0.2,
+              "Assessment Opportunities": 0.6,
+              "Error Identification": 0.4
+            }
+          },
+          "User-Centric Approach": {
+            "total_score": 0.6666666666666667,
+            "subdimension_scores": {
+              "User-Centric Focus": 0.8,
+              "Connection to Previous Knowledge": 0.4,
+              "Motivation Techniques": 0.8
+            }
+          }
+        }
+      }
+    }
+  ],
+  "success": true,
+  "dimensions": [
+    {
+      "label": "Explanation Clarity",
+      "description": "How can we ensure that mathematical explanations are clear and understandable?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Clarity of Explanation",
+          "description": "Is the mathematical explanation clear and easy to understand?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Clarity of Terminology",
+          "description": "Is the mathematical terminology clearly defined and explained?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Conciseness",
+          "description": "Is the explanation concise and free of unnecessary information?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Engagement Strategies",
+      "description": "What strategies can be employed to engage users during mathematical explanations?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Engagement Strategy",
+          "description": "Does the response include interactive elements to engage the user?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Participation Encouragement",
+          "description": "Does the response encourage user participation or interaction?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Diversity of Engagement",
+          "description": "Does the response explore various methods to engage users?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Cognitive Management",
+      "description": "How can we manage cognitive load and enhance understanding in mathematical explanations?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Cognitive Load Management",
+          "description": "Is the cognitive load managed effectively throughout the explanation?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Step-by-Step Breakdown",
+          "description": "Does the response break down complex concepts into manageable steps?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Real-World Applications",
+          "description": "Does the explanation relate mathematical concepts to real-world applications?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Feedback and Assessment",
+      "description": "How can we incorporate feedback and assessment opportunities in mathematical explanations?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Feedback Mechanism",
+          "description": "Is there a mechanism for users to provide feedback on the explanation?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Assessment Opportunities",
+          "description": "Are there opportunities for users to assess their understanding of the material?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Error Identification",
+          "description": "Does the response identify and correct common misconceptions in mathematics?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "User-Centric Approach",
+      "description": "How can we tailor explanations to meet the needs and interests of users?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "User-Centric Focus",
+          "description": "Is the explanation tailored to the needs and interests of the user?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Connection to Previous Knowledge",
+          "description": "Does the explanation connect new concepts to previously learned material?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Motivation Techniques",
+          "description": "Does the response employ techniques to motivate users to engage further?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    }
+  ],
+  "analysis": {
+    "overall_scores": {
+      "Interactive Discovery": 0.6400000000000001,
+      "Story-based Learning": 0.6533333333333333,
+      "Challenge-based": 0.6133333333333334,
+      "Guided Discovery": 0.6533333333333333
+    },
+    "engagement_patterns": [
+      "Story-based Learning (0.65)",
+      "Guided Discovery (0.65)",
+      "Interactive Discovery (0.64)",
+      "Challenge-based (0.61)"
+    ],
+    "interactive_elements": {
+      "questions": 0.64,
+      "challenges": 0.6355555555555555,
+      "storytelling": 0.6533333333333333,
+      "visuals": 0.64,
+      "feedback": 0.6466666666666667
+    },
+    "recommendations": [
+      "Use storytelling (score: 0.65)",
+      "Use feedback (score: 0.65)",
+      "Use questions (score: 0.64)"
+    ]
+  }
+}

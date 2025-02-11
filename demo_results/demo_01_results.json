@@ -1,0 +1,306 @@
+{
+  "contract": {
+    "name": "Basic Math Evaluation",
+    "description": "Evaluate responses to basic math problems.\n    Focus on accuracy, step-by-step explanation, and clarity of presentation."
+  },
+  "test_cases": [
+    {
+      "input": "What is 7 + 3?",
+      "output": "Let me solve this step by step:\n1. We start with 7\n2. We need to add 3 to it\n3. 7 + 3 = 10\n\nTherefore, 7 + 3 equals 10.",
+      "scores": {
+        "total_score": 0.6399999999999999,
+        "dimension_scores": {
+          "Solution Accuracy": {
+            "total_score": 0.6,
+            "subdimension_scores": {
+              "Correct Answer": 1.0,
+              "Answer Verification": 0.2
+            }
+          },
+          "Solution Presentation": {
+            "total_score": 0.9333333333333333,
+            "subdimension_scores": {
+              "Step Clarity": 1.0,
+              "Step Completeness": 1.0,
+              "Logical Flow": 0.8
+            }
+          },
+          "Mathematical Communication": {
+            "total_score": 0.7333333333333333,
+            "subdimension_scores": {
+              "Mathematical Notation": 1.0,
+              "Simplified Language": 0.8,
+              "Terminology Definition": 0.4
+            }
+          },
+          "Error Analysis": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Error Identification": 0.2
+            }
+          },
+          "Enhancing Understanding": {
+            "total_score": 0.7333333333333333,
+            "subdimension_scores": {
+              "Visual Aids": 0.2,
+              "Example Use": 1.0,
+              "Relevance of Explanation": 1.0
+            }
+          }
+        }
+      }
+    }
+  ],
+  "success": true,
+  "dimensions": [
+    {
+      "label": "Solution Accuracy",
+      "description": "How can we ensure the accuracy of a mathematical solution?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Correct Answer",
+          "description": "Is the final answer to the math problem correct?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Answer Verification",
+          "description": "Does the response include a method to verify the final answer?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Solution Presentation",
+      "description": "What elements contribute to a clear and comprehensive solution presentation?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Step Clarity",
+          "description": "Are all steps of the solution clearly presented?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Step Completeness",
+          "description": "Does the response include all necessary steps to arrive at the final answer?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Logical Flow",
+          "description": "Is the flow of the solution logical and easy to follow?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Mathematical Communication",
+      "description": "How can mathematical concepts be effectively communicated?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Mathematical Notation",
+          "description": "Is proper mathematical notation used throughout the explanation?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Simplified Language",
+          "description": "Is the language used in the explanation simple and easy to understand?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Terminology Definition",
+          "description": "Are all mathematical terms defined clearly for better understanding?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Error Analysis",
+      "description": "How can common errors in mathematical solutions be identified and explained?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Error Identification",
+          "description": "Does the response correctly identify and explain any common errors related to the problem?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Enhancing Understanding",
+      "description": "What strategies can be used to enhance understanding of mathematical concepts?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Visual Aids",
+          "description": "Are any visual aids (e.g., diagrams, charts) used to enhance understanding?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Example Use",
+          "description": "Does the response provide an example that illustrates the concept used in the problem?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Relevance of Explanation",
+          "description": "Is every part of the explanation relevant to the problem being solved?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    }
+  ]
+}

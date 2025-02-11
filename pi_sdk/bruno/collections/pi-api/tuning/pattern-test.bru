@@ -1,0 +1,117 @@
+meta {
+  name: Tuning Pattern Tests
+  type: http
+  seq: 3
+}
+
+# Test math contract tuning (first run)
+POST {{baseUrl}}/tune/prompt
+headers {
+  x-api-key: {{apiKey}}
+  Content-Type: application/json
+}
+body {
+  "contract": {
+    "name": "Math Test",
+    "description": "Test mathematical ability",
+    "dimensions": [{
+      "description": "Test accuracy",
+      "label": "Accuracy",
+      "sub_dimensions": [{
+        "label": "Numerical",
+        "description": "Test numerical accuracy",
+        "scoring_type": "PI_SCORER"
+      }]
+    }]
+  },
+  "examples": [
+    {"llm_input": "What is 2+2?", "llm_output": "4"},
+    {"llm_input": "What is 3+3?", "llm_output": "6"},
+    {"llm_input": "What is 5+5?", "llm_output": "10"}
+  ],
+  "model_id": "gpt-4o-mini",
+  "tuning_algorithm": "pi"
+}
+
+tests {
+  test("should start tuning job", function() {
+    expect(response.status).to.equal(200);
+    expect(response.body).to.have.property("job_id");
+    expect(response.body.state).to.equal("running");
+  });
+}
+
+# Test math contract tuning (second run - identical)
+POST {{baseUrl}}/tune/prompt
+headers {
+  x-api-key: {{apiKey}}
+  Content-Type: application/json
+}
+body {
+  "contract": {
+    "name": "Math Test",
+    "description": "Test mathematical ability",
+    "dimensions": [{
+      "description": "Test accuracy",
+      "label": "Accuracy",
+      "sub_dimensions": [{
+        "label": "Numerical",
+        "description": "Test numerical accuracy",
+        "scoring_type": "PI_SCORER"
+      }]
+    }]
+  },
+  "examples": [
+    {"llm_input": "What is 2+2?", "llm_output": "4"},
+    {"llm_input": "What is 3+3?", "llm_output": "6"},
+    {"llm_input": "What is 5+5?", "llm_output": "10"}
+  ],
+  "model_id": "gpt-4o-mini",
+  "tuning_algorithm": "pi"
+}
+
+tests {
+  test("should start second tuning job", function() {
+    expect(response.status).to.equal(200);
+    expect(response.body).to.have.property("job_id");
+    expect(response.body.state).to.equal("running");
+    expect(response.body.job_id).to.not.equal(vars.first_job_id);
+  });
+}
+
+# Test greeting contract tuning
+POST {{baseUrl}}/tune/prompt
+headers {
+  x-api-key: {{apiKey}}
+  Content-Type: application/json
+}
+body {
+  "contract": {
+    "name": "Greeting Test",
+    "description": "Test greeting responses",
+    "dimensions": [{
+      "description": "Test politeness",
+      "label": "Politeness",
+      "sub_dimensions": [{
+        "label": "Formal",
+        "description": "Test formal language",
+        "scoring_type": "PI_SCORER"
+      }]
+    }]
+  },
+  "examples": [
+    {"llm_input": "Hi there", "llm_output": "Good day to you"},
+    {"llm_input": "Hello", "llm_output": "Greetings and salutations"},
+    {"llm_input": "Hey", "llm_output": "Good morning/afternoon/evening"}
+  ],
+  "model_id": "gpt-4o-mini",
+  "tuning_algorithm": "pi"
+}
+
+tests {
+  test("should start different contract tuning", function() {
+    expect(response.status).to.equal(200);
+    expect(response.body).to.have.property("job_id");
+    expect(response.body.state).to.equal("running");
+  });
+} 

@@ -1,0 +1,7 @@
+{
+  "tuning_patterns": [
+    {
+      "error": "'dict' object has no attribute 'job_id'"
+    }
+  ]
+}

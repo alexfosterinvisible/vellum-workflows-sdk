@@ -1,0 +1,6 @@
+{
+  "name": "PI API Tests",
+  "version": "1.0.0",
+  "description": "Test collection for PI API endpoints",
+  "type": "collection"
+} 

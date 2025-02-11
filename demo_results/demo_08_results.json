@@ -1,0 +1,638 @@
+{
+  "contract": {
+    "name": "Math Feedback Patterns",
+    "description": "Evaluate mathematical explanations with a focus on feedback.\n    Test various feedback strategies to identify the most effective\n    approaches for promoting understanding and confidence."
+  },
+  "test_cases": [
+    {
+      "style": "Immediate Corrective",
+      "input": "Explain common mistakes when solving equations with negative numbers.",
+      "output": "Let's explore common mistakes and their corrections! \ud83d\udd0d\n\n1. Sign Errors in Addition\n-------------------------\nCommon Mistake:\n-3 + (-5) = -2\n\u274c Incorrect! Here's why:\n* Students often think negatives cancel out\n* They subtract instead of adding negatives\n\nCorrect Solution:\n-3 + (-5) = -8\n\u2705 Remember:\n* Adding negatives means going further negative\n* Think of debt: owing $3 plus owing $5 means owing $8\n\n2. Multiplication Sign Rules\n--------------------------\nCommon Mistake:\n-2 \u00d7 -3 = -6\n\u274c Incorrect! Here's what went wrong:\n* Forgetting that negative \u00d7 negative = positive\n* Not applying the sign rule consistently\n\nCorrect Solution:\n-2 \u00d7 -3 = 6\n\u2705 Think about it:\n* First negative reverses -3 to 3\n* Second negative reverses again to 6\n* Two reversals lead to positive\n\n3. Distributing Negatives\n------------------------\nCommon Mistake:\n-(2 + 3) = -2 + 3\n\u274c Watch out! This is incorrect because:\n* The negative must distribute to ALL terms\n* Each term inside parentheses gets negated\n\nCorrect Solution:\n-(2 + 3) = -2 + (-3) = -5\n\u2705 Key points:\n* Distribute the negative to each term\n* Think: opposite of (2 + 3)\n* Check: -5 is opposite of 5\n\n4. Order of Operations\n---------------------\nCommon Mistake:\n-3\u00b2 = 9\n\u274c Hold on! Let's see why this is wrong:\n* The negative isn't part of the base\n* Exponent applies to 3, not -3\n\nCorrect Solution:\n-3\u00b2 = -(3\u00b2) = -9\n\u2705 Remember:\n* Exponents before negation\n* Think: negative of (3 \u00d7 3)\n* Unless parentheses change order: (-3)\u00b2 = 9\n\n5. Subtracting Negatives\n-----------------------\nCommon Mistake:\n5 - (-2) = 3\n\u274c Not quite! Here's the issue:\n* Confusing subtraction of negative\n* Missing the double negative rule\n\nCorrect Solution:\n5 - (-2) = 5 + 2 = 7\n\u2705 Understanding why:\n* Subtracting a negative means adding\n* Like removing a debt is the same as gaining money\n\n\ud83d\udca1 General Tips for Success:\n1. Always check if your answer makes sense\n2. Use number lines for visualization\n3. Think about real-world analogies\n4. Write out steps clearly\n5. Double-check sign rules\n\n\u2705 Practice Strategy:\nWhen you see a negative number:\n1. Pause and identify the operation\n2. Apply sign rules step by step\n3. Verify your answer\n4. Look for patterns in similar problems\n\nWant to test your understanding?\nTry these problems:\n1. What's -4 + (-3)?\n2. Simplify: -2 \u00d7 3 \u00d7 (-4)\n3. Solve: -(5 - 2)\n\nRemember:\n* Take your time with signs\n* Write out each step\n* Check your work\n* Practice regularly\n\nNeed more help? Let's explore:\n1. How do you visualize negative numbers?\n2. What real-world examples help you?\n3. Which rules are most challenging?",
+      "scores": {
+        "total_score": 0.7333333333333334,
+        "dimension_scores": {
+          "Explanation Quality": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Correctness of Explanation": 1.0,
+              "Clarity of Language": 0.8,
+              "Step-by-Step Breakdown": 1.0,
+              "Use of Examples": 1.0,
+              "Visual Aids Usage": 0.2
+            }
+          },
+          "Engagement and Motivation": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Engagement Level": 0.8,
+              "Encouragement of Exploration": 0.8,
+              "Encouragement of Questions": 0.6,
+              "Feedback on Confidence": 0.8,
+              "Encouragement of Practice": 1.0
+            }
+          },
+          "Cognitive Connections": {
+            "total_score": 0.7333333333333334,
+            "subdimension_scores": {
+              "Relation to Previous Knowledge": 0.6,
+              "Use of Analogies": 0.8,
+              "Connection to Real-World Applications": 0.8
+            }
+          },
+          "Feedback and Improvement": {
+            "total_score": 0.9333333333333333,
+            "subdimension_scores": {
+              "Feedback on Errors": 1.0,
+              "Error Identification": 1.0,
+              "Specificity of Feedback": 0.8
+            }
+          },
+          "Learning Styles and Resources": {
+            "total_score": 0.39999999999999997,
+            "subdimension_scores": {
+              "Inclusivity of Diverse Learning Styles": 0.8,
+              "Use of Technology Tools": 0.2,
+              "Availability of Additional Resources": 0.2
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Progressive Feedback",
+      "input": "Guide a student through solving: 2x + 5 = 13",
+      "output": "Let's solve this step by step with guided feedback! \ud83d\udcdd\n\nStep 1: Identify the Goal\n------------------------\nQ: What are we trying to find?\nA: We need to find the value of x.\n\n\u2705 Great start! Having a clear goal helps us stay focused.\n\nStep 2: Plan Our Strategy\n------------------------\nQ: What should we do first?\nA: Get the variable (x) term by itself.\n   We need to subtract 5 from both sides.\n\n\u2705 Excellent thinking! This is exactly how we isolate variables.\n\nStep 3: Execute First Step\n-------------------------\n2x + 5 - 5 = 13 - 5\n2x = 8\n\n\u2705 Perfect! Notice how:\n* We subtracted 5 from both sides\n* This maintains equation balance\n* The left side simplified nicely\n\nStep 4: Solve for x\n------------------\nQ: How do we get x by itself?\nA: Divide both sides by 2.\n\n2x \u00f7 2 = 8 \u00f7 2\nx = 4\n\n\u2705 Outstanding work! You:\n* Identified the correct operation\n* Applied it to both sides\n* Simplified correctly\n\nStep 5: Verify Solution\n----------------------\nLet's check our answer:\n* Put x = 4 back in original equation\n* 2(4) + 5 = 13\n* 8 + 5 = 13\n* 13 = 13 \u2713\n\n\u2705 Excellent verification! This confirms our solution.\n\n\ud83c\udf1f Progress Check:\nYou've mastered:\n1. Identifying the goal\n2. Planning your approach\n3. Executing steps correctly\n4. Verifying your answer\n\n\ud83d\udca1 Key Insights:\n* Each step had a clear purpose\n* We maintained equation balance\n* Verification confirms our work\n\nReady for more challenge?\nTry these similar equations:\n1. 3x + 2 = 14\n2. 5x - 3 = 12\n3. 4x + 6 = 22\n\nRemember these success strategies:\n1. Always write out each step\n2. Check your work\n3. Look for patterns\n4. Practice regularly\n\nNeed help? Ask yourself:\n* What's my goal?\n* What's my first step?\n* How can I check my work?",
+      "scores": {
+        "total_score": 0.5573333333333335,
+        "dimension_scores": {
+          "Explanation Quality": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Correctness of Explanation": 1.0,
+              "Clarity of Language": 0.8,
+              "Step-by-Step Breakdown": 1.0,
+              "Use of Examples": 1.0,
+              "Visual Aids Usage": 0.2
+            }
+          },
+          "Engagement and Motivation": {
+            "total_score": 0.7200000000000001,
+            "subdimension_scores": {
+              "Engagement Level": 0.8,
+              "Encouragement of Exploration": 0.6,
+              "Encouragement of Questions": 0.6,
+              "Feedback on Confidence": 0.8,
+              "Encouragement of Practice": 0.8
+            }
+          },
+          "Cognitive Connections": {
+            "total_score": 0.39999999999999997,
+            "subdimension_scores": {
+              "Relation to Previous Knowledge": 0.4,
+              "Use of Analogies": 0.6,
+              "Connection to Real-World Applications": 0.2
+            }
+          },
+          "Feedback and Improvement": {
+            "total_score": 0.5333333333333333,
+            "subdimension_scores": {
+              "Feedback on Errors": 0.4,
+              "Error Identification": 0.4,
+              "Specificity of Feedback": 0.8
+            }
+          },
+          "Learning Styles and Resources": {
+            "total_score": 0.3333333333333333,
+            "subdimension_scores": {
+              "Inclusivity of Diverse Learning Styles": 0.6,
+              "Use of Technology Tools": 0.2,
+              "Availability of Additional Resources": 0.2
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Growth-Oriented",
+      "input": "Explain how to approach word problems about percentages.",
+      "output": "Let's develop your percentage problem-solving skills! \ud83c\udf31\n\nLevel 1: Building Confidence\n---------------------------\nStart here:\n\"What is 10% of 100?\"\n\nYour approach:\n1. Convert 10% to decimal (0.10)\n2. Multiply: 0.10 \u00d7 100 = 10\n\n\u2705 Great start! You've mastered:\n* Basic percentage conversion\n* Simple multiplication\n* Clear step-by-step thinking\n\n\ud83c\udf1f Growth Point:\nThis foundation will help with harder problems!\n\nLevel 2: Expanding Skills\n------------------------\nTry this:\n\"15% of what number is 30?\"\n\nStrategy development:\n1. Let's call the unknown number n\n2. Write equation: 0.15 \u00d7 n = 30\n3. Solve: n = 30 \u00f7 0.15 = 200\n\n\u2705 You're growing! Notice how:\n* You used variables effectively\n* You worked backwards\n* You applied division correctly\n\n\ud83c\udf1f Growth Point:\nYou're ready for more complex problems!\n\nLevel 3: Advanced Application\n---------------------------\nChallenge yourself:\n\"A shirt's price increased by 20% to $60. What was the original price?\"\n\nAdvanced strategy:\n1. Understand: $60 is 120% of original\n2. Let x be original price\n3. Write: 1.20x = 60\n4. Solve: x = 60 \u00f7 1.20 = $50\n\n\u2705 Excellent progress! You've learned:\n* Working with price increases\n* Understanding percentage relationships\n* Solving real-world problems\n\n\ud83c\udf1f Growth Point:\nYou're developing strong problem-solving skills!\n\nLevel 4: Mastery Development\n---------------------------\nExpert challenge:\n\"If 85% of students passed, and 45 failed, how many students total?\"\n\nMaster strategy:\n1. Understand: 85% passed, 15% failed\n2. Know: 45 is 15% of total\n3. Let t be total students\n4. Write: 0.15t = 45\n5. Solve: t = 45 \u00f7 0.15 = 300\n\n\u2705 Outstanding thinking! You've mastered:\n* Complex percentage relationships\n* Working backwards\n* Real-world applications\n\n\ud83d\udca1 Your Growth Journey:\n1. Started with basic conversions\n2. Progressed to equations\n3. Mastered real-world applications\n4. Developed problem-solving strategies\n\n\ud83c\udf1f Skills You're Building:\n* Percentage conversion\n* Equation writing\n* Critical thinking\n* Problem analysis\n* Solution verification\n\nNext Growth Steps:\n1. Try more complex problems\n2. Create your own examples\n3. Explain concepts to others\n4. Look for patterns\n\nRemember:\n* Each mistake is a learning opportunity\n* Complex problems build on simple ones\n* Understanding > memorizing\n* Practice leads to mastery\n\nWant to grow more?\nTry these challenges:\n1. Calculate percentage decrease\n2. Work with multiple percentages\n3. Solve compound percentage problems\n\nYou're doing great! Keep growing! \ud83c\udf31",
+      "scores": {
+        "total_score": 0.632,
+        "dimension_scores": {
+          "Explanation Quality": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Correctness of Explanation": 1.0,
+              "Clarity of Language": 0.8,
+              "Step-by-Step Breakdown": 1.0,
+              "Use of Examples": 1.0,
+              "Visual Aids Usage": 0.2
+            }
+          },
+          "Engagement and Motivation": {
+            "total_score": 0.7600000000000001,
+            "subdimension_scores": {
+              "Engagement Level": 0.8,
+              "Encouragement of Exploration": 0.8,
+              "Encouragement of Questions": 0.6,
+              "Feedback on Confidence": 0.8,
+              "Encouragement of Practice": 0.8
+            }
+          },
+          "Cognitive Connections": {
+            "total_score": 0.7333333333333333,
+            "subdimension_scores": {
+              "Relation to Previous Knowledge": 1.0,
+              "Use of Analogies": 0.6,
+              "Connection to Real-World Applications": 0.6
+            }
+          },
+          "Feedback and Improvement": {
+            "total_score": 0.5333333333333333,
+            "subdimension_scores": {
+              "Feedback on Errors": 0.4,
+              "Error Identification": 0.4,
+              "Specificity of Feedback": 0.8
+            }
+          },
+          "Learning Styles and Resources": {
+            "total_score": 0.3333333333333333,
+            "subdimension_scores": {
+              "Inclusivity of Diverse Learning Styles": 0.6,
+              "Use of Technology Tools": 0.2,
+              "Availability of Additional Resources": 0.2
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Metacognitive",
+      "input": "Help students understand why the Pythagorean theorem works.",
+      "output": "Let's think about how we think about the Pythagorean theorem! \ud83e\udd14\n\n1. Initial Understanding Check\n----------------------------\nQ: What do you already know?\n* a\u00b2 + b\u00b2 = c\u00b2\n* Works for right triangles\n* c is the hypotenuse\n\n\u2705 Reflection Point:\nHow did you learn these facts?\nWhat makes them stick in your mind?\n\n2. Building Visual Understanding\n------------------------------\nDraw a right triangle:\n      C\n      |\\\n    b |  \\ c\n      |    \\\n      |______\\\n    A    a    B\n\n\ud83e\udd14 Think About:\n* Why are the squares important?\n* What do a\u00b2, b\u00b2, and c\u00b2 represent?\n* How do areas relate to the theorem?\n\n\u2705 Mental Model Check:\nCan you visualize squares on each side?\n\n3. Exploring the Proof\n---------------------\nLook at this square arrangement:\n\u250c\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502 a\u00b2  \u2502     \u2502\n\u2502     \u2502     \u2502\n\u251c\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2524\n\u2502     \u2502 b\u00b2  \u2502\n\u2502     \u2502     \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2518\n\n\ud83e\udd14 Consider:\n* How does this relate to c\u00b2?\n* Why does rearrangement work?\n* What patterns do you notice?\n\n\u2705 Understanding Check:\nCan you explain why area is preserved?\n\n4. Real-world Connection\n-----------------------\nThink about:\n* Carpenter's square tool\n* TV screen dimensions\n* Satellite dish positioning\n\n\ud83e\udd14 Reflection Questions:\n* Why do these applications work?\n* How does the theorem help?\n* What other uses can you think of?\n\n5. Pattern Recognition\n--------------------\nSpecial cases:\n* 3-4-5 triangle\n* 5-12-13 triangle\n* 8-15-17 triangle\n\n\ud83e\udd14 Meta-analysis:\n* What patterns do you see?\n* How could you find more?\n* Why do these work?\n\n\u2705 Learning Progress:\nNotice how your understanding deepens\nas you connect different aspects.\n\n6. Self-Assessment Guide\n-----------------------\nCan you:\n\u25a1 Explain the theorem in your own words?\n\u25a1 Draw and label a proof diagram?\n\u25a1 Find real-world applications?\n\u25a1 Generate your own examples?\n\n\ud83e\udd14 Reflection on Learning:\n* Which parts were challenging?\n* What helped most?\n* How has your understanding changed?\n\n7. Knowledge Integration\n----------------------\nConnect to other concepts:\n* Similar triangles\n* Trigonometry\n* Area calculations\n\n\ud83e\udd14 Think About:\n* How do these connect?\n* Why are these relationships important?\n* What new insights do you gain?\n\n8. Learning Strategy Review\n-------------------------\nWhat helped you understand:\n* Visual diagrams?\n* Algebraic proofs?\n* Real examples?\n* Pattern recognition?\n\n\u2705 Process Check:\nWhich strategies work best for you?\n\n9. Future Application\n-------------------\nThink ahead:\n* How will you use this?\n* When might you need it?\n* What else can you learn from it?\n\n\ud83e\udd14 Meta-learning Questions:\n* How do you learn math best?\n* What helps you remember?\n* How do you overcome challenges?\n\n\ud83d\udca1 Final Reflection:\n1. How has your understanding grown?\n2. What questions remain?\n3. Where will you go next?\n\nRemember:\n* Understanding > memorizing\n* Connections enhance learning\n* Questions drive discovery\n* Reflection deepens knowledge\n\nWant to explore more?\n1. How would you teach this?\n2. What other proofs exist?\n3. How does this connect to your interests?",
+      "scores": {
+        "total_score": 0.648,
+        "dimension_scores": {
+          "Explanation Quality": {
+            "total_score": 0.96,
+            "subdimension_scores": {
+              "Correctness of Explanation": 1.0,
+              "Clarity of Language": 0.8,
+              "Step-by-Step Breakdown": 1.0,
+              "Use of Examples": 1.0,
+              "Visual Aids Usage": 1.0
+            }
+          },
+          "Engagement and Motivation": {
+            "total_score": 0.6800000000000002,
+            "subdimension_scores": {
+              "Engagement Level": 0.8,
+              "Encouragement of Exploration": 0.8,
+              "Encouragement of Questions": 0.8,
+              "Feedback on Confidence": 0.6,
+              "Encouragement of Practice": 0.4
+            }
+          },
+          "Cognitive Connections": {
+            "total_score": 0.8666666666666667,
+            "subdimension_scores": {
+              "Relation to Previous Knowledge": 1.0,
+              "Use of Analogies": 0.6,
+              "Connection to Real-World Applications": 1.0
+            }
+          },
+          "Feedback and Improvement": {
+            "total_score": 0.3333333333333333,
+            "subdimension_scores": {
+              "Feedback on Errors": 0.2,
+              "Error Identification": 0.2,
+              "Specificity of Feedback": 0.6
+            }
+          },
+          "Learning Styles and Resources": {
+            "total_score": 0.39999999999999997,
+            "subdimension_scores": {
+              "Inclusivity of Diverse Learning Styles": 0.8,
+              "Use of Technology Tools": 0.2,
+              "Availability of Additional Resources": 0.2
+            }
+          }
+        }
+      }
+    }
+  ],
+  "success": true,
+  "dimensions": [
+    {
+      "label": "Explanation Quality",
+      "description": "How can mathematical explanations be improved for better understanding?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Correctness of Explanation",
+          "description": "Does the mathematical explanation accurately convey the correct solution to the problem?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Clarity of Language",
+          "description": "Is the language used in the explanation clear and easy to understand?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Step-by-Step Breakdown",
+          "description": "Does the explanation provide a step-by-step breakdown of the solution?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Use of Examples",
+          "description": "Are relevant examples provided to illustrate the mathematical concepts?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Visual Aids Usage",
+          "description": "Are visual aids such as diagrams or graphs used to enhance understanding?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Engagement and Motivation",
+      "description": "How can explanations engage learners and encourage exploration?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Engagement Level",
+          "description": "Does the explanation engage the learner's interest in the topic?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Encouragement of Exploration",
+          "description": "Does the explanation encourage the learner to explore further questions related to the topic?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Encouragement of Questions",
+          "description": "Does the explanation encourage the learner to ask questions about the material?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Feedback on Confidence",
+          "description": "Does the explanation provide feedback that aims to boost the learner's confidence in their understanding?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Encouragement of Practice",
+          "description": "Does the explanation encourage the learner to practice similar problems?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Cognitive Connections",
+      "description": "How can explanations relate new concepts to prior knowledge?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Relation to Previous Knowledge",
+          "description": "Does the explanation relate the current problem to previously learned concepts?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Use of Analogies",
+          "description": "Are effective analogies used to explain complex concepts?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Connection to Real-World Applications",
+          "description": "Does the explanation connect mathematical concepts to real-world applications?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Feedback and Improvement",
+      "description": "How can feedback be structured to enhance learning?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Feedback on Errors",
+          "description": "Does the explanation give constructive feedback on any potential errors in the reasoning?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Error Identification",
+          "description": "Does the explanation effectively identify common mistakes related to the topic?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Specificity of Feedback",
+          "description": "Is the feedback provided specific and actionable?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Learning Styles and Resources",
+      "description": "How can explanations cater to diverse learning styles and provide additional resources?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Inclusivity of Diverse Learning Styles",
+          "description": "Does the explanation cater to diverse learning styles (visual, auditory, kinesthetic)?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Use of Technology Tools",
+          "description": "Are technology tools, such as calculators or software, suggested for further exploration?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Availability of Additional Resources",
+          "description": "Does the explanation provide links or references to additional resources for further learning?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    }
+  ],
+  "analysis": {
+    "overall_scores": {
+      "Immediate Corrective": 0.7333333333333334,
+      "Progressive Feedback": 0.5573333333333335,
+      "Growth-Oriented": 0.632,
+      "Metacognitive": 0.648
+    },
+    "feedback_types": {
+      "Immediate Corrective": [
+        "corrective",
+        "explanatory",
+        "reflective"
+      ],
+      "Progressive Feedback": [
+        "reinforcement",
+        "progressive"
+      ],
+      "Growth-Oriented": [
+        "corrective",
+        "reinforcement",
+        "progressive"
+      ],
+      "Metacognitive": [
+        "explanatory",
+        "reflective",
+        "progressive"
+      ]
+    },
+    "type_effectiveness": {
+      "corrective": 0.6826666666666668,
+      "reinforcement": 0.5946666666666667,
+      "explanatory": 0.6906666666666668,
+      "reflective": 0.6906666666666668,
+      "progressive": 0.6124444444444445
+    },
+    "recommendations": [
+      "Most effective type: explanatory (0.69)",
+      "Balance different feedback types",
+      "Start with positive reinforcement",
+      "Include specific corrections",
+      "End with reflection and next steps"
+    ]
+  }
+}

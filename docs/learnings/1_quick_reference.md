@@ -40,9 +40,56 @@
    - Don't skip type checking
    - Don't assume response format
 
+## PI API Contract Testing
+
+1. **Authentication**
+   - Use `x-api-key` header (not Bearer token)
+   - API Key format: `pilabs_key_*`
+   - Base URL: `https://api.withpi.ai/v1`
+
+2. **Contract Generation**
+
+   ```python
+   # Generate dimensions for a contract
+   response = await session.post(
+       "https://api.withpi.ai/v1/contracts/generate_dimensions",
+       json={"contract": {
+           "name": "Math Skills",
+           "description": "Test mathematical abilities"
+       }}
+   )
+   ```
+
+3. **Contract Scoring**
+
+   ```python
+   # Score an input/output pair against a contract
+   response = await session.post(
+       "https://api.withpi.ai/v1/contracts/score",
+       json={
+           "contract": contract_with_dimensions,  # From generation step
+           "llm_input": "What is 2 + 2?",
+           "llm_output": "The answer is 4."
+       }
+   )
+   ```
+
+4. **Best Practices**
+   - Generate dimensions first, then use for scoring
+   - Include detailed step-by-step explanations in outputs
+   - Test with various input complexities
+   - Monitor dimension scores for patterns
+
+5. **Common Pitfalls**
+   - Don't skip dimension generation step
+   - Don't reuse dimensions across different contracts
+   - Don't assume all dimensions have equal weight
+   - Don't ignore subdimension scores
+
 ## Common Commands
 
 ### Basic Operations
+
 ```bash
 # List available prompts
 vellum-explorer list --status ACTIVE
@@ -73,8 +120,10 @@ vellum-explorer ask "What types of exports are supported?"
 ```
 
 The assistant will:
+
 1. Search through all documentation
 2. Provide relevant answers with supporting evidence
 3. Include code examples when available
 4. Show confidence scores for the responses
-``` 
+
+```

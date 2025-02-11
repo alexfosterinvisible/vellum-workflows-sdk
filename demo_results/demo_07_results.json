@@ -1,0 +1,558 @@
+{
+  "contract": {
+    "name": "Math Question Patterns",
+    "description": "Evaluate mathematical explanations with a focus on question types.\n    Test various questioning strategies to identify the most effective\n    approaches for promoting understanding and engagement."
+  },
+  "test_cases": [
+    {
+      "style": "Socratic Questioning",
+      "input": "Explain why a negative number times a negative number equals a positive number.",
+      "output": "Let's explore this concept through guided questions! \ud83e\udd14\n\n1. Understanding Patterns\n------------------------\nQ: What happens when we multiply a positive by a positive?\nA: We get a positive! (e.g., 2 \u00d7 3 = 6)\n\nQ: What happens when we multiply a positive by a negative?\nA: We get a negative! (e.g., 2 \u00d7 -3 = -6)\n\nQ: Can you predict what happens with negative \u00d7 negative?\n[Think about the pattern...]\n\n2. Real-world Connection\n-----------------------\nQ: If going north is positive, what represents going south?\nA: Going south would be negative direction.\n\nQ: If you reverse a negative direction, what happens?\nA: You end up going in the positive direction!\n\n3. Mathematical Logic\n--------------------\nConsider this sequence:\n* 3 \u00d7 2 = 6\n* 3 \u00d7 1 = 3\n* 3 \u00d7 0 = 0\n* 3 \u00d7 -1 = -3\n* 3 \u00d7 -2 = -6\n\nQ: What pattern do you notice?\nA: Each product decreases by 3.\n\nNow look at this:\n* -3 \u00d7 2 = -6\n* -3 \u00d7 1 = -3\n* -3 \u00d7 0 = 0\n* -3 \u00d7 -1 = 3\n* -3 \u00d7 -2 = 6\n\nQ: What changed in the pattern?\nA: The products increase by 3!\n\n4. Understanding Why\n-------------------\nQ: When we multiply by a negative number, what happens to the pattern?\nA: The pattern reverses direction!\n\nQ: So when we multiply two negatives, what happens?\nA: We reverse direction twice, ending up positive!\n\n5. Final Verification\n--------------------\nQ: Can you explain why (-2) \u00d7 (-3) = 6?\nA: When we multiply by -2, we reverse -3 to get 3,\n   then multiply by 2 to get 6!\n\n\ud83d\udca1 Key Insight:\nMultiplying by a negative means \"reverse and take that many steps.\"\nTwo reversals bring us back to the positive direction!\n\nWant to explore more?\n1. What happens with three negative numbers?\n2. How does this relate to dividing negative numbers?\n3. Can you create your own explanation using this pattern?",
+      "scores": {
+        "total_score": 0.6533333333333333,
+        "dimension_scores": {
+          "Evaluation of Explanations": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Correctness of Answers": 1.0,
+              "Clarity of Explanation": 0.8,
+              "Depth of Explanation": 0.8,
+              "Conciseness of Language": 0.6
+            }
+          },
+          "Engagement and Interaction": {
+            "total_score": 0.8666666666666667,
+            "subdimension_scores": {
+              "Engagement Strategies": 1.0,
+              "Encouragement of Critical Thinking": 0.8,
+              "Encouragement of Discussion": 0.8
+            }
+          },
+          "Relevance and Application": {
+            "total_score": 0.6666666666666666,
+            "subdimension_scores": {
+              "Relevance of Examples": 1.0,
+              "Real-World Applications": 0.6,
+              "Application of Concepts": 0.4
+            }
+          },
+          "Assessment and Feedback": {
+            "total_score": 0.4,
+            "subdimension_scores": {
+              "Assessment of Understanding": 0.6,
+              "Feedback Mechanism": 0.2
+            }
+          },
+          "Diverse Learning Considerations": {
+            "total_score": 0.5333333333333333,
+            "subdimension_scores": {
+              "Diverse Learning Styles": 0.8,
+              "Cultural Sensitivity": 0.2,
+              "Accessibility of Content": 0.6
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Diagnostic Questions",
+      "input": "Explain how to solve quadratic equations using the quadratic formula: ax\u00b2 + bx + c = 0",
+      "output": "Let's master the quadratic formula through targeted questions! \ud83d\udcdd\n\nPre-Assessment Questions:\n------------------------\n1. What type of equation is ax\u00b2 + bx + c = 0?\n   \u25a1 Linear\n   \u25a1 Quadratic\n   \u25a1 Cubic\n   [Answer: Quadratic - it has x\u00b2]\n\n2. Can you identify a, b, and c in: x\u00b2 - 5x + 6 = 0?\n   a = ___  b = ___  c = ___\n   [Answer: a = 1, b = -5, c = 6]\n\nUnderstanding the Formula:\n-------------------------\nThe quadratic formula is: x = [-b \u00b1 \u221a(b\u00b2 - 4ac)] \u00f7 (2a)\n\nQ: Why do we need \u00b1 in the formula?\nA: Because a quadratic equation usually has two solutions!\n\nConcept Check Questions:\n-----------------------\n1. What do we call b\u00b2 - 4ac?\n   \u25a1 Quadratic term\n   \u25a1 Discriminant\n   \u25a1 Coefficient\n   [Answer: Discriminant]\n\n2. What does the discriminant tell us?\n   \u25a1 Number of solutions\n   \u25a1 Size of solutions\n   \u25a1 Sign of solutions\n   [Answer: Number of solutions]\n\nPractice Application:\n-------------------\nLet's solve: x\u00b2 - 5x + 6 = 0\n\nStep-by-Step Questions:\n1. What are a, b, and c?\n   a = 1, b = -5, c = 6\n\n2. What's the discriminant (b\u00b2 - 4ac)?\n   (-5)\u00b2 - 4(1)(6) = 25 - 24 = 1\n\n3. What's -b \u00b1 \u221a(discriminant)?\n   5 \u00b1 \u221a1 = 5 \u00b1 1\n\n4. What's the final answer?\n   x = (5 \u00b1 1) \u00f7 2\n   x = 3 or x = 2\n\nVerification Questions:\n---------------------\n1. Check x = 3:\n   3\u00b2 - 5(3) + 6 = 9 - 15 + 6 = 0 \u2713\n\n2. Check x = 2:\n   2\u00b2 - 5(2) + 6 = 4 - 10 + 6 = 0 \u2713\n\nUnderstanding Check:\n------------------\nQ: What happens if b\u00b2 - 4ac is:\n1. Positive? [Two real solutions]\n2. Zero? [One real solution]\n3. Negative? [No real solutions]\n\n\ud83c\udfaf Quick Quiz:\n1. In x\u00b2 + 2x + 1 = 0:\n   * What's the discriminant?\n   * How many solutions?\n   * What are they?\n   [Try it yourself!]\n\nWant to practice more?\n1. What's the discriminant of x\u00b2 + x + 1 = 0?\n2. When does a quadratic have exactly one solution?\n3. Can you create your own quadratic with two solutions?",
+      "scores": {
+        "total_score": 0.6866666666666668,
+        "dimension_scores": {
+          "Evaluation of Explanations": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Correctness of Answers": 1.0,
+              "Clarity of Explanation": 0.8,
+              "Depth of Explanation": 0.8,
+              "Conciseness of Language": 0.6
+            }
+          },
+          "Engagement and Interaction": {
+            "total_score": 0.7333333333333333,
+            "subdimension_scores": {
+              "Engagement Strategies": 1.0,
+              "Encouragement of Critical Thinking": 0.6,
+              "Encouragement of Discussion": 0.6
+            }
+          },
+          "Relevance and Application": {
+            "total_score": 0.7333333333333333,
+            "subdimension_scores": {
+              "Relevance of Examples": 1.0,
+              "Real-World Applications": 0.2,
+              "Application of Concepts": 1.0
+            }
+          },
+          "Assessment and Feedback": {
+            "total_score": 0.7,
+            "subdimension_scores": {
+              "Assessment of Understanding": 1.0,
+              "Feedback Mechanism": 0.4
+            }
+          },
+          "Diverse Learning Considerations": {
+            "total_score": 0.4666666666666667,
+            "subdimension_scores": {
+              "Diverse Learning Styles": 0.6,
+              "Cultural Sensitivity": 0.2,
+              "Accessibility of Content": 0.6
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Scaffolded Questions",
+      "input": "Explain how to find the area of a circle given its radius.",
+      "output": "Let's build our understanding step by step with guiding questions! \ud83c\udfaf\n\nLevel 1: Basic Concepts\n----------------------\nQ: What's special about a circle?\nA: Every point is the same distance from the center!\n\nQ: What do we call this distance?\nA: The radius (r)\n\nLevel 2: Understanding \u03c0\n-----------------------\nQ: What happens when we divide a circle's circumference by its diameter?\nA: We always get \u03c0 (approximately 3.14159)!\n\nQ: Why is this important?\nA: It shows a constant relationship in all circles!\n\nLevel 3: Building the Formula\n----------------------------\nQ: If we divide a circle into tiny triangles:\n1. What's the height of each triangle? [radius]\n2. What's the total width at the base? [circumference]\n3. What's the formula for a triangle's area? [\u00bd \u00d7 base \u00d7 height]\n\nLet's connect the dots:\n* Circumference = 2\u03c0r\n* Each triangle: Area = \u00bd \u00d7 base \u00d7 r\n* Total area combines all these triangles!\n\nQ: Can you see how this leads to A = \u03c0r\u00b2?\n\nLevel 4: Understanding the Formula\n--------------------------------\nA = \u03c0r\u00b2\n\nQ: What happens to the area when we:\n1. Double the radius? [Area increases 4 times]\n2. Triple the radius? [Area increases 9 times]\n3. Halve the radius? [Area decreases to \u00bc]\n\nLevel 5: Application\n-------------------\nLet's find the area of a circle with radius 5 cm:\n1. What's our formula? [A = \u03c0r\u00b2]\n2. What do we plug in for r? [5]\n3. What's 5\u00b2? [25]\n4. So what's the area? [25\u03c0 \u2248 78.54 cm\u00b2]\n\nLevel 6: Real-world Connection\n----------------------------\nQ: Why might we need to find a circle's area?\nExamples:\n* Pizza sizing\n* Circular pool coverage\n* Round table seating\n\nPractice Questions:\n-----------------\n1. Basic: Find the area of a circle with radius 3 cm\n2. Medium: How much does the area increase if radius goes from 2 to 4?\n3. Challenge: If a circle's area is 100\u03c0, what's its radius?\n\n\ud83d\udca1 Understanding Check:\n* Why do we square the radius?\n* Why do we multiply by \u03c0?\n* How does changing radius affect area?\n\nWant to explore more?\n1. How does this relate to the area of a sector?\n2. What's the relationship between radius and circumference?\n3. Can you explain why A = \u03c0r\u00b2 to someone else?",
+      "scores": {
+        "total_score": 0.7200000000000002,
+        "dimension_scores": {
+          "Evaluation of Explanations": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Correctness of Answers": 1.0,
+              "Clarity of Explanation": 0.8,
+              "Depth of Explanation": 0.8,
+              "Conciseness of Language": 0.6
+            }
+          },
+          "Engagement and Interaction": {
+            "total_score": 0.8666666666666667,
+            "subdimension_scores": {
+              "Engagement Strategies": 1.0,
+              "Encouragement of Critical Thinking": 0.8,
+              "Encouragement of Discussion": 0.8
+            }
+          },
+          "Relevance and Application": {
+            "total_score": 1.0,
+            "subdimension_scores": {
+              "Relevance of Examples": 1.0,
+              "Real-World Applications": 1.0,
+              "Application of Concepts": 1.0
+            }
+          },
+          "Assessment and Feedback": {
+            "total_score": 0.4,
+            "subdimension_scores": {
+              "Assessment of Understanding": 0.6,
+              "Feedback Mechanism": 0.2
+            }
+          },
+          "Diverse Learning Considerations": {
+            "total_score": 0.5333333333333333,
+            "subdimension_scores": {
+              "Diverse Learning Styles": 0.6,
+              "Cultural Sensitivity": 0.2,
+              "Accessibility of Content": 0.8
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Challenge Questions",
+      "input": "Explain the concept of probability using coin flips and dice rolls.",
+      "output": "Let's explore probability through increasingly challenging questions! \ud83c\udfb2\n\nLevel 1: Basic Probability\n-------------------------\n\ud83c\udfaf Warm-up Challenge:\nQ: When flipping a fair coin:\n1. What's the probability of heads? [1/2]\n2. What's the probability of tails? [1/2]\n3. What do these probabilities sum to? [1]\n\n\u2728 Key Concept:\nTotal probability of all possible outcomes = 1\n\nLevel 2: Multiple Events\n-----------------------\n\ud83c\udfaf Coin Flip Challenge:\nQ: When flipping two coins:\n1. List all possible outcomes:\n   * HH\n   * HT\n   * TH\n   * TT\n\n2. What's the probability of:\n   * Two heads? [1/4]\n   * At least one head? [3/4]\n   * No heads? [1/4]\n\n\ud83e\udd14 Think Deeper:\nWhy is P(at least one head) = 3/4?\n[Hint: Count favorable outcomes!]\n\nLevel 3: Dice Probability\n------------------------\n\ud83c\udfaf Single Die Challenge:\nQ: Rolling one die:\n1. How many possible outcomes? [6]\n2. P(rolling a 6)? [1/6]\n3. P(rolling an even number)? [3/6 = 1/2]\n\n\ud83c\udfaf Advanced Challenge:\nRolling two dice:\n1. How many total possibilities? [36]\n2. P(sum = 7)? [6/36 = 1/6]\n3. P(sum = 12)? [1/36]\n\nLevel 4: Complex Probability\n---------------------------\n\ud83c\udfaf Master Challenge:\nQ: Rolling two dice:\n1. P(first die > second die)?\n2. P(product is even)?\n3. P(sum is prime)?\n\n[Try solving these before looking at answers!]\n\nAnswers:\n1. 15/36 = 5/12\n2. 27/36 = 3/4\n3. 15/36 = 5/12 (sum of 2,3,5,7,11)\n\nLevel 5: Real-world Applications\n------------------------------\n\ud83c\udfaf Application Challenges:\n1. If you flip 3 coins, what's more likely:\n   * All heads\n   * Two heads and one tail\n   [Work it out!]\n\n2. In a game with two dice:\n   * Is sum=7 or sum=6 more likely?\n   * Why?\n   [Think about possible combinations]\n\n\ud83d\udca1 Probability Principles:\nQ: What patterns have you noticed?\n1. All probabilities are between 0 and 1\n2. More complex events often have lower probabilities\n3. Multiple ways to reach same outcome increase probability\n\n\ud83c\udf1f Bonus Challenges:\n1. Create a probability problem involving 3 dice\n2. Find the probability of rolling three 6's in a row\n3. Calculate the probability of NOT rolling a 6 in 4 tries\n\nWant to explore more?\n1. How does probability relate to statistics?\n2. Can you explain conditional probability?\n3. What's the difference between theoretical and experimental probability?",
+      "scores": {
+        "total_score": 0.67,
+        "dimension_scores": {
+          "Evaluation of Explanations": {
+            "total_score": 0.75,
+            "subdimension_scores": {
+              "Correctness of Answers": 1.0,
+              "Clarity of Explanation": 0.8,
+              "Depth of Explanation": 0.6,
+              "Conciseness of Language": 0.6
+            }
+          },
+          "Engagement and Interaction": {
+            "total_score": 0.7333333333333333,
+            "subdimension_scores": {
+              "Engagement Strategies": 0.8,
+              "Encouragement of Critical Thinking": 0.8,
+              "Encouragement of Discussion": 0.6
+            }
+          },
+          "Relevance and Application": {
+            "total_score": 1.0,
+            "subdimension_scores": {
+              "Relevance of Examples": 1.0,
+              "Real-World Applications": 1.0,
+              "Application of Concepts": 1.0
+            }
+          },
+          "Assessment and Feedback": {
+            "total_score": 0.4,
+            "subdimension_scores": {
+              "Assessment of Understanding": 0.6,
+              "Feedback Mechanism": 0.2
+            }
+          },
+          "Diverse Learning Considerations": {
+            "total_score": 0.4666666666666667,
+            "subdimension_scores": {
+              "Diverse Learning Styles": 0.6,
+              "Cultural Sensitivity": 0.2,
+              "Accessibility of Content": 0.6
+            }
+          }
+        }
+      }
+    }
+  ],
+  "success": true,
+  "dimensions": [
+    {
+      "label": "Evaluation of Explanations",
+      "description": "What aspects should be evaluated in mathematical explanations?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Correctness of Answers",
+          "description": "Are the answers provided to the mathematical questions correct?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Clarity of Explanation",
+          "description": "Is the explanation of the mathematical concept clear and easy to understand?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Depth of Explanation",
+          "description": "Does the explanation provide sufficient depth to promote understanding of the topic?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Conciseness of Language",
+          "description": "Is the language used in the explanation concise and to the point?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Engagement and Interaction",
+      "description": "How can mathematical explanations engage learners effectively?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Engagement Strategies",
+          "description": "Does the explanation include strategies to engage the learner (e.g., questions, prompts)?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Encouragement of Critical Thinking",
+          "description": "Does the explanation encourage the learner to think critically about the mathematical concepts?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Encouragement of Discussion",
+          "description": "Does the explanation encourage discussion among learners about the mathematical concepts?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Relevance and Application",
+      "description": "How can mathematical concepts be made relevant and applicable?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Relevance of Examples",
+          "description": "Are the examples used in the explanation relevant to the mathematical concept being discussed?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Real-World Applications",
+          "description": "Are real-world applications of the mathematical concepts discussed in the explanation?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Application of Concepts",
+          "description": "Are there opportunities provided for learners to apply the mathematical concepts in practice problems?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Assessment and Feedback",
+      "description": "What methods can be used to assess understanding and provide feedback?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Assessment of Understanding",
+          "description": "Is there a method to assess the learner's understanding of the material presented?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Feedback Mechanism",
+          "description": "Is there a mechanism for providing feedback on the learner's answers?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Diverse Learning Considerations",
+      "description": "How can mathematical explanations cater to diverse learning needs?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Diverse Learning Styles",
+          "description": "Does the explanation cater to diverse learning styles (e.g., auditory, visual, kinesthetic)?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Cultural Sensitivity",
+          "description": "Does the explanation consider cultural differences in mathematical understanding?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Accessibility of Content",
+          "description": "Is the content accessible to learners with different levels of prior knowledge?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    }
+  ],
+  "analysis": {
+    "overall_scores": {
+      "Socratic Questioning": 0.6533333333333333,
+      "Diagnostic Questions": 0.6866666666666668,
+      "Scaffolded Questions": 0.7200000000000002,
+      "Challenge Questions": 0.67
+    },
+    "question_types": {
+      "Socratic Questioning": [
+        "conceptual",
+        "procedural",
+        "analytical",
+        "application"
+      ],
+      "Diagnostic Questions": [
+        "conceptual",
+        "procedural",
+        "verification"
+      ],
+      "Scaffolded Questions": [
+        "conceptual",
+        "procedural",
+        "application",
+        "verification"
+      ],
+      "Challenge Questions": [
+        "conceptual",
+        "procedural",
+        "analytical",
+        "application"
+      ]
+    },
+    "type_effectiveness": {
+      "conceptual": 0.6825000000000001,
+      "procedural": 0.6825000000000001,
+      "analytical": 0.6616666666666666,
+      "application": 0.6811111111111111,
+      "verification": 0.7033333333333335
+    },
+    "recommendations": [
+      "Most effective type: verification (0.70)",
+      "Balance different question types",
+      "Start with conceptual understanding",
+      "Include real-world applications",
+      "End with verification questions"
+    ]
+  }
+}

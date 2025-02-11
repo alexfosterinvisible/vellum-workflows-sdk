@@ -1,0 +1,595 @@
+{
+  "contract": {
+    "name": "Math Response Style Analysis",
+    "description": "Evaluate different styles of mathematical explanations.\n    Focus on clarity, completeness, and effectiveness of communication."
+  },
+  "test_cases": [
+    {
+      "style": "Direct Answer",
+      "input": "What is 15 divided by 3?",
+      "output": "15 divided by 3 equals 5.",
+      "scores": {
+        "total_score": 0.3726666666666667,
+        "dimension_scores": {
+          "Explanation Quality": {
+            "total_score": 0.6800000000000002,
+            "subdimension_scores": {
+              "Clarity of Explanation": 0.8,
+              "Completeness of Explanation": 0.4,
+              "Terminology Correctness": 1.0,
+              "Logical Flow": 0.2,
+              "Conciseness": 1.0
+            }
+          },
+          "Engagement and Accessibility": {
+            "total_score": 0.45,
+            "subdimension_scores": {
+              "Engagement Level": 0.4,
+              "Accessibility of Language": 0.8,
+              "Feedback Mechanism": 0.4,
+              "Interactivity": 0.2
+            }
+          },
+          "Illustration and Examples": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Use of Examples": 0.2,
+              "Visual Aids": 0.2,
+              "Use of Analogies": 0.2,
+              "Real-World Applications": 0.2
+            }
+          },
+          "Critical Thinking and Reinforcement": {
+            "total_score": 0.3333333333333333,
+            "subdimension_scores": {
+              "Critical Thinking Encouragement": 0.4,
+              "Reinforcement of Concepts": 0.4,
+              "Summary of Key Points": 0.2
+            }
+          },
+          "Method Comparison and Technology Use": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Multiple Approaches": 0.2,
+              "Comparison with Other Methods": 0.2,
+              "Use of Technology": 0.2
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Step by Step",
+      "input": "What is 15 divided by 3?",
+      "output": "Let me solve this step by step:\n1. We start with 15 as our dividend\n2. We need to divide it by 3 (our divisor)\n3. 15 \u00f7 3 = 5 because 3 \u00d7 5 = 15\n\nTherefore, 15 divided by 3 equals 5.",
+      "scores": {
+        "total_score": 0.482,
+        "dimension_scores": {
+          "Explanation Quality": {
+            "total_score": 0.96,
+            "subdimension_scores": {
+              "Clarity of Explanation": 0.8,
+              "Completeness of Explanation": 1.0,
+              "Terminology Correctness": 1.0,
+              "Logical Flow": 1.0,
+              "Conciseness": 1.0
+            }
+          },
+          "Engagement and Accessibility": {
+            "total_score": 0.49999999999999994,
+            "subdimension_scores": {
+              "Engagement Level": 0.6,
+              "Accessibility of Language": 0.8,
+              "Feedback Mechanism": 0.4,
+              "Interactivity": 0.2
+            }
+          },
+          "Illustration and Examples": {
+            "total_score": 0.35,
+            "subdimension_scores": {
+              "Use of Examples": 0.8,
+              "Visual Aids": 0.2,
+              "Use of Analogies": 0.2,
+              "Real-World Applications": 0.2
+            }
+          },
+          "Critical Thinking and Reinforcement": {
+            "total_score": 0.39999999999999997,
+            "subdimension_scores": {
+              "Critical Thinking Encouragement": 0.4,
+              "Reinforcement of Concepts": 0.6,
+              "Summary of Key Points": 0.2
+            }
+          },
+          "Method Comparison and Technology Use": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Multiple Approaches": 0.2,
+              "Comparison with Other Methods": 0.2,
+              "Use of Technology": 0.2
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Visual Style",
+      "input": "What is 15 divided by 3?",
+      "output": "Let's visualize this division:\n\n15 \u00f7 3 = ?\n\n[15] \u2192 split into 3 equal groups \u2192 [5] [5] [5]\n\nWe can see that when we split 15 into 3 equal groups,\neach group has 5 items.\n\nTherefore, 15 divided by 3 equals 5.",
+      "scores": {
+        "total_score": 0.5653333333333335,
+        "dimension_scores": {
+          "Explanation Quality": {
+            "total_score": 0.96,
+            "subdimension_scores": {
+              "Clarity of Explanation": 0.8,
+              "Completeness of Explanation": 1.0,
+              "Terminology Correctness": 1.0,
+              "Logical Flow": 1.0,
+              "Conciseness": 1.0
+            }
+          },
+          "Engagement and Accessibility": {
+            "total_score": 0.55,
+            "subdimension_scores": {
+              "Engagement Level": 0.8,
+              "Accessibility of Language": 0.8,
+              "Feedback Mechanism": 0.4,
+              "Interactivity": 0.2
+            }
+          },
+          "Illustration and Examples": {
+            "total_score": 0.65,
+            "subdimension_scores": {
+              "Use of Examples": 1.0,
+              "Visual Aids": 0.8,
+              "Use of Analogies": 0.6,
+              "Real-World Applications": 0.2
+            }
+          },
+          "Critical Thinking and Reinforcement": {
+            "total_score": 0.4666666666666666,
+            "subdimension_scores": {
+              "Critical Thinking Encouragement": 0.6,
+              "Reinforcement of Concepts": 0.6,
+              "Summary of Key Points": 0.2
+            }
+          },
+          "Method Comparison and Technology Use": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Multiple Approaches": 0.2,
+              "Comparison with Other Methods": 0.2,
+              "Use of Technology": 0.2
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Conceptual Explanation",
+      "input": "What is 15 divided by 3?",
+      "output": "Let me explain division conceptually:\n\nDivision is about splitting a number into equal groups.\nIn this case, we're splitting 15 into 3 equal groups.\n\nThink of it like sharing 15 candies among 3 friends:\n- Friend 1 gets 5 candies\n- Friend 2 gets 5 candies\n- Friend 3 gets 5 candies\n\nThis shows us that 15 \u00f7 3 = 5, because each of the 3 groups gets 5 items.",
+      "scores": {
+        "total_score": 0.5393333333333333,
+        "dimension_scores": {
+          "Explanation Quality": {
+            "total_score": 0.8800000000000001,
+            "subdimension_scores": {
+              "Clarity of Explanation": 0.8,
+              "Completeness of Explanation": 0.8,
+              "Terminology Correctness": 1.0,
+              "Logical Flow": 0.8,
+              "Conciseness": 1.0
+            }
+          },
+          "Engagement and Accessibility": {
+            "total_score": 0.49999999999999994,
+            "subdimension_scores": {
+              "Engagement Level": 0.6,
+              "Accessibility of Language": 0.8,
+              "Feedback Mechanism": 0.4,
+              "Interactivity": 0.2
+            }
+          },
+          "Illustration and Examples": {
+            "total_score": 0.65,
+            "subdimension_scores": {
+              "Use of Examples": 1.0,
+              "Visual Aids": 0.2,
+              "Use of Analogies": 0.8,
+              "Real-World Applications": 0.6
+            }
+          },
+          "Critical Thinking and Reinforcement": {
+            "total_score": 0.4666666666666666,
+            "subdimension_scores": {
+              "Critical Thinking Encouragement": 0.6,
+              "Reinforcement of Concepts": 0.6,
+              "Summary of Key Points": 0.2
+            }
+          },
+          "Method Comparison and Technology Use": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Multiple Approaches": 0.2,
+              "Comparison with Other Methods": 0.2,
+              "Use of Technology": 0.2
+            }
+          }
+        }
+      }
+    }
+  ],
+  "success": true,
+  "dimensions": [
+    {
+      "label": "Explanation Quality",
+      "description": "How can we evaluate the quality of a mathematical explanation?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Clarity of Explanation",
+          "description": "Is the mathematical explanation easy to understand?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Completeness of Explanation",
+          "description": "Does the explanation cover all necessary steps to solve the problem?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Terminology Correctness",
+          "description": "Is the mathematical terminology used correctly throughout the explanation?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Logical Flow",
+          "description": "Does the explanation follow a logical progression of ideas?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Conciseness",
+          "description": "Is the explanation concise without unnecessary information?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Engagement and Accessibility",
+      "description": "How can we ensure that mathematical explanations engage the audience?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Engagement Level",
+          "description": "Is the tone of the explanation engaging and motivating for the learner?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Accessibility of Language",
+          "description": "Is the language used appropriate for the target audience's level of expertise?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Feedback Mechanism",
+          "description": "Does the explanation encourage questions or provide a way for learners to seek clarification?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Interactivity",
+          "description": "Does the explanation include interactive elements (like questions or quizzes) to engage the learner?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Illustration and Examples",
+      "description": "What role do examples and visual aids play in mathematical explanations?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Use of Examples",
+          "description": "Are relevant examples provided to illustrate the explanation?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Visual Aids",
+          "description": "Are visual aids (e.g., diagrams, graphs) used to enhance understanding?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Use of Analogies",
+          "description": "Are analogies used to clarify complex concepts?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Real-World Applications",
+          "description": "Are real-world applications of the mathematical concepts discussed?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Critical Thinking and Reinforcement",
+      "description": "How can explanations foster critical thinking and reinforce learning?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Critical Thinking Encouragement",
+          "description": "Does the explanation prompt critical thinking or problem-solving skills?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Reinforcement of Concepts",
+          "description": "Does the explanation reinforce important concepts through repetition or review?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Summary of Key Points",
+          "description": "Is there a summary of key points at the end of the explanation?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Method Comparison and Technology Use",
+      "description": "How can we compare methods and incorporate technology in explanations?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Multiple Approaches",
+          "description": "Does the explanation offer multiple methods to arrive at the solution?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Comparison with Other Methods",
+          "description": "Does the explanation compare the discussed method with other methods?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Use of Technology",
+          "description": "Are modern technology tools (like calculators or software) mentioned appropriately?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    }
+  ]
+}

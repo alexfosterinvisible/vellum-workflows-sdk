@@ -1,0 +1,52 @@
+{
+  "inference_tests": [
+    {
+      "input": "What is 2+2?",
+      "status": 200,
+      "headers": {
+        "Date": "Wed, 18 Dec 2024 18:56:24 GMT",
+        "Server": "uvicorn",
+        "Content-Length": "44",
+        "Content-Type": "application/json",
+        "Via": "1.1 google",
+        "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+      },
+      "response": {
+        "text": "2 + 2 equals 4.",
+        "structured": null
+      }
+    },
+    {
+      "input": "Explain quantum computing",
+      "status": 200,
+      "headers": {
+        "Date": "Wed, 18 Dec 2024 18:56:26 GMT",
+        "Server": "uvicorn",
+        "Content-Length": "3679",
+        "Content-Type": "application/json",
+        "Via": "1.1 google",
+        "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+      },
+      "response": {
+        "text": "Quantum computing is a type of computation that leverages the principles of quantum mechanics to process information in fundamentally different ways than classical computing. Here\u2019s an overview of its key concepts and features:\n\n### 1. **Quantum Bits (Qubits)**:\n- **Qubits** are the basic units of quantum information, analogous to classical bits (0s and 1s). However, unlike classical bits, qubits can exist in a superposition of states. This means a qubit can be in the state |0\u27e9, |1\u27e9, or any quantum superposition of these states, represented as:  \n  \\[\n  |\\psi\\rangle = \\alpha |0\\rangle + \\beta |1\\rangle\n  \\]\n  where \\(\\alpha\\) and \\(\\beta\\) are complex numbers that describe the probability amplitudes of measuring the qubit in either state.\n\n### 2. **Superposition**:\n- Superposition allows quantum computers to process a vast amount of possibilities simultaneously. For example, with \\(n\\) qubits, a quantum computer can represent \\(2^n\\) different states at once, which provides a significant parallelism advantage over classical computers.\n\n### 3. **Entanglement**:\n- **Entanglement** is a quantum phenomenon where qubits become interconnected such that the state of one qubit cannot be described independently of the state of another, even if they are separated by large distances. This property allows for highly correlated outcomes and can be used to enhance computational capabilities and communication protocols.\n\n### 4. **Quantum Gates**:\n- Quantum operations are performed using **quantum gates**, which manipulate qubits through various transformations. These gates are the quantum analog of classical logic gates and can create superpositions and entanglements. Common gates include the Hadamard gate, Pauli-X gate, and CNOT gate.\n\n### 5. **Quantum Algorithms**:\n- Quantum computers can run specific algorithms that can outperform classical algorithms for certain problems. Notable examples include:\n  - **Shor's Algorithm**: Efficiently factors large integers, which has implications for cryptography.\n  - **Grover's Algorithm**: Provides a quadratic speedup for unstructured search problems.\n\n### 6. **Measurement**:\n- When a qubit is measured, it collapses to one of its basis states (|0\u27e9 or |1\u27e9) with probabilities determined by the amplitudes \\(\\alpha\\) and \\(\\beta\\). This measurement process introduces inherent uncertainty and is a fundamental aspect of quantum mechanics.\n\n### 7. **Quantum Decoherence**:\n- Quantum states are fragile and can be disturbed by their environment, leading to a loss of coherence and the degradation of quantum information. This phenomenon, known as **decoherence**, poses significant challenges in building practical quantum computers.\n\n### 8. **Quantum Hardware**:\n- Various physical implementations of qubits exist, including superconducting circuits, trapped ions, topological qubits, and photonic systems. Each technology has its own advantages and challenges related to coherence times, error rates, and scalability.\n\n### 9. **Applications**:\n- Quantum computing has potential applications in fields such as cryptography, optimization problems, drug discovery, materials science, and complex simulations of quantum systems.\n\n### Conclusion:\nQuantum computing represents a paradigm shift in computation, harnessing the unique properties of quantum mechanics to solve problems that are currently intractable for classical computers. While still in its early stages, ongoing developments in quantum algorithms, hardware, and error correction are paving the way for practical quantum computing applications in the future.",
+        "structured": null
+      }
+    },
+    {
+      "input": "Write a haiku about AI",
+      "status": 200,
+      "headers": {
+        "Date": "Wed, 18 Dec 2024 18:56:41 GMT",
+        "Server": "uvicorn",
+        "Content-Length": "112",
+        "Content-Type": "application/json",
+        "Via": "1.1 google",
+        "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+      },
+      "response": {
+        "text": "Silent circuits hum,  \nThoughts woven in code and light,  \nDreams of minds awake.",
+        "structured": null
+      }
+    }
+  ]
+}

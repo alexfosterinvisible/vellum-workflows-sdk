@@ -1,0 +1,8 @@
+{
+  "tuning_patterns": [
+    {
+      "error": "'PIClient' object has no attribute 'tune'",
+      "job_response": null
+    }
+  ]
+}

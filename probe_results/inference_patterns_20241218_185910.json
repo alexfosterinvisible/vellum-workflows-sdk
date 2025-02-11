@@ -1,0 +1,16 @@
+{
+  "inference_patterns": [
+    {
+      "input": "What is 2+2?",
+      "error": "'PIClient' object has no attribute 'inference'"
+    },
+    {
+      "input": "Explain quantum computing",
+      "error": "'PIClient' object has no attribute 'inference'"
+    },
+    {
+      "input": "Write a haiku about AI",
+      "error": "'PIClient' object has no attribute 'inference'"
+    }
+  ]
+}

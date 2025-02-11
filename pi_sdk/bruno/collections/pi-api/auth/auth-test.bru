@@ -7,7 +7,7 @@ meta {
 # Test valid authentication
 POST {{baseUrl}}/inference/run
 headers {
-  Authorization: Bearer {{apiKey}}
+  x-api-key: {{apiKey}}
   Content-Type: application/json
 }
 body {
@@ -23,12 +23,16 @@ tests {
   test("should have valid response headers", function() {
     expect(response.headers).to.have.property("content-type");
   });
+  
+  test("should contain response text", function() {
+    expect(response.body).to.have.property("text");
+  });
 }
 
 # Test invalid authentication
 POST {{baseUrl}}/inference/run
 headers {
-  Authorization: Bearer invalid_token
+  x-api-key: invalid_token
   Content-Type: application/json
 }
 body {

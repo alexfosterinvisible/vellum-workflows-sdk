@@ -1,0 +1,600 @@
+{
+  "contract": {
+    "name": "Math Collaboration Patterns",
+    "description": "Evaluate mathematical explanations with a focus on collaboration.\n    Test various collaboration strategies to identify the most effective\n    approaches for group learning and peer interaction."
+  },
+  "test_cases": [
+    {
+      "style": "Group Collaboration",
+      "input": "Explain how to solve systems of equations using substitution.",
+      "output": "Let's solve this together as a group! \ufffd\ufffd\ufffd\ufffd\n\nGroup Activity: System of Equations\n---------------------------------\nProblem to solve:\nx + 2y = 7\n2x - y = 1\n\n\ud83d\udc64 Student 1 (Leader):\n\"Let's organize our approach:\n1. Choose an equation to start with\n2. Solve for one variable\n3. Substitute into other equation\n4. Solve for remaining variable\"\n\n\ud83d\udc64 Student 2 (Equation Expert):\n\"I suggest starting with the second equation:\n2x - y = 1\nSolving for y:\ny = 2x - 1\"\n\n\ud83d\udc64 Student 3 (Substitution Specialist):\n\"Great! Now let's substitute y into first equation:\nx + 2(2x - 1) = 7\nx + 4x - 2 = 7\n5x - 2 = 7\"\n\n\ud83d\udc64 Student 4 (Solution Checker):\n\"Let's solve for x:\n5x = 9\nx = 9/5\"\n\nGroup Verification:\n------------------\n\ud83d\udc65 Together, let's check our work:\n\n1. We found x = 9/5\n2. Substitute back to find y:\n   y = 2(9/5) - 1\n   y = 18/5 - 1\n   y = 13/5\n\n3. Check in original equations:\n   * 9/5 + 2(13/5) = 7 \u2713\n   * 2(9/5) - 13/5 = 1 \u2713\n\n\ud83e\udd1d Group Learning Points:\n1. Clear role assignment helps\n2. Step-by-step verification\n3. Everyone contributes\n4. Shared understanding\n\n\ud83d\udca1 Collaboration Tips:\n* Listen to all suggestions\n* Build on others' ideas\n* Verify together\n* Share different approaches\n\nGroup Practice:\nTry these systems together:\n1. x + y = 5\n   x - y = 1\n\n2. 2x + y = 8\n   x - 2y = -1\n\nRemember:\n* Take turns leading\n* Explain your thinking\n* Ask questions\n* Help others understand",
+      "scores": {
+        "total_score": 0.7806666666666668,
+        "dimension_scores": {
+          "Collaboration Strategies": {
+            "total_score": 0.92,
+            "subdimension_scores": {
+              "Strategy Variety": 1.0,
+              "Example Usage": 1.0,
+              "Role Definition": 1.0,
+              "Feedback Mechanism": 1.0,
+              "Inclusivity": 0.6
+            }
+          },
+          "Engagement and Participation": {
+            "total_score": 0.8500000000000001,
+            "subdimension_scores": {
+              "Engagement Level": 0.8,
+              "Active Participation": 0.8,
+              "Discussion Framework": 1.0,
+              "Communication Skills": 0.8
+            }
+          },
+          "Goal Setting and Reflection": {
+            "total_score": 0.8666666666666667,
+            "subdimension_scores": {
+              "Goal Setting": 1.0,
+              "Reflection Opportunities": 0.6,
+              "Learning Outcomes": 1.0
+            }
+          },
+          "Conflict and Resource Management": {
+            "total_score": 0.26666666666666666,
+            "subdimension_scores": {
+              "Conflict Resolution": 0.4,
+              "Resource Sharing": 0.2,
+              "Time Management": 0.2
+            }
+          },
+          "Outcome Assessment": {
+            "total_score": 1.0,
+            "subdimension_scores": {
+              "Outcome Assessment": 1.0,
+              "Assessment Criteria": 0.6
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Peer Review",
+      "input": "Explain how to find the area of irregular shapes.",
+      "output": "Let's use peer review to explore area calculations! \ud83d\udc65\n\nStudent A's Solution:\n-------------------\n\"To find irregular shape areas:\n1. Break into basic shapes\n2. Find each area\n3. Add them together\"\n\nPeer Review by Student B:\n------------------------\n\u2705 Strong points:\n* Clear basic strategy\n* Simple step-by-step approach\n* Easy to follow\n\n\ud83d\udcad Suggestions:\n* Add examples\n* Include formulas\n* Show a diagram\n\nStudent B's Addition:\n-------------------\n\"Here's an example:\n\u250c\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502     \u2502____\n\u2502     \u2502    \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2518    \u2502\n     \u2502     \u2502\n     \u2514\u2500\u2500\u2500\u2500\u2500\u2518\n\nBreak into:\n1. Rectangle: length \u00d7 width\n2. Second rectangle: length \u00d7 width\nAdd areas together!\"\n\nPeer Review by Student A:\n------------------------\n\u2705 Good additions:\n* Visual representation\n* Specific example\n* Clear breakdown\n\n\ud83d\udcad Could improve:\n* Add measurements\n* Show calculations\n* Include more shapes\n\nCombined Solution:\n----------------\nLet's merge our best ideas:\n\n1. Strategy:\n   * Identify basic shapes\n   * Use appropriate formulas\n   * Add areas together\n\n2. Example with numbers:\n   \u250c\u2500\u2500\u2500\u2500\u2500\u2510  5\n   \u2502     \u2502____\n   \u2502  8  \u2502    \u2502 3\n   \u2514\u2500\u2500\u2500\u2500\u2500\u2518    \u2502\n        4\u2502    \u2502\n         \u2514\u2500\u2500\u2500\u2500\u2518\n           6\n\n   Area 1 = 8 \u00d7 5 = 40\n   Area 2 = 6 \u00d7 3 = 18\n   Total = 40 + 18 = 58\n\n3. Verification:\n   * Check measurements\n   * Confirm calculations\n   * Compare to estimates\n\n\ud83e\udd1d Peer Review Benefits:\n1. Multiple perspectives\n2. Improved clarity\n3. Added examples\n4. Better explanations\n\nPractice Together:\n----------------\nReview these shapes:\n1. L-shaped garden\n2. T-shaped room\n3. U-shaped pool\n\nExchange solutions and:\n* Offer constructive feedback\n* Suggest improvements\n* Share alternative methods\n* Help clarify confusion",
+      "scores": {
+        "total_score": 0.6666666666666667,
+        "dimension_scores": {
+          "Collaboration Strategies": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Strategy Variety": 1.0,
+              "Example Usage": 1.0,
+              "Role Definition": 0.4,
+              "Feedback Mechanism": 1.0,
+              "Inclusivity": 0.6
+            }
+          },
+          "Engagement and Participation": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Engagement Level": 0.8,
+              "Active Participation": 0.8,
+              "Discussion Framework": 1.0,
+              "Communication Skills": 0.6
+            }
+          },
+          "Goal Setting and Reflection": {
+            "total_score": 0.5333333333333333,
+            "subdimension_scores": {
+              "Goal Setting": 0.4,
+              "Reflection Opportunities": 0.6,
+              "Learning Outcomes": 0.6
+            }
+          },
+          "Conflict and Resource Management": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Conflict Resolution": 0.2,
+              "Resource Sharing": 0.2,
+              "Time Management": 0.2
+            }
+          },
+          "Outcome Assessment": {
+            "total_score": 1.0,
+            "subdimension_scores": {
+              "Outcome Assessment": 1.0,
+              "Assessment Criteria": 0.6
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Team Discussion",
+      "input": "Explain the concept of probability using real-world examples.",
+      "output": "Let's explore probability through team discussion! \ud83d\udde3\ufe0f\n\nTeam Brainstorming Session\n-------------------------\n\ud83c\udfb2 Topic: Understanding Probability\n\nTeam Member 1 (Sports Fan):\n\"In basketball, a player has an 80% free throw average.\nThis means:\n* 0.8 probability of success\n* 8 out of 10 shots likely go in\n* Can predict long-term performance\"\n\nTeam Member 2 (Weather Enthusiast):\n\"Weather forecasts use probability too!\n* 30% chance of rain means\n* In similar conditions\n* It rains 3 out of 10 times\"\n\nTeam Member 3 (Game Player):\n\"Card games are perfect examples:\n* 1/52 chance of specific card\n* 1/4 chance of specific suit\n* 1/13 chance of specific value\"\n\nTeam Discussion Points:\n---------------------\n1. Common Themes:\n   * Frequency of events\n   * Long-term patterns\n   * Ratio representation\n\n2. Key Insights:\n   * Probability = favorable/total\n   * Always between 0 and 1\n   * Can be shown as %\n\n3. Real Applications:\n   * Sports statistics\n   * Weather forecasts\n   * Games of chance\n   * Insurance rates\n\nTeam Activity:\n------------\nLet's analyze this game:\nRolling two dice\n\n\ud83d\udc65 Group Analysis:\n1. Possible outcomes: 36\n2. Getting a sum of 7:\n   * Team Member 1: \"List combinations\"\n   * Team Member 2: \"Count favorable\"\n   * Team Member 3: \"Calculate probability\"\n\nCombined Solution:\n6/36 = 1/6 chance of rolling 7\n\n\ud83e\udd1d Team Learning Benefits:\n1. Multiple examples\n2. Different perspectives\n3. Rich discussion\n4. Deeper understanding\n\nPractice as Team:\n---------------\nAnalyze these scenarios:\n1. Drawing cards\n2. Spinning wheels\n3. Flipping coins\n\nTeam Roles:\n* Example provider\n* Calculator\n* Verifier\n* Explainer\n\nRemember:\n* Share ideas freely\n* Build on others' thoughts\n* Ask questions\n* Help explain",
+      "scores": {
+        "total_score": 0.6933333333333334,
+        "dimension_scores": {
+          "Collaboration Strategies": {
+            "total_score": 0.8000000000000002,
+            "subdimension_scores": {
+              "Strategy Variety": 1.0,
+              "Example Usage": 1.0,
+              "Role Definition": 1.0,
+              "Feedback Mechanism": 0.2,
+              "Inclusivity": 0.8
+            }
+          },
+          "Engagement and Participation": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Engagement Level": 0.8,
+              "Active Participation": 0.8,
+              "Discussion Framework": 1.0,
+              "Communication Skills": 0.6
+            }
+          },
+          "Goal Setting and Reflection": {
+            "total_score": 0.6666666666666666,
+            "subdimension_scores": {
+              "Goal Setting": 0.4,
+              "Reflection Opportunities": 0.6,
+              "Learning Outcomes": 1.0
+            }
+          },
+          "Conflict and Resource Management": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Conflict Resolution": 0.2,
+              "Resource Sharing": 0.2,
+              "Time Management": 0.2
+            }
+          },
+          "Outcome Assessment": {
+            "total_score": 1.0,
+            "subdimension_scores": {
+              "Outcome Assessment": 1.0,
+              "Assessment Criteria": 0.6
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Individual Reflection",
+      "input": "Guide students through understanding the concept of functions.",
+      "output": "Let's explore functions through individual reflection and sharing! \ud83e\udd14\n\nPersonal Understanding Check\n--------------------------\n\ud83d\udcdd Reflect on your knowledge:\n\n1. What do you know about functions?\n   * Relationship between inputs/outputs\n   * Like a machine that processes values\n   * Each input has exactly one output\n\n\u270d\ufe0f Write your thoughts:\n\"A function is like a recipe:\n* Ingredients (inputs)\n* Instructions (process)\n* Final dish (output)\"\n\n2. Real-life Connections\n-----------------------\nThink about your daily life:\n* Temperature converter\n* Price calculator\n* Time zone converter\n\n\ud83e\udd14 Personal Example:\n\"My morning routine is a function:\nInput: Wake-up time\nProcess: Get ready steps\nOutput: Arrival time\"\n\n3. Visual Understanding\n----------------------\nDraw your own diagram:\n     INPUT \u2192 [FUNCTION] \u2192 OUTPUT\n     x \u2192 [  f(x)  ] \u2192 y\n\n\u270f\ufe0f Reflection Questions:\n* Why is this useful?\n* How does it work?\n* Where do you see this?\n\n4. Knowledge Integration\n-----------------------\nConnect to what you know:\n* Math operations\n* Computer programs\n* Cause and effect\n\n\ud83d\udcad Personal Insights:\n\"Functions help organize:\n* Clear inputs\n* Defined process\n* Predictable outputs\"\n\n5. Application Practice\n----------------------\nTry these examples:\n* f(x) = 2x + 3\n* g(x) = x\u00b2\n* h(x) = 3x - 1\n\n\ud83e\udd14 For each one:\n1. What's the input?\n2. What's the process?\n3. What's the output?\n\n6. Understanding Check\n---------------------\nAsk yourself:\n\u25a1 Can I explain functions?\n\u25a1 Can I identify them?\n\u25a1 Can I create them?\n\u25a1 Can I use them?\n\n7. Growth Areas\n--------------\nNote where you need help:\n* Graphing functions\n* Composite functions\n* Inverse functions\n\n8. Learning Journal\n------------------\nRecord your progress:\n* What was new?\n* What clicked today?\n* What needs work?\n\n9. Share and Compare\n-------------------\nAfter reflection:\n* Compare with peers\n* Share insights\n* Ask questions\n* Offer help\n\n\ud83d\udca1 Personal Growth Tips:\n1. Keep notes\n2. Make examples\n3. Practice regularly\n4. Connect ideas\n\nRemember:\n* Understanding > memorizing\n* Examples help\n* Practice matters\n* Questions are good\n\nNext Steps:\n1. Create your examples\n2. Explain to someone\n3. Solve new problems\n4. Review regularly",
+      "scores": {
+        "total_score": 0.45333333333333337,
+        "dimension_scores": {
+          "Collaboration Strategies": {
+            "total_score": 0.6000000000000001,
+            "subdimension_scores": {
+              "Strategy Variety": 1.0,
+              "Example Usage": 1.0,
+              "Role Definition": 0.2,
+              "Feedback Mechanism": 0.2,
+              "Inclusivity": 0.6
+            }
+          },
+          "Engagement and Participation": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Engagement Level": 0.8,
+              "Active Participation": 0.8,
+              "Discussion Framework": 1.0,
+              "Communication Skills": 0.6
+            }
+          },
+          "Goal Setting and Reflection": {
+            "total_score": 0.4666666666666667,
+            "subdimension_scores": {
+              "Goal Setting": 0.4,
+              "Reflection Opportunities": 0.4,
+              "Learning Outcomes": 0.6
+            }
+          },
+          "Conflict and Resource Management": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Conflict Resolution": 0.2,
+              "Resource Sharing": 0.2,
+              "Time Management": 0.2
+            }
+          },
+          "Outcome Assessment": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Outcome Assessment": 0.2,
+              "Assessment Criteria": 0.4
+            }
+          }
+        }
+      }
+    }
+  ],
+  "success": true,
+  "dimensions": [
+    {
+      "label": "Collaboration Strategies",
+      "description": "What strategies can enhance collaboration among group members?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Strategy Variety",
+          "description": "Does the explanation present multiple collaboration strategies?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Example Usage",
+          "description": "Are examples provided to illustrate the collaboration strategies?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Role Definition",
+          "description": "Are specific roles defined for group members during the collaboration?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Feedback Mechanism",
+          "description": "Is there a mechanism suggested for providing feedback on the collaboration strategies?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Inclusivity",
+          "description": "Are the collaboration strategies inclusive of different learning styles?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Engagement and Participation",
+      "description": "How can we ensure active engagement and participation in group discussions?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Engagement Level",
+          "description": "Does the explanation engage all participants in the learning process?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Active Participation",
+          "description": "Does the explanation promote active participation from all group members?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Discussion Framework",
+          "description": "Is there a framework suggested for structuring group discussions?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Communication Skills",
+          "description": "Does the explanation emphasize the importance of communication skills in collaboration?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Goal Setting and Reflection",
+      "description": "What processes can we implement for goal setting and reflection during collaboration?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Goal Setting",
+          "description": "Does the explanation encourage setting clear goals for the group?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Reflection Opportunities",
+          "description": "Does the explanation provide opportunities for reflection on the collaboration process?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Learning Outcomes",
+          "description": "Are specific learning outcomes outlined for the collaboration process?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Conflict and Resource Management",
+      "description": "How can we manage conflicts and resources effectively in group collaborations?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Conflict Resolution",
+          "description": "Does the explanation include strategies for resolving conflicts in group discussions?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Resource Sharing",
+          "description": "Is there a suggestion for sharing resources among group members?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Time Management",
+          "description": "Are there suggestions for managing time effectively during group discussions?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Outcome Assessment",
+      "description": "What methods can be used to assess collaboration outcomes?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Outcome Assessment",
+          "description": "Is there a method suggested for assessing the outcomes of the collaboration?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Assessment Criteria",
+          "description": "Are there clear criteria provided for evaluating the effectiveness of collaboration?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    }
+  ],
+  "analysis": {
+    "overall_scores": {
+      "Group Collaboration": 0.7806666666666668,
+      "Peer Review": 0.6666666666666667,
+      "Team Discussion": 0.6933333333333334,
+      "Individual Reflection": 0.45333333333333337
+    },
+    "collaboration_elements": {
+      "Group Collaboration": [
+        "group_work",
+        "peer_feedback",
+        "discussion",
+        "reflection",
+        "interaction"
+      ],
+      "Peer Review": [
+        "group_work",
+        "peer_feedback",
+        "discussion"
+      ],
+      "Team Discussion": [
+        "group_work",
+        "discussion",
+        "interaction"
+      ],
+      "Individual Reflection": [
+        "peer_feedback",
+        "discussion",
+        "reflection",
+        "interaction"
+      ]
+    },
+    "element_effectiveness": {
+      "group_work": 0.7135555555555557,
+      "peer_feedback": 0.6335555555555556,
+      "discussion": 0.6485000000000001,
+      "reflection": 0.6170000000000001,
+      "interaction": 0.6424444444444445
+    },
+    "recommendations": [
+      "Most effective element: group_work (0.71)",
+      "Combine multiple collaboration methods",
+      "Start with clear group roles",
+      "Include peer feedback opportunities",
+      "End with individual reflection"
+    ]
+  }
+}

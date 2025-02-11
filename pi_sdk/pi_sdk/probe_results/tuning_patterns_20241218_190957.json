@@ -1,0 +1,71 @@
+{
+  "tuning_patterns": [
+    {
+      "job_id": "e781e104-4e5a-4dcd-8fc6-75c565295e66",
+      "messages": [
+        "LAUNCHING",
+        "Beginning PI Prompt Optimization",
+        "Step 1",
+        "Step 2",
+        "Step 3",
+        "Step 4",
+        "Step 5",
+        "Step 6",
+        "Step 7",
+        "Step 8",
+        "Step 9",
+        "Step 10",
+        "",
+        "***Pi Prompt Optimization Concluded***",
+        "",
+        "DONE"
+      ],
+      "final_status": {
+        "state": "done",
+        "detailed_status": [
+          "LAUNCHING",
+          "Beginning PI Prompt Optimization",
+          "Step 1",
+          "Step 2",
+          "Step 3",
+          "Step 4",
+          "Step 5",
+          "Step 6",
+          "Step 7",
+          "Step 8",
+          "Step 9",
+          "Step 10",
+          "\n***Pi Prompt Optimization Concluded***\n",
+          "DONE"
+        ],
+        "job_id": "e781e104-4e5a-4dcd-8fc6-75c565295e66",
+        "contract": {
+          "name": "Basic Test",
+          "description": "Test basic functionality",
+          "dimensions": [
+            {
+              "label": "Accuracy",
+              "description": "Test accuracy",
+              "weight": 1.0,
+              "sub_dimensions": [
+                {
+                  "label": "Numerical",
+                  "description": "Test numerical accuracy",
+                  "scoring_type": "PI_SCORER",
+                  "python_code": null,
+                  "parameters": null,
+                  "weight": 1.0,
+                  "huggingface_url": null,
+                  "action_dimension": null,
+                  "action_on_low_score": false
+                }
+              ],
+              "action_dimension": null,
+              "action_on_low_score": false
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

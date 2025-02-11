@@ -1,0 +1,76 @@
+meta {
+  name: Rate Limit Tests
+  type: http
+  seq: 2
+}
+
+# Test rapid requests
+POST {{baseUrl}}/inference/run
+headers {
+  x-api-key: {{apiKey}}
+  Content-Type: application/json
+}
+body {
+  "model_id": "{{defaultModel}}",
+  "llm_input": "Quick test 1"
+}
+
+tests {
+  test("should handle first request", function() {
+    expect(response.status).to.equal(200);
+  });
+  
+  test("should check rate limit headers", function() {
+    expect(response.headers).to.include.any.keys(['x-ratelimit-limit', 'x-ratelimit-remaining', 'x-ratelimit-reset']);
+  });
+}
+
+# Immediate second request
+POST {{baseUrl}}/inference/run
+headers {
+  x-api-key: {{apiKey}}
+  Content-Type: application/json
+}
+body {
+  "model_id": "{{defaultModel}}",
+  "llm_input": "Quick test 2"
+}
+
+tests {
+  test("should handle second request", function() {
+    expect(response.status).to.be.oneOf([200, 429]);
+    if (response.status === 429) {
+      expect(response.headers).to.have.property('retry-after');
+    }
+  });
+}
+
+# Third request with minimal delay
+POST {{baseUrl}}/inference/run
+headers {
+  x-api-key: {{apiKey}}
+  Content-Type: application/json
+}
+vars {
+  delay: 100
+}
+body {
+  "model_id": "{{defaultModel}}",
+  "llm_input": "Quick test 3"
+}
+
+tests {
+  test("should observe rate limiting behavior", function() {
+    expect(response.status).to.be.oneOf([200, 429]);
+    if (response.status === 429) {
+      expect(response.headers).to.have.property('retry-after');
+      console.log('Rate limit details:', {
+        status: response.status,
+        retryAfter: response.headers['retry-after'],
+        rateLimitLimit: response.headers['x-ratelimit-limit'],
+        rateLimitRemaining: response.headers['x-ratelimit-remaining'],
+        rateLimitReset: response.headers['x-ratelimit-reset']
+      });
+    }
+  });
+} 

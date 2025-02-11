@@ -1,0 +1,583 @@
+{
+  "contract": {
+    "name": "Math Response Optimization",
+    "description": "Evaluate hybrid mathematical explanations.\n    Focus on combining visual, conceptual, and step-by-step approaches\n    to maximize understanding and engagement."
+  },
+  "test_cases": [
+    {
+      "style": "Step-by-Step with Visuals",
+      "input": "What is 12 divided by 4?",
+      "output": "Let me solve this step by step with a visual representation:\n\n1. We start with 12 items:\n   [*] [*] [*] [*] [*] [*] [*] [*] [*] [*] [*] [*]\n\n2. We need to divide them into 4 equal groups:\n   Group 1: [*] [*] [*]\n   Group 2: [*] [*] [*]\n   Group 3: [*] [*] [*]\n   Group 4: [*] [*] [*]\n\n3. Counting the items in each group:\n   Each group has exactly 3 items.\n\nTherefore, 12 \u00f7 4 = 3, because when we split 12 items into 4 equal groups,\neach group gets 3 items.\n\nTo verify: 4 \u00d7 3 = 12 \u2713",
+      "scores": {
+        "total_score": 0.7266666666666668,
+        "dimension_scores": {
+          "Visual Aids and Presentation": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Visual Aid Presence": 0.4,
+              "Visual Clarity": 0.8,
+              "Visual and Text Integration": 1.0,
+              "Visual Hierarchy": 1.0
+            }
+          },
+          "Conceptual Understanding": {
+            "total_score": 0.7000000000000001,
+            "subdimension_scores": {
+              "Conceptual Clarity": 0.4,
+              "Terminology Explanation": 0.8,
+              "Complexity Management": 1.0,
+              "Multiple Representation": 0.6
+            }
+          },
+          "Engagement and Interaction": {
+            "total_score": 0.4,
+            "subdimension_scores": {
+              "Engagement Techniques": 0.6,
+              "Interactive Elements": 0.2,
+              "Feedback Mechanism": 0.4
+            }
+          },
+          "Logical Structure and Flow": {
+            "total_score": 1.0,
+            "subdimension_scores": {
+              "Step-by-Step Breakdown": 1.0,
+              "Logical Flow": 1.0,
+              "Cohesive Theme": 1.0
+            }
+          },
+          "Application and Reinforcement": {
+            "total_score": 0.7333333333333333,
+            "subdimension_scores": {
+              "Example Usage": 1.0,
+              "Real-World Applications": 0.2,
+              "Concept Reinforcement": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Conceptual with Steps",
+      "input": "What is 12 divided by 4?",
+      "output": "Let me explain this both conceptually and systematically:\n\n\ud83d\udcda Understanding Division:\nDivision is about splitting a larger quantity into equal smaller groups.\nThink of sharing 12 cookies among 4 friends fairly.\n\nStep-by-Step Solution:\n1. Start with 12 cookies\n2. Each friend should get the same amount\n3. 12 \u00f7 4 = 3 (each friend gets 3 cookies)\n\nReal-world Application:\nIf you have $12 and want to spend it equally over 4 days,\nyou could spend $3 each day.\n\nVerification:\n- Each friend gets 3 cookies\n- Total friends: 4\n- Check: 4 \u00d7 3 = 12 \u2713\n\nTherefore, 12 divided by 4 equals 3.",
+      "scores": {
+        "total_score": 0.79,
+        "dimension_scores": {
+          "Visual Aids and Presentation": {
+            "total_score": 0.6,
+            "subdimension_scores": {
+              "Visual Aid Presence": 0.2,
+              "Visual Clarity": 0.6,
+              "Visual and Text Integration": 1.0,
+              "Visual Hierarchy": 0.6
+            }
+          },
+          "Conceptual Understanding": {
+            "total_score": 0.95,
+            "subdimension_scores": {
+              "Conceptual Clarity": 1.0,
+              "Terminology Explanation": 0.8,
+              "Complexity Management": 1.0,
+              "Multiple Representation": 1.0
+            }
+          },
+          "Engagement and Interaction": {
+            "total_score": 0.6,
+            "subdimension_scores": {
+              "Engagement Techniques": 0.8,
+              "Interactive Elements": 0.6,
+              "Feedback Mechanism": 0.4
+            }
+          },
+          "Logical Structure and Flow": {
+            "total_score": 0.9333333333333333,
+            "subdimension_scores": {
+              "Step-by-Step Breakdown": 1.0,
+              "Logical Flow": 1.0,
+              "Cohesive Theme": 0.8
+            }
+          },
+          "Application and Reinforcement": {
+            "total_score": 0.8666666666666667,
+            "subdimension_scores": {
+              "Example Usage": 0.8,
+              "Real-World Applications": 1.0,
+              "Concept Reinforcement": 0.8
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Visual with Real-world",
+      "input": "What is 12 divided by 4?",
+      "output": "Let's solve this using a pizza-sharing visualization!\n\nStarting Situation:\n\ud83c\udf55\ud83c\udf55\ud83c\udf55\ud83c\udf55\ud83c\udf55\ud83c\udf55\ud83c\udf55\ud83c\udf55\ud83c\udf55\ud83c\udf55\ud83c\udf55\ud83c\udf55 (12 slices total)\n\nSharing Plan:\nPerson 1: \ud83c\udf55\ud83c\udf55\ud83c\udf55\nPerson 2: \ud83c\udf55\ud83c\udf55\ud83c\udf55\nPerson 3: \ud83c\udf55\ud83c\udf55\ud83c\udf55\nPerson 4: \ud83c\udf55\ud83c\udf55\ud83c\udf55\n\nMathematical Expression:\n12 slices \u00f7 4 people = 3 slices per person\n\nThis shows that 12 divided by 4 equals 3.\nEach person gets an equal share of 3 slices.",
+      "scores": {
+        "total_score": 0.6900000000000001,
+        "dimension_scores": {
+          "Visual Aids and Presentation": {
+            "total_score": 0.7000000000000001,
+            "subdimension_scores": {
+              "Visual Aid Presence": 0.6,
+              "Visual Clarity": 0.8,
+              "Visual and Text Integration": 0.8,
+              "Visual Hierarchy": 0.6
+            }
+          },
+          "Conceptual Understanding": {
+            "total_score": 0.75,
+            "subdimension_scores": {
+              "Conceptual Clarity": 0.4,
+              "Terminology Explanation": 0.8,
+              "Complexity Management": 0.8,
+              "Multiple Representation": 1.0
+            }
+          },
+          "Engagement and Interaction": {
+            "total_score": 0.6,
+            "subdimension_scores": {
+              "Engagement Techniques": 0.8,
+              "Interactive Elements": 0.6,
+              "Feedback Mechanism": 0.4
+            }
+          },
+          "Logical Structure and Flow": {
+            "total_score": 0.9333333333333333,
+            "subdimension_scores": {
+              "Step-by-Step Breakdown": 1.0,
+              "Logical Flow": 1.0,
+              "Cohesive Theme": 0.8
+            }
+          },
+          "Application and Reinforcement": {
+            "total_score": 0.4666666666666667,
+            "subdimension_scores": {
+              "Example Usage": 0.4,
+              "Real-World Applications": 0.4,
+              "Concept Reinforcement": 0.6
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Complete Hybrid",
+      "input": "What is 12 divided by 4?",
+      "output": "Let's understand this completely using multiple approaches!\n\n1. Visual Representation:\n   12 items: \u2b50\u2b50\u2b50\u2b50\u2b50\u2b50\u2b50\u2b50\u2b50\u2b50\u2b50\u2b50\n   Grouped into 4: [\u2b50\u2b50\u2b50] [\u2b50\u2b50\u2b50] [\u2b50\u2b50\u2b50] [\u2b50\u2b50\u2b50]\n\n2. Step-by-Step Solution:\n   a) Start with 12\n   b) Divide into 4 equal groups\n   c) Count items per group: 3\n   d) Therefore, 12 \u00f7 4 = 3\n\n3. Real-world Example:\n   Imagine having 12 candies to share with 4 friends.\n   Each friend would get 3 candies.\n\n4. Mathematical Verification:\n   - Division: 12 \u00f7 4 = 3\n   - Multiplication check: 4 \u00d7 3 = 12 \u2713\n   - Addition check: 3 + 3 + 3 + 3 = 12 \u2713\n\nKey Concepts:\n- Division is fair sharing\n- Each group gets equal amount\n- The result (3) represents the size of each group\n\nTherefore, 12 divided by 4 equals 3.",
+      "scores": {
+        "total_score": 0.7733333333333333,
+        "dimension_scores": {
+          "Visual Aids and Presentation": {
+            "total_score": 0.65,
+            "subdimension_scores": {
+              "Visual Aid Presence": 0.6,
+              "Visual Clarity": 0.6,
+              "Visual and Text Integration": 0.8,
+              "Visual Hierarchy": 0.6
+            }
+          },
+          "Conceptual Understanding": {
+            "total_score": 0.95,
+            "subdimension_scores": {
+              "Conceptual Clarity": 1.0,
+              "Terminology Explanation": 0.8,
+              "Complexity Management": 1.0,
+              "Multiple Representation": 1.0
+            }
+          },
+          "Engagement and Interaction": {
+            "total_score": 0.4,
+            "subdimension_scores": {
+              "Engagement Techniques": 0.6,
+              "Interactive Elements": 0.2,
+              "Feedback Mechanism": 0.4
+            }
+          },
+          "Logical Structure and Flow": {
+            "total_score": 0.9333333333333333,
+            "subdimension_scores": {
+              "Step-by-Step Breakdown": 1.0,
+              "Logical Flow": 1.0,
+              "Cohesive Theme": 0.8
+            }
+          },
+          "Application and Reinforcement": {
+            "total_score": 0.9333333333333333,
+            "subdimension_scores": {
+              "Example Usage": 0.8,
+              "Real-World Applications": 1.0,
+              "Concept Reinforcement": 1.0
+            }
+          }
+        }
+      }
+    }
+  ],
+  "success": true,
+  "dimensions": [
+    {
+      "label": "Visual Aids and Presentation",
+      "description": "How can visual aids enhance the explanation of complex concepts?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Visual Aid Presence",
+          "description": "Does the explanation include visual aids such as diagrams or graphs?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Visual Clarity",
+          "description": "Are the visual aids clear and easy to understand?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Visual and Text Integration",
+          "description": "Is there a good integration between visual elements and textual explanations?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Visual Hierarchy",
+          "description": "Is there a clear visual hierarchy in the presentation of information?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Conceptual Understanding",
+      "description": "How can key concepts be effectively communicated?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Conceptual Clarity",
+          "description": "Does the explanation clearly define all key concepts used?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Terminology Explanation",
+          "description": "Are technical terms explained in simple language?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Complexity Management",
+          "description": "Does the explanation manage complexity by breaking down difficult concepts into simpler parts?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Multiple Representation",
+          "description": "Are concepts represented in multiple ways (e.g., algebraically, graphically, verbally)?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Engagement and Interaction",
+      "description": "What techniques can be used to engage the audience effectively?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Engagement Techniques",
+          "description": "Does the explanation use techniques to engage the audience, such as questions or interactive elements?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Interactive Elements",
+          "description": "Does the explanation include any interactive elements for better understanding?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Feedback Mechanism",
+          "description": "Is there a mechanism for users to provide feedback on their understanding?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Logical Structure and Flow",
+      "description": "How can the explanation maintain a logical progression?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Step-by-Step Breakdown",
+          "description": "Is the explanation broken down into clear, logical steps?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Logical Flow",
+          "description": "Does the explanation follow a logical progression from one point to the next?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Cohesive Theme",
+          "description": "Does the explanation maintain a cohesive theme throughout?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Application and Reinforcement",
+      "description": "How can we reinforce concepts and show their applications?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Example Usage",
+          "description": "Are relevant examples provided to illustrate complex concepts?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Real-World Applications",
+          "description": "Does the explanation include real-world applications of the mathematical concepts?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Concept Reinforcement",
+          "description": "Are key concepts reinforced throughout the explanation?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    }
+  ],
+  "analysis": {
+    "top_dimensions": [
+      "Logical Structure and Flow (0.95)",
+      "Conceptual Understanding (0.84)",
+      "Application and Reinforcement (0.75)"
+    ],
+    "needs_improvement": [
+      "Application and Reinforcement (0.75)",
+      "Visual Aids and Presentation (0.69)",
+      "Engagement and Interaction (0.50)"
+    ],
+    "style_strengths": {
+      "Step-by-Step with Visuals": [
+        "Logical Structure and Flow (1.00)",
+        "Visual Aids and Presentation (0.80)"
+      ],
+      "Conceptual with Steps": [
+        "Conceptual Understanding (0.95)",
+        "Logical Structure and Flow (0.93)"
+      ],
+      "Visual with Real-world": [
+        "Logical Structure and Flow (0.93)",
+        "Conceptual Understanding (0.75)"
+      ],
+      "Complete Hybrid": [
+        "Conceptual Understanding (0.95)",
+        "Logical Structure and Flow (0.93)"
+      ]
+    }
+  }
+}

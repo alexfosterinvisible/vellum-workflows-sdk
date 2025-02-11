@@ -1,0 +1,660 @@
+{
+  "contract": {
+    "name": "Math Verification Methods",
+    "description": "Evaluate mathematical explanations with a focus on verification.\n    Test various proof and validation methods to identify the most effective\n    approaches for ensuring solution correctness and understanding."
+  },
+  "test_cases": [
+    {
+      "style": "Numerical Verification",
+      "input": "Solve and verify: (x + 3)(x - 2) = x\u00b2 + 5x - 6",
+      "output": "Let's solve this step by step and verify our answer! \ud83d\udd0d\n\nStep 1: Expand the left side (x + 3)(x - 2)\n----------------------------------------\nUsing FOIL method:\n* First: x \u00d7 x = x\u00b2\n* Outer: x \u00d7 (-2) = -2x\n* Inner: 3 \u00d7 x = 3x\n* Last: 3 \u00d7 (-2) = -6\n\nCombining terms:\n(x + 3)(x - 2) = x\u00b2 - 2x + 3x - 6\n                = x\u00b2 + x - 6\n\nStep 2: Compare with right side\n------------------------------\nLeft side: x\u00b2 + x - 6\nRight side: x\u00b2 + 5x - 6\n\n\u274c They're not equal! The coefficients of x differ:\n* Left side has: +1x\n* Right side has: +5x\n\nTherefore, the equation is FALSE.\n\n\ud83d\udd22 Numerical Verification:\nLet's test with x = 1:\n* Left side: (1 + 3)(1 - 2) = (4)(-1) = -4\n* Right side: 1\u00b2 + 5(1) - 6 = 1 + 5 - 6 = 0\n\nThis confirms they're not equal!\n\n\u2705 Double-Check:\n1. Expanded correctly using FOIL\n2. Combined like terms properly\n3. Compared coefficients systematically\n4. Verified with a numerical example\n\n\ud83d\udca1 Key Insight:\nThe equation is false because the coefficients of x don't match:\n* (x + 3)(x - 2) = x\u00b2 + x - 6\n* x\u00b2 + 5x - 6 has a different coefficient for x\n\nWant to explore more? Try:\n1. What value of x makes both sides closest to each other?\n2. How would changing the 3 to 7 affect the equation?",
+      "scores": {
+        "total_score": 0.77,
+        "dimension_scores": {
+          "Proof Clarity": {
+            "total_score": 0.8999999999999999,
+            "subdimension_scores": {
+              "Solution Clarity": 0.8,
+              "Step-by-Step Logic": 1.0,
+              "Terminology Accuracy": 1.0,
+              "Language Simplicity": 0.8
+            }
+          },
+          "Proof Completeness": {
+            "total_score": 1.0,
+            "subdimension_scores": {
+              "Proof Completeness": 1.0,
+              "Correctness of Claims": 1.0,
+              "Proof Validity": 1.0,
+              "Validation Methods Mentioned": 1.0
+            }
+          },
+          "Engagement and Understanding": {
+            "total_score": 0.6500000000000001,
+            "subdimension_scores": {
+              "Example Utilization": 0.8,
+              "Conceptual Understanding": 0.8,
+              "Engagement Factor": 0.8,
+              "Real-World Application": 0.2
+            }
+          },
+          "Error Management": {
+            "total_score": 0.7000000000000001,
+            "subdimension_scores": {
+              "Error Identification": 1.0,
+              "Error Correction Mechanism": 0.4,
+              "Critical Thinking Encouragement": 0.8,
+              "Feedback Opportunity": 0.6
+            }
+          },
+          "Collaboration and Communication": {
+            "total_score": 0.6,
+            "subdimension_scores": {
+              "Collaboration Encouragement": 0.6,
+              "Assumption Transparency": 0.2,
+              "Terminology Definition": 0.6,
+              "Formatting Consistency": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Algebraic Proof",
+      "input": "Prove that (a + b)\u00b2 = a\u00b2 + 2ab + b\u00b2",
+      "output": "Let's prove this algebraic identity step by step! \ud83d\udcdd\n\nStep 1: Setup the Proof\n----------------------\nWe'll expand (a + b)\u00b2 using the distributive property.\nRemember: (a + b)\u00b2 means (a + b)(a + b)\n\nStep 2: Algebraic Expansion\n--------------------------\nUsing FOIL method:\n* First: a \u00d7 a = a\u00b2\n* Outer: a \u00d7 b = ab\n* Inner: b \u00d7 a = ab\n* Last: b \u00d7 b = b\u00b2\n\nCombining terms:\n(a + b)\u00b2 = a\u00b2 + ab + ab + b\u00b2\n         = a\u00b2 + 2ab + b\u00b2\n\n\u2705 Algebraic Verification:\n1. Each term is accounted for\n2. Like terms are combined correctly\n3. Result matches the right side\n\n\ud83d\udd22 Numerical Proof:\nLet's verify with a = 2 and b = 3:\n\nLeft side: (2 + 3)\u00b2\n* 2 + 3 = 5\n* 5\u00b2 = 25\n\nRight side: 2\u00b2 + 2(2)(3) + 3\u00b2\n* 2\u00b2 = 4\n* 2(2)(3) = 12\n* 3\u00b2 = 9\n* 4 + 12 + 9 = 25\n\nBoth sides equal 25! \u2713\n\n\ud83d\udcca Visual Proof:\nConsider a square with side (a + b):\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502    a\u00b2   \u2502  ab   \u2502\n\u2502         \u2502       \u2502\n\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524\n\u2502    ab   \u2502  b\u00b2   \u2502\n\u2502         \u2502       \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n\nArea = a\u00b2 + ab + ab + b\u00b2 = a\u00b2 + 2ab + b\u00b2\n\n\ud83d\udca1 Multiple Verifications:\n1. Algebraic expansion \u2713\n2. Numerical example \u2713\n3. Geometric visualization \u2713\n\nWant to explore more?\n1. Try different values for a and b\n2. How does this relate to (a - b)\u00b2?\n3. Can you visualize (a + b)\u00b3?",
+      "scores": {
+        "total_score": 0.76,
+        "dimension_scores": {
+          "Proof Clarity": {
+            "total_score": 0.8999999999999999,
+            "subdimension_scores": {
+              "Solution Clarity": 0.8,
+              "Step-by-Step Logic": 1.0,
+              "Terminology Accuracy": 1.0,
+              "Language Simplicity": 0.8
+            }
+          },
+          "Proof Completeness": {
+            "total_score": 1.0,
+            "subdimension_scores": {
+              "Proof Completeness": 1.0,
+              "Correctness of Claims": 1.0,
+              "Proof Validity": 1.0,
+              "Validation Methods Mentioned": 1.0
+            }
+          },
+          "Engagement and Understanding": {
+            "total_score": 0.7000000000000001,
+            "subdimension_scores": {
+              "Example Utilization": 0.8,
+              "Conceptual Understanding": 0.8,
+              "Engagement Factor": 0.8,
+              "Real-World Application": 0.4
+            }
+          },
+          "Error Management": {
+            "total_score": 0.65,
+            "subdimension_scores": {
+              "Error Identification": 1.0,
+              "Error Correction Mechanism": 0.2,
+              "Critical Thinking Encouragement": 0.8,
+              "Feedback Opportunity": 0.6
+            }
+          },
+          "Collaboration and Communication": {
+            "total_score": 0.55,
+            "subdimension_scores": {
+              "Collaboration Encouragement": 0.6,
+              "Assumption Transparency": 0.2,
+              "Terminology Definition": 0.4,
+              "Formatting Consistency": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Visual Verification",
+      "input": "Prove that the sum of angles in a triangle is 180\u00b0",
+      "output": "Let's prove this fundamental theorem visually! \ud83d\udc41\ufe0f\n\nStep 1: Visual Setup\n-------------------\nConsider any triangle ABC:\n      A\n      /\\\n     /  \\\n    /    \\\n   /      \\\n  /________\\\nB           C\n\nStep 2: Parallel Line Proof\n--------------------------\n1. Draw a line parallel to BC through point A:\n      A\n      /\\     \u2190  parallel line\n     /  \\    _____________\n    /    \\\n   /      \\\n  /________\\\nB           C\n\n2. Mark the angles:\n      A\n      /\\\n     \u03b1  \u03b2    _____________\n    /    \\\n   /      \\\n  /________\\\nB     \u03b3     C\n\n\u2728 Key Observation:\n* Angle \u03b1 equals the original angle at B (alternate angles)\n* Angle \u03b2 equals the original angle at C (alternate angles)\n* Angle \u03b3 is the original angle at A\n\n3. At point A, these three angles form a straight line:\n\u03b1 + \u03b3 + \u03b2 = 180\u00b0 (angles on a straight line)\n\nTherefore, the three angles of the original triangle\nalso sum to 180\u00b0!\n\n\ud83d\udd22 Numerical Verification:\nLet's check with a right triangle:\n* Right angle = 90\u00b0\n* One acute angle = 45\u00b0\n* Other acute angle = 45\u00b0\n* Total: 90\u00b0 + 45\u00b0 + 45\u00b0 = 180\u00b0 \u2713\n\n\ud83d\udcd0 Interactive Verification:\nTry this:\n1. Draw any triangle on paper\n2. Cut out the three angles\n3. Place them adjacent to each other\n4. They form a straight line (180\u00b0)!\n\n\ud83d\udca1 Multiple Proofs:\n1. Parallel line construction \u2713\n2. Numerical example \u2713\n3. Physical demonstration \u2713\n\nWant to explore more?\n1. What happens in obtuse triangles?\n2. How does this relate to exterior angles?\n3. Can you extend this to other polygons?",
+      "scores": {
+        "total_score": 0.73,
+        "dimension_scores": {
+          "Proof Clarity": {
+            "total_score": 0.8999999999999999,
+            "subdimension_scores": {
+              "Solution Clarity": 0.8,
+              "Step-by-Step Logic": 1.0,
+              "Terminology Accuracy": 1.0,
+              "Language Simplicity": 0.8
+            }
+          },
+          "Proof Completeness": {
+            "total_score": 1.0,
+            "subdimension_scores": {
+              "Proof Completeness": 1.0,
+              "Correctness of Claims": 1.0,
+              "Proof Validity": 1.0,
+              "Validation Methods Mentioned": 1.0
+            }
+          },
+          "Engagement and Understanding": {
+            "total_score": 0.7000000000000001,
+            "subdimension_scores": {
+              "Example Utilization": 0.8,
+              "Conceptual Understanding": 0.8,
+              "Engagement Factor": 0.8,
+              "Real-World Application": 0.4
+            }
+          },
+          "Error Management": {
+            "total_score": 0.5,
+            "subdimension_scores": {
+              "Error Identification": 0.4,
+              "Error Correction Mechanism": 0.2,
+              "Critical Thinking Encouragement": 0.8,
+              "Feedback Opportunity": 0.6
+            }
+          },
+          "Collaboration and Communication": {
+            "total_score": 0.55,
+            "subdimension_scores": {
+              "Collaboration Encouragement": 0.6,
+              "Assumption Transparency": 0.2,
+              "Terminology Definition": 0.4,
+              "Formatting Consistency": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Logical Verification",
+      "input": "Prove that if a number is divisible by 6, it must be divisible by both 2 and 3.",
+      "output": "Let's prove this using logical reasoning! \ud83e\udde0\n\nStep 1: Understanding Divisibility\n--------------------------------\nA number n is divisible by 6 means:\n* n = 6k, where k is some integer\n\nKey fact: 6 = 2 \u00d7 3\n\nStep 2: Logical Proof\n--------------------\nGiven: n is divisible by 6\nTherefore: n = 6k for some integer k\n\n1. Divisibility by 2:\n   n = 6k\n   n = (2 \u00d7 3)k\n   n = 2(3k)\n   Let m = 3k (m is an integer because 3 and k are integers)\n   Therefore: n = 2m\n   \u2234 n is divisible by 2 \u2713\n\n2. Divisibility by 3:\n   n = 6k\n   n = (2 \u00d7 3)k\n   n = 3(2k)\n   Let p = 2k (p is an integer because 2 and k are integers)\n   Therefore: n = 3p\n   \u2234 n is divisible by 3 \u2713\n\n\ud83d\udd22 Numerical Verification:\nLet's test with n = 24:\n* 24 \u00f7 6 = 4 (divisible by 6)\n* 24 \u00f7 2 = 12 (divisible by 2) \u2713\n* 24 \u00f7 3 = 8 (divisible by 3) \u2713\n\nLet's test with n = 30:\n* 30 \u00f7 6 = 5 (divisible by 6)\n* 30 \u00f7 2 = 15 (divisible by 2) \u2713\n* 30 \u00f7 3 = 10 (divisible by 3) \u2713\n\n\u2705 Multiple Verifications:\n1. Algebraic proof \u2713\n2. Logical reasoning \u2713\n3. Numerical examples \u2713\n\n\ud83d\udca1 Contrapositive:\nIf a number is NOT divisible by either 2 or 3,\nit CANNOT be divisible by 6.\nExample: 25 is not divisible by 2, so it can't be divisible by 6.\n\nWant to explore more?\n1. What about numbers divisible by 4 and 3?\n2. How does this extend to other composite numbers?\n3. Can you prove the contrapositive directly?",
+      "scores": {
+        "total_score": 0.78,
+        "dimension_scores": {
+          "Proof Clarity": {
+            "total_score": 0.8999999999999999,
+            "subdimension_scores": {
+              "Solution Clarity": 0.8,
+              "Step-by-Step Logic": 1.0,
+              "Terminology Accuracy": 1.0,
+              "Language Simplicity": 0.8
+            }
+          },
+          "Proof Completeness": {
+            "total_score": 1.0,
+            "subdimension_scores": {
+              "Proof Completeness": 1.0,
+              "Correctness of Claims": 1.0,
+              "Proof Validity": 1.0,
+              "Validation Methods Mentioned": 1.0
+            }
+          },
+          "Engagement and Understanding": {
+            "total_score": 0.7000000000000001,
+            "subdimension_scores": {
+              "Example Utilization": 0.8,
+              "Conceptual Understanding": 0.8,
+              "Engagement Factor": 0.8,
+              "Real-World Application": 0.4
+            }
+          },
+          "Error Management": {
+            "total_score": 0.5,
+            "subdimension_scores": {
+              "Error Identification": 0.4,
+              "Error Correction Mechanism": 0.2,
+              "Critical Thinking Encouragement": 0.8,
+              "Feedback Opportunity": 0.6
+            }
+          },
+          "Collaboration and Communication": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Collaboration Encouragement": 0.6,
+              "Assumption Transparency": 1.0,
+              "Terminology Definition": 0.6,
+              "Formatting Consistency": 1.0
+            }
+          }
+        }
+      }
+    }
+  ],
+  "success": true,
+  "dimensions": [
+    {
+      "label": "Proof Clarity",
+      "description": "How can we ensure that mathematical explanations are clear and understandable?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Solution Clarity",
+          "description": "Is the mathematical explanation clear and easy to understand?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Step-by-Step Logic",
+          "description": "Are the steps in the explanation logically sequenced?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Terminology Accuracy",
+          "description": "Is the mathematical terminology used correctly throughout the explanation?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Language Simplicity",
+          "description": "Is the language used simple and free of jargon where possible?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Proof Completeness",
+      "description": "What aspects should be included to ensure a complete mathematical proof?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Proof Completeness",
+          "description": "Does the explanation provide a complete proof for the solution?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Correctness of Claims",
+          "description": "Are all claims made in the explanation mathematically correct?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Proof Validity",
+          "description": "Is the proof method used valid and widely accepted in the mathematical community?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Validation Methods Mentioned",
+          "description": "Are various proof and validation methods discussed in the explanation?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Engagement and Understanding",
+      "description": "How can we make mathematical explanations engaging and ensure understanding?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Example Utilization",
+          "description": "Does the explanation use relevant examples to illustrate points?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Conceptual Understanding",
+          "description": "Does the explanation demonstrate a deep understanding of the underlying concepts?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Engagement Factor",
+          "description": "Is the explanation engaging and interesting to read?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Real-World Application",
+          "description": "Does the explanation relate the mathematical concepts to real-world applications?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Error Management",
+      "description": "What strategies can be employed to manage errors and encourage critical thinking?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Error Identification",
+          "description": "Does the explanation identify and correct potential errors in the solution process?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Error Correction Mechanism",
+          "description": "Is there a mechanism described for correcting errors in the solution process?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Critical Thinking Encouragement",
+          "description": "Does the explanation encourage critical thinking about the mathematical concepts?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Feedback Opportunity",
+          "description": "Does the explanation provide an opportunity for feedback or questions?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Collaboration and Communication",
+      "description": "How can we promote collaboration and effective communication in mathematical explanations?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Collaboration Encouragement",
+          "description": "Does the explanation encourage collaboration or discussion among peers?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Assumption Transparency",
+          "description": "Does the explanation clearly state any assumptions made during the proof?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Terminology Definition",
+          "description": "Are all specialized terms defined for clarity?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Formatting Consistency",
+          "description": "Is the formatting of the explanation consistent throughout?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    }
+  ],
+  "analysis": {
+    "overall_scores": {
+      "Numerical Verification": 0.77,
+      "Algebraic Proof": 0.76,
+      "Visual Verification": 0.73,
+      "Logical Verification": 0.78
+    },
+    "verification_methods": {
+      "Numerical Verification": [
+        "numerical",
+        "algebraic"
+      ],
+      "Algebraic Proof": [
+        "numerical",
+        "algebraic",
+        "visual",
+        "logical"
+      ],
+      "Visual Verification": [
+        "numerical",
+        "visual",
+        "logical"
+      ],
+      "Logical Verification": [
+        "numerical",
+        "algebraic",
+        "logical"
+      ]
+    },
+    "method_effectiveness": {
+      "numerical": 0.76,
+      "algebraic": 0.77,
+      "visual": 0.745,
+      "logical": 0.7566666666666667,
+      "multiple": 0.76
+    },
+    "recommendations": [
+      "Most effective method: algebraic (0.77)",
+      "Use multiple verification methods",
+      "Include numerical examples",
+      "Add visual aids when possible",
+      "Verify both specific cases and general principles"
+    ]
+  }
+}

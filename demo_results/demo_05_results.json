@@ -1,0 +1,559 @@
+{
+  "contract": {
+    "name": "Complex Math Problem Analysis",
+    "description": "Evaluate mathematical explanations for complex problems.\n    Focus on maintaining engagement and clarity while handling increased complexity.\n    Test effectiveness of different response styles with challenging concepts."
+  },
+  "test_cases": [
+    {
+      "style": "Story-based Complex",
+      "input": "If a recipe needs 2\u00be cups of flour for 12 cookies, how many cups of flour are needed for 30 cookies?",
+      "output": "\ud83e\uddc1 Welcome to the Cookie Factory Challenge! \ud83c\udfed\n\nOur master baker Maria has a special recipe that makes exactly 12 delicious cookies.\nShe needs to scale it up for a big party order of 30 cookies!\n\nLet's help Maria figure this out:\n\n1. Current Recipe (12 cookies):\n   \ud83e\udd44 Flour needed: 2\u00be cups\n   \n2. Understanding the Problem:\n   - We need to find flour for 30 cookies\n   - Current recipe makes 12 cookies\n   - We'll need to scale up the recipe!\n\n3. Step-by-Step Solution:\n   First, let's find flour per cookie:\n   * 2\u00be cups \u00f7 12 cookies\n   * 2.75 \u00f7 12 = 0.229166... cups per cookie\n   \n   Now, for 30 cookies:\n   * 0.229166... \u00d7 30 = 6.875 cups\n   * 6.875 = 6\u215e cups\n\n\ud83c\udfaf Final Answer: Maria needs 6\u215e cups of flour for 30 cookies.\n\n\u2728 Bonus Baking Facts:\n- This is about 2.5 times the original recipe\n- You could measure this as 6 cups plus 7 tablespoons\n- Pro bakers always scale recipes this way!\n\nWant to test your skills? How much flour would you need for 45 cookies? \ud83e\udd14",
+      "scores": {
+        "total_score": 0.66,
+        "dimension_scores": {
+          "Clarity and Engagement": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Clarity of Explanation": 0.8,
+              "Engagement Level": 0.8,
+              "Complexity Appropriateness": 0.8,
+              "Accessibility of Language": 0.8
+            }
+          },
+          "Content and Structure": {
+            "total_score": 0.7000000000000001,
+            "subdimension_scores": {
+              "Use of Examples": 0.6,
+              "Step-by-Step Breakdown": 1.0,
+              "Logical Flow": 1.0,
+              "Summary of Key Points": 0.2
+            }
+          },
+          "Visual and Interactive Elements": {
+            "total_score": 0.4,
+            "subdimension_scores": {
+              "Visual Aids": 0.2,
+              "Interactive Elements": 0.6
+            }
+          },
+          "Terminology and Rigor": {
+            "total_score": 0.7999999999999999,
+            "subdimension_scores": {
+              "Terminology Accuracy": 1.0,
+              "Mathematical Rigor": 1.0,
+              "Error Identification": 0.4
+            }
+          },
+          "Conceptual Understanding": {
+            "total_score": 0.6,
+            "subdimension_scores": {
+              "Addressing Common Misconceptions": 0.4,
+              "Use of Analogies": 0.4,
+              "Relevance of Content": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Visual Complex",
+      "input": "A cylindrical water tank has a radius of 3 meters and a height of 4 meters. What is its volume in cubic meters?",
+      "output": "\ud83c\udf0a Let's Visualize This Water Tank! \ud83d\udeb0\n\n1. The Tank's Shape:\n   \n         4m\n   \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2510  \u2191\n   \u2502      \u2502  \u2502\n   \u2502      \u2502  \u2502 Height\n3m \u2502      \u2502  \u2502\n   \u2502      \u2502  \u2502\n   \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2518  \u2193\n   \u2190\u2500\u2500\u2192\n  Radius\n\n2. Understanding the Formula:\n   Volume of a cylinder = \u03c0 \u00d7 radius\u00b2 \u00d7 height\n   \n   Think of it as:\n   \ud83d\udd35 Area of the base (\u03c0 \u00d7 radius\u00b2)\n   \u2193\n   \ud83d\udccf Multiplied by height\n\n3. Let's Calculate:\n   * radius = 3 meters\n   * height = 4 meters\n   * \u03c0 \u2248 3.14159\n\n   Step by step:\n   1) radius\u00b2 = 3\u00b2 = 9\n   2) \u03c0 \u00d7 9 = 28.27431\n   3) 28.27431 \u00d7 4 = 113.09724\n\n\ud83c\udfaf Final Answer: The tank's volume is approximately 113.1 cubic meters\n\nTo visualize this volume:\n- It's like 113,100 one-liter bottles! \ud83c\udf76\n- Or about 45 standard bathtubs! \ud83d\udec1\n\n\ud83d\udca1 Real-world Application:\nThis tank could supply a small apartment building with water for several days!\n\nWant to explore more? Try calculating:\n1. How many 2-liter bottles could this tank fill?\n2. If the radius was doubled, how would the volume change?",
+      "scores": {
+        "total_score": 0.7966666666666669,
+        "dimension_scores": {
+          "Clarity and Engagement": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Clarity of Explanation": 0.8,
+              "Engagement Level": 0.8,
+              "Complexity Appropriateness": 0.8,
+              "Accessibility of Language": 0.8
+            }
+          },
+          "Content and Structure": {
+            "total_score": 0.75,
+            "subdimension_scores": {
+              "Use of Examples": 0.8,
+              "Step-by-Step Breakdown": 1.0,
+              "Logical Flow": 1.0,
+              "Summary of Key Points": 0.2
+            }
+          },
+          "Visual and Interactive Elements": {
+            "total_score": 0.7,
+            "subdimension_scores": {
+              "Visual Aids": 0.8,
+              "Interactive Elements": 0.6
+            }
+          },
+          "Terminology and Rigor": {
+            "total_score": 1.0,
+            "subdimension_scores": {
+              "Terminology Accuracy": 1.0,
+              "Mathematical Rigor": 1.0,
+              "Error Identification": 1.0
+            }
+          },
+          "Conceptual Understanding": {
+            "total_score": 0.7333333333333334,
+            "subdimension_scores": {
+              "Addressing Common Misconceptions": 0.4,
+              "Use of Analogies": 0.8,
+              "Relevance of Content": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Interactive Complex",
+      "input": "Solve the equation: 3x + 7 = 4x - 5",
+      "output": "\ud83c\udfae Welcome to Equation Explorer! Let's solve this step by step.\n\nInitial Equation: 3x + 7 = 4x - 5\n\n\ud83e\udd14 Question: What should we do first?\n[Think about it...]\nAnswer: Let's get all terms with x on one side!\n\nStep 1: Subtract 3x from both sides\n- Left side: 3x - 3x + 7 = 7\n- Right side: 4x - 3x - 5 = x - 5\nNew equation: 7 = x - 5\n\n\ud83c\udfaf Challenge: What's our next move?\n[Consider your options...]\nSolution: Add 5 to both sides!\n\nStep 2: Add 5 to both sides\n- Left side: 7 + 5 = 12\n- Right side: x - 5 + 5 = x\nFinal equation: 12 = x\n\n\u2728 Therefore: x = 12\n\nLet's verify our answer:\nOriginal equation: 3x + 7 = 4x - 5\nPlug in x = 12:\n- Left side: 3(12) + 7 = 36 + 7 = 43\n- Right side: 4(12) - 5 = 48 - 5 = 43\n43 = 43 \u2713 It works!\n\n\ud83c\udf1f Bonus Challenges:\n1. Can you solve: 2x + 3 = x + 15?\n2. What happens if we change 7 to -7?\n3. Create your own equation with x = 5!\n\n\ud83d\udca1 Key Insights:\n- Moving terms: What we do to one side, we must do to the other\n- Verification is crucial: Always check your answer\n- Multiple approaches can work: What's your preferred method?",
+      "scores": {
+        "total_score": 0.7200000000000001,
+        "dimension_scores": {
+          "Clarity and Engagement": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Clarity of Explanation": 0.8,
+              "Engagement Level": 0.8,
+              "Complexity Appropriateness": 0.8,
+              "Accessibility of Language": 0.8
+            }
+          },
+          "Content and Structure": {
+            "total_score": 0.9,
+            "subdimension_scores": {
+              "Use of Examples": 0.6,
+              "Step-by-Step Breakdown": 1.0,
+              "Logical Flow": 1.0,
+              "Summary of Key Points": 1.0
+            }
+          },
+          "Visual and Interactive Elements": {
+            "total_score": 0.5,
+            "subdimension_scores": {
+              "Visual Aids": 0.2,
+              "Interactive Elements": 0.8
+            }
+          },
+          "Terminology and Rigor": {
+            "total_score": 0.7999999999999999,
+            "subdimension_scores": {
+              "Terminology Accuracy": 1.0,
+              "Mathematical Rigor": 1.0,
+              "Error Identification": 0.4
+            }
+          },
+          "Conceptual Understanding": {
+            "total_score": 0.6,
+            "subdimension_scores": {
+              "Addressing Common Misconceptions": 0.4,
+              "Use of Analogies": 0.4,
+              "Relevance of Content": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "style": "Guided Complex",
+      "input": "Find the probability of rolling a sum of 8 with two dice.",
+      "output": "\ud83c\udfb2 Probability Explorer: Rolling for 8! \ud83c\udfb2\n\nStep 1: Understanding the Problem\n--------------------------------\nQ: What are we looking for?\nA: Ways to roll a sum of 8 using two dice\n\nQ: What's our strategy?\nA: List all possible combinations that sum to 8\n\nStep 2: Finding Possibilities\n----------------------------\nLet's map it out:\nDie 1 + Die 2 = 8\n\nPossible combinations:\n2 + 6 = 8  \u2681\u2685\n3 + 5 = 8  \u2682\u2684\n4 + 4 = 8  \u2683\u2683\n5 + 3 = 8  \u2684\u2682\n6 + 2 = 8  \u2685\u2681\n\n\ud83e\udd14 Think: Did we find all combinations?\nCount them: 5 ways to roll an 8!\n\nStep 3: Total Possible Outcomes\n------------------------------\nQ: How many possible outcomes when rolling 2 dice?\nLet's count:\n- Die 1: 6 possibilities\n- Die 2: 6 possibilities\n- Total: 6 \u00d7 6 = 36 possible outcomes\n\nStep 4: Calculating Probability\n-----------------------------\nProbability = Favorable outcomes \u00f7 Total outcomes\n            = 5 \u00f7 36\n            = 5/36 (approximately 0.139 or 13.9%)\n\n\ud83c\udfaf Final Answer: The probability is 5/36\n\n\ud83d\udca1 Visualization:\n     1  2  3  4  5  6\n   +------------------\n1  |2  3  4  5  6  7\n2  |3  4  5  6  7  8*\n3  |4  5  6  7  8* 9\n4  |5  6  7  8* 9  10\n5  |6  7  8* 9  10 11\n6  |7  8* 9  10 11 12\n\n* marks the combinations that sum to 8\n\n\ud83c\udf1f Extension Questions:\n1. Which sum is most likely when rolling 2 dice?\n2. What's the probability of rolling a sum less than 8?\n3. How would using 3 dice change our approach?\n\nRemember: In probability, organizing possibilities systematically\nhelps us ensure we don't miss any outcomes!",
+      "scores": {
+        "total_score": 0.7100000000000001,
+        "dimension_scores": {
+          "Clarity and Engagement": {
+            "total_score": 0.8,
+            "subdimension_scores": {
+              "Clarity of Explanation": 0.8,
+              "Engagement Level": 0.8,
+              "Complexity Appropriateness": 0.8,
+              "Accessibility of Language": 0.8
+            }
+          },
+          "Content and Structure": {
+            "total_score": 0.75,
+            "subdimension_scores": {
+              "Use of Examples": 0.8,
+              "Step-by-Step Breakdown": 1.0,
+              "Logical Flow": 1.0,
+              "Summary of Key Points": 0.2
+            }
+          },
+          "Visual and Interactive Elements": {
+            "total_score": 0.6,
+            "subdimension_scores": {
+              "Visual Aids": 0.6,
+              "Interactive Elements": 0.6
+            }
+          },
+          "Terminology and Rigor": {
+            "total_score": 0.7999999999999999,
+            "subdimension_scores": {
+              "Terminology Accuracy": 1.0,
+              "Mathematical Rigor": 1.0,
+              "Error Identification": 0.4
+            }
+          },
+          "Conceptual Understanding": {
+            "total_score": 0.6,
+            "subdimension_scores": {
+              "Addressing Common Misconceptions": 0.4,
+              "Use of Analogies": 0.4,
+              "Relevance of Content": 1.0
+            }
+          }
+        }
+      }
+    }
+  ],
+  "success": true,
+  "dimensions": [
+    {
+      "label": "Clarity and Engagement",
+      "description": "How can we ensure that explanations are clear and engaging?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Clarity of Explanation",
+          "description": "Is the mathematical explanation clear and easy to understand?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Engagement Level",
+          "description": "Does the explanation maintain the reader's engagement throughout?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Complexity Appropriateness",
+          "description": "Is the level of complexity suitable for the intended audience?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Accessibility of Language",
+          "description": "Is the language used accessible and not overly technical for the audience?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Content and Structure",
+      "description": "What structural elements enhance the effectiveness of mathematical explanations?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Use of Examples",
+          "description": "Does the explanation include relevant examples to illustrate key concepts?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Step-by-Step Breakdown",
+          "description": "Is the complex problem broken down into manageable steps?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Logical Flow",
+          "description": "Does the explanation follow a logical progression from one point to the next?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Summary of Key Points",
+          "description": "Is there a summary of key points at the end of the explanation?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Visual and Interactive Elements",
+      "description": "How can visual and interactive elements enhance understanding?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Visual Aids",
+          "description": "Are visual aids (e.g., graphs, diagrams) used to enhance understanding?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Interactive Elements",
+          "description": "Are there interactive elements included to engage the reader further?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Terminology and Rigor",
+      "description": "How can we ensure accuracy and rigor in mathematical explanations?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Terminology Accuracy",
+          "description": "Is the mathematical terminology used accurately throughout the explanation?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Mathematical Rigor",
+          "description": "Is the explanation mathematically rigorous and accurate?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Error Identification",
+          "description": "Does the explanation identify and correct potential errors in reasoning?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    },
+    {
+      "label": "Conceptual Understanding",
+      "description": "How can we enhance understanding of complex concepts?",
+      "weight": 1.0,
+      "sub_dimensions": [
+        {
+          "label": "Addressing Common Misconceptions",
+          "description": "Does the explanation address common misconceptions related to the topic?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Use of Analogies",
+          "description": "Does the explanation utilize analogies to clarify complex concepts?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        },
+        {
+          "label": "Relevance of Content",
+          "description": "Is the content relevant to the mathematical problem being explained?",
+          "scoring_type": "PI_SCORER",
+          "python_code": null,
+          "parameters": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "weight": 1.0,
+          "huggingface_url": null,
+          "action_dimension": null,
+          "action_on_low_score": false
+        }
+      ],
+      "action_dimension": null,
+      "action_on_low_score": false
+    }
+  ],
+  "analysis": {
+    "overall_scores": {
+      "Story-based Complex": 0.66,
+      "Visual Complex": 0.7966666666666669,
+      "Interactive Complex": 0.7200000000000001,
+      "Guided Complex": 0.7100000000000001
+    },
+    "complexity_impact": {
+      "Story-based Complex": 0,
+      "Visual Complex": 0.4,
+      "Interactive Complex": 0.4,
+      "Guided Complex": 0.2
+    },
+    "engagement_retention": {
+      "Story-based Complex": 0.8,
+      "Visual Complex": 0.6000000000000001,
+      "Interactive Complex": 1.0,
+      "Guided Complex": 0.6000000000000001
+    },
+    "recommendations": [
+      "Best performing style: Visual Complex (0.80)",
+      "Key elements: ",
+      "Maintain engagement with regular checkpoints",
+      "Use visual aids for complex concepts",
+      "Include verification steps"
+    ]
+  }
+}

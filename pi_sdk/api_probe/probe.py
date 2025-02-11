@@ -12,7 +12,7 @@ Usage:
     python probe.py --output probe_2.md
     python probe.py --tests auth,inference
 
-v2 - Added job management and dimension testing
+v3 - Added error handling and missing constants
 """
 
 import asyncio
@@ -21,7 +21,7 @@ import logging
 import time
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional, Any, Union
+from typing import Dict, List, Optional, Any, Union, AsyncGenerator
 
 import aiohttp
 from rich.console import Console
@@ -35,30 +35,195 @@ RATE_LIMIT_PER_SECOND = 30
 BASE_URL = "https://api.pi.ai/v1"
 OUTPUT_FILE = "probe_1.md"
 
-# Test data
-MINIMAL_CONTRACT = {
-    "name": "test_contract",
-    "description": "A test contract for quality evaluation",
-    "dimensions": []
-}
-
+# Sample inputs for testing
 SAMPLE_INPUTS = [
-    "What is the capital of France?",
-    "Explain quantum computing",
-    "Write a haiku about programming",
-    "",  # Test empty input
-    "A" * 1000  # Test long input
+    "",  # Empty input
+    "Hello",  # Short input
+    "What is the capital of France?",  # Medium input
+    "Please write a detailed essay about the history of artificial intelligence, including key developments, major contributors, and significant milestones from the 1950s to present day." # Long input
 ]
 
-# Configure logging
+# Minimal contract for testing
+MINIMAL_CONTRACT = {
+    "name": "Basic Test",
+    "description": "Basic test contract",
+    "dimensions": [{
+        "description": "Test dimension",
+        "label": "Test",
+        "sub_dimensions": [{
+            "label": "Sub",
+            "description": "Test sub-dimension",
+            "scoring_type": "PI_SCORER"
+        }]
+    }]
+}
+
+# Console setup
+console = Console()
 logging.basicConfig(
     level=logging.INFO,
     format="%(message)s",
     datefmt="[%X]",
     handlers=[RichHandler(rich_tracebacks=True)]
 )
-log = logging.getLogger("pi_probe")
-console = Console()
+logger = logging.getLogger("probe")
+
+# Test data and configurations
+BATCH_SIZES = [1, 5, 10, 20]  # For rate limit testing
+DELAY_TIMES = [0, 0.1, 0.5, 1.0]  # Seconds between requests
+TEST_CONTRACTS = [
+    {
+        "name": "Math Test",
+        "description": "Test mathematical ability",
+        "dimensions": [{
+            "description": "Test accuracy",
+            "label": "Accuracy",
+            "sub_dimensions": [{
+                "label": "Numerical",
+                "description": "Test numerical accuracy",
+                "scoring_type": "PI_SCORER"
+            }]
+        }]
+    },
+    {
+        "name": "Greeting Test",
+        "description": "Test greeting responses",
+        "dimensions": [{
+            "description": "Test politeness",
+            "label": "Politeness",
+            "sub_dimensions": [{
+                "label": "Formal",
+                "description": "Test formal language",
+                "scoring_type": "PI_SCORER"
+            }]
+        }]
+    }
+]
+
+TEST_EXAMPLES = [
+    [  # Math examples
+        {"llm_input": "What is 2+2?", "llm_output": "4"},
+        {"llm_input": "What is 3+3?", "llm_output": "6"},
+        {"llm_input": "What is 5+5?", "llm_output": "10"}
+    ],
+    [  # Greeting examples
+        {"llm_input": "Hi there", "llm_output": "Good day to you"},
+        {"llm_input": "Hello", "llm_output": "Greetings and salutations"},
+        {"llm_input": "Hey", "llm_output": "Good morning/afternoon/evening"}
+    ]
+]
+
+class ExperimentBatch:
+    """Container for running and tracking experiment batches."""
+    
+    def __init__(self, name: str, description: str):
+        self.name = name
+        self.description = description
+        self.results = []
+        self.start_time = None
+        self.end_time = None
+    
+    async def run(self, probe: 'APIProbe'):
+        """Run the experiment batch and collect results."""
+        self.start_time = datetime.now()
+        try:
+            await self._run_impl(probe)
+        finally:
+            self.end_time = datetime.now()
+            self.save_results()
+    
+    async def _run_impl(self, probe: 'APIProbe'):
+        """Implementation should be provided by subclasses."""
+        raise NotImplementedError
+    
+    def save_results(self):
+        """Save batch results to a markdown file."""
+        output_path = Path(f"experiment_{self.name.lower().replace(' ', '_')}_{self.start_time.strftime('%Y%m%d_%H%M%S')}.md")
+        
+        content = [
+            f"# {self.name} Experiment Results",
+            f"**Date**: {self.start_time.strftime('%Y-%m-%d %H:%M:%S')}",
+            f"**Duration**: {(self.end_time - self.start_time).total_seconds():.2f}s",
+            "",
+            "## Description",
+            self.description,
+            "",
+            "## Results",
+            ""
+        ]
+        
+        for i, result in enumerate(self.results, 1):
+            content.extend([
+                f"### Test {i}",
+                "```json",
+                json.dumps(result, indent=2),
+                "```",
+                ""
+            ])
+        
+        output_path.write_text("\n".join(content))
+        console.print(f"\nResults saved to [bold cyan]{output_path}[/bold cyan]")
+
+
+class RateLimitExperiment(ExperimentBatch):
+    """Test rate limiting behavior across endpoints."""
+    
+    async def _run_impl(self, probe: 'APIProbe'):
+        # Test rapid inference requests
+        for batch_size in BATCH_SIZES:
+            for delay in DELAY_TIMES:
+                requests = []
+                for i in range(batch_size):
+                    requests.append(probe.test_inference())
+                    if delay > 0:
+                        await asyncio.sleep(delay)
+                
+                responses = await asyncio.gather(*requests, return_exceptions=True)
+                self.results.append({
+                    "type": "inference_batch",
+                    "batch_size": batch_size,
+                    "delay": delay,
+                    "success_count": sum(1 for r in responses if not isinstance(r, Exception)),
+                    "error_count": sum(1 for r in responses if isinstance(r, Exception)),
+                    "errors": [str(r) for r in responses if isinstance(r, Exception)]
+                })
+
+
+class TuningPatternExperiment(ExperimentBatch):
+    """Test prompt tuning behavior and patterns."""
+    
+    async def _run_impl(self, probe: 'APIProbe'):
+        # Test identical contracts
+        for contract, examples in zip(TEST_CONTRACTS, TEST_EXAMPLES):
+            # Run same contract/examples twice
+            for i in range(2):
+                try:
+                    start = time.time()
+                    job_id = await probe.start_tuning(contract, examples)
+                    messages = []
+                    
+                    async for msg in probe.stream_tuning_messages(job_id):
+                        messages.append(msg)
+                    
+                    final_state = await probe.get_tuning_status(job_id)
+                    duration = time.time() - start
+                    
+                    self.results.append({
+                        "type": "tuning_test",
+                        "iteration": i + 1,
+                        "contract_name": contract["name"],
+                        "duration": duration,
+                        "message_count": len(messages),
+                        "messages": messages,
+                        "final_state": final_state
+                    })
+                except Exception as e:
+                    self.results.append({
+                        "type": "tuning_test",
+                        "iteration": i + 1,
+                        "contract_name": contract["name"],
+                        "error": str(e)
+                    })
 
 
 class RateLimiter:
@@ -166,6 +331,23 @@ class APIProbe:
             RATE_LIMIT_PER_SECOND
         )
         self.results: List[ProbeResult] = []
+    
+    async def run_experiments(self):
+        """Run all experiment batches."""
+        experiments = [
+            RateLimitExperiment(
+                "Rate Limit Tests",
+                "Test rate limiting behavior across different batch sizes and delays"
+            ),
+            TuningPatternExperiment(
+                "Tuning Pattern Tests",
+                "Test prompt tuning behavior with identical and varied inputs"
+            )
+        ]
+        
+        for experiment in experiments:
+            console.print(Panel(f"Running {experiment.name}", style="bold magenta"))
+            await experiment.run(self)
     
     async def test_auth(self) -> ProbeResult:
         """Test authentication and rate limiting."""
@@ -432,7 +614,7 @@ class APIProbe:
                                 if stream_resp.status == 200:
                                     content_type = stream_resp.headers.get("content-type", "")
                                     if "text/plain" in content_type:
-                                        notes.append("✅ Streaming endpoint returns text/plain")
+                                        notes.append(" Streaming endpoint returns text/plain")
                                         hypotheses["Jobs support streaming"] = True
                 
                 # Test parallel jobs
@@ -580,98 +762,53 @@ class APIProbe:
                 hypotheses
             )
     
-    async def run_all_tests(self):
-        """Run all probe tests in parallel."""
-        tests = [
-            self.test_auth(),
-            self.test_inference(),
-            self.test_job_management(),
-            self.test_contract_dimensions()
-        ]
-        
-        console.print(Panel("Running API Probe Tests", style="bold magenta"))
-        results = await asyncio.gather(*tests)
-        self.results.extend(results)
-        
-        # Print results
-        table = Table(title="Test Results")
-        table.add_column("Test", style="cyan")
-        table.add_column("Status", style="bold")
-        table.add_column("Duration", style="magenta")
-        table.add_column("Hypotheses", style="yellow")
-        table.add_column("Notes", style="green")
-        
-        for result in results:
-            status = "✅" if result.success else "❌"
-            hypotheses = "\n".join(
-                f"{h}: {'✅' if r else '❌'}"
-                for h, r in result.hypothesis_results.items()
-            )
-            notes = "\n".join(result.notes) if result.notes else ""
-            table.add_row(
-                result.test_name,
-                status,
-                f"{result.duration:.2f}s",
-                hypotheses,
-                notes
-            )
-        
-        console.print(table)
-        
-        # Save results
-        self.save_results()
+    async def start_tuning(self, contract: dict, examples: List[dict]) -> str:
+        """Start a tuning job and return the job ID."""
+        async with aiohttp.ClientSession() as session:
+            await self.rate_limiter.acquire()
+            async with session.post(
+                f"{BASE_URL}/tune/prompt",
+                headers={
+                    "x-api-key": self.api_key,
+                    "Content-Type": "application/json"
+                },
+                json={
+                    "contract": contract,
+                    "examples": examples,
+                    "model_id": "gpt-4o-mini",
+                    "tuning_algorithm": "pi"
+                }
+            ) as resp:
+                data = await resp.json()
+                return data["job_id"]
     
-    def save_results(self):
-        """Save test results to markdown file."""
-        output_path = Path(OUTPUT_FILE)
-        
-        content = [
-            "# PI API Probe Results",
-            f"**Date**: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
-            "",
-            "## Summary",
-            f"- Total Tests: {len(self.results)}",
-            f"- Successful: {sum(1 for r in self.results if r.success)}",
-            f"- Failed: {sum(1 for r in self.results if not r.success)}",
-            "",
-            "## Hypotheses Validation",
-            ""
-        ]
-        
-        # Aggregate hypothesis results
-        all_hypotheses = {}
-        for result in self.results:
-            all_hypotheses.update(result.hypothesis_results)
-        
-        content.extend([
-            "### Confirmed",
-            *[f"- {h}" for h, r in all_hypotheses.items() if r],
-            "",
-            "### Rejected",
-            *[f"- {h}" for h, r in all_hypotheses.items() if not r],
-            "",
-            "## Detailed Results",
-            ""
-        ])
-        
-        content.extend(result.to_markdown() for result in self.results)
-        
-        output_path.write_text("\n".join(content))
-        console.print(f"\nResults saved to [bold cyan]{output_path}[/bold cyan]")
+    async def stream_tuning_messages(self, job_id: str) -> AsyncGenerator[str, None]:
+        """Stream messages from a tuning job."""
+        async with aiohttp.ClientSession() as session:
+            await self.rate_limiter.acquire()
+            async with session.get(
+                f"{BASE_URL}/tune/prompt/{job_id}/messages",
+                headers={"x-api-key": self.api_key}
+            ) as resp:
+                async for line in resp.content:
+                    yield line.decode().strip()
+    
+    async def get_tuning_status(self, job_id: str) -> dict:
+        """Get the current status of a tuning job."""
+        async with aiohttp.ClientSession() as session:
+            await self.rate_limiter.acquire()
+            async with session.get(
+                f"{BASE_URL}/tune/prompt/{job_id}",
+                headers={"x-api-key": self.api_key}
+            ) as resp:
+                return await resp.json()
 
 
 if __name__ == "__main__":
-    # Load API key from environment
-    import os
-    from dotenv import load_dotenv
+    import argparse
+    parser = argparse.ArgumentParser(description="PI API Probe")
+    parser.add_argument("--api-key", required=True, help="PI API key")
+    args = parser.parse_args()
     
-    load_dotenv()
-    api_key = os.getenv("PI_API_KEY")
-    
-    if not api_key:
-        console.print("[bold red]Error: PI_API_KEY environment variable not set[/bold red]")
-        exit(1)
-    
-    # Run probe tests
-    probe = APIProbe(api_key)
-    asyncio.run(probe.run_all_tests())
+    probe = APIProbe(args.api_key)
+    asyncio.run(probe.run_experiments())

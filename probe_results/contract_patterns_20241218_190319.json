@@ -1,0 +1,1228 @@
+{
+  "contract_patterns": [
+    {
+      "input": "What is 2+2?",
+      "dimensions": {
+        "name": "Test Contract",
+        "description": "A test contract for exploring patterns",
+        "dimensions": [
+          {
+            "label": "Contract Clarity",
+            "description": "How can we ensure clarity and understanding in contracts?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Clarity of Language",
+                "description": "Is the language used in the contract clear and easy to understand?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Defined Terms",
+                "description": "Are all key terms clearly defined within the contract?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Logical Structure",
+                "description": "Is the contract organized in a logical manner that guides the reader?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Avoidance of Jargon",
+                "description": "Does the contract avoid unnecessary jargon or technical terms?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Grammar and Spelling",
+                "description": "Is the contract free from grammatical and spelling errors?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          },
+          {
+            "label": "Content Relevance",
+            "description": "How can we ensure that contract content is relevant and actionable?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Relevance to Input",
+                "description": "Is the content of the contract relevant to the input provided?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Actionable Insights",
+                "description": "Does the contract provide actionable insights based on the identified patterns?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Stakeholder Consideration",
+                "description": "Does the contract consider the perspectives of relevant stakeholders?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Guidelines for Implementation",
+                "description": "Does the contract provide clear guidelines for implementing the identified patterns?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          },
+          {
+            "label": "Illustrative Examples",
+            "description": "How can we effectively use examples and visual aids in contracts?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Examples Provided",
+                "description": "Does the contract include examples to illustrate the identified patterns?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Simplicity of Examples",
+                "description": "Are the examples provided simple and easy to understand?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Visual Aids",
+                "description": "Are there visual aids (e.g., charts, graphs) included to support the findings?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          },
+          {
+            "label": "Comprehensiveness and Engagement",
+            "description": "How can we ensure that contracts are comprehensive and engaging?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Comprehensiveness",
+                "description": "Does the contract cover all relevant aspects of the patterns explored?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Engagement Level",
+                "description": "Is the contract engaging and likely to hold the reader's attention?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Conclusion Clarity",
+                "description": "Is the conclusion of the contract clearly stated and concise?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          },
+          {
+            "label": "Feedback and Limitations",
+            "description": "How can we incorporate feedback and acknowledge limitations in contracts?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Feedback Mechanism",
+                "description": "Is there a mechanism outlined for gathering feedback on the contract?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Limitations Acknowledgment",
+                "description": "Does the contract acknowledge any limitations in the analysis?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Future Research Suggestions",
+                "description": "Does the contract suggest areas for future research related to the patterns?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          }
+        ]
+      },
+      "score": {
+        "total_score": 0.2773333333333334,
+        "dimension_scores": {
+          "Contract Clarity": {
+            "total_score": 0.52,
+            "subdimension_scores": {
+              "Clarity of Language": 0.2,
+              "Defined Terms": 0.2,
+              "Logical Structure": 0.2,
+              "Avoidance of Jargon": 1.0,
+              "Grammar and Spelling": 1.0
+            }
+          },
+          "Content Relevance": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Relevance to Input": 0.2,
+              "Actionable Insights": 0.2,
+              "Stakeholder Consideration": 0.2,
+              "Guidelines for Implementation": 0.2
+            }
+          },
+          "Illustrative Examples": {
+            "total_score": 0.26666666666666666,
+            "subdimension_scores": {
+              "Examples Provided": 0.2,
+              "Simplicity of Examples": 0.4,
+              "Visual Aids": 0.2
+            }
+          },
+          "Comprehensiveness and Engagement": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Comprehensiveness": 0.2,
+              "Engagement Level": 0.2,
+              "Conclusion Clarity": 0.2
+            }
+          },
+          "Feedback and Limitations": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Feedback Mechanism": 0.2,
+              "Limitations Acknowledgment": 0.2,
+              "Future Research Suggestions": 0.2
+            }
+          }
+        }
+      }
+    },
+    {
+      "input": "Explain quantum computing",
+      "dimensions": {
+        "name": "Test Contract",
+        "description": "A test contract for exploring patterns",
+        "dimensions": [
+          {
+            "label": "Contract Clarity",
+            "description": "How can we ensure clarity and understanding in contracts?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Clarity of Language",
+                "description": "Is the language used in the contract clear and easy to understand?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Defined Terms",
+                "description": "Are all key terms clearly defined within the contract?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Logical Structure",
+                "description": "Is the contract organized in a logical manner that guides the reader?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Avoidance of Jargon",
+                "description": "Does the contract avoid unnecessary jargon or technical terms?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Grammar and Spelling",
+                "description": "Is the contract free from grammatical and spelling errors?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          },
+          {
+            "label": "Content Relevance",
+            "description": "How can we ensure that contract content is relevant and actionable?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Relevance to Input",
+                "description": "Is the content of the contract relevant to the input provided?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Actionable Insights",
+                "description": "Does the contract provide actionable insights based on the identified patterns?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Stakeholder Consideration",
+                "description": "Does the contract consider the perspectives of relevant stakeholders?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Guidelines for Implementation",
+                "description": "Does the contract provide clear guidelines for implementing the identified patterns?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          },
+          {
+            "label": "Illustrative Examples",
+            "description": "How can we effectively use examples and visual aids in contracts?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Examples Provided",
+                "description": "Does the contract include examples to illustrate the identified patterns?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Simplicity of Examples",
+                "description": "Are the examples provided simple and easy to understand?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Visual Aids",
+                "description": "Are there visual aids (e.g., charts, graphs) included to support the findings?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          },
+          {
+            "label": "Comprehensiveness and Engagement",
+            "description": "How can we ensure that contracts are comprehensive and engaging?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Comprehensiveness",
+                "description": "Does the contract cover all relevant aspects of the patterns explored?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Engagement Level",
+                "description": "Is the contract engaging and likely to hold the reader's attention?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Conclusion Clarity",
+                "description": "Is the conclusion of the contract clearly stated and concise?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          },
+          {
+            "label": "Feedback and Limitations",
+            "description": "How can we incorporate feedback and acknowledge limitations in contracts?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Feedback Mechanism",
+                "description": "Is there a mechanism outlined for gathering feedback on the contract?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Limitations Acknowledgment",
+                "description": "Does the contract acknowledge any limitations in the analysis?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Future Research Suggestions",
+                "description": "Does the contract suggest areas for future research related to the patterns?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          }
+        ]
+      },
+      "score": {
+        "total_score": 0.23200000000000004,
+        "dimension_scores": {
+          "Contract Clarity": {
+            "total_score": 0.36000000000000004,
+            "subdimension_scores": {
+              "Clarity of Language": 0.2,
+              "Defined Terms": 0.2,
+              "Logical Structure": 0.2,
+              "Avoidance of Jargon": 0.2,
+              "Grammar and Spelling": 1.0
+            }
+          },
+          "Content Relevance": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Relevance to Input": 0.2,
+              "Actionable Insights": 0.2,
+              "Stakeholder Consideration": 0.2,
+              "Guidelines for Implementation": 0.2
+            }
+          },
+          "Illustrative Examples": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Examples Provided": 0.2,
+              "Simplicity of Examples": 0.2,
+              "Visual Aids": 0.2
+            }
+          },
+          "Comprehensiveness and Engagement": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Comprehensiveness": 0.2,
+              "Engagement Level": 0.2,
+              "Conclusion Clarity": 0.2
+            }
+          },
+          "Feedback and Limitations": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Feedback Mechanism": 0.2,
+              "Limitations Acknowledgment": 0.2,
+              "Future Research Suggestions": 0.2
+            }
+          }
+        }
+      }
+    },
+    {
+      "input": "Write a haiku about AI",
+      "dimensions": {
+        "name": "Test Contract",
+        "description": "A test contract for exploring patterns",
+        "dimensions": [
+          {
+            "label": "Contract Clarity",
+            "description": "How can we ensure clarity and understanding in contracts?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Clarity of Language",
+                "description": "Is the language used in the contract clear and easy to understand?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Defined Terms",
+                "description": "Are all key terms clearly defined within the contract?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Logical Structure",
+                "description": "Is the contract organized in a logical manner that guides the reader?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Avoidance of Jargon",
+                "description": "Does the contract avoid unnecessary jargon or technical terms?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Grammar and Spelling",
+                "description": "Is the contract free from grammatical and spelling errors?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          },
+          {
+            "label": "Content Relevance",
+            "description": "How can we ensure that contract content is relevant and actionable?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Relevance to Input",
+                "description": "Is the content of the contract relevant to the input provided?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Actionable Insights",
+                "description": "Does the contract provide actionable insights based on the identified patterns?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Stakeholder Consideration",
+                "description": "Does the contract consider the perspectives of relevant stakeholders?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Guidelines for Implementation",
+                "description": "Does the contract provide clear guidelines for implementing the identified patterns?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          },
+          {
+            "label": "Illustrative Examples",
+            "description": "How can we effectively use examples and visual aids in contracts?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Examples Provided",
+                "description": "Does the contract include examples to illustrate the identified patterns?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Simplicity of Examples",
+                "description": "Are the examples provided simple and easy to understand?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Visual Aids",
+                "description": "Are there visual aids (e.g., charts, graphs) included to support the findings?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          },
+          {
+            "label": "Comprehensiveness and Engagement",
+            "description": "How can we ensure that contracts are comprehensive and engaging?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Comprehensiveness",
+                "description": "Does the contract cover all relevant aspects of the patterns explored?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Engagement Level",
+                "description": "Is the contract engaging and likely to hold the reader's attention?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Conclusion Clarity",
+                "description": "Is the conclusion of the contract clearly stated and concise?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          },
+          {
+            "label": "Feedback and Limitations",
+            "description": "How can we incorporate feedback and acknowledge limitations in contracts?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Feedback Mechanism",
+                "description": "Is there a mechanism outlined for gathering feedback on the contract?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Limitations Acknowledgment",
+                "description": "Does the contract acknowledge any limitations in the analysis?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Future Research Suggestions",
+                "description": "Does the contract suggest areas for future research related to the patterns?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          }
+        ]
+      },
+      "score": {
+        "total_score": 0.2773333333333334,
+        "dimension_scores": {
+          "Contract Clarity": {
+            "total_score": 0.52,
+            "subdimension_scores": {
+              "Clarity of Language": 0.2,
+              "Defined Terms": 0.2,
+              "Logical Structure": 0.2,
+              "Avoidance of Jargon": 1.0,
+              "Grammar and Spelling": 1.0
+            }
+          },
+          "Content Relevance": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Relevance to Input": 0.2,
+              "Actionable Insights": 0.2,
+              "Stakeholder Consideration": 0.2,
+              "Guidelines for Implementation": 0.2
+            }
+          },
+          "Illustrative Examples": {
+            "total_score": 0.26666666666666666,
+            "subdimension_scores": {
+              "Examples Provided": 0.2,
+              "Simplicity of Examples": 0.4,
+              "Visual Aids": 0.2
+            }
+          },
+          "Comprehensiveness and Engagement": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Comprehensiveness": 0.2,
+              "Engagement Level": 0.2,
+              "Conclusion Clarity": 0.2
+            }
+          },
+          "Feedback and Limitations": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Feedback Mechanism": 0.2,
+              "Limitations Acknowledgment": 0.2,
+              "Future Research Suggestions": 0.2
+            }
+          }
+        }
+      }
+    }
+  ]
+}

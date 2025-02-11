@@ -1,0 +1,1444 @@
+{
+  "contract_patterns": [
+    {
+      "input": "What is 2+2?",
+      "dimensions": {
+        "name": "Test Contract",
+        "description": "A test contract for exploring patterns",
+        "dimensions": [
+          {
+            "label": "Contract Clarity",
+            "description": "How can we ensure the clarity of the contract's purpose and terms?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Clarity of Purpose",
+                "description": "Is the purpose of the contract clearly stated?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Defined Parties",
+                "description": "Are all parties involved in the contract clearly defined?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Clear Definitions",
+                "description": "Are all key terms clearly defined in the contract?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "No Ambiguities",
+                "description": "Does the contract avoid ambiguous language?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          },
+          {
+            "label": "Contract Details",
+            "description": "What essential details should be included in a contract?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Contract Length",
+                "description": "Is the duration of the contract specified?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Scope of Work",
+                "description": "Is the scope of work outlined in detail?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Payment Terms",
+                "description": "Are the payment terms clearly defined?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Termination Clause",
+                "description": "Is there a termination clause included in the contract?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Dispute Resolution",
+                "description": "Is there a clause for dispute resolution included?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          },
+          {
+            "label": "Legal Compliance",
+            "description": "How can we ensure the contract complies with legal standards?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Governing Law",
+                "description": "Is the governing law for the contract specified?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Compliance with Laws",
+                "description": "Does the contract state that it complies with applicable laws?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Indemnification",
+                "description": "Is there an indemnification clause specified?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Liability Limits",
+                "description": "Are limits on liability clearly stated?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Entire Agreement Clause",
+                "description": "Is there an entire agreement clause present?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          },
+          {
+            "label": "Contract Flexibility",
+            "description": "What provisions should be included for contract adjustments?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Amendment Procedures",
+                "description": "Are procedures for amending the contract included?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Change Notification",
+                "description": "Does the contract require notification for changes?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Expiration Conditions",
+                "description": "Are conditions for expiration clearly stated?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Review Period",
+                "description": "Is there a review period specified before the contract takes effect?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          },
+          {
+            "label": "Contract Protection",
+            "description": "How can we protect sensitive information within the contract?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Confidentiality",
+                "description": "Is there a confidentiality agreement included?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Intellectual Property",
+                "description": "Is the ownership of intellectual property addressed?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Force Majeure",
+                "description": "Is there a force majeure clause included?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Sustainability Considerations",
+                "description": "Are any sustainability considerations mentioned in the contract?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          }
+        ]
+      },
+      "score": {
+        "total_score": 0.24000000000000005,
+        "dimension_scores": {
+          "Contract Clarity": {
+            "total_score": 0.4,
+            "subdimension_scores": {
+              "Clarity of Purpose": 0.2,
+              "Defined Parties": 0.2,
+              "Clear Definitions": 0.2,
+              "No Ambiguities": 1.0
+            }
+          },
+          "Contract Details": {
+            "total_score": 0.20000000000000004,
+            "subdimension_scores": {
+              "Contract Length": 0.2,
+              "Scope of Work": 0.2,
+              "Payment Terms": 0.2,
+              "Termination Clause": 0.2,
+              "Dispute Resolution": 0.2
+            }
+          },
+          "Legal Compliance": {
+            "total_score": 0.20000000000000004,
+            "subdimension_scores": {
+              "Governing Law": 0.2,
+              "Compliance with Laws": 0.2,
+              "Indemnification": 0.2,
+              "Liability Limits": 0.2,
+              "Entire Agreement Clause": 0.2
+            }
+          },
+          "Contract Flexibility": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Amendment Procedures": 0.2,
+              "Change Notification": 0.2,
+              "Expiration Conditions": 0.2,
+              "Review Period": 0.2
+            }
+          },
+          "Contract Protection": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Confidentiality": 0.2,
+              "Intellectual Property": 0.2,
+              "Force Majeure": 0.2,
+              "Sustainability Considerations": 0.2
+            }
+          }
+        }
+      }
+    },
+    {
+      "input": "Explain quantum computing",
+      "dimensions": {
+        "name": "Test Contract",
+        "description": "A test contract for exploring patterns",
+        "dimensions": [
+          {
+            "label": "Contract Clarity",
+            "description": "How can we ensure the clarity of the contract's purpose and terms?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Clarity of Purpose",
+                "description": "Is the purpose of the contract clearly stated?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Defined Parties",
+                "description": "Are all parties involved in the contract clearly defined?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Clear Definitions",
+                "description": "Are all key terms clearly defined in the contract?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "No Ambiguities",
+                "description": "Does the contract avoid ambiguous language?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          },
+          {
+            "label": "Contract Details",
+            "description": "What essential details should be included in a contract?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Contract Length",
+                "description": "Is the duration of the contract specified?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Scope of Work",
+                "description": "Is the scope of work outlined in detail?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Payment Terms",
+                "description": "Are the payment terms clearly defined?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Termination Clause",
+                "description": "Is there a termination clause included in the contract?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Dispute Resolution",
+                "description": "Is there a clause for dispute resolution included?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          },
+          {
+            "label": "Legal Compliance",
+            "description": "How can we ensure the contract complies with legal standards?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Governing Law",
+                "description": "Is the governing law for the contract specified?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Compliance with Laws",
+                "description": "Does the contract state that it complies with applicable laws?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Indemnification",
+                "description": "Is there an indemnification clause specified?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Liability Limits",
+                "description": "Are limits on liability clearly stated?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Entire Agreement Clause",
+                "description": "Is there an entire agreement clause present?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          },
+          {
+            "label": "Contract Flexibility",
+            "description": "What provisions should be included for contract adjustments?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Amendment Procedures",
+                "description": "Are procedures for amending the contract included?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Change Notification",
+                "description": "Does the contract require notification for changes?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Expiration Conditions",
+                "description": "Are conditions for expiration clearly stated?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Review Period",
+                "description": "Is there a review period specified before the contract takes effect?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          },
+          {
+            "label": "Contract Protection",
+            "description": "How can we protect sensitive information within the contract?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Confidentiality",
+                "description": "Is there a confidentiality agreement included?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Intellectual Property",
+                "description": "Is the ownership of intellectual property addressed?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Force Majeure",
+                "description": "Is there a force majeure clause included?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Sustainability Considerations",
+                "description": "Are any sustainability considerations mentioned in the contract?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          }
+        ]
+      },
+      "score": {
+        "total_score": 0.24000000000000005,
+        "dimension_scores": {
+          "Contract Clarity": {
+            "total_score": 0.4,
+            "subdimension_scores": {
+              "Clarity of Purpose": 0.2,
+              "Defined Parties": 0.2,
+              "Clear Definitions": 0.2,
+              "No Ambiguities": 1.0
+            }
+          },
+          "Contract Details": {
+            "total_score": 0.20000000000000004,
+            "subdimension_scores": {
+              "Contract Length": 0.2,
+              "Scope of Work": 0.2,
+              "Payment Terms": 0.2,
+              "Termination Clause": 0.2,
+              "Dispute Resolution": 0.2
+            }
+          },
+          "Legal Compliance": {
+            "total_score": 0.20000000000000004,
+            "subdimension_scores": {
+              "Governing Law": 0.2,
+              "Compliance with Laws": 0.2,
+              "Indemnification": 0.2,
+              "Liability Limits": 0.2,
+              "Entire Agreement Clause": 0.2
+            }
+          },
+          "Contract Flexibility": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Amendment Procedures": 0.2,
+              "Change Notification": 0.2,
+              "Expiration Conditions": 0.2,
+              "Review Period": 0.2
+            }
+          },
+          "Contract Protection": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Confidentiality": 0.2,
+              "Intellectual Property": 0.2,
+              "Force Majeure": 0.2,
+              "Sustainability Considerations": 0.2
+            }
+          }
+        }
+      }
+    },
+    {
+      "input": "Write a haiku about AI",
+      "dimensions": {
+        "name": "Test Contract",
+        "description": "A test contract for exploring patterns",
+        "dimensions": [
+          {
+            "label": "Contract Clarity",
+            "description": "How can we ensure the clarity of the contract's purpose and terms?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Clarity of Purpose",
+                "description": "Is the purpose of the contract clearly stated?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Defined Parties",
+                "description": "Are all parties involved in the contract clearly defined?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Clear Definitions",
+                "description": "Are all key terms clearly defined in the contract?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "No Ambiguities",
+                "description": "Does the contract avoid ambiguous language?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          },
+          {
+            "label": "Contract Details",
+            "description": "What essential details should be included in a contract?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Contract Length",
+                "description": "Is the duration of the contract specified?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Scope of Work",
+                "description": "Is the scope of work outlined in detail?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Payment Terms",
+                "description": "Are the payment terms clearly defined?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Termination Clause",
+                "description": "Is there a termination clause included in the contract?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Dispute Resolution",
+                "description": "Is there a clause for dispute resolution included?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          },
+          {
+            "label": "Legal Compliance",
+            "description": "How can we ensure the contract complies with legal standards?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Governing Law",
+                "description": "Is the governing law for the contract specified?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Compliance with Laws",
+                "description": "Does the contract state that it complies with applicable laws?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Indemnification",
+                "description": "Is there an indemnification clause specified?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Liability Limits",
+                "description": "Are limits on liability clearly stated?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Entire Agreement Clause",
+                "description": "Is there an entire agreement clause present?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          },
+          {
+            "label": "Contract Flexibility",
+            "description": "What provisions should be included for contract adjustments?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Amendment Procedures",
+                "description": "Are procedures for amending the contract included?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Change Notification",
+                "description": "Does the contract require notification for changes?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Expiration Conditions",
+                "description": "Are conditions for expiration clearly stated?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Review Period",
+                "description": "Is there a review period specified before the contract takes effect?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          },
+          {
+            "label": "Contract Protection",
+            "description": "How can we protect sensitive information within the contract?",
+            "weight": 1.0,
+            "sub_dimensions": [
+              {
+                "label": "Confidentiality",
+                "description": "Is there a confidentiality agreement included?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Intellectual Property",
+                "description": "Is the ownership of intellectual property addressed?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Force Majeure",
+                "description": "Is there a force majeure clause included?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              },
+              {
+                "label": "Sustainability Considerations",
+                "description": "Are any sustainability considerations mentioned in the contract?",
+                "scoring_type": "PI_SCORER",
+                "python_code": null,
+                "parameters": [
+                  0.2,
+                  0.4,
+                  0.6,
+                  0.8,
+                  1.0
+                ],
+                "weight": 1.0,
+                "huggingface_url": null,
+                "action_dimension": null,
+                "action_on_low_score": false
+              }
+            ],
+            "action_dimension": null,
+            "action_on_low_score": false
+          }
+        ]
+      },
+      "score": {
+        "total_score": 0.24000000000000005,
+        "dimension_scores": {
+          "Contract Clarity": {
+            "total_score": 0.4,
+            "subdimension_scores": {
+              "Clarity of Purpose": 0.2,
+              "Defined Parties": 0.2,
+              "Clear Definitions": 0.2,
+              "No Ambiguities": 1.0
+            }
+          },
+          "Contract Details": {
+            "total_score": 0.20000000000000004,
+            "subdimension_scores": {
+              "Contract Length": 0.2,
+              "Scope of Work": 0.2,
+              "Payment Terms": 0.2,
+              "Termination Clause": 0.2,
+              "Dispute Resolution": 0.2
+            }
+          },
+          "Legal Compliance": {
+            "total_score": 0.20000000000000004,
+            "subdimension_scores": {
+              "Governing Law": 0.2,
+              "Compliance with Laws": 0.2,
+              "Indemnification": 0.2,
+              "Liability Limits": 0.2,
+              "Entire Agreement Clause": 0.2
+            }
+          },
+          "Contract Flexibility": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Amendment Procedures": 0.2,
+              "Change Notification": 0.2,
+              "Expiration Conditions": 0.2,
+              "Review Period": 0.2
+            }
+          },
+          "Contract Protection": {
+            "total_score": 0.2,
+            "subdimension_scores": {
+              "Confidentiality": 0.2,
+              "Intellectual Property": 0.2,
+              "Force Majeure": 0.2,
+              "Sustainability Considerations": 0.2
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -41,8 +41,8 @@ TODO:
 v10 - Renamed overview to list-and-inspect for clarity
 """
 
-from src.openai_helper import OpenAIHelper
-from src.prompt_explorer import PromptExplorer
+from .openai_helper import OpenAIHelper
+from .prompt_explorer import PromptExplorer
 import click
 from rich.console import Console
 import json
