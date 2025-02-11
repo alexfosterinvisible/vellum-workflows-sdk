@@ -1,115 +1,290 @@
 import streamlit as st
-import subprocess
-import os
-from pathlib import Path
-from ansi2html import Ansi2HTMLConverter
+import json
+import pandas as pd
+from prompt_explorer import PromptExplorer
 
-# Configure Streamlit page
+# Set page config for expanded width and full height
 st.set_page_config(
     page_title="Vellum Prompt Explorer",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
 
-# Custom CSS for terminal-like appearance
+# Add custom CSS for better spacing and styling
 st.markdown("""
 <style>
-    .stApp {
-        background-color: #1a1b26;
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 24px;
     }
-    
-    .stChatMessage {
-        background-color: #1a1b26 !important;
-        font-family: 'Courier New', Courier, monospace !important;
+    .stTabs [data-baseweb="tab"] {
+        height: 50px;
+        white-space: pre-wrap;
+        background-color: #FFFFFF;
+        border-radius: 4px;
+        padding: 10px 20px;
+        margin-bottom: 10px;
     }
-    
-    .stChatInputContainer {
-        background-color: #1a1b26 !important;
-        border-color: #565f89 !important;
+    .stTabs [aria-selected="true"] {
+        background-color: #E0F0FF;
     }
-    
-    /* Command history */
-    .streamlit-expanderHeader {
-        background-color: #1a1b26 !important;
-        color: #7aa2f7 !important;
+    div[data-testid="stToolbar"] {
+        display: none;
     }
-    .streamlit-expanderContent {
-        background-color: #1a1b26 !important;
+    .main > div {
+        padding-top: 2rem;
     }
-    
-    /* Spinner styling */
-    .stSpinner > div > div > div {
-        border-left-color: #7aa2f7 !important;
-        border-right-color: #7aa2f7 !important;
-        border-bottom-color: #7aa2f7 !important;
+    .stButton button {
+        width: 100%;
     }
 </style>
 """, unsafe_allow_html=True)
 
-# Initialize session state for command history and first run
-if 'history' not in st.session_state:
-    st.session_state.history = []
-if 'first_run' not in st.session_state:
-    st.session_state.first_run = True
+# Initialize PromptExplorer instance
+if 'explorer' not in st.session_state:
+    st.session_state.explorer = PromptExplorer()
 
-# Get the directory of the current script
-current_dir = Path(__file__).parent
-
-# Initialize ANSI to HTML converter
-conv = Ansi2HTMLConverter()
-
-def run_command(cmd: str, show_command: bool = True) -> None:
-    """Execute a command and display its output with loading indicator."""
-    if show_command:
-        st.chat_message("user").markdown(f"```$ {cmd}```")
-        st.session_state.history.append(cmd)
+def display_help() -> None:
+    """Display help information using Streamlit components."""
+    st.header("Vellum Prompt Explorer Guide")
     
-    with st.spinner('Executing command...'):
-        try:
-            # Set environment variables to force color output
-            env = os.environ.copy()
-            env['FORCE_COLOR'] = '1'
-            env['PYTHONIOENCODING'] = 'utf-8'
-            
-            result = subprocess.run(
-                ["python", str(current_dir / "prompt_explorer.py")] + cmd.split(),
-                capture_output=True,
-                text=True,
-                env=env
+    # Quick Start
+    st.subheader("🚀 Quick Start")
+    st.info("""
+    1. Use the **List Prompts** tab to view all available prompts
+    2. Click on a prompt to view its details
+    3. Use the **Execute Prompt** tab to run prompts with custom inputs
+    """)
+    
+    # Features Overview
+    st.subheader("✨ Features")
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown("##### 📋 Prompt Management")
+        st.markdown("""
+        - View all available prompts
+        - Filter by environment and status
+        - Export prompt lists to CSV/XLSX
+        - View detailed prompt information
+        """)
+        
+        st.markdown("##### 🔄 Environment Control")
+        st.markdown("""
+        - Switch between environments
+        - Set API keys securely
+        - Track deployment status
+        """)
+    
+    with col2:
+        st.markdown("##### ⚡ Execution Options")
+        st.markdown("""
+        - Execute prompts with custom inputs
+        - Stream output in real-time
+        - Export results in multiple formats
+        - View execution history
+        """)
+        
+        st.markdown("##### 📊 Data Export")
+        st.markdown("""
+        - CSV format for spreadsheets
+        - XLSX for Excel compatibility
+        - JSON for data processing
+        """)
+
+def display_prompts(prompts) -> None:
+    """Display prompts using Streamlit's dataframe with enhanced styling."""
+    if not prompts:
+        st.warning("No prompts found in the current environment.")
+        return
+    
+    # Convert prompts to DataFrame
+    data = []
+    for p in prompts:
+        data.append({
+            "Name": p.name,
+            "Label": p.label,
+            "Environment": p.environment,
+            "Last Deployed": p.last_deployed,
+            "Status": p.status
+        })
+    
+    df = pd.DataFrame(data)
+    
+    # Add filters
+    col1, col2 = st.columns(2)
+    with col1:
+        env_filter = st.selectbox(
+            "Filter by Environment",
+            ["All"] + sorted(df["Environment"].unique().tolist())
+        )
+    with col2:
+        status_filter = st.selectbox(
+            "Filter by Status",
+            ["All"] + sorted(df["Status"].unique().tolist())
+        )
+    
+    # Apply filters
+    if env_filter != "All":
+        df = df[df["Environment"] == env_filter]
+    if status_filter != "All":
+        df = df[df["Status"] == status_filter]
+    
+    # Display dataframe with enhanced styling
+    st.dataframe(
+        df,
+        column_config={
+            "Name": st.column_config.TextColumn(
+                "Name",
+                help="Click to view prompt details",
+                width="large"
+            ),
+            "Label": st.column_config.TextColumn(
+                "Label",
+                width="large"
+            ),
+            "Environment": st.column_config.TextColumn(
+                "Environment",
+                width="medium"
+            ),
+            "Last Deployed": st.column_config.DatetimeColumn(
+                "Last Deployed",
+                format="D MMM YYYY, HH:mm",
+                width="medium"
+            ),
+            "Status": st.column_config.TextColumn(
+                "Status",
+                width="small"
             )
+        },
+        hide_index=True,
+        use_container_width=True
+    )
+
+def display_prompt_details(details) -> None:
+    """Display prompt details with enhanced Streamlit styling."""
+    if not details:
+        st.warning("No details available for this prompt.")
+        return
+    
+    # Header with status indicator
+    status_color = "🟢" if details["status"] == "ACTIVE" else "🔴"
+    st.header(f"{status_color} {details['name']}")
+    
+    # Basic Information
+    st.subheader("ℹ️ Basic Information")
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        st.metric("Environment", details["environment"])
+    with col2:
+        st.metric("Status", details["status"])
+    with col3:
+        st.metric("Model", details["model"])
+    
+    if details["description"]:
+        st.info(details["description"])
+    
+    # Timestamps in a card-like container
+    with st.container():
+        st.subheader("⏰ Timestamps")
+        tcol1, tcol2 = st.columns(2)
+        with tcol1:
+            st.markdown(f"**Created:** {details['created'].strftime('%Y-%m-%d %H:%M:%S')}")
+        with tcol2:
+            st.markdown(f"**Last Deployed:** {details['last_deployed'].strftime('%Y-%m-%d %H:%M:%S')}")
+    
+    # Input Variables
+    if details["input_variables"]:
+        st.subheader("🔑 Required Input Variables")
+        for var in details["input_variables"]:
+            st.code(var, language="python")
+    
+    # Version History
+    if details["versions"]:
+        st.subheader("📜 Version History")
+        version_data = [{
+            "Version": v["version"],
+            "Created": v["created"],
+            "Status": v["status"]
+        } for v in details["versions"]]
+        
+        st.dataframe(
+            pd.DataFrame(version_data),
+            column_config={
+                "Version": st.column_config.NumberColumn("Version", format="%d"),
+                "Created": st.column_config.DatetimeColumn("Created", format="D MMM YYYY, HH:mm"),
+                "Status": st.column_config.TextColumn("Status")
+            },
+            hide_index=True,
+            use_container_width=True
+        )
+
+def execute_prompt_ui() -> None:
+    """Display the prompt execution interface."""
+    st.subheader("⚡ Execute Prompt")
+    
+    # Prompt selection
+    prompts = st.session_state.explorer.list_prompts()
+    prompt_names = [p.name for p in prompts]
+    prompt_name = st.selectbox("Select Prompt", prompt_names)
+    
+    if prompt_name:
+        details = st.session_state.explorer.get_prompt_details(prompt_name)
+        if details and details["input_variables"]:
+            st.markdown("##### Required Inputs")
+            inputs_dict = {}
             
-            # Display the output with preserved colors
-            if result.stdout:
-                html_output = conv.convert(result.stdout, full=False)
-                st.chat_message("assistant").markdown(html_output, unsafe_allow_html=True)
+            # Create input fields for each required variable
+            for var in details["input_variables"]:
+                inputs_dict[var] = st.text_area(f"Enter {var}", height=100)
             
-            # Show errors if any
-            if result.stderr:
-                html_err = conv.convert(result.stderr, full=False)
-                st.chat_message("assistant").markdown(
-                    f"**[Error Output]:**<br>{html_err}",
-                    unsafe_allow_html=True
+            col1, col2 = st.columns(2)
+            with col1:
+                stream_output = st.toggle("Stream Output", value=False)
+            with col2:
+                export_format = st.selectbox(
+                    "Export Format",
+                    ["None", "CSV", "XLSX", "JSON"]
                 )
-                
-        except Exception as e:
-            st.chat_message("assistant").markdown(
-                f"**Error**: ```\n{str(e)}\n```",
-                unsafe_allow_html=True
-            )
+            
+            if st.button("Execute Prompt", type="primary"):
+                with st.spinner("Executing prompt..."):
+                    try:
+                        result = st.session_state.explorer.execute_prompt(
+                            prompt_name=prompt_name,
+                            inputs=inputs_dict,
+                            stream=stream_output
+                        )
+                        
+                        if result:
+                            st.success("✅ Execution successful!")
+                            st.json(result)
+                        else:
+                            st.error("❌ Execution failed or returned no result.")
+                    except Exception as e:
+                        st.error(f"❌ Error: {str(e)}")
 
-# Run demo on first load
-if st.session_state.first_run:
-    run_command("", show_command=False)
-    st.session_state.first_run = False
+# Main UI Layout
+st.title("🔮 Vellum Prompt Explorer")
 
-# Provide a single chat input like a terminal prompt
-command = st.chat_input("vellum-explorer > ")
+# Create tabs for different views
+tab_help, tab_list, tab_execute = st.tabs([
+    "📚 Help & Documentation",
+    "📋 List Prompts",
+    "⚡ Execute Prompt"
+])
 
-if command:
-    run_command(command)
+with tab_help:
+    display_help()
 
-# Show command history at the bottom
-if st.session_state.history:
-    with st.expander("Command History", expanded=False):
-        for cmd in reversed(st.session_state.history):
-            st.markdown(f"```$ {cmd}```")
+with tab_list:
+    st.header("Available Prompts")
+    if st.button("🔄 Refresh Prompts", type="primary"):
+        prompts = st.session_state.explorer.list_prompts()
+        display_prompts(prompts)
+    else:
+        prompts = st.session_state.explorer.list_prompts()
+        display_prompts(prompts)
+
+with tab_execute:
+    execute_prompt_ui() 
