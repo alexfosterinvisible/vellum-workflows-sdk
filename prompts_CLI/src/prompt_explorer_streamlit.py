@@ -1,7 +1,24 @@
 import streamlit as st
 import json
 import pandas as pd
-from prompt_explorer import PromptExplorer
+import os
+import sys
+from pathlib import Path
+
+# Add the project root to Python path for both local and Replit environments
+try:
+    # Local development - go up two levels from this file
+    project_root = str(Path(__file__).parent.parent.parent)
+    if project_root not in sys.path:
+        sys.path.append(project_root)
+    from prompts_CLI.src.prompt_explorer import PromptExplorer
+except ImportError:
+    try:
+        # Replit environment - try direct import
+        from prompt_explorer import PromptExplorer
+    except ImportError:
+        st.error("❌ Could not import PromptExplorer. Please check your Python path.")
+        st.stop()
 
 # Set page config for expanded width and full height
 st.set_page_config(
@@ -44,7 +61,24 @@ st.markdown("""
 
 # Initialize PromptExplorer instance
 if 'explorer' not in st.session_state:
-    st.session_state.explorer = PromptExplorer()
+    # Handle environment variables for both Replit and local
+    try:
+        from dotenv import load_dotenv
+        # Try to load from .env file (local development)
+        load_dotenv()
+    except ImportError:
+        pass  # In Replit, env vars are set in Secrets
+    
+    # Get API key from environment or Streamlit secrets
+    vellum_api_key = os.getenv('VELLUM_API_KEY')
+    if not vellum_api_key and hasattr(st.secrets, "VELLUM_API_KEY"):
+        vellum_api_key = st.secrets.VELLUM_API_KEY
+    
+    if not vellum_api_key:
+        st.error("❌ No Vellum API key found. Please set VELLUM_API_KEY in your environment or Streamlit secrets.")
+        st.stop()
+    
+    st.session_state.explorer = PromptExplorer(api_key=vellum_api_key)
 
 def display_help() -> None:
     """Display help information using Streamlit components."""
