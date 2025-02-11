@@ -1,0 +1,14 @@
+modules = ["python-3.11"]
+compile = "make"
+run = "make streamlit"
+
+[nix]
+channel = "stable-24_05"
+
+[deployment]
+build = ["sh", "-c", "make"]
+run = ["sh", "-c", "make streamlit"]
+
+[[ports]]
+localPort = 8501
+externalPort = 80
