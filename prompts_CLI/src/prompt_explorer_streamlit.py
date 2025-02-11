@@ -16,28 +16,35 @@ st.markdown("""
     /* Main background and text */
     .stApp {
         background-color: #1a1b26;
+        color: #ffffff;
     }
     
     /* Input styling */
     .stTextInput > div > div > input {
         background-color: #1a1b26;
-        color: #a9b1d6;
+        color: #ffffff;
         font-family: 'Courier New', Courier, monospace;
     }
     
     /* Chat message styling */
     .stChatMessage {
         background-color: #1a1b26 !important;
-        color: #a9b1d6 !important;
+        color: #ffffff !important;
         font-family: 'Courier New', Courier, monospace !important;
     }
     
     /* Code blocks and pre formatting */
     pre {
         background-color: #1a1b26 !important;
+        color: #ffffff !important;
         padding: 10px !important;
         border-radius: 5px !important;
         margin: 10px 0 !important;
+    }
+    
+    /* Text elements */
+    p, span, div {
+        color: #ffffff !important;
     }
     
     /* Rich text colors */
@@ -54,7 +61,7 @@ st.markdown("""
         color: #7dcfff !important;
     }
     .timestamp {
-        color: #a9b1d6 !important;
+        color: #ffffff !important;
     }
     .section-header {
         color: #bb9af7 !important;
@@ -63,7 +70,7 @@ st.markdown("""
     
     /* Table styling */
     table {
-        color: #a9b1d6 !important;
+        color: #ffffff !important;
         background-color: #1a1b26 !important;
     }
     th {
@@ -96,7 +103,7 @@ st.markdown("""
     }
     .streamlit-expanderContent {
         background-color: #1a1b26 !important;
-        color: #a9b1d6 !important;
+        color: #ffffff !important;
     }
 </style>
 """, unsafe_allow_html=True)
