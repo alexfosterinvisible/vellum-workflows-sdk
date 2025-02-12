@@ -65,6 +65,7 @@ if 'explorer' not in st.session_state:
     vellum_api_key = None
     if hasattr(st.secrets, "VELLUM_API_KEY"):
         vellum_api_key = st.secrets.VELLUM_API_KEY
+        st.success("✅ Successfully loaded API key from Streamlit secrets")
     
     # If not in Streamlit secrets, try environment variables
     if not vellum_api_key:
@@ -72,14 +73,29 @@ if 'explorer' not in st.session_state:
             from dotenv import load_dotenv
             load_dotenv()
             vellum_api_key = os.getenv('VELLUM_API_KEY')
+            if vellum_api_key:
+                st.success("✅ Successfully loaded API key from environment variables")
         except ImportError:
-            pass
+            st.warning("⚠️ python-dotenv not available, trying direct environment variables")
+            vellum_api_key = os.getenv('VELLUM_API_KEY')
+            if vellum_api_key:
+                st.success("✅ Successfully loaded API key from direct environment variables")
     
     if not vellum_api_key:
-        st.error("❌ No Vellum API key found. Please set VELLUM_API_KEY in .streamlit/secrets.toml or environment variables.")
+        st.error("""
+        ❌ No Vellum API key found. Please ensure the API key is set in one of these locations:
+        1. Replit: Set in Secrets tab (Tools > Secrets)
+        2. Local: Set in .streamlit/secrets.toml
+        3. Environment: Set as VELLUM_API_KEY environment variable
+        """)
         st.stop()
     
-    st.session_state.explorer = PromptExplorer(api_key=vellum_api_key)
+    try:
+        st.session_state.explorer = PromptExplorer(api_key=vellum_api_key)
+        st.success("✅ Successfully initialized Vellum Prompt Explorer")
+    except Exception as e:
+        st.error(f"❌ Failed to initialize Vellum Prompt Explorer: {str(e)}")
+        st.stop()
 
 def display_help() -> None:
     """Display help information using Streamlit components."""
