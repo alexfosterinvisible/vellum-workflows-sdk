@@ -61,21 +61,22 @@ st.markdown("""
 
 # Initialize PromptExplorer instance
 if 'explorer' not in st.session_state:
-    # Handle environment variables for both Replit and local
-    try:
-        from dotenv import load_dotenv
-        # Try to load from .env file (local development)
-        load_dotenv()
-    except ImportError:
-        pass  # In Replit, env vars are set in Secrets
-    
-    # Get API key from environment or Streamlit secrets
-    vellum_api_key = os.getenv('VELLUM_API_KEY')
-    if not vellum_api_key and hasattr(st.secrets, "VELLUM_API_KEY"):
+    # First try to get API key from Streamlit secrets
+    vellum_api_key = None
+    if hasattr(st.secrets, "VELLUM_API_KEY"):
         vellum_api_key = st.secrets.VELLUM_API_KEY
     
+    # If not in Streamlit secrets, try environment variables
     if not vellum_api_key:
-        st.error("❌ No Vellum API key found. Please set VELLUM_API_KEY in your environment or Streamlit secrets.")
+        try:
+            from dotenv import load_dotenv
+            load_dotenv()
+            vellum_api_key = os.getenv('VELLUM_API_KEY')
+        except ImportError:
+            pass
+    
+    if not vellum_api_key:
+        st.error("❌ No Vellum API key found. Please set VELLUM_API_KEY in .streamlit/secrets.toml or environment variables.")
         st.stop()
     
     st.session_state.explorer = PromptExplorer(api_key=vellum_api_key)

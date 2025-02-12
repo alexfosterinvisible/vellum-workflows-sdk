@@ -52,3 +52,6 @@ logs/
 
 # Specstory history
 .specstory/history/
+
+# Streamlit secrets
+.streamlit/secrets.toml
