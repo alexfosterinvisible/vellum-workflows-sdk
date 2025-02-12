@@ -311,8 +311,24 @@ def execute_prompt_ui() -> None:
                 )
             
             if st.button("Execute Prompt", type="primary"):
+                st.info("🔍 Debug Info:")
+                st.code(f"""
+Executing prompt with:
+- Prompt Name: {prompt_name}
+- Input Variables: {json.dumps(inputs_dict, indent=2)}
+- Stream Output: {stream_output}
+                """)
+                
                 with st.spinner("Executing prompt..."):
                     try:
+                        # Log the exact state of inputs before execution
+                        st.write("📤 Sending to Vellum:")
+                        st.json({
+                            "prompt_name": prompt_name,
+                            "inputs": inputs_dict,
+                            "stream": stream_output
+                        })
+                        
                         result = st.session_state.explorer.execute_prompt(
                             prompt_name=prompt_name,
                             inputs=inputs_dict,
@@ -321,11 +337,13 @@ def execute_prompt_ui() -> None:
                         
                         if result:
                             st.success("✅ Execution successful!")
+                            st.write("📥 Received from Vellum:")
                             st.json(result)
                         else:
                             st.error("❌ Execution failed or returned no result.")
                     except Exception as e:
                         st.error(f"❌ Error: {str(e)}")
+                        st.error("Full error details:", exception=e)
 
 # Main UI Layout
 st.title("🔮 Vellum Prompt Explorer")
