@@ -540,7 +540,7 @@ def analyze_feedback(results: List[Dict]) -> Dict:
         "type_effectiveness": {},
         "recommendations": []
     }
-    
+
     # Track feedback types
     type_scores = {
         "corrective": [],
@@ -549,15 +549,15 @@ def analyze_feedback(results: List[Dict]) -> Dict:
         "reflective": [],
         "progressive": []
     }
-    
+
     for result in results:
         style = result["style"]
         scores = result["scores"]
         output = result["output"].lower()
-        
+
         # Overall scores
         analysis["overall_scores"][style] = scores["total_score"]
-        
+
         # Track feedback types used
         types_used = []
         if "incorrect" in output or "wrong" in output or "mistake" in output:
@@ -575,21 +575,21 @@ def analyze_feedback(results: List[Dict]) -> Dict:
         if "next" in output or "ready for" in output or "try this" in output:
             types_used.append("progressive")
             type_scores["progressive"].append(scores["total_score"])
-        
+
         analysis["feedback_types"][style] = types_used
-    
+
     # Analyze type effectiveness
     for ftype, scores in type_scores.items():
         if scores:
             analysis["type_effectiveness"][ftype] = sum(scores) / len(scores)
-    
+
     # Generate recommendations
     sorted_types = sorted(
         analysis["type_effectiveness"].items(),
         key=lambda x: x[1],
         reverse=True
     )
-    
+
     analysis["recommendations"].extend([
         f"Most effective type: {sorted_types[0][0]} ({sorted_types[0][1]:.2f})",
         "Balance different feedback types",
@@ -597,7 +597,7 @@ def analyze_feedback(results: List[Dict]) -> Dict:
         "Include specific corrections",
         "End with reflection and next steps"
     ])
-    
+
     return analysis
 
 
@@ -608,7 +608,7 @@ def display_results(results: List[Dict], analysis: Dict):
     scores_table.add_column("Style", style="cyan")
     scores_table.add_column("Total Score", style="green")
     scores_table.add_column("Feedback Types", style="yellow")
-    
+
     for result in results:
         style = result["style"]
         types = analysis["feedback_types"][style]
@@ -617,12 +617,12 @@ def display_results(results: List[Dict], analysis: Dict):
             f"{analysis['overall_scores'][style]:.2f}",
             "\n".join(types)
         )
-    
+
     # Types table
     types_table = Table(title="Feedback Type Effectiveness")
     types_table.add_column("Type", style="cyan")
     types_table.add_column("Average Score", style="green")
-    
+
     for ftype, score in sorted(
         analysis["type_effectiveness"].items(),
         key=lambda x: x[1],
@@ -632,12 +632,12 @@ def display_results(results: List[Dict], analysis: Dict):
             ftype.title(),
             f"{score:.2f}"
         )
-    
+
     # Recommendations table
     recommendations_table = Table(title="Best Practices")
     recommendations_table.add_column("Category", style="cyan")
     recommendations_table.add_column("Details", style="yellow")
-    
+
     recommendations_table.add_row(
         "Top Type",
         analysis["recommendations"][0]
@@ -646,7 +646,7 @@ def display_results(results: List[Dict], analysis: Dict):
         "Best Practices",
         "\n".join(analysis["recommendations"][1:])
     )
-    
+
     # Display all tables
     console.print("\n")
     console.print(scores_table)
@@ -660,7 +660,7 @@ def save_results(results: Dict):
     """Save results to file."""
     OUTPUT_DIR.mkdir(exist_ok=True)
     output_file = OUTPUT_DIR / "demo_08_results.json"
-    
+
     with open(output_file, "w") as f:
         json.dump(results, f, indent=2)
     logger.info(f"Results saved to {output_file}")
@@ -673,7 +673,7 @@ async def main():
         "test_cases": [],
         "success": False
     }
-    
+
     # Create session with auth
     async with aiohttp.ClientSession(headers={
         "x-api-key": API_KEY,
@@ -684,7 +684,7 @@ async def main():
         if contract_with_dims := await generate_dimensions(session, MATH_CONTRACT):
             results["dimensions"] = contract_with_dims.get("dimensions", [])
             console.print("[green]✓ Generated dimensions[/green]")
-            
+
             # Test each case
             console.print("\n[bold]Testing Feedback Patterns[/bold]")
             scored_cases = []
@@ -699,19 +699,19 @@ async def main():
                     results["test_cases"].append(scored_case)
                     scored_cases.append(scored_case)
                     console.print(f"[green]✓ Scored {case['style']}[/green]")
-            
+
             # Analyze and display results
             if scored_cases:
                 analysis = analyze_feedback(scored_cases)
                 results["analysis"] = analysis
-                
+
                 console.print("\n[bold]Analysis Results[/bold]")
                 display_results(scored_cases, analysis)
                 results["success"] = True
-        
+
         # Save results
         save_results(results)
-        
+
         if results["success"]:
             console.print("\n[bold green]Demo completed successfully![/bold green]")
         else:
@@ -720,4 +720,4 @@ async def main():
 
 if __name__ == "__main__":
     console.print("\n[bold]Running Demo 8: Feedback Pattern Analysis[/bold]")
-    asyncio.run(main()) 
+    asyncio.run(main())

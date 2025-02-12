@@ -44,7 +44,7 @@ Let's help Maria figure this out:
 
 1. Current Recipe (12 cookies):
    🥄 Flour needed: 2¾ cups
-   
+
 2. Understanding the Problem:
    - We need to find flour for 30 cookies
    - Current recipe makes 12 cookies
@@ -54,7 +54,7 @@ Let's help Maria figure this out:
    First, let's find flour per cookie:
    * 2¾ cups ÷ 12 cookies
    * 2.75 ÷ 12 = 0.229166... cups per cookie
-   
+
    Now, for 30 cookies:
    * 0.229166... × 30 = 6.875 cups
    * 6.875 = 6⅞ cups
@@ -74,7 +74,7 @@ Want to test your skills? How much flour would you need for 45 cookies? 🤔"""
         "output": """🌊 Let's Visualize This Water Tank! 🚰
 
 1. The Tank's Shape:
-   
+
          4m
    ┌──────┐  ↑
    │      │  │
@@ -87,7 +87,7 @@ Want to test your skills? How much flour would you need for 45 cookies? 🤔"""
 
 2. Understanding the Formula:
    Volume of a cylinder = π × radius² × height
-   
+
    Think of it as:
    🔵 Area of the base (π × radius²)
    ↓
@@ -287,16 +287,16 @@ def analyze_complexity(results: List[Dict]) -> Dict:
         "engagement_retention": {},
         "recommendations": []
     }
-    
+
     # Track scores and patterns
     for result in results:
         style = result["style"]
         scores = result["scores"]
         output = result["output"]
-        
+
         # Overall scores
         analysis["overall_scores"][style] = scores["total_score"]
-        
+
         # Analyze complexity handling
         complexity_score = 0
         if "step by step" in output.lower():
@@ -309,9 +309,9 @@ def analyze_complexity(results: List[Dict]) -> Dict:
             complexity_score += 0.2
         if "real-world" in output.lower() or "application" in output.lower():
             complexity_score += 0.2
-        
+
         analysis["complexity_impact"][style] = complexity_score
-        
+
         # Analyze engagement retention
         engagement_score = 0
         if "?" in output:
@@ -324,19 +324,19 @@ def analyze_complexity(results: List[Dict]) -> Dict:
             engagement_score += 0.2
         if "try" in output.lower() or "explore" in output.lower():
             engagement_score += 0.2
-        
+
         analysis["engagement_retention"][style] = engagement_score
-    
+
     # Generate recommendations
     sorted_styles = sorted(
         analysis["overall_scores"].items(),
         key=lambda x: x[1],
         reverse=True
     )
-    
+
     top_style = sorted_styles[0][0]
     top_score = sorted_styles[0][1]
-    
+
     analysis["recommendations"].extend([
         f"Best performing style: {top_style} ({top_score:.2f})",
         f"Key elements: {', '.join(k for k, v in analysis['complexity_impact'].items() if v > 0.5)}",
@@ -344,7 +344,7 @@ def analyze_complexity(results: List[Dict]) -> Dict:
         "Use visual aids for complex concepts",
         "Include verification steps"
     ])
-    
+
     return analysis
 
 
@@ -356,7 +356,7 @@ def display_results(results: List[Dict], analysis: Dict):
     scores_table.add_column("Total Score", style="green")
     scores_table.add_column("Complexity Score", style="yellow")
     scores_table.add_column("Engagement Score", style="magenta")
-    
+
     for result in results:
         style = result["style"]
         scores_table.add_row(
@@ -365,12 +365,12 @@ def display_results(results: List[Dict], analysis: Dict):
             f"{analysis['complexity_impact'][style]:.2f}",
             f"{analysis['engagement_retention'][style]:.2f}"
         )
-    
+
     # Recommendations table
     recommendations_table = Table(title="Style Recommendations")
     recommendations_table.add_column("Category", style="cyan")
     recommendations_table.add_column("Details", style="yellow")
-    
+
     recommendations_table.add_row(
         "Best Style",
         analysis["recommendations"][0]
@@ -383,7 +383,7 @@ def display_results(results: List[Dict], analysis: Dict):
         "Best Practices",
         "\n".join(analysis["recommendations"][2:])
     )
-    
+
     # Display all tables
     console.print("\n")
     console.print(scores_table)
@@ -395,7 +395,7 @@ def save_results(results: Dict):
     """Save results to file."""
     OUTPUT_DIR.mkdir(exist_ok=True)
     output_file = OUTPUT_DIR / "demo_05_results.json"
-    
+
     with open(output_file, "w") as f:
         json.dump(results, f, indent=2)
     logger.info(f"Results saved to {output_file}")
@@ -408,7 +408,7 @@ async def main():
         "test_cases": [],
         "success": False
     }
-    
+
     # Create session with auth
     async with aiohttp.ClientSession(headers={
         "x-api-key": API_KEY,
@@ -419,7 +419,7 @@ async def main():
         if contract_with_dims := await generate_dimensions(session, MATH_CONTRACT):
             results["dimensions"] = contract_with_dims.get("dimensions", [])
             console.print("[green]✓ Generated dimensions[/green]")
-            
+
             # Test each case
             console.print("\n[bold]Testing Complex Problems[/bold]")
             scored_cases = []
@@ -434,19 +434,19 @@ async def main():
                     results["test_cases"].append(scored_case)
                     scored_cases.append(scored_case)
                     console.print(f"[green]✓ Scored {case['style']}[/green]")
-            
+
             # Analyze and display results
             if scored_cases:
                 analysis = analyze_complexity(scored_cases)
                 results["analysis"] = analysis
-                
+
                 console.print("\n[bold]Analysis Results[/bold]")
                 display_results(scored_cases, analysis)
                 results["success"] = True
-        
+
         # Save results
         save_results(results)
-        
+
         if results["success"]:
             console.print("\n[bold green]Demo completed successfully![/bold green]")
         else:
@@ -455,4 +455,4 @@ async def main():
 
 if __name__ == "__main__":
     console.print("\n[bold]Running Demo 5: Complex Problem Analysis[/bold]")
-    asyncio.run(main()) 
+    asyncio.run(main())

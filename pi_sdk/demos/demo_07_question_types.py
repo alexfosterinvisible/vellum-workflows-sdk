@@ -416,7 +416,7 @@ def analyze_questions(results: List[Dict]) -> Dict:
         "type_effectiveness": {},
         "recommendations": []
     }
-    
+
     # Track question types
     type_scores = {
         "conceptual": [],
@@ -425,15 +425,15 @@ def analyze_questions(results: List[Dict]) -> Dict:
         "application": [],
         "verification": []
     }
-    
+
     for result in results:
         style = result["style"]
         scores = result["scores"]
         output = result["output"].lower()
-        
+
         # Overall scores
         analysis["overall_scores"][style] = scores["total_score"]
-        
+
         # Track question types used
         types_used = []
         if "why" in output or "what happens" in output or "understand" in output:
@@ -451,21 +451,21 @@ def analyze_questions(results: List[Dict]) -> Dict:
         if "check" in output or "verify" in output or "confirm" in output:
             types_used.append("verification")
             type_scores["verification"].append(scores["total_score"])
-        
+
         analysis["question_types"][style] = types_used
-    
+
     # Analyze type effectiveness
     for qtype, scores in type_scores.items():
         if scores:
             analysis["type_effectiveness"][qtype] = sum(scores) / len(scores)
-    
+
     # Generate recommendations
     sorted_types = sorted(
         analysis["type_effectiveness"].items(),
         key=lambda x: x[1],
         reverse=True
     )
-    
+
     analysis["recommendations"].extend([
         f"Most effective type: {sorted_types[0][0]} ({sorted_types[0][1]:.2f})",
         "Balance different question types",
@@ -473,7 +473,7 @@ def analyze_questions(results: List[Dict]) -> Dict:
         "Include real-world applications",
         "End with verification questions"
     ])
-    
+
     return analysis
 
 
@@ -484,7 +484,7 @@ def display_results(results: List[Dict], analysis: Dict):
     scores_table.add_column("Style", style="cyan")
     scores_table.add_column("Total Score", style="green")
     scores_table.add_column("Question Types", style="yellow")
-    
+
     for result in results:
         style = result["style"]
         types = analysis["question_types"][style]
@@ -493,12 +493,12 @@ def display_results(results: List[Dict], analysis: Dict):
             f"{analysis['overall_scores'][style]:.2f}",
             "\n".join(types)
         )
-    
+
     # Types table
     types_table = Table(title="Question Type Effectiveness")
     types_table.add_column("Type", style="cyan")
     types_table.add_column("Average Score", style="green")
-    
+
     for qtype, score in sorted(
         analysis["type_effectiveness"].items(),
         key=lambda x: x[1],
@@ -508,12 +508,12 @@ def display_results(results: List[Dict], analysis: Dict):
             qtype.title(),
             f"{score:.2f}"
         )
-    
+
     # Recommendations table
     recommendations_table = Table(title="Best Practices")
     recommendations_table.add_column("Category", style="cyan")
     recommendations_table.add_column("Details", style="yellow")
-    
+
     recommendations_table.add_row(
         "Top Type",
         analysis["recommendations"][0]
@@ -522,7 +522,7 @@ def display_results(results: List[Dict], analysis: Dict):
         "Best Practices",
         "\n".join(analysis["recommendations"][1:])
     )
-    
+
     # Display all tables
     console.print("\n")
     console.print(scores_table)
@@ -536,7 +536,7 @@ def save_results(results: Dict):
     """Save results to file."""
     OUTPUT_DIR.mkdir(exist_ok=True)
     output_file = OUTPUT_DIR / "demo_07_results.json"
-    
+
     with open(output_file, "w") as f:
         json.dump(results, f, indent=2)
     logger.info(f"Results saved to {output_file}")
@@ -549,7 +549,7 @@ async def main():
         "test_cases": [],
         "success": False
     }
-    
+
     # Create session with auth
     async with aiohttp.ClientSession(headers={
         "x-api-key": API_KEY,
@@ -560,7 +560,7 @@ async def main():
         if contract_with_dims := await generate_dimensions(session, MATH_CONTRACT):
             results["dimensions"] = contract_with_dims.get("dimensions", [])
             console.print("[green]✓ Generated dimensions[/green]")
-            
+
             # Test each case
             console.print("\n[bold]Testing Question Types[/bold]")
             scored_cases = []
@@ -575,19 +575,19 @@ async def main():
                     results["test_cases"].append(scored_case)
                     scored_cases.append(scored_case)
                     console.print(f"[green]✓ Scored {case['style']}[/green]")
-            
+
             # Analyze and display results
             if scored_cases:
                 analysis = analyze_questions(scored_cases)
                 results["analysis"] = analysis
-                
+
                 console.print("\n[bold]Analysis Results[/bold]")
                 display_results(scored_cases, analysis)
                 results["success"] = True
-        
+
         # Save results
         save_results(results)
-        
+
         if results["success"]:
             console.print("\n[bold green]Demo completed successfully![/bold green]")
         else:
@@ -596,4 +596,4 @@ async def main():
 
 if __name__ == "__main__":
     console.print("\n[bold]Running Demo 7: Question Types Analysis[/bold]")
-    asyncio.run(main()) 
+    asyncio.run(main())

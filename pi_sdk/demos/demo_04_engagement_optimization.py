@@ -57,7 +57,7 @@ Pile 4: 🍪🍪🍪
 Amazing! What do you notice? Each pile has exactly 3 cookies!
 
 So, 12 ÷ 4 = 3 because when we share 12 cookies among 4 friends,
-each friend gets 3 cookies! 
+each friend gets 3 cookies!
 
 🌟 Bonus Challenge: Can you think of another real-life situation
 where you might need to divide 12 by 4?"""
@@ -74,7 +74,7 @@ Being a fair host, Alex wants everyone to get the same amount.
 
 Let's help Alex solve this puzzle:
 
-1. Count the pizza slices: 
+1. Count the pizza slices:
    🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕
    "Wow, that's a lot of pizza!" says Alex.
 
@@ -105,7 +105,7 @@ Can you help plan the next party? How many slices would we need for 6 friends?""
     {
         "style": "Challenge-based",
         "input": "What is 12 divided by 4?",
-        "output": """🎮 Welcome to the Division Challenge! 
+        "output": """🎮 Welcome to the Division Challenge!
 
 Level 1: The Setup
 -----------------
@@ -250,7 +250,7 @@ def analyze_engagement(results: List[Dict]) -> Dict:
         "interactive_elements": {},
         "recommendations": []
     }
-    
+
     # Track engagement elements
     element_scores = {
         "questions": [],
@@ -259,21 +259,21 @@ def analyze_engagement(results: List[Dict]) -> Dict:
         "visuals": [],
         "feedback": []
     }
-    
+
     for result in results:
         style = result["style"]
         scores = result["scores"]
-        
+
         # Overall scores
         analysis["overall_scores"][style] = scores["total_score"]
-        
+
         # Extract engagement-related dimensions
         engagement_dims = {
             k: v["total_score"]
             for k, v in scores["dimension_scores"].items()
             if "engagement" in k.lower() or "interaction" in k.lower()
         }
-        
+
         # Track elements
         output = result["output"].lower()
         if "?" in output:
@@ -286,37 +286,37 @@ def analyze_engagement(results: List[Dict]) -> Dict:
             element_scores["visuals"].append(scores["total_score"])
         if "amazing" in output or "perfect" in output or "great" in output:
             element_scores["feedback"].append(scores["total_score"])
-    
+
     # Analyze element effectiveness
     for element, scores in element_scores.items():
         if scores:
             avg_score = sum(scores) / len(scores)
             analysis["interactive_elements"][element] = avg_score
-    
+
     # Sort styles by score
     sorted_styles = sorted(
         analysis["overall_scores"].items(),
         key=lambda x: x[1],
         reverse=True
     )
-    
+
     # Generate recommendations
     top_elements = sorted(
         analysis["interactive_elements"].items(),
         key=lambda x: x[1],
         reverse=True
     )
-    
+
     analysis["engagement_patterns"] = [
         f"{style} ({score:.2f})"
         for style, score in sorted_styles
     ]
-    
+
     analysis["recommendations"] = [
         f"Use {element} (score: {score:.2f})"
         for element, score in top_elements[:3]
     ]
-    
+
     return analysis
 
 
@@ -327,11 +327,11 @@ def display_results(results: List[Dict], analysis: Dict):
     scores_table.add_column("Style", style="cyan")
     scores_table.add_column("Total Score", style="green")
     scores_table.add_column("Engagement Elements", style="yellow")
-    
+
     for result in results:
         style = result["style"]
         scores = result["scores"]
-        
+
         # Count engagement elements
         output = result["output"].lower()
         elements = []
@@ -345,18 +345,18 @@ def display_results(results: List[Dict], analysis: Dict):
             elements.append("Visuals")
         if "amazing" in output or "perfect" in output or "great" in output:
             elements.append("Feedback")
-        
+
         scores_table.add_row(
             style,
             f"{scores['total_score']:.2f}",
             "\n".join(elements)
         )
-    
+
     # Elements table
     elements_table = Table(title="Interactive Elements Analysis")
     elements_table.add_column("Element", style="cyan")
     elements_table.add_column("Average Score", style="green")
-    
+
     for element, score in sorted(
         analysis["interactive_elements"].items(),
         key=lambda x: x[1],
@@ -366,12 +366,12 @@ def display_results(results: List[Dict], analysis: Dict):
             element.title(),
             f"{score:.2f}"
         )
-    
+
     # Recommendations table
     recommendations_table = Table(title="Engagement Recommendations")
     recommendations_table.add_column("Category", style="cyan")
     recommendations_table.add_column("Details", style="yellow")
-    
+
     recommendations_table.add_row(
         "Top Styles",
         "\n".join(analysis["engagement_patterns"][:2])
@@ -380,7 +380,7 @@ def display_results(results: List[Dict], analysis: Dict):
         "Best Elements",
         "\n".join(analysis["recommendations"])
     )
-    
+
     # Display all tables
     console.print("\n")
     console.print(scores_table)
@@ -394,7 +394,7 @@ def save_results(results: Dict):
     """Save results to file."""
     OUTPUT_DIR.mkdir(exist_ok=True)
     output_file = OUTPUT_DIR / "demo_04_results.json"
-    
+
     with open(output_file, "w") as f:
         json.dump(results, f, indent=2)
     logger.info(f"Results saved to {output_file}")
@@ -407,7 +407,7 @@ async def main():
         "test_cases": [],
         "success": False
     }
-    
+
     # Create session with auth
     async with aiohttp.ClientSession(headers={
         "x-api-key": API_KEY,
@@ -418,7 +418,7 @@ async def main():
         if contract_with_dims := await generate_dimensions(session, MATH_CONTRACT):
             results["dimensions"] = contract_with_dims.get("dimensions", [])
             console.print("[green]✓ Generated dimensions[/green]")
-            
+
             # Test each case
             console.print("\n[bold]Testing Engagement Styles[/bold]")
             scored_cases = []
@@ -433,19 +433,19 @@ async def main():
                     results["test_cases"].append(scored_case)
                     scored_cases.append(scored_case)
                     console.print(f"[green]✓ Scored {case['style']}[/green]")
-            
+
             # Analyze and display results
             if scored_cases:
                 analysis = analyze_engagement(scored_cases)
                 results["analysis"] = analysis
-                
+
                 console.print("\n[bold]Analysis Results[/bold]")
                 display_results(scored_cases, analysis)
                 results["success"] = True
-        
+
         # Save results
         save_results(results)
-        
+
         if results["success"]:
             console.print("\n[bold green]Demo completed successfully![/bold green]")
         else:
@@ -454,4 +454,4 @@ async def main():
 
 if __name__ == "__main__":
     console.print("\n[bold]Running Demo 4: Engagement Optimization[/bold]")
-    asyncio.run(main()) 
+    asyncio.run(main())

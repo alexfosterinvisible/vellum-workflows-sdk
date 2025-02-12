@@ -10,7 +10,7 @@ This module provides:
 
 Usage:
     from pi_sdk.models import SomeModel
-    
+
     model = SomeModel(field="value")
     json_data = model.model_dump_json()
 
@@ -27,17 +27,17 @@ from pydantic import Field, validator
 class BaseModel(PydanticBaseModel):
     """
     Base model with common functionality.
-    
+
     1. JSON serialization
     2. Validation methods
     3. Helper functions
     v1
     """
-    
+
     class Config:
         """
         Pydantic configuration.
-        
+
         1. Allow extra fields
         2. Use enum values
         3. Arbitrary type allowed
@@ -54,7 +54,7 @@ class BaseModel(PydanticBaseModel):
 class ErrorResponse(BaseModel):
     """
     Error response model.
-    
+
     1. Error message
     2. Error code
     3. Additional context
@@ -68,7 +68,7 @@ class ErrorResponse(BaseModel):
 class Metadata(BaseModel):
     """
     Common metadata model.
-    
+
     1. Timestamps
     2. Version info
     3. Request context
@@ -83,7 +83,7 @@ class Metadata(BaseModel):
 class PaginationParams(BaseModel):
     """
     Pagination parameters.
-    
+
     1. Page size
     2. Page number/cursor
     3. Sort options
@@ -98,7 +98,7 @@ class PaginationParams(BaseModel):
 class PaginatedResponse(BaseModel):
     """
     Paginated response wrapper.
-    
+
     1. Results list
     2. Pagination info
     3. Total count
@@ -115,7 +115,7 @@ class PaginatedResponse(BaseModel):
 class ExampleModel(BaseModel):
     """
     Example model for demonstration.
-    
+
     1. Basic fields
     2. Validation
     3. Relationships
@@ -125,7 +125,7 @@ class ExampleModel(BaseModel):
     name: str = Field(min_length=1, max_length=100)
     description: Optional[str] = None
     metadata: Metadata = Field(default_factory=Metadata)
-    
+
     @validator('name')
     def name_must_be_valid(cls, v):
         """Validate name field."""

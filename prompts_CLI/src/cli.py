@@ -81,16 +81,16 @@ def cli(ctx, api_key):
     console.print("   vellum-explorer list")
     console.print("   vellum-explorer list --status ACTIVE --environment DEVELOPMENT")
     console.print("   vellum-explorer list --export prompts.csv")
-    
+
     console.print("\n2. Inspect prompt:")
     console.print("   vellum-explorer inspect <prompt-name>")
     console.print("   [Shows required inputs, versions, and deployment details]")
-    
+
     console.print("\n3. Get detailed overview:")
     console.print("   vellum-explorer list-and-inspect")
     console.print("   vellum-explorer list-and-inspect --status ACTIVE --environment DEVELOPMENT")
     console.print("   [Combined list and inspect - shows all prompts with their inputs]")
-    
+
     console.print("\n4. Execute prompts:")
     console.print("   vellum-explorer execute my-prompt --inputs '{\"key\": \"value\"}'")
     console.print("   vellum-explorer execute my-prompt --inputs '{\"key\": \"value\"}' --export results.xlsx")
@@ -98,16 +98,16 @@ def cli(ctx, api_key):
     console.print("\n5. Ask questions:")
     console.print("   vellum-explorer ask \"How do I use environment variables?\"")
     console.print("   [Natural language help - uses AI to answer questions about Vellum]")
-    
+
     console.print("\n6. Environment setup:")
     console.print("   - Create .env file with VELLUM_API_KEY=your-api-key")
     console.print("   - Or set environment variable: export VELLUM_API_KEY=your-api-key")
-    
+
     console.print("\n7. Export formats:")
     console.print("   - CSV:  --export results.csv")
     console.print("   - XLSX: --export results.xlsx")
     console.print("   - JSON: --export results.json")
-    
+
     console.print("\n[cyan]Executing command...[/cyan]\n")
 
     try:
@@ -331,7 +331,7 @@ def list_and_inspect(ctx, status, environment, export):
     """
     explorer = ctx.obj['explorer']
     console = Console()
-    
+
     try:
         # Get list of prompts
         prompts = explorer.list_prompts(status=status, environment=environment)
@@ -363,7 +363,7 @@ def list_and_inspect(ctx, status, environment, export):
         console.print("\n[bold cyan]Detailed Overview (JSON/Dict format)[/bold cyan]")
         for detail in details:
             console.print(f"\n[magenta]{detail['name']}[/magenta]")
-            
+
             # Extract variable info safely
             input_vars = []
             for var in detail.get('input_variables', []):
@@ -392,7 +392,7 @@ def list_and_inspect(ctx, status, environment, export):
                 'last_used': detail['last_deployed'].strftime("%Y-%m-%d %H:%M:%S"),
                 'input_variables': input_vars
             }
-            
+
             console.print(overview)
 
         # Create enhanced table with input variables
@@ -431,13 +431,13 @@ def list_and_inspect(ctx, status, environment, export):
                         key = var_info.split("key='")[1].split("'")[0] if "key='" in var_info else var_info
                         type_ = var_info.split("type='")[1].split("'")[0] if "type='" in var_info else "Unknown"
                         required = var_info.split("required=")[1].split(" ")[0] if "required=" in var_info else None
-                    
+
                     input_vars.append(f"• {key} [dim](type={type_}, required={required})[/dim]")
                 except Exception:
                     continue
-            
+
             input_vars_str = "\n".join(sorted(input_vars)) if input_vars else "No inputs required"
-            
+
             table.add_row(prompt_info, input_vars_str)
 
         console.print(table)

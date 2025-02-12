@@ -30,7 +30,7 @@ from pi_sdk.models import Metadata
 def mock_env(monkeypatch):
     """
     Mock environment variables.
-    
+
     1. Set test API key
     2. Configure test environment
     3. Clean up after tests
@@ -44,7 +44,7 @@ def mock_env(monkeypatch):
 def mock_client():
     """
     Create a mock client with pre-configured responses.
-    
+
     1. Initialize mock client
     2. Set up common responses
     3. Configure error scenarios
@@ -60,7 +60,7 @@ def mock_client():
 def mock_data():
     """
     Create mock data for testing.
-    
+
     1. Generate test data
     2. Set up relationships
     3. Include metadata
@@ -82,7 +82,7 @@ def mock_data():
 def mock_metadata():
     """
     Create mock metadata.
-    
+
     1. Set timestamps
     2. Add version info
     3. Include request context
@@ -99,7 +99,7 @@ def mock_metadata():
 def mock_response():
     """
     Create mock HTTP response.
-    
+
     1. Set status code
     2. Add headers
     3. Include response data
@@ -127,7 +127,7 @@ def mock_response():
 def mock_error_response():
     """
     Create mock error response.
-    
+
     1. Set error status
     2. Add error details
     3. Include debug info
@@ -152,7 +152,7 @@ def mock_error_response():
 def mock_async_client():
     """
     Create a mock async client.
-    
+
     1. Set up async mock
     2. Configure responses
     3. Handle cleanup
@@ -171,7 +171,7 @@ def mock_async_client():
 def pytest_configure(config):
     """
     Configure pytest.
-    
+
     1. Set up markers
     2. Configure plugins
     3. Set test environment
@@ -190,7 +190,7 @@ def pytest_configure(config):
 def pytest_collection_modifyitems(items):
     """
     Modify test items.
-    
+
     1. Add markers
     2. Skip tests
     3. Reorder tests

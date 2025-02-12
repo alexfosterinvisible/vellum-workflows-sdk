@@ -1,0 +1,12 @@
+---
+description: Good Practice Coding
+globs: 
+---
+
+
+❌ return expand_raw if expand_raw else None
+✅ return expand_raw or None
+
+❌ expand_meta = CONFIG._build_expand_meta()
+❌ if expand_meta:
+✅ if expand_meta := CONFIG._build_expand_meta():

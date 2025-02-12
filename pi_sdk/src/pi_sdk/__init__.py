@@ -10,7 +10,7 @@ This package provides:
 
 Usage:
     from pi_sdk import PIClient
-    
+
     client = PIClient(api_key="your-api-key")
     result = client.some_method()
 

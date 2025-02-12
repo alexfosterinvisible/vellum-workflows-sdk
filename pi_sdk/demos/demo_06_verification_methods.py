@@ -339,7 +339,7 @@ def analyze_verification(results: List[Dict]) -> Dict:
         "method_effectiveness": {},
         "recommendations": []
     }
-    
+
     # Track verification methods
     method_scores = {
         "numerical": [],
@@ -348,15 +348,15 @@ def analyze_verification(results: List[Dict]) -> Dict:
         "logical": [],
         "multiple": []
     }
-    
+
     for result in results:
         style = result["style"]
         scores = result["scores"]
         output = result["output"].lower()
-        
+
         # Overall scores
         analysis["overall_scores"][style] = scores["total_score"]
-        
+
         # Track verification methods used
         methods_used = []
         if "numerical" in output or "example" in output:
@@ -373,21 +373,21 @@ def analyze_verification(results: List[Dict]) -> Dict:
             method_scores["logical"].append(scores["total_score"])
         if len(methods_used) > 1:
             method_scores["multiple"].append(scores["total_score"])
-        
+
         analysis["verification_methods"][style] = methods_used
-    
+
     # Analyze method effectiveness
     for method, scores in method_scores.items():
         if scores:
             analysis["method_effectiveness"][method] = sum(scores) / len(scores)
-    
+
     # Generate recommendations
     sorted_methods = sorted(
         analysis["method_effectiveness"].items(),
         key=lambda x: x[1],
         reverse=True
     )
-    
+
     analysis["recommendations"].extend([
         f"Most effective method: {sorted_methods[0][0]} ({sorted_methods[0][1]:.2f})",
         "Use multiple verification methods",
@@ -395,7 +395,7 @@ def analyze_verification(results: List[Dict]) -> Dict:
         "Add visual aids when possible",
         "Verify both specific cases and general principles"
     ])
-    
+
     return analysis
 
 
@@ -406,7 +406,7 @@ def display_results(results: List[Dict], analysis: Dict):
     scores_table.add_column("Style", style="cyan")
     scores_table.add_column("Total Score", style="green")
     scores_table.add_column("Methods Used", style="yellow")
-    
+
     for result in results:
         style = result["style"]
         methods = analysis["verification_methods"][style]
@@ -415,12 +415,12 @@ def display_results(results: List[Dict], analysis: Dict):
             f"{analysis['overall_scores'][style]:.2f}",
             "\n".join(methods)
         )
-    
+
     # Methods table
     methods_table = Table(title="Method Effectiveness")
     methods_table.add_column("Method", style="cyan")
     methods_table.add_column("Average Score", style="green")
-    
+
     for method, score in sorted(
         analysis["method_effectiveness"].items(),
         key=lambda x: x[1],
@@ -430,12 +430,12 @@ def display_results(results: List[Dict], analysis: Dict):
             method.title(),
             f"{score:.2f}"
         )
-    
+
     # Recommendations table
     recommendations_table = Table(title="Best Practices")
     recommendations_table.add_column("Category", style="cyan")
     recommendations_table.add_column("Details", style="yellow")
-    
+
     recommendations_table.add_row(
         "Top Method",
         analysis["recommendations"][0]
@@ -444,7 +444,7 @@ def display_results(results: List[Dict], analysis: Dict):
         "Best Practices",
         "\n".join(analysis["recommendations"][1:])
     )
-    
+
     # Display all tables
     console.print("\n")
     console.print(scores_table)
@@ -458,7 +458,7 @@ def save_results(results: Dict):
     """Save results to file."""
     OUTPUT_DIR.mkdir(exist_ok=True)
     output_file = OUTPUT_DIR / "demo_06_results.json"
-    
+
     with open(output_file, "w") as f:
         json.dump(results, f, indent=2)
     logger.info(f"Results saved to {output_file}")
@@ -471,7 +471,7 @@ async def main():
         "test_cases": [],
         "success": False
     }
-    
+
     # Create session with auth
     async with aiohttp.ClientSession(headers={
         "x-api-key": API_KEY,
@@ -482,7 +482,7 @@ async def main():
         if contract_with_dims := await generate_dimensions(session, MATH_CONTRACT):
             results["dimensions"] = contract_with_dims.get("dimensions", [])
             console.print("[green]✓ Generated dimensions[/green]")
-            
+
             # Test each case
             console.print("\n[bold]Testing Verification Methods[/bold]")
             scored_cases = []
@@ -497,19 +497,19 @@ async def main():
                     results["test_cases"].append(scored_case)
                     scored_cases.append(scored_case)
                     console.print(f"[green]✓ Scored {case['style']}[/green]")
-            
+
             # Analyze and display results
             if scored_cases:
                 analysis = analyze_verification(scored_cases)
                 results["analysis"] = analysis
-                
+
                 console.print("\n[bold]Analysis Results[/bold]")
                 display_results(scored_cases, analysis)
                 results["success"] = True
-        
+
         # Save results
         save_results(results)
-        
+
         if results["success"]:
             console.print("\n[bold green]Demo completed successfully![/bold green]")
         else:
@@ -518,4 +518,4 @@ async def main():
 
 if __name__ == "__main__":
     console.print("\n[bold]Running Demo 6: Verification Methods Analysis[/bold]")
-    asyncio.run(main()) 
+    asyncio.run(main())

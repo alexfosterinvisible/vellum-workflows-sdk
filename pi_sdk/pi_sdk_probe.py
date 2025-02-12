@@ -97,42 +97,42 @@ def thread_worker(func: Callable, *args, **kwargs):
 
 class SDKProbe:
     """Probe for exploring PI SDK functionality."""
-    
+
     def __init__(self, api_key: str):
         """Initialize probe with SDK client."""
         self.client = PIClient(api_key=api_key)
         self.results = []
         OUTPUT_DIR.mkdir(exist_ok=True)
         self.executor = concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS)
-    
+
     def save_result(self, name: str, data: Any):
         """Save test result to file."""
         if not data:
             console.print(f"[yellow]No data to save for {name}[/yellow]")
             return
-            
+
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         output_file = OUTPUT_DIR / f"{name}_{timestamp}.json"
-        
+
         with output_file.open("w") as f:
             json.dump(data, f, indent=2)
-        
+
         console.print(f"Results saved to [cyan]{output_file}[/cyan]")
-    
+
     async def __aenter__(self):
         """Async context manager entry."""
         return self
-    
+
     async def __aexit__(self, exc_type, exc_val, exc_tb):
         """Async context manager exit."""
         await self.cleanup()
-    
+
     async def cleanup(self):
         """Clean up resources."""
         if hasattr(self.client, 'session') and self.client.session:
             await self.client.session.close()
         self.executor.shutdown(wait=True)
-    
+
     async def _test_single_inference(self, client: PIClient, input_text: str) -> Dict:
         """Test inference for a single input."""
         try:
@@ -141,7 +141,7 @@ class SDKProbe:
                 model_id="gpt_4o_mini_agent",
                 llm_input=input_text
             )
-            
+
             # Test with different parameters
             response_with_params = await client.inference.run(
                 model_id="gpt_4o_mini_agent",
@@ -149,28 +149,28 @@ class SDKProbe:
                 temperature=0.7,
                 max_tokens=100
             )
-            
+
             result = {
                 "input": input_text,
                 "basic_response": response,
                 "parameterized_response": response_with_params
             }
-            
+
             console.print(f"✅ Inference patterns tested: {input_text[:30]}...")
             return result
-        
+
         except Exception as e:
             console.print(f"❌ Error: {str(e)}")
             return {
                 "input": input_text,
                 "error": str(e)
             }
-    
+
     def test_inference_patterns(self) -> Dict:
         """Test inference patterns using SDK client."""
         if RUN_IN_ASYNC:
             return run_async(self._test_inference_patterns_async())
-        
+
         results = []
         with self.executor as executor:
             futures = []
@@ -182,12 +182,12 @@ class SDKProbe:
                     input_text
                 )
                 futures.append(future)
-            
+
             for future in concurrent.futures.as_completed(futures):
                 results.append(future.result())
-        
+
         return {"inference_patterns": results}
-    
+
     async def _test_inference_patterns_async(self) -> Dict:
         """Async version of inference pattern testing."""
         results = []
@@ -197,9 +197,9 @@ class SDKProbe:
                 for input_text in TEST_INPUTS
             ]
             results = await asyncio.gather(*tasks)
-        
+
         return {"inference_patterns": results}
-    
+
     async def _test_single_contract(self, client: PIClient, input_text: str, dimensions: Dict) -> Dict:
         """Test contract scoring for a single input."""
         try:
@@ -208,33 +208,33 @@ class SDKProbe:
                 llm_input=input_text,
                 llm_output="Test output"
             )
-            
+
             result = {
                 "input": input_text,
                 "dimensions": dimensions,
                 "score": score
             }
-            
+
             console.print(f"✅ Contract patterns tested: {input_text[:30]}...")
             return result
-        
+
         except Exception as e:
             console.print(f"❌ Error: {str(e)}")
             return {
                 "input": input_text,
                 "error": str(e)
             }
-    
+
     def test_contract_patterns(self) -> Dict:
         """Test contract patterns using SDK client."""
         if RUN_IN_ASYNC:
             return run_async(self._test_contract_patterns_async())
-        
+
         results = []
         try:
             # Generate dimensions first
             dimensions = run_async(self._generate_dimensions())
-            
+
             # Test scoring in parallel
             with self.executor as executor:
                 futures = []
@@ -247,16 +247,16 @@ class SDKProbe:
                         dimensions
                     )
                     futures.append(future)
-                
+
                 for future in concurrent.futures.as_completed(futures):
                     results.append(future.result())
-        
+
         except Exception as e:
             console.print(f"❌ Error: {str(e)}")
             results.append({"error": str(e)})
-        
+
         return {"contract_patterns": results}
-    
+
     async def _generate_dimensions(self) -> Dict:
         """Generate dimensions for contract testing."""
         async with self.client as client:
@@ -264,7 +264,7 @@ class SDKProbe:
                 name="Test Contract",
                 description="A test contract for exploring patterns"
             )
-    
+
     async def _test_contract_patterns_async(self) -> Dict:
         """Async version of contract pattern testing."""
         results = []
@@ -276,20 +276,20 @@ class SDKProbe:
                     for input_text in TEST_INPUTS
                 ]
                 results = await asyncio.gather(*tasks)
-            
+
             except Exception as e:
                 console.print(f"❌ Error: {str(e)}")
                 results.append({"error": str(e)})
-        
+
         return {"contract_patterns": results}
-    
+
     def test_tuning_patterns(self) -> Dict:
         """Test tuning patterns using SDK client."""
         if RUN_IN_ASYNC:
             return run_async(self._test_tuning_patterns_async())
-        
+
         return run_async(self._test_tuning_patterns_async())  # Tuning is inherently async due to streaming
-    
+
     async def _test_tuning_patterns_async(self) -> Dict:
         """Async version of tuning pattern testing."""
         results = []
@@ -305,7 +305,7 @@ class SDKProbe:
                     ],
                     model_id="gpt-4o-mini"
                 )
-                
+
                 # Extract job ID from response
                 job_id = None
                 if isinstance(job, dict):
@@ -314,60 +314,60 @@ class SDKProbe:
                     job_id = job.job_id
                 elif hasattr(job, "id"):
                     job_id = job.id
-                
+
                 if not job_id:
                     raise ValueError(f"No job ID found in tuning response: {job}")
-                
+
                 # Stream tuning messages
                 messages = []
                 async for msg in client.tune.stream_messages(job_id):
                     messages.append(msg)
                     console.print(f"📝 Tuning message: {msg}")
-                
+
                 # Get final status
                 final_status = await client.tune.get_status(job_id)
-                
+
                 results.append({
                     "job_id": job_id,
                     "messages": messages,
                     "final_status": final_status
                 })
-                
+
                 console.print("✅ Tuning patterns tested")
-            
+
             except Exception as e:
                 console.print(f"❌ Error in tuning patterns: {str(e)}")
                 results.append({
                     "error": str(e),
                     "job_response": job if "job" in locals() else None
                 })
-        
+
         return {"tuning_patterns": results}
-    
+
     async def run_all_tests_async(self):
         """Run all probe tests asynchronously."""
         try:
             console.print("\n[bold magenta]Running PI SDK Probe Tests[/bold magenta]\n")
-            
+
             # Test inference patterns
             console.print(Panel("Testing Inference Patterns", style="blue"))
             inference_results = await self._test_inference_patterns_async()
             self.save_result("inference_patterns", inference_results)
-            
+
             # Test contract patterns
             console.print(Panel("Testing Contract Patterns", style="blue"))
             contract_results = await self._test_contract_patterns_async()
             self.save_result("contract_patterns", contract_results)
-            
+
             # Test tuning patterns
             console.print(Panel("Testing Tuning Patterns", style="blue"))
             tuning_results = await self._test_tuning_patterns_async()
             self.save_result("tuning_patterns", tuning_results)
-            
+
             console.print("\n[bold green]All tests completed![/bold green]")
         finally:
             await self.cleanup()
-    
+
     def run_all_tests(self):
         """Run all probe tests."""
         if RUN_IN_ASYNC:
@@ -386,16 +386,16 @@ def main():
     # Set up signal handlers
     signal.signal(signal.SIGINT, handle_interrupt)
     signal.signal(signal.SIGTERM, handle_interrupt)
-    
+
     parser = argparse.ArgumentParser(description="PI SDK Probe")
     parser.add_argument("--api-key", default=API_KEY, help="PI API key")
     parser.add_argument("--sync", action="store_true", help="Run in synchronous mode")
     args = parser.parse_args()
-    
+
     if args.sync:
         global RUN_IN_ASYNC
         RUN_IN_ASYNC = False
-    
+
     try:
         probe = SDKProbe(args.api_key)
         probe.run_all_tests()
@@ -408,4 +408,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main() 
+    main()

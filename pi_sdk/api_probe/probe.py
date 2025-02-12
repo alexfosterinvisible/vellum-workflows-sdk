@@ -39,7 +39,7 @@ SAMPLE_INPUTS = [
     "",  # Empty input
     "Hello",  # Short input
     "What is the capital of France?",  # Medium input
-    "Please write a detailed essay about the history of artificial intelligence, including key developments, major contributors, and significant milestones from the 1950s to present day." # Long input
+    "Please write a detailed essay about the history of artificial intelligence, including key developments, major contributors, and significant milestones from the 1950s to present day."  # Long input
 ]
 
 # Minimal contract for testing
@@ -112,16 +112,17 @@ TEST_EXAMPLES = [
     ]
 ]
 
+
 class ExperimentBatch:
     """Container for running and tracking experiment batches."""
-    
+
     def __init__(self, name: str, description: str):
         self.name = name
         self.description = description
         self.results = []
         self.start_time = None
         self.end_time = None
-    
+
     async def run(self, probe: 'APIProbe'):
         """Run the experiment batch and collect results."""
         self.start_time = datetime.now()
@@ -130,15 +131,15 @@ class ExperimentBatch:
         finally:
             self.end_time = datetime.now()
             self.save_results()
-    
+
     async def _run_impl(self, probe: 'APIProbe'):
         """Implementation should be provided by subclasses."""
         raise NotImplementedError
-    
+
     def save_results(self):
         """Save batch results to a markdown file."""
         output_path = Path(f"experiment_{self.name.lower().replace(' ', '_')}_{self.start_time.strftime('%Y%m%d_%H%M%S')}.md")
-        
+
         content = [
             f"# {self.name} Experiment Results",
             f"**Date**: {self.start_time.strftime('%Y-%m-%d %H:%M:%S')}",
@@ -150,7 +151,7 @@ class ExperimentBatch:
             "## Results",
             ""
         ]
-        
+
         for i, result in enumerate(self.results, 1):
             content.extend([
                 f"### Test {i}",
@@ -159,14 +160,14 @@ class ExperimentBatch:
                 "```",
                 ""
             ])
-        
+
         output_path.write_text("\n".join(content))
         console.print(f"\nResults saved to [bold cyan]{output_path}[/bold cyan]")
 
 
 class RateLimitExperiment(ExperimentBatch):
     """Test rate limiting behavior across endpoints."""
-    
+
     async def _run_impl(self, probe: 'APIProbe'):
         # Test rapid inference requests
         for batch_size in BATCH_SIZES:
@@ -176,7 +177,7 @@ class RateLimitExperiment(ExperimentBatch):
                     requests.append(probe.test_inference())
                     if delay > 0:
                         await asyncio.sleep(delay)
-                
+
                 responses = await asyncio.gather(*requests, return_exceptions=True)
                 self.results.append({
                     "type": "inference_batch",
@@ -190,7 +191,7 @@ class RateLimitExperiment(ExperimentBatch):
 
 class TuningPatternExperiment(ExperimentBatch):
     """Test prompt tuning behavior and patterns."""
-    
+
     async def _run_impl(self, probe: 'APIProbe'):
         # Test identical contracts
         for contract, examples in zip(TEST_CONTRACTS, TEST_EXAMPLES, strict=False):
@@ -200,13 +201,13 @@ class TuningPatternExperiment(ExperimentBatch):
                     start = time.time()
                     job_id = await probe.start_tuning(contract, examples)
                     messages = []
-                    
+
                     async for msg in probe.stream_tuning_messages(job_id):
                         messages.append(msg)
-                    
+
                     final_state = await probe.get_tuning_status(job_id)
                     duration = time.time() - start
-                    
+
                     self.results.append({
                         "type": "tuning_test",
                         "iteration": i + 1,
@@ -227,33 +228,33 @@ class TuningPatternExperiment(ExperimentBatch):
 
 class RateLimiter:
     """Rate limiter for API requests."""
-    
+
     def __init__(self, calls_per_minute: int, calls_per_second: int):
         """Initialize rate limiter."""
         self.calls_per_minute = calls_per_minute
         self.calls_per_second = calls_per_second
         self.minute_calls = []
         self.second_calls = []
-    
+
     async def acquire(self):
         """Acquire permission to make a request."""
         now = time.time()
-        
+
         # Clean old timestamps
         self.minute_calls = [t for t in self.minute_calls if now - t < 60]
         self.second_calls = [t for t in self.second_calls if now - t < 1]
-        
+
         # Check limits
         while len(self.minute_calls) >= self.calls_per_minute:
             await asyncio.sleep(0.1)
             now = time.time()
             self.minute_calls = [t for t in self.minute_calls if now - t < 60]
-        
+
         while len(self.second_calls) >= self.calls_per_second:
             await asyncio.sleep(0.05)
             now = time.time()
             self.second_calls = [t for t in self.second_calls if now - t < 1]
-        
+
         # Add new timestamp
         self.minute_calls.append(now)
         self.second_calls.append(now)
@@ -261,7 +262,7 @@ class RateLimiter:
 
 class ProbeResult:
     """Container for probe test results."""
-    
+
     def __init__(
         self,
         test_name: str,
@@ -280,7 +281,7 @@ class ProbeResult:
         self.notes = notes or []
         self.hypothesis_results = hypothesis_results or {}
         self.timestamp = datetime.now()
-    
+
     def to_markdown(self) -> str:
         """Convert result to markdown format."""
         status = "✅" if self.success else "❌"
@@ -295,34 +296,34 @@ class ProbeResult:
             "```",
             ""
         ]
-        
+
         if self.error:
             md.extend([
                 "### Error",
                 f"```\n{self.error}\n```",
                 ""
             ])
-        
+
         if self.notes:
             md.extend([
                 "### Notes",
                 *[f"- {note}" for note in self.notes],
                 ""
             ])
-        
+
         if self.hypothesis_results:
             md.extend([
                 "### Hypotheses Tested",
                 *[f"- {h}: {'✅' if r else '❌'}" for h, r in self.hypothesis_results.items()],
                 ""
             ])
-        
+
         return "\n".join(md)
 
 
 class APIProbe:
     """Main probe class for testing API endpoints."""
-    
+
     def __init__(self, api_key: str):
         self.api_key = api_key
         self.rate_limiter = RateLimiter(
@@ -330,7 +331,7 @@ class APIProbe:
             RATE_LIMIT_PER_SECOND
         )
         self.results: List[ProbeResult] = []
-    
+
     async def run_experiments(self):
         """Run all experiment batches."""
         experiments = [
@@ -343,11 +344,11 @@ class APIProbe:
                 "Test prompt tuning behavior with identical and varied inputs"
             )
         ]
-        
+
         for experiment in experiments:
             console.print(Panel(f"Running {experiment.name}", style="bold magenta"))
             await experiment.run(self)
-    
+
     async def test_auth(self) -> ProbeResult:
         """Test authentication and rate limiting."""
         start = time.time()
@@ -358,7 +359,7 @@ class APIProbe:
             "Rate limits are per endpoint": False,
             "Retry-After header present": False
         }
-        
+
         try:
             async with aiohttp.ClientSession() as session:
                 # Test with valid auth on inference endpoint
@@ -381,14 +382,14 @@ class APIProbe:
                     if resp.status != 401:
                         notes.append("✅ Bearer auth works on inference")
                         hypotheses["Auth uses Bearer token"] = True
-                
+
                 # Test rate limiting on different endpoints
                 endpoints = [
                     ("POST", "/inference/run", {"model_id": "gpt_4o_mini_agent", "llm_input": "test"}),
                     ("POST", "/contracts/score", {"contract": MINIMAL_CONTRACT, "llm_input": "test", "llm_output": "test"}),
                     ("POST", "/data/input/cluster", [{"identifier": "1", "llm_input": "test"}])
                 ]
-                
+
                 rate_limits = {}
                 for method, endpoint, data in endpoints:
                     requests = []
@@ -405,14 +406,14 @@ class APIProbe:
                                 json=data
                             )
                         )
-                    
+
                     resps = await asyncio.gather(*requests, return_exceptions=True)
                     rate_limited = any(
-                        getattr(r, 'status', 0) == 429 
-                        for r in resps 
+                        getattr(r, 'status', 0) == 429
+                        for r in resps
                         if not isinstance(r, Exception)
                     )
-                    
+
                     if rate_limited:
                         rate_limits[endpoint] = True
                         retry_after = next(
@@ -426,11 +427,11 @@ class APIProbe:
                         if retry_after:
                             notes.append(f"✅ Retry-After header found on {endpoint}: {retry_after}")
                             hypotheses["Retry-After header present"] = True
-                
+
                 if len(set(rate_limits.values())) > 1:
                     notes.append("✅ Different endpoints have different rate limits")
                     hypotheses["Rate limits are per endpoint"] = True
-            
+
             return ProbeResult(
                 "Authentication & Rate Limits",
                 True,
@@ -439,7 +440,7 @@ class APIProbe:
                 notes=notes,
                 hypothesis_results=hypotheses
             )
-        
+
         except Exception as e:
             return ProbeResult(
                 "Authentication & Rate Limits",
@@ -450,7 +451,7 @@ class APIProbe:
                 notes,
                 hypotheses
             )
-    
+
     async def test_inference(self) -> ProbeResult:
         """Test inference endpoint behavior."""
         start = time.time()
@@ -461,7 +462,7 @@ class APIProbe:
             "Empty inputs rejected": False,
             "Long inputs handled": False
         }
-        
+
         try:
             async with aiohttp.ClientSession() as session:
                 # Test multiple inputs
@@ -484,15 +485,15 @@ class APIProbe:
                             "body": await resp.json() if resp.status == 200 else None,
                             "headers": dict(resp.headers)
                         }
-                        
+
                         if not input_text and resp.status == 422:
                             notes.append("✅ Empty input correctly rejected")
                             hypotheses["Empty inputs rejected"] = True
-                        
+
                         if len(input_text) > 500 and resp.status == 200:
                             notes.append("✅ Long input handled successfully")
                             hypotheses["Long inputs handled"] = True
-                
+
                 # Test statelessness
                 same_input = "What is 2+2?"
                 responses = []
@@ -511,14 +512,14 @@ class APIProbe:
                     ) as resp:
                         if resp.status == 200:
                             responses.append(await resp.json())
-                
+
                 # Check if responses are independent
                 if len(responses) == 3:
                     texts = [r.get("text", "") for r in responses]
                     if len(set(texts)) == 3:
                         notes.append("✅ Same input produces different outputs - likely stateless")
                         hypotheses["Inference is stateless"] = True
-            
+
             return ProbeResult(
                 "Inference Behavior",
                 True,
@@ -527,7 +528,7 @@ class APIProbe:
                 notes=notes,
                 hypothesis_results=hypotheses
             )
-        
+
         except Exception as e:
             return ProbeResult(
                 "Inference Behavior",
@@ -538,7 +539,7 @@ class APIProbe:
                 notes,
                 hypotheses
             )
-    
+
     async def test_job_management(self) -> ProbeResult:
         """Test job management and streaming."""
         start = time.time()
@@ -549,7 +550,7 @@ class APIProbe:
             "Jobs support streaming": False,
             "Multiple jobs run in parallel": False
         }
-        
+
         try:
             async with aiohttp.ClientSession() as session:
                 # Start a tuning job
@@ -576,11 +577,11 @@ class APIProbe:
                         "status": resp.status,
                         "body": await resp.json() if resp.status == 200 else None
                     }
-                    
+
                     if resp.status == 200:
                         job_data = response["job_creation"]["body"]
                         job_id = job_data.get("job_id")
-                        
+
                         if job_id:
                             # Test status endpoint
                             await self.rate_limiter.acquire()
@@ -592,13 +593,13 @@ class APIProbe:
                                     "status": status_resp.status,
                                     "body": await status_resp.json() if status_resp.status == 200 else None
                                 }
-                                
+
                                 if status_resp.status == 200:
                                     status_data = response["job_status"]["body"]
                                     if "state" in status_data:
                                         notes.append("✅ Job status follows standard format")
                                         hypotheses["Jobs use standard status codes"] = True
-                            
+
                             # Test streaming
                             await self.rate_limiter.acquire()
                             async with session.get(
@@ -609,13 +610,13 @@ class APIProbe:
                                     "status": stream_resp.status,
                                     "headers": dict(stream_resp.headers)
                                 }
-                                
+
                                 if stream_resp.status == 200:
                                     content_type = stream_resp.headers.get("content-type", "")
                                     if "text/plain" in content_type:
                                         notes.append(" Streaming endpoint returns text/plain")
                                         hypotheses["Jobs support streaming"] = True
-                
+
                 # Test parallel jobs
                 jobs = []
                 for i in range(3):
@@ -640,12 +641,12 @@ class APIProbe:
                             }
                         )
                     )
-                
+
                 job_resps = await asyncio.gather(*jobs)
                 if all(r.status == 200 for r in job_resps):
                     notes.append("✅ Multiple jobs accepted in parallel")
                     hypotheses["Multiple jobs run in parallel"] = True
-            
+
             return ProbeResult(
                 "Job Management",
                 True,
@@ -654,7 +655,7 @@ class APIProbe:
                 notes=notes,
                 hypothesis_results=hypotheses
             )
-        
+
         except Exception as e:
             return ProbeResult(
                 "Job Management",
@@ -665,7 +666,7 @@ class APIProbe:
                 notes,
                 hypotheses
             )
-    
+
     async def test_contract_dimensions(self) -> ProbeResult:
         """Test contract dimension generation and scoring."""
         start = time.time()
@@ -676,7 +677,7 @@ class APIProbe:
             "Weights are normalized": False,
             "Generated dimensions are consistent": False
         }
-        
+
         try:
             async with aiohttp.ClientSession() as session:
                 # Generate dimensions for similar contracts
@@ -692,7 +693,7 @@ class APIProbe:
                         "dimensions": []
                     }
                 ]
-                
+
                 dimension_sets = []
                 for contract in similar_contracts:
                     await self.rate_limiter.acquire()
@@ -707,12 +708,12 @@ class APIProbe:
                         if resp.status == 200:
                             data = await resp.json()
                             dimension_sets.append(data.get("dimensions", []))
-                
+
                 response["dimension_generation"] = {
                     "contract_1": dimension_sets[0] if dimension_sets else None,
                     "contract_2": dimension_sets[1] if len(dimension_sets) > 1 else None
                 }
-                
+
                 if dimension_sets:
                     # Check hierarchy
                     has_subdims = any(
@@ -723,14 +724,14 @@ class APIProbe:
                     if has_subdims:
                         notes.append("✅ Dimensions contain sub-dimensions")
                         hypotheses["Dimensions are hierarchical"] = True
-                    
+
                     # Check weights
                     for dims in dimension_sets:
                         weights = [float(d.get("weight", 0)) for d in dims]
                         if weights and abs(sum(weights) - 1.0) < 0.001:
                             notes.append("✅ Dimension weights sum to 1.0")
                             hypotheses["Weights are normalized"] = True
-                    
+
                     # Check consistency
                     if len(dimension_sets) > 1:
                         # Compare dimension labels
@@ -740,7 +741,7 @@ class APIProbe:
                         if len(common) / max(len(labels_1), len(labels_2)) > 0.5:
                             notes.append("✅ Similar contracts generate similar dimensions")
                             hypotheses["Generated dimensions are consistent"] = True
-            
+
             return ProbeResult(
                 "Contract Dimensions",
                 True,
@@ -749,7 +750,7 @@ class APIProbe:
                 notes=notes,
                 hypothesis_results=hypotheses
             )
-        
+
         except Exception as e:
             return ProbeResult(
                 "Contract Dimensions",
@@ -760,7 +761,7 @@ class APIProbe:
                 notes,
                 hypotheses
             )
-    
+
     async def start_tuning(self, contract: dict, examples: List[dict]) -> str:
         """Start a tuning job and return the job ID."""
         async with aiohttp.ClientSession() as session:
@@ -780,7 +781,7 @@ class APIProbe:
             ) as resp:
                 data = await resp.json()
                 return data["job_id"]
-    
+
     async def stream_tuning_messages(self, job_id: str) -> AsyncGenerator[str, None]:
         """Stream messages from a tuning job."""
         async with aiohttp.ClientSession() as session:
@@ -791,7 +792,7 @@ class APIProbe:
             ) as resp:
                 async for line in resp.content:
                     yield line.decode().strip()
-    
+
     async def get_tuning_status(self, job_id: str) -> dict:
         """Get the current status of a tuning job."""
         async with aiohttp.ClientSession() as session:
@@ -808,6 +809,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="PI API Probe")
     parser.add_argument("--api-key", required=True, help="PI API key")
     args = parser.parse_args()
-    
+
     probe = APIProbe(args.api_key)
     asyncio.run(probe.run_experiments())

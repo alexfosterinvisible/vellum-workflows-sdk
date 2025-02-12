@@ -48,7 +48,7 @@ async def generate_dimensions(session: aiohttp.ClientSession) -> Optional[Dict]:
     try:
         logger.debug(f"\nGenerating dimensions: {url}")
         logger.debug(f"Data: {json.dumps({'contract': TEST_CONTRACT}, indent=2)}")
-        
+
         async with session.post(url, json={"contract": TEST_CONTRACT}) as resp:
             if resp.status == 200:
                 data = await resp.json()
@@ -75,23 +75,23 @@ async def test_contract_scoring(
             "llm_input": "What is 2 + 2?",
             "llm_output": "The answer is 4. Let me explain step by step:\n1. We start with the numbers 2 and 2\n2. Using addition, we combine these numbers\n3. 2 + 2 equals 4\nTherefore, the answer is 4."
         }
-        
+
         logger.debug(f"\nTesting contract scoring: {url}")
         logger.debug(f"Data: {json.dumps(data, indent=2)}")
-        
+
         async with session.post(url, json=data) as resp:
             status = resp.status
             text = await resp.text()
             logger.debug(f"Status: {status}")
             logger.debug(f"Response: {text}")
-            
+
             if status == 200:
                 console.print("[green]✓ Contract Scoring - OK[/green]")
                 return True
             else:
                 console.print(f"[red]✗ Contract Scoring - Failed ({status})[/red]")
                 return False
-    
+
     except Exception as e:
         logger.error(f"Error testing contract scoring: {e}")
         console.print(f"[red]✗ Contract Scoring - Error: {str(e)}[/red]")
@@ -101,18 +101,18 @@ async def test_contract_scoring(
 async def main():
     """Main execution function."""
     console.print("\n[bold]Testing PI API Connection[/bold]\n")
-    
+
     headers = {
         "x-api-key": API_KEY,
         "Content-Type": "application/json",
         "Accept": "application/json"
     }
-    
+
     async with aiohttp.ClientSession(headers=headers) as session:
         # First generate dimensions
         if contract_with_dimensions := await generate_dimensions(session):
             console.print("[green]✓ Generate Dimensions - OK[/green]")
-            
+
             # Then test scoring
             await test_contract_scoring(session, contract_with_dimensions)
         else:
@@ -120,4 +120,4 @@ async def main():
 
 
 if __name__ == "__main__":
-    asyncio.run(main()) 
+    asyncio.run(main())

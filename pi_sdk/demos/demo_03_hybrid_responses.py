@@ -192,13 +192,13 @@ def analyze_dimensions(results: List[Dict]) -> Dict[str, List[str]]:
         "needs_improvement": [],
         "style_strengths": {}
     }
-    
+
     # Aggregate scores by dimension
     dimension_scores = {}
     for result in results:
         style = result["style"]
         scores = result["scores"]["dimension_scores"]
-        
+
         # Track best dimensions for each style
         style_dims = sorted(
             [(k, v["total_score"]) for k, v in scores.items()],
@@ -209,35 +209,35 @@ def analyze_dimensions(results: List[Dict]) -> Dict[str, List[str]]:
             f"{d[0]} ({d[1]:.2f})"
             for d in style_dims[:2]
         ]
-        
+
         # Aggregate dimension scores
         for dim, data in scores.items():
             if dim not in dimension_scores:
                 dimension_scores[dim] = []
             dimension_scores[dim].append(data["total_score"])
-    
+
     # Find overall top and bottom dimensions
     avg_scores = {
         dim: sum(scores) / len(scores)
         for dim, scores in dimension_scores.items()
     }
-    
+
     sorted_dims = sorted(
         avg_scores.items(),
         key=lambda x: x[1],
         reverse=True
     )
-    
+
     analysis["top_dimensions"] = [
         f"{d[0]} ({d[1]:.2f})"
         for d in sorted_dims[:3]
     ]
-    
+
     analysis["needs_improvement"] = [
         f"{d[0]} ({d[1]:.2f})"
         for d in sorted_dims[-3:]
     ]
-    
+
     return analysis
 
 
@@ -248,7 +248,7 @@ def display_results(results: List[Dict], analysis: Dict):
     scores_table.add_column("Style", style="cyan")
     scores_table.add_column("Total Score", style="green")
     scores_table.add_column("Top Dimensions", style="yellow")
-    
+
     for result in results:
         # Get top dimensions
         dim_scores = result["scores"]["dimension_scores"]
@@ -258,18 +258,18 @@ def display_results(results: List[Dict], analysis: Dict):
             reverse=True
         )
         top_dims = [f"{d[0]} ({d[1]:.2f})" for d in sorted_dims[:2]]
-        
+
         scores_table.add_row(
             result["style"],
             f"{result['scores']['total_score']:.2f}",
             "\n".join(top_dims)
         )
-    
+
     # Analysis table
     analysis_table = Table(title="Dimension Analysis")
     analysis_table.add_column("Category", style="cyan")
     analysis_table.add_column("Dimensions", style="yellow")
-    
+
     analysis_table.add_row(
         "Top Performing",
         "\n".join(analysis["top_dimensions"])
@@ -278,18 +278,18 @@ def display_results(results: List[Dict], analysis: Dict):
         "Needs Improvement",
         "\n".join(analysis["needs_improvement"])
     )
-    
+
     # Style strengths table
     strengths_table = Table(title="Style Strengths")
     strengths_table.add_column("Style", style="cyan")
     strengths_table.add_column("Strong Dimensions", style="yellow")
-    
+
     for style, dims in analysis["style_strengths"].items():
         strengths_table.add_row(
             style,
             "\n".join(dims)
         )
-    
+
     # Display all tables
     console.print("\n")
     console.print(scores_table)
@@ -303,7 +303,7 @@ def save_results(results: Dict):
     """Save results to file."""
     OUTPUT_DIR.mkdir(exist_ok=True)
     output_file = OUTPUT_DIR / "demo_03_results.json"
-    
+
     with open(output_file, "w") as f:
         json.dump(results, f, indent=2)
     logger.info(f"Results saved to {output_file}")
@@ -316,7 +316,7 @@ async def main():
         "test_cases": [],
         "success": False
     }
-    
+
     # Create session with auth
     async with aiohttp.ClientSession(headers={
         "x-api-key": API_KEY,
@@ -327,7 +327,7 @@ async def main():
         if contract_with_dims := await generate_dimensions(session, MATH_CONTRACT):
             results["dimensions"] = contract_with_dims.get("dimensions", [])
             console.print("[green]✓ Generated dimensions[/green]")
-            
+
             # Test each case
             console.print("\n[bold]Testing Hybrid Responses[/bold]")
             scored_cases = []
@@ -342,19 +342,19 @@ async def main():
                     results["test_cases"].append(scored_case)
                     scored_cases.append(scored_case)
                     console.print(f"[green]�� Scored {case['style']}[/green]")
-            
+
             # Analyze and display results
             if scored_cases:
                 analysis = analyze_dimensions(scored_cases)
                 results["analysis"] = analysis
-                
+
                 console.print("\n[bold]Analysis Results[/bold]")
                 display_results(scored_cases, analysis)
                 results["success"] = True
-        
+
         # Save results
         save_results(results)
-        
+
         if results["success"]:
             console.print("\n[bold green]Demo completed successfully![/bold green]")
         else:
@@ -363,4 +363,4 @@ async def main():
 
 if __name__ == "__main__":
     console.print("\n[bold]Running Demo 3: Hybrid Response Optimization[/bold]")
-    asyncio.run(main()) 
+    asyncio.run(main())

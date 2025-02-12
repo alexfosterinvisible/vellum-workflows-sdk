@@ -470,7 +470,7 @@ def analyze_collaboration(results: List[Dict]) -> Dict:
         "element_effectiveness": {},
         "recommendations": []
     }
-    
+
     # Track collaboration elements
     element_scores = {
         "group_work": [],
@@ -479,15 +479,15 @@ def analyze_collaboration(results: List[Dict]) -> Dict:
         "reflection": [],
         "interaction": []
     }
-    
+
     for result in results:
         style = result["style"]
         scores = result["scores"]
         output = result["output"].lower()
-        
+
         # Overall scores
         analysis["overall_scores"][style] = scores["total_score"]
-        
+
         # Track elements used
         elements_used = []
         if "group" in output or "team" in output or "together" in output:
@@ -505,21 +505,21 @@ def analyze_collaboration(results: List[Dict]) -> Dict:
         if "respond" in output or "ask" in output or "answer" in output:
             elements_used.append("interaction")
             element_scores["interaction"].append(scores["total_score"])
-        
+
         analysis["collaboration_elements"][style] = elements_used
-    
+
     # Analyze element effectiveness
     for element, scores in element_scores.items():
         if scores:
             analysis["element_effectiveness"][element] = sum(scores) / len(scores)
-    
+
     # Generate recommendations
     sorted_elements = sorted(
         analysis["element_effectiveness"].items(),
         key=lambda x: x[1],
         reverse=True
     )
-    
+
     analysis["recommendations"].extend([
         f"Most effective element: {sorted_elements[0][0]} ({sorted_elements[0][1]:.2f})",
         "Combine multiple collaboration methods",
@@ -527,7 +527,7 @@ def analyze_collaboration(results: List[Dict]) -> Dict:
         "Include peer feedback opportunities",
         "End with individual reflection"
     ])
-    
+
     return analysis
 
 
@@ -538,7 +538,7 @@ def display_results(results: List[Dict], analysis: Dict):
     scores_table.add_column("Style", style="cyan")
     scores_table.add_column("Total Score", style="green")
     scores_table.add_column("Elements Used", style="yellow")
-    
+
     for result in results:
         style = result["style"]
         elements = analysis["collaboration_elements"][style]
@@ -547,12 +547,12 @@ def display_results(results: List[Dict], analysis: Dict):
             f"{analysis['overall_scores'][style]:.2f}",
             "\n".join(elements)
         )
-    
+
     # Elements table
     elements_table = Table(title="Collaboration Element Effectiveness")
     elements_table.add_column("Element", style="cyan")
     elements_table.add_column("Average Score", style="green")
-    
+
     for element, score in sorted(
         analysis["element_effectiveness"].items(),
         key=lambda x: x[1],
@@ -562,12 +562,12 @@ def display_results(results: List[Dict], analysis: Dict):
             element.title(),
             f"{score:.2f}"
         )
-    
+
     # Recommendations table
     recommendations_table = Table(title="Best Practices")
     recommendations_table.add_column("Category", style="cyan")
     recommendations_table.add_column("Details", style="yellow")
-    
+
     recommendations_table.add_row(
         "Top Element",
         analysis["recommendations"][0]
@@ -576,7 +576,7 @@ def display_results(results: List[Dict], analysis: Dict):
         "Best Practices",
         "\n".join(analysis["recommendations"][1:])
     )
-    
+
     # Display all tables
     console.print("\n")
     console.print(scores_table)
@@ -590,7 +590,7 @@ def save_results(results: Dict):
     """Save results to file."""
     OUTPUT_DIR.mkdir(exist_ok=True)
     output_file = OUTPUT_DIR / "demo_09_results.json"
-    
+
     with open(output_file, "w") as f:
         json.dump(results, f, indent=2)
     logger.info(f"Results saved to {output_file}")
@@ -603,7 +603,7 @@ async def main():
         "test_cases": [],
         "success": False
     }
-    
+
     # Create session with auth
     async with aiohttp.ClientSession(headers={
         "x-api-key": API_KEY,
@@ -614,7 +614,7 @@ async def main():
         if contract_with_dims := await generate_dimensions(session, MATH_CONTRACT):
             results["dimensions"] = contract_with_dims.get("dimensions", [])
             console.print("[green]✓ Generated dimensions[/green]")
-            
+
             # Test each case
             console.print("\n[bold]Testing Collaboration Methods[/bold]")
             scored_cases = []
@@ -629,19 +629,19 @@ async def main():
                     results["test_cases"].append(scored_case)
                     scored_cases.append(scored_case)
                     console.print(f"[green]✓ Scored {case['style']}[/green]")
-            
+
             # Analyze and display results
             if scored_cases:
                 analysis = analyze_collaboration(scored_cases)
                 results["analysis"] = analysis
-                
+
                 console.print("\n[bold]Analysis Results[/bold]")
                 display_results(scored_cases, analysis)
                 results["success"] = True
-        
+
         # Save results
         save_results(results)
-        
+
         if results["success"]:
             console.print("\n[bold green]Demo completed successfully![/bold green]")
         else:
@@ -650,4 +650,4 @@ async def main():
 
 if __name__ == "__main__":
     console.print("\n[bold]Running Demo 9: Collaboration Methods Analysis[/bold]")
-    asyncio.run(main()) 
+    asyncio.run(main())

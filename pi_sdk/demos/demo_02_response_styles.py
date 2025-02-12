@@ -133,13 +133,13 @@ async def score_response(
 def display_results(results: List[Dict]):
     """Display results in a table."""
     table = Table(title="Response Style Comparison")
-    
+
     # Add columns
     table.add_column("Style", style="cyan")
     table.add_column("Total Score", style="green")
     table.add_column("Top Dimensions", style="yellow")
     table.add_column("Low Dimensions", style="red")
-    
+
     # Add rows
     for result in results:
         # Get top and bottom dimensions
@@ -149,17 +149,17 @@ def display_results(results: List[Dict]):
             key=lambda x: x[1],
             reverse=True
         )
-        
+
         top_dims = [f"{d[0]} ({d[1]:.2f})" for d in sorted_dims[:2]]
         low_dims = [f"{d[0]} ({d[1]:.2f})" for d in sorted_dims[-2:]]
-        
+
         table.add_row(
             result["style"],
             f"{result['scores']['total_score']:.2f}",
             "\n".join(top_dims),
             "\n".join(low_dims)
         )
-    
+
     console.print(table)
 
 
@@ -167,7 +167,7 @@ def save_results(results: Dict):
     """Save results to file."""
     OUTPUT_DIR.mkdir(exist_ok=True)
     output_file = OUTPUT_DIR / "demo_02_results.json"
-    
+
     with open(output_file, "w") as f:
         json.dump(results, f, indent=2)
     logger.info(f"Results saved to {output_file}")
@@ -180,7 +180,7 @@ async def main():
         "test_cases": [],
         "success": False
     }
-    
+
     # Create session with auth
     async with aiohttp.ClientSession(headers={
         "x-api-key": API_KEY,
@@ -191,7 +191,7 @@ async def main():
         if contract_with_dims := await generate_dimensions(session, MATH_CONTRACT):
             results["dimensions"] = contract_with_dims.get("dimensions", [])
             console.print("[green]✓ Generated dimensions[/green]")
-            
+
             # Test each case
             console.print("\n[bold]Testing Response Styles[/bold]")
             scored_cases = []
@@ -206,16 +206,16 @@ async def main():
                     results["test_cases"].append(scored_case)
                     scored_cases.append(scored_case)
                     console.print(f"[green]✓ Scored {case['style']}[/green]")
-            
+
             # Display results
             if scored_cases:
                 console.print("\n[bold]Results Summary[/bold]")
                 display_results(scored_cases)
                 results["success"] = True
-        
+
         # Save results
         save_results(results)
-        
+
         if results["success"]:
             console.print("\n[bold green]Demo completed successfully![/bold green]")
         else:
@@ -224,4 +224,4 @@ async def main():
 
 if __name__ == "__main__":
     console.print("\n[bold]Running Demo 2: Response Style Comparison[/bold]")
-    asyncio.run(main()) 
+    asyncio.run(main())

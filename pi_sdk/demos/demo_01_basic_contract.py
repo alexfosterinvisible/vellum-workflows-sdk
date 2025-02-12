@@ -98,7 +98,7 @@ def save_results(results: Dict):
     """Save results to file."""
     OUTPUT_DIR.mkdir(exist_ok=True)
     output_file = OUTPUT_DIR / "demo_01_results.json"
-    
+
     with open(output_file, "w") as f:
         json.dump(results, f, indent=2)
     logger.info(f"Results saved to {output_file}")
@@ -111,7 +111,7 @@ async def main():
         "test_cases": [],
         "success": False
     }
-    
+
     # Create session with auth
     async with aiohttp.ClientSession(headers={
         "x-api-key": API_KEY,
@@ -122,7 +122,7 @@ async def main():
         if contract_with_dims := await generate_dimensions(session, MATH_CONTRACT):
             results["dimensions"] = contract_with_dims.get("dimensions", [])
             console.print("[green]✓ Generated dimensions[/green]")
-            
+
             # Test each case
             console.print("\n[bold]Testing Cases[/bold]")
             for case in TEST_CASES:
@@ -134,12 +134,12 @@ async def main():
                     })
                     console.print(f"[green]✓ Scored case: {case['input']}[/green]")
                     console.print(f"Total Score: {scores['total_score']:.2f}")
-            
+
             results["success"] = True
-        
+
         # Save results
         save_results(results)
-        
+
         if results["success"]:
             console.print("\n[bold green]Demo completed successfully![/bold green]")
         else:
@@ -148,4 +148,4 @@ async def main():
 
 if __name__ == "__main__":
     console.print("\n[bold]Running Demo 1: Basic Contract Testing[/bold]")
-    asyncio.run(main()) 
+    asyncio.run(main())

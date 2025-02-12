@@ -37,6 +37,8 @@ VellumError = SimpleNamespace
 console = Console(force_terminal=True, color_system="truecolor")
 
 # -------------------- 1. LIST AVAILABLE PROMPTS -------------------------------
+
+
 @dataclass
 class PromptInfo:
     """Information about a Vellum prompt deployment."""
@@ -614,7 +616,7 @@ def get_learning_by_topic(topic: str) -> Optional[str]:
 def demo_functionality():
     """
     Run a demonstration of the PromptExplorer's capabilities.
-    
+
     1. Show CLI usage guide
     2. List available prompts
     3. Execute example prompt
@@ -631,15 +633,15 @@ def demo_functionality():
     console.print("   vellum-explorer list")
     console.print("   vellum-explorer list --status ACTIVE --environment DEVELOPMENT")
     console.print("   vellum-explorer list --export prompts.csv")
-    
+
     console.print("\n2. Execute prompts:")
     console.print("   vellum-explorer execute my-prompt --inputs '{\"key\": \"value\"}'")
     console.print("   vellum-explorer execute my-prompt --inputs '{\"key\": \"value\"}' --export results.xlsx")
-    
+
     console.print("\n3. Environment setup:")
     console.print("   - Create .env file with VELLUM_API_KEY=your-api-key")
     console.print("   - Or set environment variable: export VELLUM_API_KEY=your-api-key")
-    
+
     console.print("\n4. Export formats:")
     console.print("   - CSV:  --export results.csv")
     console.print("   - XLSX: --export results.xlsx")

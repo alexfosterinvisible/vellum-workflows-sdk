@@ -16,7 +16,7 @@ client = PIClient()
 
 def generate_assessment_contract() -> Dict[str, Any]:
     """Generate a contract for testing real-time assessment strategies.
-    
+
     1. Create contract with assessment dimensions - v1
     2. Include timing and feedback elements - v1
     3. Add progression tracking - v1
@@ -25,7 +25,7 @@ def generate_assessment_contract() -> Dict[str, Any]:
         "name": "Real-time Math Assessment",
         "description": "Evaluate effectiveness of real-time assessment strategies in mathematical explanations."
     }
-    
+
     try:
         response = client.generate_contract(contract_data)
         logger.info("Contract generated successfully")
@@ -37,7 +37,7 @@ def generate_assessment_contract() -> Dict[str, Any]:
 
 def generate_assessment_dimensions(contract_id: str) -> List[Dimension]:
     """Generate dimensions for real-time assessment.
-    
+
     1. Create assessment-specific dimensions - v1
     2. Include timing metrics - v1
     3. Add feedback quality measures - v1
@@ -51,7 +51,7 @@ def generate_assessment_dimensions(contract_id: str) -> List[Dimension]:
         ],
         "contract_id": contract_id
     }
-    
+
     try:
         response = client.generate_dimensions(dimension_data)
         logger.info("Dimensions generated successfully")
@@ -63,7 +63,7 @@ def generate_assessment_dimensions(contract_id: str) -> List[Dimension]:
 
 def test_assessment_strategies(contract_id: str, dimensions: List[Dimension]) -> Dict[str, Any]:
     """Test different real-time assessment strategies.
-    
+
     1. Test immediate feedback - v1
     2. Test progress tracking - v1
     3. Test concept checking - v1
@@ -104,7 +104,7 @@ def test_assessment_strategies(contract_id: str, dimensions: List[Dimension]) ->
             )
         }
     ]
-    
+
     try:
         results = []
         for test_case in test_cases:
@@ -114,7 +114,7 @@ def test_assessment_strategies(contract_id: str, dimensions: List[Dimension]) ->
                 "problem": test_case["problem"],
                 "scores": score
             })
-        
+
         logger.info("Assessment strategies tested successfully")
         return {"results": results}
     except Exception as e:
@@ -124,7 +124,7 @@ def test_assessment_strategies(contract_id: str, dimensions: List[Dimension]) ->
 
 def save_results(results: Dict[str, Any]) -> None:
     """Save test results to file.
-    
+
     1. Format results - v1
     2. Save to JSON - v1
     3. Log completion - v1
@@ -140,7 +140,7 @@ def save_results(results: Dict[str, Any]) -> None:
 
 def main():
     """Run the real-time assessment demo.
-    
+
     1. Generate contract - v1
     2. Create dimensions - v1
     3. Test strategies - v1
@@ -149,16 +149,16 @@ def main():
     try:
         # Generate contract
         contract = generate_assessment_contract()
-        
+
         # Generate dimensions
         dimensions = generate_assessment_dimensions(contract["id"])
-        
+
         # Test assessment strategies
         results = test_assessment_strategies(contract["id"], dimensions)
-        
+
         # Save results
         save_results(results)
-        
+
         logger.info("Demo completed successfully")
     except Exception as e:
         logger.error(f"Error running demo: {e}")
@@ -167,4 +167,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-""" 
+"""

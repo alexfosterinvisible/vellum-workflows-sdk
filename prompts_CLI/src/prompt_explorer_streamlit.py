@@ -63,7 +63,7 @@ st.markdown("""
 # Initialize PromptExplorer instance
 if 'explorer' not in st.session_state:
     vellum_api_key = None
-    
+
     # Try to get API key from Streamlit secrets (primary source for Streamlit Cloud)
     try:
         if hasattr(st.secrets, "VELLUM_API_KEY"):
@@ -71,7 +71,7 @@ if 'explorer' not in st.session_state:
             st.success("✅ Successfully loaded API key from Streamlit secrets")
     except Exception as e:
         st.warning(f"⚠️ Could not load from Streamlit secrets: {str(e)}")
-    
+
     # Only try environment variables if secrets failed (fallback for local development)
     if not vellum_api_key:
         try:
@@ -87,20 +87,20 @@ if 'explorer' not in st.session_state:
                 st.success("✅ Successfully loaded API key from environment variables")
         except ImportError:
             pass  # Silently fail if python-dotenv isn't available
-    
+
     if not vellum_api_key:
         st.error("""
         ❌ No Vellum API key found. For Streamlit Cloud deployment:
         1. Go to your app's dashboard on https://share.streamlit.io
         2. Navigate to ⚙️ -> Settings -> Secrets
         3. Add your secret: VELLUM_API_KEY=your_key_here
-        
+
         For local development:
         1. Create .streamlit/secrets.toml with:
            VELLUM_API_KEY = "your_key_here"
         """)
         st.stop()
-    
+
     try:
         st.session_state.explorer = PromptExplorer(api_key=vellum_api_key)
         st.success("✅ Successfully initialized Vellum Prompt Explorer")
@@ -108,10 +108,11 @@ if 'explorer' not in st.session_state:
         st.error(f"❌ Failed to initialize Vellum Prompt Explorer: {str(e)}")
         st.stop()
 
+
 def display_help() -> None:
     """Display help information using Streamlit components."""
     st.header("Vellum Prompt Explorer Guide")
-    
+
     # Quick Start
     st.subheader("🚀 Quick Start")
     st.info("""
@@ -119,10 +120,10 @@ def display_help() -> None:
     2. Click on a prompt to view its details
     3. Use the **Execute Prompt** tab to run prompts with custom inputs
     """)
-    
+
     # Features Overview
     st.subheader("✨ Features")
-    
+
     col1, col2 = st.columns(2)
     with col1:
         st.markdown("##### 📋 Prompt Management")
@@ -132,14 +133,14 @@ def display_help() -> None:
         - Export prompt lists to CSV/XLSX
         - View detailed prompt information
         """)
-        
+
         st.markdown("##### 🔄 Environment Control")
         st.markdown("""
         - Switch between environments
         - Set API keys securely
         - Track deployment status
         """)
-    
+
     with col2:
         st.markdown("##### ⚡ Execution Options")
         st.markdown("""
@@ -148,7 +149,7 @@ def display_help() -> None:
         - Export results in multiple formats
         - View execution history
         """)
-        
+
         st.markdown("##### 📊 Data Export")
         st.markdown("""
         - CSV format for spreadsheets
@@ -156,12 +157,13 @@ def display_help() -> None:
         - JSON for data processing
         """)
 
+
 def display_prompts(prompts) -> None:
     """Display prompts using Streamlit's dataframe with enhanced styling."""
     if not prompts:
         st.warning("No prompts found in the current environment.")
         return
-    
+
     # Convert prompts to DataFrame
     data = []
     for p in prompts:
@@ -172,9 +174,9 @@ def display_prompts(prompts) -> None:
             "Last Deployed": p.last_deployed,
             "Status": p.status
         })
-    
+
     df = pd.DataFrame(data)
-    
+
     # Add filters
     col1, col2 = st.columns(2)
     with col1:
@@ -187,13 +189,13 @@ def display_prompts(prompts) -> None:
             "Filter by Status",
             ["All"] + sorted(df["Status"].unique().tolist())
         )
-    
+
     # Apply filters
     if env_filter != "All":
         df = df[df["Environment"] == env_filter]
     if status_filter != "All":
         df = df[df["Status"] == status_filter]
-    
+
     # Display dataframe with enhanced styling
     st.dataframe(
         df,
@@ -225,30 +227,31 @@ def display_prompts(prompts) -> None:
         use_container_width=True
     )
 
+
 def display_prompt_details(details) -> None:
     """Display prompt details with enhanced Streamlit styling."""
     if not details:
         st.warning("No details available for this prompt.")
         return
-    
+
     # Header with status indicator
     status_color = "🟢" if details["status"] == "ACTIVE" else "🔴"
     st.header(f"{status_color} {details['name']}")
-    
+
     # Basic Information
     st.subheader("ℹ️ Basic Information")
     col1, col2, col3 = st.columns(3)
-    
+
     with col1:
         st.metric("Environment", details["environment"])
     with col2:
         st.metric("Status", details["status"])
     with col3:
         st.metric("Model", details["model"])
-    
+
     if details["description"]:
         st.info(details["description"])
-    
+
     # Timestamps in a card-like container
     with st.container():
         st.subheader("⏰ Timestamps")
@@ -257,13 +260,13 @@ def display_prompt_details(details) -> None:
             st.markdown(f"**Created:** {details['created'].strftime('%Y-%m-%d %H:%M:%S')}")
         with tcol2:
             st.markdown(f"**Last Deployed:** {details['last_deployed'].strftime('%Y-%m-%d %H:%M:%S')}")
-    
+
     # Input Variables
     if details["input_variables"]:
         st.subheader("🔑 Required Input Variables")
         for var in details["input_variables"]:
             st.code(var, language="python")
-    
+
     # Version History
     if details["versions"]:
         st.subheader("📜 Version History")
@@ -272,7 +275,7 @@ def display_prompt_details(details) -> None:
             "Created": v["created"],
             "Status": v["status"]
         } for v in details["versions"]]
-        
+
         st.dataframe(
             pd.DataFrame(version_data),
             column_config={
@@ -284,27 +287,28 @@ def display_prompt_details(details) -> None:
             use_container_width=True
         )
 
+
 def execute_prompt_ui() -> None:
     """Display the prompt execution interface."""
     st.subheader("⚡ Execute Prompt")
-    
+
     # Prompt selection
     prompts = st.session_state.explorer.list_prompts()
     prompt_names = [p.name for p in prompts]
     prompt_name = st.selectbox("Select Prompt", prompt_names)
-    
+
     if prompt_name:
         details = st.session_state.explorer.get_prompt_details(prompt_name)
         if details and details["input_variables"]:
             st.markdown("##### Required Inputs")
             inputs_dict: VellumInput = {}
-            
+
             # Create input fields for each required variable
             for var in details["input_variables"]:
                 # Extract variable name from VellumVariable object or use as is if it's a string
                 var_name = str(var.name if hasattr(var, 'name') else var)
                 inputs_dict[var_name] = st.text_area(f"Enter {var_name}", height=100)
-            
+
             col1, col2 = st.columns(2)
             with col1:
                 stream_output = st.toggle("Stream Output", value=False)
@@ -313,7 +317,7 @@ def execute_prompt_ui() -> None:
                     "Export Format",
                     ["None", "CSV", "XLSX", "JSON"]
                 )
-            
+
             if st.button("Execute Prompt", type="primary"):
                 st.info("🔍 Debug Info:")
                 st.code(f"""
@@ -322,7 +326,7 @@ Executing prompt with:
 - Input Variables: {json.dumps({k: v for k, v in inputs_dict.items()}, indent=2)}
 - Stream Output: {stream_output}
                 """)
-                
+
                 with st.spinner("Executing prompt..."):
                     try:
                         # Log the exact state of inputs before execution
@@ -332,13 +336,13 @@ Executing prompt with:
                             "inputs": inputs_dict,
                             "stream": stream_output
                         })
-                        
+
                         result = st.session_state.explorer.execute_prompt(
                             prompt_name=prompt_name,
                             inputs=inputs_dict,
                             stream=stream_output
                         )
-                        
+
                         if result:
                             st.success("✅ Execution successful!")
                             st.write("📥 Received from Vellum:")
@@ -352,7 +356,7 @@ Executing prompt with:
                                 - Missing required variables
                                 - API rate limiting
                                 - Network connectivity issues
-                                
+
                                 Try checking the input values and try again.
                                 """)
                     except Exception as e:
@@ -362,7 +366,7 @@ Executing prompt with:
                                 error_data = e.response.json()
                                 st.error("Response from Vellum:")
                                 st.json(error_data)
-                                
+
                                 # Provide helpful guidance based on error
                                 if isinstance(error_data, dict) and 'inputs' in error_data:
                                     st.warning("Input Validation Errors:")
@@ -371,7 +375,7 @@ Executing prompt with:
                                             for field, errors in input_error.items():
                                                 if isinstance(errors, list):
                                                     st.markdown(f"- **{field}**: {', '.join(map(str, errors))}")
-                                
+
                                 st.markdown("""
                                 ### 💡 Troubleshooting Tips
                                 1. Check that all required fields are filled
@@ -386,6 +390,7 @@ Executing prompt with:
                                 2. Verify API key is valid
                                 3. Try again in a few moments
                                 """)
+
 
 # Main UI Layout
 st.title("🔮 Vellum Prompt Explorer")
@@ -410,4 +415,4 @@ with tab_list:
         display_prompts(prompts)
 
 with tab_execute:
-    execute_prompt_ui() 
+    execute_prompt_ui()
