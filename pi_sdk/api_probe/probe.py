@@ -21,13 +21,12 @@ import logging
 import time
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional, Any, Union, AsyncGenerator
+from typing import Any, AsyncGenerator, Dict, List, Optional
 
 import aiohttp
 from rich.console import Console
 from rich.logging import RichHandler
 from rich.panel import Panel
-from rich.table import Table
 
 # Global configuration
 RATE_LIMIT_PER_MINUTE = 100
@@ -194,7 +193,7 @@ class TuningPatternExperiment(ExperimentBatch):
     
     async def _run_impl(self, probe: 'APIProbe'):
         # Test identical contracts
-        for contract, examples in zip(TEST_CONTRACTS, TEST_EXAMPLES):
+        for contract, examples in zip(TEST_CONTRACTS, TEST_EXAMPLES, strict=False):
             # Run same contract/examples twice
             for i in range(2):
                 try:

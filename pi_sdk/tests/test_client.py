@@ -16,14 +16,14 @@ Usage:
 v1 - Initial implementation with basic tests
 """
 
+from datetime import datetime
+from unittest.mock import MagicMock, patch
+
 import pytest
 import responses
-from unittest.mock import patch, MagicMock
-from datetime import datetime
 
 from pi_sdk import PIClient
-from pi_sdk.exceptions import PIAuthError, PIRateLimitError, PIError
-from pi_sdk.models import ExampleModel, Metadata
+from pi_sdk.exceptions import PIAuthError, PIRateLimitError
 
 
 @pytest.fixture

@@ -11,21 +11,27 @@ This module provides functionality to:
 Run this file directly to see a demo of all functionality, including CLI command examples.
 
 v7 - Improved help display and demo
+v8 - Updated type system for Python 3.10+ compatibility
+v9 - Fixed type system for Python 3.10+ compatibility
 """
 
+import json
 import os
-from typing import List, Optional, Dict, Any
 from dataclasses import dataclass
 from datetime import datetime
-import csv
-import json
-import pandas as pd
+from types import SimpleNamespace
+from typing import Any, Dict, List, Optional
 
-from vellum.client import Vellum
-import vellum.types as types
-from dotenv import load_dotenv
+import pandas as pd
+import vellum.types as vt
 from rich.console import Console
 from rich.table import Table
+from vellum.client import Vellum
+
+# Type definitions for better type safety
+VellumInput = Dict[str, str]
+VellumOutput = Dict[str, Any]
+VellumError = SimpleNamespace
 
 # Initialize Rich console with forced color output
 console = Console(force_terminal=True, color_system="truecolor")
@@ -394,84 +400,91 @@ class PromptExplorer:
     def execute_prompt(
         self,
         prompt_name: str,
-        inputs: Dict[str, str],
+        inputs: VellumInput,
         release_tag: str = "LATEST",
         stream: bool = False
-    ) -> Dict[str, Any]:
-        """
-        Execute a prompt with the given inputs.
-
-        1. Convert inputs to Vellum format
-        2. Execute prompt (streaming or regular)
-        3. Handle errors and return results
-        4. Format streaming output if enabled
-        v5 - Fixed streaming output to use print for real-time display
-        """
+    ) -> VellumOutput:
+        """Execute a prompt with the given inputs."""
         try:
             # Convert inputs to Vellum format
             vellum_inputs = [
-                types.PromptRequestInput(
-                    name=name,
-                    value=value
-                )
+                create_vellum_input(name, value)
                 for name, value in inputs.items()
             ]
 
             # Debug log the inputs
             self.console.print("[cyan]Debug: Sending inputs to Vellum:[/cyan]")
-            self.console.print(json.dumps({"inputs": [{"name": i.name, "value": i.value} for i in vellum_inputs]}, indent=2))
+            self.console.print(json.dumps({"inputs": vellum_inputs}, indent=2))
 
             if stream:
-                # Execute prompt with streaming
-                try:
-                    self.console.print("[cyan]Starting streaming output...[/cyan]")
-                    for chunk in self.client.execute_prompt_stream(
-                        prompt_deployment_name=prompt_name,
-                        release_tag=release_tag,
-                        inputs=vellum_inputs
-                    ):
-                        if chunk.state == "REJECTED":
-                            error_msg = chunk.error.message if hasattr(chunk, 'error') else "Unknown error"
-                            self.console.print(f"[red]Error executing prompt: {error_msg}[/red]")
-                            return {}
-
-                        # Print each chunk as it arrives
-                        if hasattr(chunk, 'outputs') and chunk.outputs:
-                            for output in chunk.outputs:
-                                if hasattr(output, 'value'):
-                                    print(output.value, end="", flush=True)
-
-                    print()  # Final newline
-                    self.console.print("[green]Streaming complete![/green]")
-                    return {"status": "success", "message": "Streaming complete"}
-
-                except Exception as e:
-                    self.console.print(f"\n[red]Error during streaming: {str(e)}[/red]")
-                    return {}
+                return self._handle_streaming_execution(prompt_name, release_tag, vellum_inputs)
             else:
-                # Execute prompt normally
-                result = self.client.execute_prompt(
-                    prompt_deployment_name=prompt_name,
-                    release_tag=release_tag,
-                    inputs=vellum_inputs
-                )
+                return self._handle_normal_execution(prompt_name, release_tag, vellum_inputs)
 
-                # Check for errors
-                if result.state == "REJECTED":
-                    error_msg = result.error.message if hasattr(result, 'error') else "Unknown error"
+        except Exception as e:
+            self._handle_execution_error(e)
+            return {}
+
+    def _handle_streaming_execution(
+        self,
+        prompt_name: str,
+        release_tag: str,
+        vellum_inputs: List[vt.PromptRequestInput]
+    ) -> VellumOutput:
+        """Handle streaming execution of prompts."""
+        try:
+            self.console.print("[cyan]Starting streaming output...[/cyan]")
+            for chunk in self.client.execute_prompt_stream(
+                prompt_deployment_name=prompt_name,
+                release_tag=release_tag,
+                inputs=vellum_inputs
+            ):
+                if getattr(chunk, 'state', None) == "REJECTED":
+                    error_msg = getattr(getattr(chunk, 'error', None), 'message', 'Unknown error')
                     self.console.print(f"[red]Error executing prompt: {error_msg}[/red]")
                     return {}
 
-                return result.outputs
+                if hasattr(chunk, 'outputs') and chunk.outputs:
+                    for output in chunk.outputs:
+                        if hasattr(output, 'value'):
+                            print(output.value, end="", flush=True)
+
+            print()  # Final newline
+            self.console.print("[green]Streaming complete![/green]")
+            return {"status": "success", "message": "Streaming complete"}
 
         except Exception as e:
-            if hasattr(e, 'response') and hasattr(e.response, 'json'):
-                error_detail = e.response.json()
-                self.console.print(f"[red]Error response from Vellum:[/red]")
-                self.console.print(json.dumps(error_detail, indent=2))
-            else:
-                self.console.print(f"[red]Error: {str(e)}[/red]")
+            self.console.print(f"\n[red]Error during streaming: {str(e)}[/red]")
             return {}
+
+    def _handle_normal_execution(
+        self,
+        prompt_name: str,
+        release_tag: str,
+        vellum_inputs: List[vt.PromptRequestInput]
+    ) -> VellumOutput:
+        """Handle normal (non-streaming) execution of prompts."""
+        result = self.client.execute_prompt(
+            prompt_deployment_name=prompt_name,
+            release_tag=release_tag,
+            inputs=vellum_inputs
+        )
+
+        if getattr(result, 'state', None) == "REJECTED":
+            error_msg = getattr(getattr(result, 'error', None), 'message', 'Unknown error')
+            self.console.print(f"[red]Error executing prompt: {error_msg}[/red]")
+            return {}
+
+        return getattr(result, 'outputs', {})
+
+    def _handle_execution_error(self, error: Exception) -> None:
+        """Handle execution errors with detailed error reporting."""
+        if hasattr(error, 'response') and hasattr(error.response, 'json'):
+            error_detail = error.response.json()
+            self.console.print("[red]Error response from Vellum:[/red]")
+            self.console.print(json.dumps(error_detail, indent=2))
+        else:
+            self.console.print(f"[red]Error: {str(error)}[/red]")
 
 
 # -------------------- 6. EXPORT FUNCTIONALITY -------------------------------

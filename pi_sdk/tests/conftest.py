@@ -16,10 +16,11 @@ Usage:
 v1 - Initial implementation with basic fixtures
 """
 
+from datetime import datetime, timezone
+from unittest.mock import MagicMock
+
 import pytest
 import responses
-from unittest.mock import MagicMock
-from datetime import datetime, timezone
 
 from pi_sdk import PIClient
 from pi_sdk.models import Metadata

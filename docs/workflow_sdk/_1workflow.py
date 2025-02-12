@@ -62,17 +62,19 @@ CONTENTS:
 # UI Integration: Push and pull changes from code to Vellum’s UI and vice versa, allowing for rapid testing and iteration.
 
 
+import random
+import time
+
 # --------------------------------------------------------
 # Imports
 # --------------------------------------------------------
 from typing import Set
-import random
-import time
+
 from vellum.workflows import BaseWorkflow
-from vellum.workflows.nodes import BaseNode
 from vellum.workflows.inputs import BaseInputs
-from vellum.workflows.state import BaseState
+from vellum.workflows.nodes import BaseNode
 from vellum.workflows.nodes.trigger import MergeStrategy
+from vellum.workflows.state import BaseState
 
 # --------------------------------------------------------
 # Basic Workflow Example

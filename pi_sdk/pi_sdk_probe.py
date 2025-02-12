@@ -21,9 +21,8 @@ import logging
 import signal
 import sys
 from datetime import datetime
-from functools import partial
 from pathlib import Path
-from typing import Dict, Any, Callable
+from typing import Any, Callable, Dict
 
 from rich.console import Console
 from rich.logging import RichHandler

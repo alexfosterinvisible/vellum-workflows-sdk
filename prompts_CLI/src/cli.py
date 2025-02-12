@@ -41,14 +41,16 @@ TODO:
 v10 - Renamed overview to list-and-inspect for clarity
 """
 
-from .openai_helper import OpenAIHelper
-from .prompt_explorer import PromptExplorer
-import click
-from rich.console import Console
 import json
 import sys
 from pathlib import Path
+
+import click
+from rich.console import Console
 from rich.table import Table
+
+from .openai_helper import OpenAIHelper
+from .prompt_explorer import PromptExplorer
 
 # Add the parent directory to sys.path
 sys.path.append(str(Path(__file__).parent.parent))

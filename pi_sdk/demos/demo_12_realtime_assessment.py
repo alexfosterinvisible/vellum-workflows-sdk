@@ -2,7 +2,7 @@
 
 import json
 import logging
-from typing import Dict, List, Any
+from typing import Any, Dict, List
 
 from pi_sdk.client import PIClient
 from pi_sdk.models import Contract, Dimension

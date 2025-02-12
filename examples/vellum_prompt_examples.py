@@ -11,20 +11,17 @@ Run this file directly to see a demo of all functionality.
 v3 - Aligned with CLI implementation
 """
 
-import os
 import json
+import os
 import time
-import requests
-from typing import Dict, Any, Optional, List
-from dataclasses import dataclass
-from datetime import datetime
-import pandas as pd
+from typing import Any, Dict, List, Optional
 
-from vellum.client import Vellum
+import pandas as pd
+import requests
 import vellum.types as types
 from dotenv import load_dotenv
 from rich.console import Console
-from rich.table import Table
+from vellum.client import Vellum
 
 # -------------------- 1. CONFIGURATION -------------------------------
 # Global configuration
@@ -85,7 +82,7 @@ class VellumSDKExample:
                 
                 return response.outputs[0].value if response.outputs else None
                 
-            except Exception as e:
+            except Exception:
                 if attempt == MAX_RETRIES - 1:
                     raise
                 time.sleep(RETRY_DELAY * (2 ** attempt))  # Exponential backoff
@@ -148,7 +145,7 @@ class VellumHTTPExample:
                 
                 return result.get("outputs", [{}])[0].get("value")
                 
-            except Exception as e:
+            except Exception:
                 if attempt == MAX_RETRIES - 1:
                     raise
                 time.sleep(RETRY_DELAY * (2 ** attempt))  # Exponential backoff

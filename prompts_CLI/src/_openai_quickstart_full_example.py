@@ -10,18 +10,18 @@ v4 - Added concurrent execution support
 import logging
 import os
 import time
-from rich.logging import RichHandler
-from rich.table import Table
-from rich.console import Console
-from openai import OpenAI
-from dotenv import load_dotenv
-from typing import Optional, List, Dict, Callable
-from dataclasses import dataclass
-from datetime import datetime, timedelta
 from collections import deque
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from dataclasses import dataclass
+from datetime import datetime, timedelta
 from functools import partial
+from typing import Callable, Dict, List, Optional
 
+from dotenv import load_dotenv
+from openai import OpenAI
+from rich.console import Console
+from rich.logging import RichHandler
+from rich.table import Table
 
 # Load environment variables
 load_dotenv()

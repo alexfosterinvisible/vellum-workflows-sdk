@@ -1,9 +1,10 @@
-import streamlit as st
 import json
-import pandas as pd
 import os
 import sys
 from pathlib import Path
+
+import pandas as pd
+import streamlit as st
 
 # Add the project root to Python path for both local and Replit environments
 try:
@@ -11,13 +12,13 @@ try:
     project_root = str(Path(__file__).parent.parent.parent)
     if project_root not in sys.path:
         sys.path.append(project_root)
-    from prompts_CLI.src.prompt_explorer import PromptExplorer
-except ImportError:
+    from prompts_CLI.src.prompt_explorer import PromptExplorer, VellumInput, VellumOutput
+except ImportError as e:
     try:
         # Replit environment - try direct import
-        from prompt_explorer import PromptExplorer
+        from prompt_explorer import PromptExplorer, VellumInput, VellumOutput
     except ImportError:
-        st.error("❌ Could not import PromptExplorer. Please check your Python path.")
+        st.error(f"❌ Could not import PromptExplorer: {str(e)}")
         st.stop()
 
 # Set page config for expanded width and full height
@@ -75,6 +76,7 @@ if 'explorer' not in st.session_state:
     if not vellum_api_key:
         try:
             from dotenv import load_dotenv
+
             # Suppress dotenv warnings/errors since we know it might be broken
             try:
                 load_dotenv(verbose=False)
@@ -295,12 +297,12 @@ def execute_prompt_ui() -> None:
         details = st.session_state.explorer.get_prompt_details(prompt_name)
         if details and details["input_variables"]:
             st.markdown("##### Required Inputs")
-            inputs_dict = {}
+            inputs_dict: VellumInput = {}
             
             # Create input fields for each required variable
             for var in details["input_variables"]:
                 # Extract variable name from VellumVariable object or use as is if it's a string
-                var_name = var.name if hasattr(var, 'name') else str(var)
+                var_name = str(var.name if hasattr(var, 'name') else var)
                 inputs_dict[var_name] = st.text_area(f"Enter {var_name}", height=100)
             
             col1, col2 = st.columns(2)
@@ -362,11 +364,13 @@ Executing prompt with:
                                 st.json(error_data)
                                 
                                 # Provide helpful guidance based on error
-                                if 'inputs' in error_data:
+                                if isinstance(error_data, dict) and 'inputs' in error_data:
                                     st.warning("Input Validation Errors:")
                                     for input_error in error_data['inputs']:
-                                        for field, errors in input_error.items():
-                                            st.markdown(f"- **{field}**: {', '.join(errors)}")
+                                        if isinstance(input_error, dict):
+                                            for field, errors in input_error.items():
+                                                if isinstance(errors, list):
+                                                    st.markdown(f"- **{field}**: {', '.join(map(str, errors))}")
                                 
                                 st.markdown("""
                                 ### 💡 Troubleshooting Tips

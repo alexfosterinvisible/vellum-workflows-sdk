@@ -22,17 +22,15 @@ Usage:
 v1 - Initial implementation with basic structure
 """
 
-import asyncio
 import logging
-from typing import Optional, Dict, Any, Union
+from typing import Any, Dict, Optional
 from urllib.parse import urljoin
 
 import aiohttp
 import requests
 from tenacity import retry, stop_after_attempt, wait_exponential
 
-from .exceptions import PIError, PIAuthError, PIRateLimitError
-from .models import BaseModel  # Will create this later
+from .exceptions import PIAuthError, PIError, PIRateLimitError
 
 
 class PIClient:

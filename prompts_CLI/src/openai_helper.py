@@ -11,19 +11,16 @@ Run this file directly to see example queries and responses.
 v5 - Added MD file crawler, LLM call logging, and rich table output
 """
 
-import os
+import fnmatch
 import json
-from typing import Optional, List, Dict, Set
+import os
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
+from typing import Dict, List, Optional
+
 from openai import OpenAI
-from dotenv import load_dotenv
 from rich.console import Console
 from rich.table import Table
-from concurrent.futures import ThreadPoolExecutor, as_completed
-from functools import partial
-from pathlib import Path
-import fnmatch
-
 
 # --------------------------------------------------------
 # Global Configuration
@@ -375,14 +372,14 @@ class OpenAIHelper:
             return {
                 "relevant_text": [],
                 "confidence_scores": {k: "no" for k in GLOBAL_VARS["CONFIDENCE_RUBRIC"]},
-                "summary": f"Error: Timeout analyzing document"
+                "summary": "Error: Timeout analyzing document"
             }
         except json.JSONDecodeError:
             self.console.print(f"[red]Invalid JSON response from {file_path}[/red]")
             return {
                 "relevant_text": [],
                 "confidence_scores": {k: "no" for k in GLOBAL_VARS["CONFIDENCE_RUBRIC"]},
-                "summary": f"Error: Invalid response format"
+                "summary": "Error: Invalid response format"
             }
         except Exception as e:
             self.console.print(f"[red]Error querying {file_path}: {str(e)}[/red]")

@@ -18,7 +18,8 @@ v1 - Initial implementation with base models
 """
 
 from datetime import datetime
-from typing import Optional, List, Dict, Any, Union
+from typing import Any, Dict, List, Optional
+
 from pydantic import BaseModel as PydanticBaseModel
 from pydantic import Field, validator
 
