@@ -61,32 +61,41 @@ st.markdown("""
 
 # Initialize PromptExplorer instance
 if 'explorer' not in st.session_state:
-    # First try to get API key from Streamlit secrets
     vellum_api_key = None
-    if hasattr(st.secrets, "VELLUM_API_KEY"):
-        vellum_api_key = st.secrets.VELLUM_API_KEY
-        st.success("✅ Successfully loaded API key from Streamlit secrets")
     
-    # If not in Streamlit secrets, try environment variables
+    # Try to get API key from Streamlit secrets (primary source for Streamlit Cloud)
+    try:
+        if hasattr(st.secrets, "VELLUM_API_KEY"):
+            vellum_api_key = st.secrets.VELLUM_API_KEY
+            st.success("✅ Successfully loaded API key from Streamlit secrets")
+    except Exception as e:
+        st.warning(f"⚠️ Could not load from Streamlit secrets: {str(e)}")
+    
+    # Only try environment variables if secrets failed (fallback for local development)
     if not vellum_api_key:
         try:
             from dotenv import load_dotenv
-            load_dotenv()
+            # Suppress dotenv warnings/errors since we know it might be broken
+            try:
+                load_dotenv(verbose=False)
+            except Exception:
+                pass
             vellum_api_key = os.getenv('VELLUM_API_KEY')
             if vellum_api_key:
                 st.success("✅ Successfully loaded API key from environment variables")
         except ImportError:
-            st.warning("⚠️ python-dotenv not available, trying direct environment variables")
-            vellum_api_key = os.getenv('VELLUM_API_KEY')
-            if vellum_api_key:
-                st.success("✅ Successfully loaded API key from direct environment variables")
+            pass  # Silently fail if python-dotenv isn't available
     
     if not vellum_api_key:
         st.error("""
-        ❌ No Vellum API key found. Please ensure the API key is set in one of these locations:
-        1. Replit: Set in Secrets tab (Tools > Secrets)
-        2. Local: Set in .streamlit/secrets.toml
-        3. Environment: Set as VELLUM_API_KEY environment variable
+        ❌ No Vellum API key found. For Streamlit Cloud deployment:
+        1. Go to your app's dashboard on https://share.streamlit.io
+        2. Navigate to ⚙️ -> Settings -> Secrets
+        3. Add your secret: VELLUM_API_KEY=your_key_here
+        
+        For local development:
+        1. Create .streamlit/secrets.toml with:
+           VELLUM_API_KEY = "your_key_here"
         """)
         st.stop()
     
