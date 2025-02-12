@@ -401,13 +401,16 @@ class PromptExplorer:
         try:
             # Convert inputs to Vellum format
             vellum_inputs = [
-                types.PromptRequestStringInput(
+                types.PromptRequestInput(
                     name=name,
-                    key="",
                     value=value
                 )
                 for name, value in inputs.items()
             ]
+
+            # Debug log the inputs
+            self.console.print("[cyan]Debug: Sending inputs to Vellum:[/cyan]")
+            self.console.print(json.dumps({"inputs": [{"name": i.name, "value": i.value} for i in vellum_inputs]}, indent=2))
 
             if stream:
                 # Execute prompt with streaming
@@ -454,13 +457,9 @@ class PromptExplorer:
 
         except Exception as e:
             if hasattr(e, 'response') and hasattr(e.response, 'json'):
-                error_detail = e.response.json().get('detail', str(e))
-                if "Input variable" in error_detail and "not found" in error_detail:
-                    var_name = error_detail.split("'")[1]
-                    self.console.print(f"[yellow]Missing required input variable: {var_name}[/yellow]")
-                    self.console.print(f"[yellow]Use 'vellum-explorer show {prompt_name}' to see all required variables[/yellow]")
-                else:
-                    self.console.print(f"[red]Error: {error_detail}[/red]")
+                error_detail = e.response.json()
+                self.console.print(f"[red]Error response from Vellum:[/red]")
+                self.console.print(json.dumps(error_detail, indent=2))
             else:
                 self.console.print(f"[red]Error: {str(e)}[/red]")
             return {}
