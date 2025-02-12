@@ -59,12 +59,11 @@ By configuring these parameters, you can obtain both the metadata and raw respon
 
 # pip install vellum-ai
 import os
-from pprint import pprint
-
+from vellum.client import Vellum
 import vellum.types as types
 from dotenv import load_dotenv
+from pprint import pprint
 from rich import print as rprint
-from vellum.client import Vellum
 
 load_dotenv()
 
@@ -98,19 +97,19 @@ if __name__ == "__main__":
         PROMPT_DEPLOYMENT_NAME:str = "claim-extractor-v0-2-june24"  # either this or PROMPT_VERSION_ID is used as the ID
         PROMPT_VERSION_ID:str = ""  # TODO (check if string) either this or PROMPT_DEPLOYMENT_NAME is used as the ID
         INPUTS:dict = {"INPUT_CONTENT": "This is a test claim. Elon musk is the richest person in the world. Or is he?"} # dict of input variables and the values you are passing in. Key MUST match.
-      class CONFIG_EXTRA:
-          """These just return additional information. Keep them on. OPTIONAL:expand_meta = {{}} OPTIONAL: expand_raw = {{}}"""
-          class EXPAND_META:
-              MODEL_NAME:bool = True
-              USAGE:bool = True
-              COST:bool = True
-              FINISH_REASON:bool = True
-              LATENCY:bool = True
-              DEPLOYMENT_RELEASE_TAG:bool = True
-              PROMPT_VERSION_ID:bool = True
-          class EXPAND_RAW:
-              LOGPROBS:bool = True
-              CHOICES:bool = True
+        class CONFIG_EXTRA:
+            """These just return additional information. Keep them on. OPTIONAL:expand_meta = {{}} OPTIONAL: expand_raw = {{}}"""
+            class EXPAND_META:
+                MODEL_NAME:bool = True
+                USAGE:bool = True
+                COST:bool = True
+                FINISH_REASON:bool = True
+                LATENCY:bool = True
+                DEPLOYMENT_RELEASE_TAG:bool = True
+                PROMPT_VERSION_ID:bool = True
+            class EXPAND_RAW:
+                LOGPROBS:bool = True
+                CHOICES:bool = True
             
 
 
