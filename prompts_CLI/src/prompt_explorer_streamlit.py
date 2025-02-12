@@ -299,7 +299,9 @@ def execute_prompt_ui() -> None:
             
             # Create input fields for each required variable
             for var in details["input_variables"]:
-                inputs_dict[var] = st.text_area(f"Enter {var}", height=100)
+                # Extract variable name from VellumVariable object or use as is if it's a string
+                var_name = var.name if hasattr(var, 'name') else str(var)
+                inputs_dict[var_name] = st.text_area(f"Enter {var_name}", height=100)
             
             col1, col2 = st.columns(2)
             with col1:
@@ -315,7 +317,7 @@ def execute_prompt_ui() -> None:
                 st.code(f"""
 Executing prompt with:
 - Prompt Name: {prompt_name}
-- Input Variables: {json.dumps(inputs_dict, indent=2)}
+- Input Variables: {json.dumps({k: v for k, v in inputs_dict.items()}, indent=2)}
 - Stream Output: {stream_output}
                 """)
                 
@@ -343,7 +345,9 @@ Executing prompt with:
                             st.error("❌ Execution failed or returned no result.")
                     except Exception as e:
                         st.error(f"❌ Error: {str(e)}")
-                        st.error("Full error details:", exception=e)
+                        if hasattr(e, 'response') and hasattr(e.response, 'json'):
+                            st.error("Response from Vellum:")
+                            st.json(e.response.json())
 
 # Main UI Layout
 st.title("🔮 Vellum Prompt Explorer")

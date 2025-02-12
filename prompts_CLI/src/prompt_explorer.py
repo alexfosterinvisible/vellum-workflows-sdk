@@ -248,7 +248,7 @@ class PromptExplorer:
         2. Get version history
         3. Format details for display
         4. Cache results for future use
-        v2 - Updated to use list and filter instead of direct get
+        v3 - Updated to handle VellumVariable objects
         """
         cache_key = f"details_{prompt_name}"
         if cache_key in self._cache:
@@ -280,6 +280,15 @@ class PromptExplorer:
             except BaseException:
                 pass  # Version history is optional
 
+            # Extract input variable names from VellumVariable objects
+            input_variables = []
+            if hasattr(deployment, 'input_variables'):
+                for var in deployment.input_variables:
+                    if hasattr(var, 'name'):
+                        input_variables.append(var.name)
+                    else:
+                        input_variables.append(str(var))
+
             # Format details
             details = {
                 "id": deployment.id,
@@ -291,7 +300,7 @@ class PromptExplorer:
                 "created": deployment.created,
                 "last_deployed": deployment.last_deployed_on,
                 "versions": versions,
-                "input_variables": deployment.input_variables if hasattr(deployment, 'input_variables') else [],
+                "input_variables": input_variables,
                 "model": deployment.model if hasattr(deployment, 'model') else "Unknown"
             }
 
