@@ -14,5 +14,5 @@ localPort = 8501
 externalPort = 80
 
 [auth]
-pageEnabled = true
+pageEnabled = false
 buttonEnabled = false
