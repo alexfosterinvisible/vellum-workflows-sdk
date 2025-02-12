@@ -343,11 +343,45 @@ Executing prompt with:
                             st.json(result)
                         else:
                             st.error("❌ Execution failed or returned no result.")
+                            with st.expander("🔍 Error Details", expanded=True):
+                                st.warning("No response received from Vellum. This could be due to:")
+                                st.markdown("""
+                                - Invalid input format
+                                - Missing required variables
+                                - API rate limiting
+                                - Network connectivity issues
+                                
+                                Try checking the input values and try again.
+                                """)
                     except Exception as e:
-                        st.error(f"❌ Error: {str(e)}")
-                        if hasattr(e, 'response') and hasattr(e.response, 'json'):
-                            st.error("Response from Vellum:")
-                            st.json(e.response.json())
+                        st.error("❌ Error executing prompt")
+                        with st.expander("🔍 Error Details", expanded=True):
+                            if hasattr(e, 'response') and hasattr(e.response, 'json'):
+                                error_data = e.response.json()
+                                st.error("Response from Vellum:")
+                                st.json(error_data)
+                                
+                                # Provide helpful guidance based on error
+                                if 'inputs' in error_data:
+                                    st.warning("Input Validation Errors:")
+                                    for input_error in error_data['inputs']:
+                                        for field, errors in input_error.items():
+                                            st.markdown(f"- **{field}**: {', '.join(errors)}")
+                                
+                                st.markdown("""
+                                ### 💡 Troubleshooting Tips
+                                1. Check that all required fields are filled
+                                2. Verify input format matches expectations
+                                3. Ensure API key has correct permissions
+                                """)
+                            else:
+                                st.error(f"Error Message: {str(e)}")
+                                st.markdown("""
+                                ### 💡 Troubleshooting Tips
+                                1. Check network connectivity
+                                2. Verify API key is valid
+                                3. Try again in a few moments
+                                """)
 
 # Main UI Layout
 st.title("🔮 Vellum Prompt Explorer")
